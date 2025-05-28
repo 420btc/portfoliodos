@@ -1,6 +1,15 @@
 import { ProjectProps } from "../components/project-card";
 
-interface ProjectData extends Omit<ProjectProps, 'id'> {
+export interface ProjectData {
+  title: string;
+  description: string;
+  image: string;
+  icon?: string;
+  tags: string[];
+  demoUrl?: string;
+  codeUrl?: string;
+  featured?: boolean;
+  status?: "Finalizado" | "Trabajando";
   date: Date;
 }
 

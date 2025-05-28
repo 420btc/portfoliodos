@@ -4,17 +4,25 @@ import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { ProjectCard } from "../components/project-card";
 import { projects } from "../data/projects";
+import photographyProjects from "../data/photography";
 
 export const Projects: React.FC = () => {
   const [searchQuery, setSearchQuery] = React.useState("");
   const [selectedCategory, setSelectedCategory] = React.useState("all");
   
   // Main categories to display
-  const mainCategories = ["OpenAI", "UI/UX"];
+  const mainCategories = ["OpenAI", "UI/UX", "Fotografía"];
   
   // Filter projects based on search query and selected category
   const filteredProjects = React.useMemo(() => {
-    return projects.filter(project => {
+    // Combine regular projects with photography projects when showing all or featured
+    const allProjects = selectedCategory === 'Fotografía' ? 
+      photographyProjects : 
+      (selectedCategory === 'all' || selectedCategory === 'featured') ? 
+      [...projects, ...photographyProjects] : 
+      projects;
+      
+    return allProjects.filter(project => {
       const matchesSearch = 
         project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -68,7 +76,6 @@ export const Projects: React.FC = () => {
           {mainCategories.map(tag => (
             <Tab key={tag} title={tag} />
           ))}
-          <Tab key="more" title="4 más..." />
         </Tabs>
         
         {filteredProjects.length > 0 ? (
@@ -89,7 +96,11 @@ export const Projects: React.FC = () => {
         
         <div className="mt-12 text-center">
           <p className="text-default-500">
-            Mostrando {filteredProjects.length} de {projects.length} proyectos
+            Mostrando {filteredProjects.length} de {selectedCategory === 'Fotografía' ? 
+              photographyProjects.length : 
+              (selectedCategory === 'all' || selectedCategory === 'featured') ? 
+              projects.length + photographyProjects.length : 
+              projects.length} proyectos
           </p>
         </div>
       </div>
