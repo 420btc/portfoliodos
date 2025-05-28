@@ -26,6 +26,10 @@ export const Navbar: React.FC = () => {
     { name: "Contacto", path: "/contact" },
   ];
 
+  const handleMenuItemClick = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <HeroNavbar 
       isBordered 
@@ -37,7 +41,7 @@ export const Navbar: React.FC = () => {
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
+          className="sm:hidden dark:text-white text-black"
         />
         <NavbarBrand className="gap-4">
           <RouterLink to="/" className="flex items-center gap-2">
@@ -84,6 +88,7 @@ export const Navbar: React.FC = () => {
                 color={location.pathname === item.path ? "primary" : "foreground"}
                 className="w-full text-center sm:text-left"
                 size="lg"
+                onClick={handleMenuItemClick}
               >
                 {item.name}
               </Link>
