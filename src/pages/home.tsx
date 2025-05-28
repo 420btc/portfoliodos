@@ -27,9 +27,10 @@ export const Home: React.FC = () => {
               as={RouterLink}
               to="/projects"
               color="primary"
-              variant="light"
+              variant="solid"
+              size="lg"
               endContent={<Icon icon="lucide:arrow-right" />}
-              className="mt-4 sm:mt-0"
+              className="mt-4 sm:mt-0 px-8 w-full sm:w-auto text-center"
             >
               Ver Todos los Proyectos
             </Button>
