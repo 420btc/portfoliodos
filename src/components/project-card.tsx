@@ -55,7 +55,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           variant="flat" 
           size="sm"
         >
-          {project.status}
+          <div className="flex items-center gap-2">
+            <span 
+              className={`inline-block w-2 h-2 rounded-full flex-shrink-0 ${
+                project.status === "Finalizado" ? "bg-green-500" : "bg-orange-500"
+              }`}
+            />
+            <span>{project.status}</span>
+          </div>
         </Chip>
       )}
     </>
@@ -102,8 +109,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   {renderChips()}
                 </div>
               </div>
-              {/* Mobile Chips */}
-              <div className="sm:hidden flex justify-end mt-3">
+                {/* Mobile Chips */}
+              <div className="sm:hidden flex justify-end -mt-5 mb-1">
                 <div className="flex gap-2">
                   {renderChips()}
                 </div>
