@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { 
   Navbar as HeroNavbar, 
@@ -12,19 +12,41 @@ import {
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { ThemeSwitcher } from "./theme-switcher";
-import { LanguageSwitcher } from "./language-switcher";
+import { LanguageSwitcher, LanguageContext } from "./language-switcher";
 
+// Definir las traducciones de los elementos del menú
+const translations = {
+  home: { es: "Inicio", en: "Home" },
+  about: { es: "Sobre Mí", en: "About Me" },
+  projects: { es: "Proyectos", en: "Projects" },
+  novel: { es: "Novela", en: "Novel" },
+  contact: { es: "Contacto", en: "Contact" }
+};
+
+// Definir el tipo para los ítems del menú
+interface MenuItem {
+  id: keyof typeof translations;
+  path: string;
+}
+
+// Componente de navegación principal
 export const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const location = useLocation();
+  const { language } = useContext(LanguageContext);
   
-  const menuItems = [
-    { name: "Inicio", path: "/" },
-    { name: "Sobre Mí", path: "/about" },
-    { name: "Proyectos", path: "/projects" },
-    { name: "Novela", path: "/novel" },
-    { name: "Contacto", path: "/contact" },
+  const menuItems: MenuItem[] = [
+    { id: "home", path: "/" },
+    { id: "about", path: "/about" },
+    { id: "projects", path: "/projects" },
+    { id: "novel", path: "/novel" },
+    { id: "contact", path: "/contact" },
   ];
+
+  // Función para obtener el texto traducido
+  const t = (key: keyof typeof translations) => {
+    return translations[key]?.[language as keyof typeof translations.home] || key;
+  };
 
   const handleMenuItemClick = () => {
     setIsMenuOpen(false);
@@ -63,7 +85,7 @@ export const Navbar: React.FC = () => {
               color={location.pathname === item.path ? "primary" : "foreground"}
               className="font-medium"
             >
-              {item.name}
+              {t(item.id)}
             </Link>
           </NavbarItem>
         ))}
@@ -81,7 +103,7 @@ export const Navbar: React.FC = () => {
       <NavbarMenu className="pt-4 px-6">
         <div className="flex flex-col items-center sm:items-start gap-2">
           {menuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item.name}-${index}`} className="w-full sm:w-auto">
+            <NavbarMenuItem key={`${item.id}-${index}`} className="w-full sm:w-auto">
               <Link
                 as={RouterLink}
                 to={item.path}
@@ -90,7 +112,7 @@ export const Navbar: React.FC = () => {
                 size="lg"
                 onClick={handleMenuItemClick}
               >
-                {item.name}
+                {t(item.id)}
               </Link>
             </NavbarMenuItem>
           ))}

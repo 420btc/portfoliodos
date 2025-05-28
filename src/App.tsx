@@ -37,19 +37,21 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen flex flex-col bg-background text-foreground">
-        <Navbar />
-        <motion.main 
-          className="flex-grow"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <AppRoutes />
-          <Analytics />
-        </motion.main>
-        <Footer />
-      </div>
+      <LanguageProvider>
+        <div className="min-h-screen flex flex-col bg-background text-foreground">
+          <Navbar />
+          <motion.main 
+            className="flex-grow"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <AppRoutes />
+            <Analytics />
+          </motion.main>
+          <Footer />
+        </div>
+      </LanguageProvider>
     </Router>
   );
 }
