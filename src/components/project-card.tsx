@@ -126,17 +126,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               ))}
             </div>
             
-            {/* Espacio para el icono del proyecto */}
-            <div className="h-[120px] w-full mb-4 flex items-center justify-center bg-transparent rounded-lg overflow-hidden">
-              {project.icon && (
+            {/* Espacio para el icono del proyecto - Solo se muestra si hay un icono definido */}
+            {project.icon && (
+              <div className="h-[120px] w-full mb-4 flex items-center justify-center bg-transparent rounded-lg overflow-hidden">
                 <img 
                   src={project.icon} 
                   alt={`${project.title} icon`}
                   className="h-full w-full object-contain"
                   style={{ imageRendering: 'auto' as const }}
                 />
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </CardBody>
         <CardFooter className="bg-default-50 p-4 border-t border-default-200">
