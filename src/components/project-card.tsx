@@ -8,6 +8,7 @@ export interface ProjectProps {
   title: string;
   description: string;
   image: string;
+  icon?: string;
   tags: string[];
   demoUrl?: string;
   codeUrl?: string;
@@ -33,6 +34,33 @@ const formatDate = (date: Date): string => {
 };
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+  const renderChips = () => (
+    <>
+      {project.featured && (
+        <div className="hidden">
+          <Chip 
+            className="text-xs sm:text-sm whitespace-nowrap" 
+            color="primary" 
+            variant="flat" 
+            size="sm"
+          >
+            Destacado
+          </Chip>
+        </div>
+      )}
+      {project.status && (
+        <Chip 
+          className="text-xs sm:text-sm whitespace-nowrap"
+          color={project.status === "Finalizado" ? "success" : "warning"} 
+          variant="flat" 
+          size="sm"
+        >
+          {project.status}
+        </Chip>
+      )}
+    </>
+  );
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -50,44 +78,35 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             />
           </div>
           <div className="p-5 flex-1 flex flex-col">
-            <div className="flex justify-between items-start mb-3">
-              <div>
-                <h3 className="text-3xl font-bold text-foreground mb-1">{project.title}</h3>
-                <p className="text-2xl text-default-400 mb-1 font-sans">
-                  {(() => {
-                    try {
-                      return project.demoUrl && project.demoUrl !== '#' 
-                        ? new URL(project.demoUrl.includes('://') ? project.demoUrl : `https://${project.demoUrl}`).hostname.replace('www.', '')
-                        : 'paginaweb.es';
-                    } catch (e) {
-                      return 'paginaweb.es';
-                    }
-                  })()}
-                </p>
-                <div className="text-sm text-default-500">
-                  {formatDate(project.date)}
+            <div className="flex-1">
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="text-3xl font-bold text-foreground mb-1">{project.title}</h3>
+                  <p className="text-2xl text-default-400 mb-1 font-sans">
+                    {(() => {
+                      try {
+                        return project.demoUrl && project.demoUrl !== '#' 
+                          ? new URL(project.demoUrl.includes('://') ? project.demoUrl : `https://${project.demoUrl}`).hostname.replace('www.', '')
+                          : 'paginaweb.es';
+                      } catch (e) {
+                        return 'paginaweb.es';
+                      }
+                    })()}
+                  </p>
+                  <div className="text-sm text-default-500">
+                    {formatDate(project.date)}
+                  </div>
+                </div>
+                {/* Desktop Chips */}
+                <div className="hidden sm:flex flex-wrap justify-end gap-2 flex-shrink-0 ml-2">
+                  {renderChips()}
                 </div>
               </div>
-              <div className="flex gap-2 flex-shrink-0">
-                {project.featured && (
-                  <Chip 
-                    className="ml-2" 
-                    color="primary" 
-                    variant="flat" 
-                    size="sm"
-                  >
-                    Destacado
-                  </Chip>
-                )}
-                {project.status && (
-                  <Chip 
-                    color={project.status === "Finalizado" ? "success" : "warning"} 
-                    variant="flat" 
-                    size="sm"
-                  >
-                    {project.status}
-                  </Chip>
-                )}
+              {/* Mobile Chips */}
+              <div className="sm:hidden flex justify-end mt-3">
+                <div className="flex gap-2">
+                  {renderChips()}
+                </div>
               </div>
             </div>
             
@@ -105,6 +124,18 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   {tag}
                 </Chip>
               ))}
+            </div>
+            
+            {/* Espacio para el icono del proyecto */}
+            <div className="h-[120px] w-full mb-4 flex items-center justify-center bg-transparent rounded-lg overflow-hidden">
+              {project.icon && (
+                <img 
+                  src={project.icon} 
+                  alt={`${project.title} icon`}
+                  className="h-full w-full object-contain"
+                  style={{ imageRendering: 'auto' as const }}
+                />
+              )}
             </div>
           </div>
         </CardBody>
