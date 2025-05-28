@@ -56,16 +56,19 @@ export const HeroSection: React.FC = () => {
         
         {/* Additional floating images */}
         <motion.div 
-          className="absolute top-1/4 -left-20 w-[17.4rem] h-[17.4rem] md:w-[19.2rem] md:h-[19.2rem] rounded-xl overflow-hidden shadow-xl z-0"
+          className="absolute top-1/4 -left-20 w-[17.4rem] h-[17.4rem] md:w-[19.2rem] md:h-[19.2rem] rounded-xl z-0 group"
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 0.9, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <img 
-            src="/images/portada1.png" 
-            alt="Proyecto creativo"
-            className="w-full h-full object-cover"
-          />
+          <div className="absolute inset-0 rounded-2xl bg-black/10 -rotate-2 group-hover:rotate-0 transition-all duration-500" />
+          <div className="absolute inset-0 rounded-2xl overflow-hidden border-2 border-black group-hover:border-black/70 transition-all duration-300">
+            <img 
+              src="/images/portada1.png" 
+              alt="Proyecto creativo"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </motion.div>
 
         <motion.div 
@@ -191,75 +194,103 @@ export const HeroSection: React.FC = () => {
           >
             <div className="grid grid-cols-2 gap-6 mx-auto px-4 lg:px-0">
               <div className="space-y-6">
-                <div className="rounded-lg shadow-lg overflow-hidden h-48 bg-gray-100 dark:bg-gray-800">
-                  <img 
-                    src="/images/aidreamer.png"
-                    alt="AI Dreamer Project" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="rounded-lg shadow-lg overflow-hidden h-48 bg-gray-100 dark:bg-gray-800">
-                  <img 
-                    src="/images/yourdayin.png"
-                    alt="Your Day In App" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="rounded-lg shadow-lg overflow-hidden h-48 bg-gray-100 dark:bg-gray-800">
-                  <img 
-                    src="/images/freirefpv.png"
-                    alt="Freire FPV Drone" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
+                <motion.div 
+                  className="relative h-48 group"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                >
+                  <div className="absolute inset-0 rounded-2xl bg-black/10 -rotate-2 group-hover:rotate-0 transition-all duration-500" />
+                  <div className="absolute inset-0 rounded-2xl overflow-hidden border-2 border-black group-hover:border-black/70 transition-all duration-300">
+                    <img 
+                      src="/images/aidreamer.png"
+                      alt="AI Dreamer Project" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </motion.div>
+                
+                <motion.div 
+                  className="relative h-48 group"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                >
+                  <div className="absolute inset-0 rounded-2xl bg-black/10 rotate-2 group-hover:rotate-0 transition-all duration-500" />
+                  <div className="absolute inset-0 rounded-2xl overflow-hidden border-2 border-black group-hover:border-black/70 transition-all duration-300">
+                    <img 
+                      src="/images/yourdayin.png"
+                      alt="Your Day In App" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </motion.div>
+                
+                <motion.div 
+                  className="relative h-48 group"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                >
+                  <div className="absolute inset-0 rounded-2xl bg-black/10 -rotate-1 group-hover:rotate-0 transition-all duration-500" />
+                  <div className="absolute inset-0 rounded-2xl overflow-hidden border-2 border-black group-hover:border-black/70 transition-all duration-300">
+                    <img 
+                      src="/images/freirefpv.png"
+                      alt="Freire FPV Drone" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </motion.div>
               </div>
+              
               <div className="space-y-6">
-                <div className="rounded-lg shadow-lg overflow-hidden h-48 bg-gray-100 dark:bg-gray-800">
-                  <img 
-                    src="/images/notfound.png"
-                    alt="404 Creative Page" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="rounded-lg shadow-lg overflow-hidden h-48 bg-gray-100 dark:bg-gray-800">
-                  <img 
-                    src="/images/rush2.png"
-                    alt="Candle Rush Game" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="rounded-lg shadow-lg overflow-hidden h-48 bg-gray-100 dark:bg-gray-800">
-                  <img 
-                    src="/images/candlerush1.png"
-                    alt="Candle Rush Gameplay" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
+                <motion.div 
+                  className="relative h-48 group"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                >
+                  <div className="absolute inset-0 rounded-2xl bg-black/10 rotate-1 group-hover:rotate-0 transition-all duration-500" />
+                  <div className="absolute inset-0 rounded-2xl overflow-hidden border-2 border-black group-hover:border-black/70 transition-all duration-300">
+                    <img 
+                      src="/images/notfound.png"
+                      alt="404 Creative Page" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </motion.div>
+                
+                <motion.div 
+                  className="relative h-48 group"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                >
+                  <div className="absolute inset-0 rounded-2xl bg-black/10 -rotate-3 group-hover:rotate-0 transition-all duration-500" />
+                  <div className="absolute inset-0 rounded-2xl overflow-hidden border-2 border-black group-hover:border-black/70 transition-all duration-300">
+                    <div className="relative w-full h-full overflow-hidden">
+                      <div className="absolute inset-0">
+                        <img 
+                          src="/images/rush2.png"
+                          alt="Candle Rush Game" 
+                          className="w-[103%] h-[103%] object-cover -translate-x-[1.%] -translate-y-[1.5%]"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+                
+                <motion.div 
+                  className="relative h-48 group"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                >
+                  <div className="absolute inset-0 rounded-2xl bg-black/10 rotate-3 group-hover:rotate-0 transition-all duration-500" />
+                  <div className="absolute inset-0 rounded-2xl overflow-hidden border-2 border-black group-hover:border-black/70 transition-all duration-300">
+                    <img 
+                      src="/images/facetime.png"
+                      alt="Candle Rush Gameplay" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </motion.div>
               </div>
             </div>
-            
-            {/* Floating icons */}
-            <motion.div 
-              className="absolute -top-4 -left-4 bg-content1 p-2 rounded-full shadow-md"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 3 }}
-            >
-              <Icon icon="lucide:camera" width={24} height={24} className="text-primary" />
-            </motion.div>
-            <motion.div 
-              className="absolute top-1/2 -right-4 bg-content1 p-2 rounded-full shadow-md"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 4, delay: 1 }}
-            >
-              <Icon icon="lucide:drone" width={24} height={24} className="text-secondary" />
-            </motion.div>
-            <motion.div 
-              className="absolute -bottom-4 left-1/2 bg-content1 p-2 rounded-full shadow-md"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 3.5, delay: 0.5 }}
-            >
-              <Icon icon="lucide:book" width={24} height={24} className="text-default-600" />
-            </motion.div>
           </motion.div>
         </div>
       </div>

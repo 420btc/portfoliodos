@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardBody, Tabs, Tab, Button, Divider, Chip, CardFooter } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { useLanguage } from "../components/language-switcher";
 import { AudioPlayer } from "../components/AudioPlayer";
+import { SynopsisModal } from "../components/SynopsisModal";
 
 // Datos de los capítulos
 const chapters = [
@@ -116,7 +117,8 @@ const chapters = [
 ];
 
 export const Novel: React.FC = () => {
-  const [selected, setSelected] = React.useState("overview");
+  const [selected, setSelected] = useState("overview");
+  const [isSynopsisOpen, setIsSynopsisOpen] = useState(false);
   const { language } = useLanguage();
   
   return (
@@ -178,9 +180,15 @@ export const Novel: React.FC = () => {
                 <Button 
                   color="primary"
                   endContent={<Icon icon="lucide:book-open" />}
+                  onPress={() => setIsSynopsisOpen(true)}
                 >
                   {language === "es" ? "Leer muestra" : "Read Sample"}
                 </Button>
+                <SynopsisModal 
+                  isOpen={isSynopsisOpen} 
+                  onClose={() => setIsSynopsisOpen(false)}
+                  language={language}
+                />
                 <Button 
                   color="default" 
                   variant="flat"
