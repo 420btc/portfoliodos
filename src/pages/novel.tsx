@@ -165,7 +165,7 @@ export const Novel: React.FC = () => {
                 <Divider orientation="vertical" />
                 <div className="flex items-center gap-1">
                   <Icon icon="lucide:calendar" className="text-default-500" />
-                  <span className="text-default-500">{language === "es" ? "Publicado en 2025" : "Published 2025"}</span>
+                  <span className="text-default-500">{language === "es" ? "Pendiente de publicación" : "Pending publication"}</span>
                 </div>
               </div>
               
