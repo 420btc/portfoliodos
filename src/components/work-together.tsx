@@ -150,6 +150,7 @@ export const WorkTogether: React.FC = () => {
       >
         Estoy siempre abierto a nuevos proyectos y oportunidades. Si tienes una idea o necesitas ayuda con tu próximo{' '}
         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-warning/10 text-warning">
+          <span className="inline-block w-2 h-2 rounded-full bg-orange-500 mr-1.5"></span>
           Trabajo
         </span>{' '}
         no dudes en contactarme.
