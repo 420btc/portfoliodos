@@ -8,37 +8,37 @@ export const About: React.FC = () => {
   const { language } = useLanguage();
   
   const skills = [
-    { name: "JavaScript/TypeScript", level: 95 },
+    { name: "JavaScript/TypeScript", level: 75 },
     { name: "React & Next.js", level: 90 },
     { name: "Node.js", level: 85 },
-    { name: "Python", level: 80 },
+    { name: "Python", level: 65 },
     { name: "Vue.js", level: 75 },
-    { name: language === "es" ? "Fotografía" : "Photography", level: 85 },
+    { name: language === "es" ? "Fotografía" : "Photography", level: 95 },
     { name: language === "es" ? "Pilotaje de Drones" : "Drone Piloting", level: 80 },
-    { name: "LLMs & AI", level: 85 }
+    { name: "LLMs & AI", level: 75 }
   ];
   
   const experiences = [
     {
-      title: language === "es" ? "Desarrollador Full Stack Senior" : "Senior Full Stack Developer",
+      title: language === "es" ? "Desarrollador Full Stack Autónomo" : "Full Stack Developer",
       company: "TechVision Inc.",
-      period: "2020 - Present",
+      period: "2022 - Present",
       description: language === "es" ? 
-        "Desarrollador principal para aplicaciones web empresariales, gestionando un equipo de 5 desarrolladores e implementando arquitecturas modernas de React." :
+        "Desarrollador autónomo con experiencia en desarrollo de aplicaciones web y móviles." :
         "Lead developer for enterprise web applications, managing a team of 5 developers and implementing modern React architectures."
     },
     {
       title: language === "es" ? "Desarrollador Frontend" : "Frontend Developer",
       company: "Creative Solutions",
-      period: "2017 - 2020",
+      period: "2020 - 2022",
       description: language === "es" ? 
         "Desarrollo de aplicaciones web responsivas y apps móviles usando React y React Native para clientes de diversas industrias." :
         "Developed responsive web applications and mobile apps using React and React Native for clients across various industries."
     },
     {
       title: language === "es" ? "Desarrollador Web" : "Web Developer",
-      company: "Digital Innovations",
-      period: "2015 - 2017",
+      company: "Freire Labs",
+      period: "2019 - 2020",
       description: language === "es" ? 
         "Creación de sitios web personalizados y soluciones de comercio electrónico para pequeñas y medianas empresas usando JavaScript y PHP." :
         "Created custom websites and e-commerce solutions for small to medium businesses using JavaScript and PHP."
@@ -47,20 +47,12 @@ export const About: React.FC = () => {
   
   const education = [
     {
-      degree: language === "es" ? "Máster en Ciencias de la Computación" : "Master of Computer Science",
-      institution: "Stanford University",
+      degree: language === "es" ? "Licenciatura en Ingeniería Informática" : "Bachelor of Science in Computer Science",
+      institution: "Universidad de Málaga",
       year: "2015",
       description: language === "es" ? 
-        "Especializado en Interacción Humano-Computadora e Inteligencia Artificial." :
-        "Specialized in Human-Computer Interaction and Artificial Intelligence."
-    },
-    {
-      degree: language === "es" ? "Licenciatura en Ingeniería de Software" : "Bachelor of Science in Software Engineering",
-      institution: "University of California, Berkeley",
-      year: "2013",
-      description: language === "es" ? 
-        "Graduado con honores. Especialización secundaria en Escritura Creativa." :
-        "Graduated with honors. Minor in Creative Writing."
+        "Licenciatura en Ingeniería Informática." :
+        "Bachelor of Science in Computer Science."
     }
   ];
 
@@ -125,7 +117,7 @@ export const About: React.FC = () => {
                 <div className="text-left space-y-3">
                   <div className="flex items-center gap-2">
                     <Icon icon="lucide:mail" className="text-default-500" width={16} />
-                    <span>carlos@devportfolio.com</span>
+                    <span>carlosfreireph@gmail.com</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Icon icon="lucide:map-pin" className="text-default-500" width={16} />
@@ -133,11 +125,11 @@ export const About: React.FC = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <Icon icon="lucide:briefcase" className="text-default-500" width={16} />
-                    <span>{language === "es" ? "8+ Años de Experiencia" : "8+ Years Experience"}</span>
+                    <span>{language === "es" ? "2+ Años de Experiencia" : "8+ Years Experience"}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Icon icon="lucide:globe" className="text-default-500" width={16} />
-                    <span>www.devportfolio.com</span>
+                    <span>www.carlospastorfreire.com</span>
                   </div>
                 </div>
                 
