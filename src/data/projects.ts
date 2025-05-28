@@ -1,6 +1,7 @@
 import { ProjectProps } from "../components/project-card";
 
 export interface ProjectData {
+  id: number | string;
   title: string;
   description: string;
   image: string;
@@ -13,8 +14,10 @@ export interface ProjectData {
   date: Date;
 }
 
+// Mapear los proyectos a ProjectData con IDs únicos
 const projectsData: ProjectData[] = [
   {
+    id: 1,
     title: "GeoQuizzer",
     description: "Aplicación y web juego de preguntas geográficas con preguntas aleatorias y respuesta correcta. Potenciado con IA y amCharts5. Realidad mixta en desarrollo junto con camara virtual en dispositivos móviles.",
     image: "images/geoquizzer.png",
@@ -25,6 +28,7 @@ const projectsData: ProjectData[] = [
     date: new Date("2025-06-25")
   },
   {
+    id: 2,
     title: "Logs de Psicología",
     description: "Juego interactivo basado en el concepto de la mente humana como sistema computacional, donde explorarás la psicología a través de un prisma diferente. ¿Y si acudir al psicólogo es como activar los logs de depuración? Tu rol será el de un Ingeniero de sistemas mentales.",
     image: "images/Depurador.png",
@@ -36,6 +40,7 @@ const projectsData: ProjectData[] = [
     date: new Date("2025-06-15")
   },
   {
+    id: 3,
     title: "Facetime Tracker",
     description: "Aplicación web PC que utiliza TensorFlow para detectar y registrar el tiempo que pasas frente a tu PC. Especialmente útil para medir la exposición a videollamadas, clases virtuales o cualquier actividad que requiera el uso de cámara web.",
     image: "images/facetime.png",
@@ -47,6 +52,7 @@ const projectsData: ProjectData[] = [
     date: new Date("2025-06-01")
   },
   {
+    id: 4,
     title: "Book Binder PDF",
     description: "Aplicación web y móvil para ordenar linealmente PDFs con contenido personalizado y en línea. Soporta PDFs ilimitados y permite su ordenación. Integración con OpenAI para obtener información sobre los libros que quieras en un chat integrado.",
     image: "images/bookcreator.png",
@@ -58,6 +64,7 @@ const projectsData: ProjectData[] = [
     date: new Date("2025-05-23")
   },
   {
+    id: 5,
     title: "YourDayIn",
     description: "Aplicación web y móvil con Agente IA integrado para ayudarte a planificar tu día con los 5 lugares para visitar en función de tu búsqueda. Integración con OpenAI para obtener información sobre los lugares.",
     image: "images/yourdayin.png",
@@ -69,6 +76,7 @@ const projectsData: ProjectData[] = [
     date: new Date("2025-05-18")
   },
   {
+    id: 6,
     title: "AI Dreamer",
     description: "Aplicación y web diseñada para registrar, analizar y explorar los sueños desde una perspectiva inspirada en las teorías psicoanalíticas de Sigmund Freud. Incluye un diccionario de símbolos oníricos y la capacidad de llevar un historial detallado con IA personal.",
     image: "images/aidreamer.png",
@@ -81,6 +89,7 @@ const projectsData: ProjectData[] = [
     date: new Date("2025-05-12")
   },
   {
+    id: 7,
     title: "NotfoundInk",
     description: "Portfolio web para NotfoundInk de Ana Maria DCG, una colección de arte digital, con integración de acuñado de NFTs en la página web, conexión con billetera y sistema de ventas por formulario en sección de contacto.",
     image: "images/notfound.png",
@@ -92,6 +101,7 @@ const projectsData: ProjectData[] = [
     date: new Date("2025-05-05")
   },
   {
+    id: 8,
     title: "CandleRush 2",
     description: "Segunda versión de CandleRush, una plataforma mejorada de simulación y juego de trading de criptomonedas. Análisis profundo en sección Mi Perfil. Selección de par y temporalidad. Apuestas automáticas inteligentes con resolución integrada.",
     image: "images/rush2.png",
@@ -104,6 +114,7 @@ const projectsData: ProjectData[] = [
     date: new Date("2025-04-28")
   },
   {
+    id: 9,
     title: "Horizon Creative",
     description: "Horizon Creative es una página web de portafolio profesional para agencias creativas, freelancers y estudios de diseño. Permite mostrar proyectos, servicios, equipo y datos de contacto, incluido mapa de ubicación.",
     image: "images/Horizonf.png",
@@ -116,6 +127,7 @@ const projectsData: ProjectData[] = [
     date: new Date("2025-04-10")
   },
   {
+    id: 10,
     title: "Carlos Freire FPV",
     description: "Mi web personal para la venta de servicios de grabación con drones FPV en la Costa del Sol, Málaga. Secciones de contacto, meteorología con datos reales, servicios, proyectos y equipo disponible. No dudes en contactarme!",
     image: "images/freirefpv.png",
@@ -127,6 +139,7 @@ const projectsData: ProjectData[] = [
     date: new Date("2025-03-20")
   },
   {
+    id: 11,
     title: "MeteoMálaga",
     description: "Aplicación de apuestas sobre pronósticos meteorológicos para Málaga con datos en tiempo real, análisis de predicciones y estadísticas. Apuestas con resolución automática en el momento del pronóstico.",
     image: "images/metemalaga.png",
@@ -138,6 +151,7 @@ const projectsData: ProjectData[] = [
     date: new Date("2025-03-12")
   },
   {
+    id: 12,
     title: "CandleRush 1",
     description: "Una plataforma de juego y simulación de trading de criptomonedas en una versión temprana con datos en tiempo real y apuestas ficticias basadas en las velas japonesas y las temporalidades, con resolución automática.",
     image: "images/candlerush1.png",
@@ -153,9 +167,6 @@ const projectsData: ProjectData[] = [
 // Sort projects by date in ascending order (oldest first)
 const sortedProjects = [...projectsData].sort((a, b) => a.date.getTime() - b.date.getTime());
 
-export const projects: ProjectProps[] = sortedProjects.map((project, index) => ({
-  ...project,
-  id: index + 1
-}));
+export const projects: ProjectProps[] = sortedProjects as ProjectProps[];
 
 export const featuredProjects = projects.filter(project => project.featured);

@@ -2,6 +2,7 @@ import { ProjectData } from "./projects";
 
 const photographyProjects: ProjectData[] = [
   {
+    id: 'tienda-fotografica',
     title: "Tienda Fotográfica",
     description: "Explora mi colección de fotografías en Redbubble. Impresiones de alta calidad en una variedad de productos.",
     image: "images/Tienda.png",
@@ -11,6 +12,7 @@ const photographyProjects: ProjectData[] = [
     date: new Date("2019-01-05")
   },
   {
+    id: 'instagram-fotografia',
     title: "Instagram",
     description: "Sígueme en Instagram para ver mis últimas fotografías y proyectos creativos.",
     image: "images/instagram.png",
