@@ -15,14 +15,17 @@ export const Projects: React.FC = () => {
   
   // Filter projects based on search query and selected category
   const filteredProjects = React.useMemo(() => {
-    // Combine regular projects with photography projects when showing all or featured
-    const allProjects = selectedCategory === 'Fotografía' ? 
-      photographyProjects : 
-      (selectedCategory === 'all' || selectedCategory === 'featured') ? 
-      [...projects, ...photographyProjects] : 
-      projects;
+    // Determine which projects to show based on category
+    const projectsToShow = selectedCategory === 'Fotografía' 
+      ? photographyProjects 
+      : projects;
+
+    // If it's 'all' or 'featured' and not in photography, include only regular projects
+    const filtered = selectedCategory === 'all' || selectedCategory === 'featured'
+      ? projects
+      : projectsToShow;
       
-    return allProjects.filter(project => {
+    return filtered.filter(project => {
       const matchesSearch = 
         project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -96,11 +99,13 @@ export const Projects: React.FC = () => {
         
         <div className="mt-12 text-center">
           <p className="text-default-500">
-            Mostrando {filteredProjects.length} de {selectedCategory === 'Fotografía' ? 
-              photographyProjects.length : 
-              (selectedCategory === 'all' || selectedCategory === 'featured') ? 
-              projects.length + photographyProjects.length : 
-              projects.length} proyectos
+            Mostrando {filteredProjects.length} de {selectedCategory === 'Fotografía' 
+              ? photographyProjects.length 
+              : selectedCategory === 'all' 
+                ? projects.length 
+                : selectedCategory === 'featured' 
+                  ? projects.filter(p => p.featured).length 
+                  : projects.filter(p => p.tags.includes(selectedCategory)).length} proyectos
           </p>
         </div>
       </div>

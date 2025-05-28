@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 
 export interface ProjectProps {
-  id: number;
+  id: number | string;
   title: string;
   description: string;
   image: string;
