@@ -33,6 +33,11 @@ const jobTitles = [
 
 export const HeroSection: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [profileImage, setProfileImage] = useState('/images/yop2.jpeg');
+
+  const toggleProfileImage = () => {
+    setProfileImage(prev => prev === '/images/yop2.jpeg' ? '/images/yop.jpeg' : '/images/yop2.jpeg');
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -92,12 +97,21 @@ export const HeroSection: React.FC = () => {
             <div className="max-w-4xl mx-auto text-center mb-12">
               {/* Profile Picture */}
               <div className="flex justify-center mb-8">
-                <div className="relative w-[16.8rem] h-[16.8rem] md:w-[19.8rem] md:h-[19.8rem] rounded-full border-4 border-primary overflow-hidden">
-                  <img 
-                    src="/images/yop2.jpeg" 
-                    alt="Carlos Freire"
-                    className="w-full h-full object-cover"
-                  />
+                <div className="relative">
+                  <div className="relative w-[16.8rem] h-[16.8rem] md:w-[19.8rem] md:h-[19.8rem] rounded-full border-4 border-primary overflow-hidden">
+                    <img 
+                      src={profileImage} 
+                      alt="Carlos Freire"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <button
+                    onClick={toggleProfileImage}
+                    className="absolute -bottom-2 -right-2 bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
+                    aria-label="Cambiar foto de perfil"
+                  >
+                    <Icon icon="mdi:refresh" className="text-xl" />
+                  </button>
                 </div>
               </div>
               
