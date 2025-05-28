@@ -51,7 +51,7 @@ export const HeroSection: React.FC = () => {
         
         {/* Additional floating images */}
         <motion.div 
-          className="absolute top-1/4 -left-20 w-48 h-48 md:w-56 md:h-56 rounded-xl overflow-hidden shadow-xl z-0"
+          className="absolute top-1/4 -left-20 w-[17.4rem] h-[17.4rem] md:w-[19.2rem] md:h-[19.2rem] rounded-xl overflow-hidden shadow-xl z-0"
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 0.9, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -92,7 +92,7 @@ export const HeroSection: React.FC = () => {
             <div className="max-w-4xl mx-auto text-center mb-12">
               {/* Profile Picture */}
               <div className="flex justify-center mb-8">
-                <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full border-4 border-primary overflow-hidden">
+                <div className="relative w-[16.8rem] h-[16.8rem] md:w-[19.8rem] md:h-[19.8rem] rounded-full border-4 border-primary overflow-hidden">
                   <img 
                     src="/images/yop2.jpeg" 
                     alt="Carlos Freire"
@@ -101,7 +101,7 @@ export const HeroSection: React.FC = () => {
                 </div>
               </div>
               
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              <h1 className="text-6xl md:text-6xl font-bold mb-6">
                 Hola, soy <span className="text-primary">Carlos Freire</span>
               </h1>
               <div className="h-16">

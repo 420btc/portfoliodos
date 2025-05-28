@@ -21,7 +21,7 @@ export const About: React.FC = () => {
   const experiences = [
     {
       title: language === "es" ? "Desarrollador Full Stack Autónomo" : "Full Stack Developer",
-      company: "TechVision Inc.",
+      company: "Horizon Creative",
       period: "2022 - Present",
       description: language === "es" ? 
         "Desarrollador autónomo con experiencia en desarrollo de aplicaciones web y móviles." :
@@ -238,7 +238,7 @@ export const About: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                   <div>
                     <img 
-                      src="https://img.heroui.chat/image/landscape?w=400&h=300&u=50" 
+                      src="images/fotx.jpg" 
                       alt="Photography" 
                       className="rounded-lg object-cover w-full h-40 mb-2"
                     />
@@ -247,7 +247,7 @@ export const About: React.FC = () => {
                   </div>
                   <div>
                     <img 
-                      src="https://img.heroui.chat/image/landscape?w=400&h=300&u=51" 
+                      src="images/dronesk.png" 
                       alt="Drone Photography" 
                       className="rounded-lg object-cover w-full h-40 mb-2"
                     />
@@ -256,7 +256,7 @@ export const About: React.FC = () => {
                   </div>
                   <div>
                     <img 
-                      src="https://img.heroui.chat/image/book?w=400&h=300&u=52" 
+                      src="images/creax.png" 
                       alt="Writing" 
                       className="rounded-lg object-cover w-full h-40 mb-2"
                     />

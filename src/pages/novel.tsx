@@ -555,102 +555,54 @@ export const Novel: React.FC = () => {
               </Card>
             </div>
           )}
-
-          {selected === "reviews" && (
-            <div className="space-y-6">
-              <Card>
-                <CardBody>
-                  <h3 className="text-xl font-semibold mb-2">ARIA</h3>
-                  <p className="text-default-500 mb-3">Artificial Intelligence</p>
-                  <p className="text-default-600">
-                    {language === "es" ? 
-                      "Una inteligencia artificial avanzada desarrollada por Horizon que ayuda a gestionar la red neural. A medida que el relato avanza, las respuestas de ARIA se vuelven cada vez más nuancadas y independientes, levantando preguntas sobre la naturaleza de la conciencia y la bordeada entre la humanidad y la inteligencia artificial."
-                    :
-                      "An advanced AI system developed by Horizon that helps manage the neural network. As the story progresses, ARIA's responses become increasingly nuanced and independent, raising questions about the nature of consciousness and the blurring line between human and artificial intelligence."
-                    }
-                  </p>
-                </CardBody>
-              </Card>
-            </div>
-          )}
           
           {selected === "reviews" && (
             <div className="space-y-6">
-              <Card>
-                <CardBody>
-                  <div className="flex justify-between items-start mb-2">
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardBody className="p-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 text-xl font-bold">
+                      MR
+                    </div>
                     <div>
-                      <h3 className="font-semibold">A Thought-Provoking Exploration of Technology and Humanity</h3>
-                      <div className="flex items-center mt-1">
-                        <Icon icon="lucide:star" className="text-warning" />
-                        <Icon icon="lucide:star" className="text-warning" />
-                        <Icon icon="lucide:star" className="text-warning" />
-                        <Icon icon="lucide:star" className="text-warning" />
-                        <Icon icon="lucide:star" className="text-warning" />
+                      <h3 className="text-lg font-semibold">María Rodríguez</h3>
+                      <p className="text-sm text-default-500">Lectora ávida</p>
+                      <div className="flex text-yellow-400 mt-1">
+                        {[...Array(5)].map((_, i) => (
+                          <Icon key={i} icon="mdi:star" className="w-5 h-5" />
+                        ))}
                       </div>
                     </div>
-                    <p className="text-default-500 text-sm">The New York Times</p>
                   </div>
                   <p className="text-default-600">
-                    "The Digital Horizon stands out in the crowded field of tech-focused science fiction by asking 
-                    profound questions about consciousness and humanity's future. The author's technical background 
-                    lends authenticity to the world-building, while the characters feel genuine in their struggles 
-                    with the ethical dilemmas presented. A must-read for anyone interested in the philosophical 
-                    implications of our increasingly digital existence."
+                    "Una historia que te atrapa desde la primera página. La forma en que el autor construye la atmósfera del pueblo y la relación entre los personajes es simplemente magistral. Me sentí completamente inmersa en la historia y no pude dejar de leer hasta terminar los capítulos disponibles. ¡Ansío con ganas la próxima entrega!"
                   </p>
                 </CardBody>
               </Card>
               
-              <Card>
-                <CardBody>
-                  <div className="flex justify-between items-start mb-2">
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardBody className="p-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 text-xl font-bold">
+                      CP
+                    </div>
                     <div>
-                      <h3 className="font-semibold">Compelling Characters in a Believable Near-Future</h3>
-                      <div className="flex items-center mt-1">
-                        <Icon icon="lucide:star" className="text-warning" />
-                        <Icon icon="lucide:star" className="text-warning" />
-                        <Icon icon="lucide:star" className="text-warning" />
-                        <Icon icon="lucide:star" className="text-warning" />
-                        <Icon icon="lucide:star-half" className="text-warning" />
+                      <h3 className="text-lg font-semibold">Carlos Pérez</h3>
+                      <p className="text-sm text-default-500">Crítico literario</p>
+                      <div className="flex text-yellow-400 mt-1">
+                        {[...Array(4)].map((_, i) => (
+                          <Icon key={i} icon="mdi:star" className="w-5 h-5" />
+                        ))}
+                        <Icon icon="mdi:star-outline" className="w-5 h-5 text-default-300" />
                       </div>
                     </div>
-                    <p className="text-default-500 text-sm">Sci-Fi Today</p>
                   </div>
                   <p className="text-default-600">
-                    "What makes 'The Digital Horizon' work so well is how grounded it feels despite its futuristic 
-                    setting. The technology feels like a natural evolution of current trends, and the characters' 
-                    reactions to their world ring true. Alex Chen is a particularly well-crafted protagonist, 
-                    technically brilliant but emotionally complex. The novel's pacing occasionally falters in the 
-                    middle sections, but the thought-provoking finale more than makes up for any minor shortcomings."
+                    "Una narrativa que combina a la perfección el misterio con la cotidianidad. Los personajes están tan bien construidos que parecen saltar de las páginas. Lo que más me ha gustado es cómo el autor juega con los elementos de suspenso, manteniendo al lector en vilo hasta el final. El único pero es que ahora tengo que esperar al próximo capítulo con ansias. ¡Muy recomendable para los amantes del género!"
                   </p>
                 </CardBody>
               </Card>
-              
-              <Card>
-                <CardBody>
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h3 className="font-semibold">A Fresh Voice in Science Fiction</h3>
-                      <div className="flex items-center mt-1">
-                        <Icon icon="lucide:star" className="text-warning" />
-                        <Icon icon="lucide:star" className="text-warning" />
-                        <Icon icon="lucide:star" className="text-warning" />
-                        <Icon icon="lucide:star" className="text-warning" />
-                        <Icon icon="lucide:star" className="text-default-300" />
-                      </div>
-                    </div>
-                    <p className="text-default-500 text-sm">Literary Review</p>
-                  </div>
-                  <p className="text-default-600">
-                    "The author brings a unique perspective to the cyberpunk genre, combining technical knowledge 
-                    with genuine philosophical inquiry. The novel excels in its exploration of consciousness and 
-                    identity in a digitally mediated world. While some of the supporting characters could use more 
-                    development, the central relationship between Alex and Maya provides a compelling emotional 
-                    core to balance the high-concept ideas. An impressive debut that marks the author as a voice 
-                    to watch in contemporary science fiction."
-                  </p>
-                </CardBody>
-              </Card>
+
             </div>
           )}
         </motion.div>
