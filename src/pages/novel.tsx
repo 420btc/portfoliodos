@@ -323,7 +323,7 @@ export const Novel: React.FC = () => {
             <Card>
             <CardBody className="space-y-6">
               <div>
-                <h2 className="text-xl font-semibold mb-3">{language === "es" ? "Sobre el libro" : "About the Book"}</h2>
+                <h2 className="text-xl font-semibold mb-3">{language === "es" ? "Sobre la novela" : "About the novel"}</h2>
                 <p className="text-default-600">
                   {language === "es" ? 
                     "Una novela de misterio y suspense que sigue a dos amigos adolescentes, Kurt y Bob, en un pueblo aislado y peculiar. El descubrimiento de una trampilla secreta en el sótano de Bob los embarca en una peligrosa investigación sobre el pasado de la casa, los secretos del padre de Bob, un reputado arquitecto, y la extraña historia oculta bajo la superficie de su aparentemente tranquilo pueblo." :
