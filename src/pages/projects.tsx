@@ -1,5 +1,5 @@
 import React from "react";
-import { Tabs, Tab, Input } from "@heroui/react";
+import { Input } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { ProjectCard } from "../components/project-card";
@@ -66,20 +66,43 @@ export const Projects: React.FC = () => {
           />
         </div>
         
-        <Tabs 
-          aria-label="Categorías de proyectos" 
-          selectedKey={selectedCategory}
-          onSelectionChange={key => setSelectedCategory(key as string)}
-          className="mb-8"
-          variant="light"
-          color="primary"
-        >
-          <Tab key="all" title="Todos" />
-          <Tab key="featured" title="Destacados" />
-          {mainCategories.map(tag => (
-            <Tab key={tag} title={tag} />
-          ))}
-        </Tabs>
+        <div className="mb-8 overflow-x-auto">
+          <div className="flex flex-nowrap md:flex-wrap gap-2 pb-2 md:pb-0">
+            <button
+              onClick={() => setSelectedCategory('all')}
+              className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
+                selectedCategory === 'all' 
+                  ? 'bg-primary text-white' 
+                  : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
+              }`}
+            >
+              Todos
+            </button>
+            <button
+              onClick={() => setSelectedCategory('featured')}
+              className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
+                selectedCategory === 'featured' 
+                  ? 'bg-primary text-white' 
+                  : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
+              }`}
+            >
+              Destacados
+            </button>
+            {mainCategories.map(tag => (
+              <button
+                key={tag}
+                onClick={() => setSelectedCategory(tag)}
+                className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
+                  selectedCategory === tag 
+                    ? 'bg-primary text-white' 
+                    : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+        </div>
         
         {filteredProjects.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
