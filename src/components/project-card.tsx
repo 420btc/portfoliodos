@@ -52,7 +52,18 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           <div className="p-5 flex-1 flex flex-col">
             <div className="flex justify-between items-start mb-3">
               <div>
-                <h3 className="text-xl font-bold text-foreground mb-1">{project.title}</h3>
+                <h3 className="text-3xl font-bold text-foreground mb-1">{project.title}</h3>
+                <p className="text-2xl text-default-400 mb-1 font-sans">
+                  {(() => {
+                    try {
+                      return project.demoUrl && project.demoUrl !== '#' 
+                        ? new URL(project.demoUrl.includes('://') ? project.demoUrl : `https://${project.demoUrl}`).hostname.replace('www.', '')
+                        : 'paginaweb.es';
+                    } catch (e) {
+                      return 'paginaweb.es';
+                    }
+                  })()}
+                </p>
                 <div className="text-sm text-default-500">
                   {formatDate(project.date)}
                 </div>

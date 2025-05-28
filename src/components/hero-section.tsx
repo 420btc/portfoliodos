@@ -187,32 +187,54 @@ export const HeroSection: React.FC = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative -mt-12 lg:-mt-1"
+            className="relative mt-16 lg:mt-6 lg:ml-12"
           >
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <img 
-                  src="/images/aidreamer.png"
-                  alt="Landscape photography" 
-                  className="rounded-lg shadow-lg object-cover w-full h-48"
-                />
-                <img 
-                  src="/images/yourdayin.png"
-                  alt="AI generated art" 
-                  className="rounded-lg shadow-lg object-cover w-full h-64"
-                />
+            <div className="grid grid-cols-2 gap-6 mx-auto px-4 lg:px-0">
+              <div className="space-y-6">
+                <div className="rounded-lg shadow-lg overflow-hidden h-48 bg-gray-100 dark:bg-gray-800">
+                  <img 
+                    src="/images/aidreamer.png"
+                    alt="AI Dreamer Project" 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="rounded-lg shadow-lg overflow-hidden h-48 bg-gray-100 dark:bg-gray-800">
+                  <img 
+                    src="/images/yourdayin.png"
+                    alt="Your Day In App" 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="rounded-lg shadow-lg overflow-hidden h-48 bg-gray-100 dark:bg-gray-800">
+                  <img 
+                    src="/images/freirefpv.png"
+                    alt="Freire FPV Drone" 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
               </div>
-              <div className="space-y-4 mt-8">
-                <img 
-                  src="/images/notfound.png"
-                  alt="Drone photography" 
-                  className="rounded-lg shadow-lg object-cover w-full h-64"
-                />
-                <img 
-                  src="/images/rush2.png"
-                  alt="Novel" 
-                  className="rounded-lg shadow-lg object-cover w-full h-40"
-                />
+              <div className="space-y-6">
+                <div className="rounded-lg shadow-lg overflow-hidden h-48 bg-gray-100 dark:bg-gray-800">
+                  <img 
+                    src="/images/notfound.png"
+                    alt="404 Creative Page" 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="rounded-lg shadow-lg overflow-hidden h-48 bg-gray-100 dark:bg-gray-800">
+                  <img 
+                    src="/images/rush2.png"
+                    alt="Candle Rush Game" 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="rounded-lg shadow-lg overflow-hidden h-48 bg-gray-100 dark:bg-gray-800">
+                  <img 
+                    src="/images/candlerush1.png"
+                    alt="Candle Rush Gameplay" 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
               </div>
             </div>
             

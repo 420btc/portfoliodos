@@ -37,7 +37,7 @@ const projectsData: ProjectData[] = [
   },
   {
     title: "Book Binder PDF",
-    description: "Aplicación web para unir y organizar archivos PDF de manera sencilla.",
+    description: "Aplicación web y móvil para ordenar linealmente PDFs con contenido personalizado y en línea. Soporta PDFs ilimitados y permite su ordenación. Integración con OpenAI para obtener información sobre los libros que quieras en un chat integrado.",
     image: "images/bookcreator.png",
     tags: ["Next.js", "TypeScript", "PDF", "Utilidades"],
     demoUrl: "https://bookcreatorr.netlify.app/",
@@ -47,7 +47,7 @@ const projectsData: ProjectData[] = [
   },
   {
     title: "YourDayIn",
-    description: "Aplicación web para planificar tu día con sugerencias personalizadas de actividades.",
+    description: "Aplicación web y móvil con Agente IA integrado para ayudarte a planificar tu día con los 5 lugares para visitar en función de tu búsqueda. Integración con OpenAI para obtener información sobre los lugares.",
     image: "images/yourdayin.png",
     tags: ["Next.js", "TypeScript", "JavaScript", "OpenAI"],
     demoUrl: "https://tudiaen.vercel.app/game",
@@ -57,7 +57,7 @@ const projectsData: ProjectData[] = [
   },
   {
     title: "AI Dreamer",
-    description: "Plataforma de generación de imágenes con inteligencia artificial para artistas digitales.",
+    description: "Aplicación y web diseñada para registrar, analizar y explorar los sueños desde una perspectiva inspirada en las teorías psicoanalíticas de Sigmund Freud. Incluye un diccionario de símbolos oníricos y la capacidad de llevar un historial detallado con IA personal.",
     image: "images/aidreamer.png",
     tags: ["Next.js", "TypeScript", "OpenAI", "Machine Learning"],
     demoUrl: "https://dreamsfreud.vercel.app/",
@@ -68,7 +68,7 @@ const projectsData: ProjectData[] = [
   },
   {
     title: "NotfoundInk",
-    description: "Plataforma de arte digital y tatuajes personalizados con galería de artistas.",
+    description: "Portfolio web para NotfoundInk de Ana Maria DCG, una colección de arte digital, con integración de acuñado de NFTs en la página web, conexión con billetera y sistema de ventas por formulario en sección de contacto.",
     image: "images/notfound.png",
     tags: ["Next.js", "TypeScript", "Arte", "Diseño"],
     demoUrl: "https://notfoundink.art",
@@ -78,7 +78,7 @@ const projectsData: ProjectData[] = [
   },
   {
     title: "CandleRush 2",
-    description: "Segunda versión mejorada de la plataforma de trading con nuevas funcionalidades y mejor rendimiento.",
+    description: "Segunda versión de CandleRush, una plataforma mejorada de simulación y juego de trading de criptomonedas. Análisis profundo en sección Mi Perfil. Selección de par y temporalidad. Apuestas automáticas inteligentes con resolución integrada.",
     image: "images/rush2.png",
     tags: ["Next.js", "TypeScript", "Trading", "Blockchain"],
     demoUrl: "https://candlerush.es",
@@ -89,7 +89,7 @@ const projectsData: ProjectData[] = [
   },
   {
     title: "Horizon Creative",
-    description: "Agencia creativa especializada en diseño web y desarrollo de marcas innovadoras.",
+    description: "Horizon Creative es una página web de portafolio profesional para agencias creativas, freelancers y estudios de diseño. Permite mostrar proyectos, servicios, equipo y datos de contacto, incluido mapa de ubicación.",
     image: "images/Horizonf.png",
     tags: ["Next.js", "TypeScript", "Diseño", "Branding"],
     demoUrl: "https://horizoncreative.es",
@@ -100,7 +100,7 @@ const projectsData: ProjectData[] = [
   },
   {
     title: "Carlos Freire FPV",
-    description: "Portafolio personal y galería de trabajos de fotografía y vuelos FPV.",
+    description: "PMi web personal para la venta de servicios de grabación con drones FPV en la Costa del Sol, Málaga. Secciones de contacto, meteorología con datos reales, servicios, proyectos y equipo disponible. No dudes en contactarme!",
     image: "images/freirefpv.png",
     tags: ["Web", "Fotografía", "Portfolio", "Diseño"],
     demoUrl: "https://carlosfpv.es",
@@ -110,7 +110,7 @@ const projectsData: ProjectData[] = [
   },
   {
     title: "MeteoMálaga",
-    description: "Aplicación meteorológica específica para la provincia de Málaga con pronósticos detallados y alertas en tiempo real.",
+    description: "Aplicación de apuestas sobre pronósticos meteorológicos para Málaga con datos en tiempo real, análisis de predicciones y estadísticas. Apuestas con resolución automática en el momento del pronóstico.",
     image: "images/metemalaga.png",
     tags: ["React", "API", "Meteorología", "UI/UX"],
     demoUrl: "https://meteomalaga.fun",
@@ -120,7 +120,7 @@ const projectsData: ProjectData[] = [
   },
   {
     title: "CandleRush 1",
-    description: "Plataforma de trading de criptomonedas con simulación en tiempo real y herramientas de análisis avanzadas.",
+    description: "Una plataforma de juego y simulación de trading de criptomonedas en una versión temprana con datos en tiempo real y apuestas ficticias basadas en las velas japonesas y las temporalidades, con resolución automática.",
     image: "images/candlerush1.png",
     tags: ["React", "Node.js", "Trading", "Blockchain"],
     demoUrl: "https://btcer.fun",
