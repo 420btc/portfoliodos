@@ -194,7 +194,7 @@ export const Novel: React.FC = () => {
                   variant="flat"
                   endContent={<Icon icon="lucide:shopping-cart" />}
                 >
-                  {language === "es" ? "Comprar libro" : "Purchase Book"}
+                  {language === "es" ? "Comprar Novela" : "Buy Novel"}
                 </Button>
               </div>
             </div>
