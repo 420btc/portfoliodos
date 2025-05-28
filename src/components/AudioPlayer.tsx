@@ -143,7 +143,7 @@ export function AudioPlayer({ src, title, label = 'Audiobook' }: AudioPlayerProp
             max={100}
             step={1}
             onChange={(e) => handleVolumeChange([Number(e.target.value)])}
-            className="w-10 sm:w-16 h-0.5 sm:h-1 bg-gray-300 dark:bg-gray-600 rounded-full appearance-none cursor-pointer"
+            className="w-6 sm:w-12 h-0.5 sm:h-1 bg-gray-300 dark:bg-gray-600 rounded-full appearance-none cursor-pointer"
             style={{
               background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${isMuted ? 0 : volume * 100}%, #d1d5db ${isMuted ? 0 : volume * 100}%, #d1d5db 100%)`
             }}
