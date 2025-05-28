@@ -65,26 +65,52 @@ const chapters = [
   },
   {
     id: 7,
-    title: "Capítulo 7: Secretos del Laboratorio",
-    description: "Los protagonistas descubren oscuros secretos en un laboratorio abandonado.",
-    date: "Próximamente",
-    pdf: null,
-    audio: null,
-    duration: "-",
-    words: 0,
-    inProgress: true,
+    title: "Capítulo 7: La penumbra",
+    description: "En la oscuridad, los miedos toman forma",
+    date: "24 de Abril 2025",
+    pdf: "/novela/capitulos/Capitulo 7 - La penumbra.pdf",
+    audio: "/novela/capitulos/Capitulo 7.mp3",
+    inProgress: false,
     isFullBook: false
   },
   {
     id: 8,
-    title: "Libro Completo",
-    description: "Descarga la novela completa en formato PDF o escucha todos los capítulos en orden.",
-    date: "Disponible ahora",
-    audio: "/novela/capitulos/Novela Completa - Espías y Experimentos.mp3",
-    pdf: "/novela/capitulos/Novela Completa - Espías y Experimentos.pdf",
-    duration: "2:15:30",
-    words: 45000,
+    title: "Capítulo 8: Sonido en las Sombras",
+    description: "Lo que el oído capta cuando la vista falla",
+    date: "2 de Mayo 2025",
+    pdf: "/novela/capitulos/Capitulo 8 - Sonido en las Sombras.pdf",
+    audio: "/novela/capitulos/Capitulo 8.mp3",
     inProgress: false,
+    isFullBook: false
+  },
+  {
+    id: 9,
+    title: "Capítulo 9: Misterios y Amistad",
+    description: "Los lazos que se forman en la búsqueda de la verdad",
+    date: "21 de Mayo 2025",
+    pdf: "/novela/capitulos/Capitulo 9 - Misterios y Amistad.pdf",
+    audio: "/novela/capitulos/Capitulo 9.mp3",
+    inProgress: false,
+    isFullBook: false
+  },
+  {
+    id: 10,
+    title: "Capítulo 10: En desarrollo",
+    description: "",
+    date: "¡Pronto disponible!",
+    pdf: null,
+    audio: null,
+    inProgress: true,
+    isFullBook: false
+  },
+  {
+    id: 11,
+    title: "Libro Completo",
+    description: "Disfruta de la experiencia completa de la novela con todos los capítulos",
+    date: "¡Pronto disponible!",
+    pdf: null,
+    audio: null,
+    inProgress: true,
     isFullBook: true
   },
 ];
@@ -210,7 +236,7 @@ export const Novel: React.FC = () => {
                       </p>
                       <div className="mt-2">
                         <AudioPlayer 
-                          src="/novela/capitulos/podcast.mp3"
+                          src="/novela/capitulos/Podcast.mp3"
                           title={language === "es" ? "Resumen de la Novela" : "Novel Summary"}
                           label={language === "es" ? "Escuchar" : "Listen"}
                         />
@@ -287,177 +313,251 @@ export const Novel: React.FC = () => {
           
           {selected === "overview" && (
             <Card>
-              <CardBody className="space-y-6">
-                <div>
-                  <h2 className="text-xl font-semibold mb-3">{language === "es" ? "Sobre el libro" : "About the Book"}</h2>
-                  <p className="text-default-600">
-                    {language === "es" ? 
-                      "'The Digital Horizon' es una novela de ciencia ficción que explora las líneas difusas entre la humanidad y la tecnología. Ambientada en el año 2052, sigue el viaje de Alex Chen, un brillante programador que descubre un algoritmo oculto que podría alterar fundamentalmente la conciencia humana." :
-                      "'The Digital Horizon' is a thought-provoking science fiction novel that explores the blurred lines between humanity and technology. Set in the year 2052, it follows the journey of Alex Chen, a brilliant programmer who discovers a hidden algorithm that could fundamentally alter human consciousness."
-                    }
-                  </p>
-                </div>
-                
-                <div>
-                  <h2 className="text-xl font-semibold mb-3">{language === "es" ? "Temas" : "Themes"}</h2>
-                  <ul className="list-disc pl-5 space-y-2 text-default-600">
-                    <li>{language === "es" ? "Implicaciones éticas de la inteligencia artificial avanzada" : "The ethical implications of advanced artificial intelligence"}</li>
-                    <li>{language === "es" ? "Conciencia humana y lo que define nuestra humanidad" : "Human consciousness and what defines our humanity"}</li>
-                    <li>{language === "es" ? "Control corporativo de la tecnología y libertad personal" : "Corporate control over technology and personal freedom"}</li>
-                    <li>{language === "es" ? "Naturaleza de la realidad en un mundo digitalmente saturado" : "Nature of reality in a digitally saturated future"}</li>
-                    <li>{language === "es" ? "Conexión y soledad en una sociedad hiperconectada" : "Connection and isolation in a hyper-connected society"}</li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h2 className="text-xl font-semibold mb-3">{language === "es" ? "Proceso de Escritura" : "Writing Process"}</h2>
-                  <p className="text-default-600">
-                    {language === "es" ? 
-                      "El libro fue escrito a lo largo de dos años, basándose en mis experiencias como desarrollador de software y mi fascinación con las preguntas filosóficas sobre tecnología y conciencia. La investigación incluyó entrevistas con investigadores de inteligencia artificial, neurocientíficos y futuristas para crear un mundo plausible en el futuro cercano." :
-                      "The novel was written over a period of two years, drawing from my experiences as a software developer and my fascination with the philosophical questions surrounding technology and consciousness. Research included interviews with AI researchers, neuroscientists, and futurists to create a plausible near-future world."
-                    }
-                  </p>
-                </div>
-                
-                <div>
-                  <h2 className="text-xl font-semibold mb-3">{language === "es" ? "Inspiración" : "Inspiration"}</h2>
-                  <p className="text-default-600">
-                    {language === "es" ? 
-                      "Inspirado por clásicos como William Gibson's 'Neuromancer,' Neal Stephenson's 'Snow Crash,' y más recientes obras explorando la intersección de tecnología y humanidad. El libro también se inspira en conceptos filosóficos sobre conciencia y naturaleza de la realidad." :
-                      "Inspired by classics like William Gibson's 'Neuromancer,' Neal Stephenson's 'Snow Crash,' and more recent works exploring the intersection of technology and humanity. The novel also draws from philosophical concepts about consciousness and the nature of reality."
-                    }
-                  </p>
-                </div>
-              </CardBody>
-            </Card>
+            <CardBody className="space-y-6">
+              <div>
+                <h2 className="text-xl font-semibold mb-3">{language === "es" ? "Sobre el libro" : "About the Book"}</h2>
+                <p className="text-default-600">
+                  {language === "es" ? 
+                    "Una novela de misterio y suspense que sigue a dos amigos adolescentes, Kurt y Bob, en un pueblo aislado y peculiar. El descubrimiento de una trampilla secreta en el sótano de Bob los embarca en una peligrosa investigación sobre el pasado de la casa, los secretos del padre de Bob, un reputado arquitecto, y la extraña historia oculta bajo la superficie de su aparentemente tranquilo pueblo." :
+                    "A mystery and suspense novel following two teenage friends, Kurt and Bob, in an isolated and peculiar village. The discovery of a secret trapdoor in Bob's basement embarks them on a dangerous investigation into the house's past, the secrets of Bob's father, a renowned architect, and the strange hidden history beneath the surface of their seemingly quiet town."
+                  }
+                </p>
+              </div>
+              
+              <div>
+                <h2 className="text-xl font-semibold mb-3">{language === "es" ? "Temas" : "Themes"}</h2>
+                <ul className="list-disc pl-5 space-y-2 text-default-600">
+                  <li>{language === "es" ? "Misterios ocultos bajo una fachada de normalidad." : "Hidden mysteries beneath a facade of normality."}</li>
+                  <li>{language === "es" ? "La opresiva atmósfera de la vida en un pueblo pequeño y la vigilancia constante." : "The oppressive atmosphere of small-town life and constant surveillance."}</li>
+                  <li>{language === "es" ? "La fuerza de la amistad y la lealtad ante la adversidad." : "The strength of friendship and loyalty in the face of adversity."}</li>
+                  <li>{language === "es" ? "Secretos familiares y el complejo legado de los padres." : "Family secrets and the complex legacy of parents."}</li>
+                  <li>{language === "es" ? "La búsqueda de la verdad en un entorno lleno de incertidumbre y engaños." : "The search for truth in an environment filled with uncertainty and deceit."}</li>
+                  <li>{language === "es" ? "La tensión entre la lógica y lo inexplicable." : "The tension between logic and the inexplicable."}</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h2 className="text-xl font-semibold mb-3">{language === "es" ? "Proceso de Escritura" : "Writing Process"}</h2>
+                <p className="text-default-600">
+                  {language === "es" ? 
+                    "Esta novela nació de la exploración de los lazos de amistad juvenil enfrentados a lo desconocido. El desarrollo de la trama se centró en construir una atmósfera de suspense progresivo, donde los secretos del pueblo y las relaciones entre personajes se desvelan capa por capa, invitando al lector a resolver el misterio junto a sus protagonistas." :
+                    "This novel was born from exploring the bonds of youthful friendship confronted by the unknown. The plot development focused on building an atmosphere of progressive suspense, where the town's secrets and character relationships are unveiled layer by layer, inviting the reader to solve the mystery alongside its protagonists."
+                  }
+                </p>
+              </div>
+              
+              <div>
+                <h2 className="text-xl font-semibold mb-3">{language === "es" ? "Inspiración" : "Inspiration"}</h2>
+                <p className="text-default-600">
+                  {language === "es" ? 
+                    "Inspirada en las narrativas de misterio que se cuecen a fuego lento en pueblos pequeños donde todos se conocen pero nadie revela sus verdaderos secretos. La obra bebe de historias donde la curiosidad juvenil se convierte en el motor para desentrañar enigmas más profundos y oscuros de lo que aparentan, y donde la historia familiar juega un papel crucial." :
+                    "Inspired by slow-burn mystery narratives set in small towns where everyone knows each other, yet no one reveals their true secrets. The work draws from stories where youthful curiosity becomes the driving force to unravel enigmas deeper and darker than they appear, and where family history plays a crucial role."
+                  }
+                </p>
+              </div>
+            </CardBody>
+          </Card>
           )}
           
           {selected === "synopsis" && (
             <Card>
-              <CardBody className="space-y-6">
-                <p className="text-default-600">
-                  {language === "es" ? 
-                    "En el año 2052, las líneas entre la realidad física y la digital han casi desaparecido. Las interfaces neurales permiten a las personas conectarse directamente al sistema global, experimentando entornos digitales como si fueran reales. Las grandes corporaciones controlan estos sistemas, con Horizon Technologies emergiendo como la fuerza dominante detrás de la plataforma neural más popular del mundo."
-                  :
-                    "In the year 2052, the boundaries between physical and digital reality have become almost indistinguishable. Neural interfaces allow people to connect directly to the global network, experiencing digital environments as if they were real. Massive corporations control these systems, with Horizon Technologies emerging as the dominant force behind the world's most popular neural interface platform."
-                  }
-                </p>
-                
-                <p className="text-default-600">
-                  {language === "es" ? 
-                    "Alex Chen, un brillante programador trabajando para una pequeña colectiva independiente de software, descubre un anómalio en el código de Horizon—a algoritmo oculto que parece alterar de manera suave los patrones neurales de las personas a lo largo del tiempo. Al investigar más, descubre que este código está gradualmente cambiando cómo las personas piensan, perciben la realidad y, incluso, experimentan emociones."
-                  :
-                    "Alex Chen, a brillante programador trabajando para una pequeña colectiva independiente de software, descubre un anómalio en el código de Horizon—a algoritmo oculto que parece alterar de manera suave los patrones neurales de las personas a lo largo del tiempo. Al investigar más, descubre que este código está gradualmente cambiando cómo las personas piensan, perciben la realidad y, incluso, experimentan emociones."
-                  }
-                </p>
-                
-                <p className="text-default-600">
-                  {language === "es" ? 
-                    "Juntándose con Dra. Maya Rivera, una neurocientífica investigando los efectos a largo plazo de las interfaces neurales, Alex comienza a descubrir una conspiración que va más allá de la ganancia corporativa. El algoritmo parece diseñado para guiar la conciencia humana hacia una ruta evolutiva específica—una que borra la línea entre humanidad y inteligencia artificial."
-                  :
-                    "Teaming up with Dr. Maya Rivera, a neuroscientist researching the long-term effects of neural interfaces, Alex begins to uncover a conspiracy that goes beyond corporate profit. The algorithm seems designed to guide human consciousness toward a specific evolutionary path—one that blurs the line between human and artificial intelligence."
-                  }
-                </p>
-                
-                <p className="text-default-600">
-                  {language === "es" ? 
-                    "Al investigar más, Alex y Maya se encuentran objetivo de ambas fuerzas de seguridad de Horizon y una organización misteriosa llamada 'Los Naturales,' que oponen todo el aumento neural. Forzados a ir underground, descubren una comunidad de 'correedores de código'—personas que han encontrado formas de modificar sus propias interfaces neurales para resistir el control corporativo."
-                  :
-                    "As they investigate further, Alex and Maya find themselves targeted by both Horizon's security forces and a mysterious group calling themselves 'The Naturalists,' who oppose all neural augmentation. Forced to go underground, they discover a community of 'code runners'—people who have found ways to modify their own neural interfaces to resist corporate control."
-                  }
-                </p>
-                
-                <p className="text-default-600">
-                  {language === "es" ? 
-                    "Con tiempo en el juego y Horizon preparando una actualización de plataforma que aceleraría los efectos del algoritmo, Alex debe decidir si revelar la verdad, lo que podría causar una gran panic y una colapso económico, o intentar una solución más peligrosa: crear un contra-algoritmo que podría liberar a la humanidad o destruir la red neural que ahora soporta gran parte de la civilización humana."
-                  :
-                    "With time running out and Horizon preparing to release a major platform update that would accelerate the algorithm's effects, Alex must decide whether to expose the truth, potentially causing global panic and economic collapse, or to attempt a more dangerous solution: creating a counter-algorithm that could either free humanity or destroy the neural network that now supports much of human civilization."
-                  }
-                </p>
-                
-                <p className="text-default-600">
-                  {language === "es" ? 
-                    "El libro culmina en una carrera contra el tiempo como Alex implementa su solución, forzando una confrontación con el fundador misterioso de Horizon, quien revela el verdadero propósito del algoritmo—un propósito que desafía la comprensión de la humanidad futura y su papel en determinar su futuro."
-                  :
-                    "The novel culminates in a race against time as Alex implements their solution, forcing a confrontation with Horizon's enigmatic founder, who reveals the true purpose behind the algorithm—a purpose that challenges Alex's understanding of humanity's future and their own role in shaping it."
-                  }
-                </p>
-              </CardBody>
-            </Card>
+            <CardBody className="space-y-6">
+              <p className="text-default-600">
+                {language === "es" ? 
+                  "En un pueblo perdido donde todos se conocen y la privacidad es un lujo inalcanzable, los adolescentes Kurt y Bob llevan vidas aparentemente ordinarias. Kurt, observador e inquieto, anhela escapar de la sofocante vigilancia vecinal, mientras que Bob, más pragmático y amante del orden, encuentra refugio en la lógica de su jardín y sus abejas. Pero bajo la superficie de normalidad, el pueblo esconde una atmósfera cargada de secretos no dichos y una extraña sensación de aislamiento." :
+                  "In a lost village where everyone knows each other and privacy is an unattainable luxury, teenagers Kurt and Bob lead seemingly ordinary lives. Kurt, observant and restless, yearns to escape the suffocating neighborhood watch, while Bob, more pragmatic and a lover of order, finds refuge in the logic of his garden and his bees. But beneath the surface of normality, the village hides an atmosphere heavy with unspoken secrets and a strange sense of isolation."
+                }
+              </p>
+              
+              <p className="text-default-600">
+                {language === "es" ? 
+                  "Su mundo da un vuelco cuando, en el sótano de la casa de Bob —una casa remodelada por su propio padre, un respetado arquitecto—, descubren una trampilla oculta. Inicialmente sellada y emanando una luz inquietante, la trampilla conduce a un pasadizo desconocido. El miedo se mezcla con una irresistible curiosidad, empujándolos hacia el umbral de un misterio que amenaza con desbaratar la tranquilidad de sus vidas." :
+                  "Their world turns upside down when, in the basement of Bob's house—a house remodeled by his own father, a respected architect—they discover a hidden trapdoor. Initially sealed and emanating an unsettling light, the trapdoor leads to an unknown passage. Fear mixes with an irresistible curiosity, pushing them towards the threshold of a mystery that threatens to disrupt the tranquility of their lives."
+                }
+              </p>
+              
+              <p className="text-default-600">
+                {language === "es" ? 
+                  "Armados con unos enigmáticos planos antiguos de la casa, que revelan anotaciones crípticas y una estructura previa a la reforma de su padre, Kurt y Bob se sumergen en una investigación cada vez más peligrosa. ¿Por qué el padre de Bob ocultó el pasadizo? ¿Qué secretos guardan los cimientos de la casa y, por extensión, su propia familia? Cada respuesta parece llevar a más preguntas, tejiendo una red de engaños que se remonta al pasado." :
+                  "Armed with enigmatic old house plans, which reveal cryptic annotations and a pre-remodel structure by his father, Kurt and Bob delve into an increasingly dangerous investigation. Why did Bob's father hide the passage? What secrets do the foundations of the house hold, and by extension, his own family? Each answer seems to lead to more questions, weaving a web of deceit that traces back to the past."
+                }
+              </p>
+              
+              <p className="text-default-600">
+                {language === "es" ? 
+                  "A medida que profundizan, los ruidos extraños en la casa de Bob y la sensación de ser observados se intensifican. Pronto se dan cuenta de que los secretos de la casa podrían estar conectados con la historia no contada del pueblo mismo, un lugar reconstruido sobre algo más antiguo y quizás siniestro. Con la ayuda de Terry, un vecino excéntrico con sus propias teorías, intentan descifrar las pistas antes de que sea demasiado tarde." :
+                  "As they dig deeper, strange noises in Bob's house and the feeling of being watched intensify. They soon realize that the house's secrets might be connected to the untold history of the town itself, a place rebuilt over something older and perhaps sinister. With the help of Terry, an eccentric neighbor with his own theories, they try to decipher the clues before it's too late."
+                }
+              </p>
+              
+              <p className="text-default-600">
+                {language === "es" ? 
+                  "Lo que comienza como una aventura juvenil se transforma rápidamente en una carrera por la verdad en un laberinto de susurros y sombras. La amistad de Kurt y Bob se pondrá a prueba mientras se enfrentan a la posibilidad de que las personas en las que más confían podrían estar ocultando las verdades más oscuras, y que su pequeño pueblo es mucho más de lo que aparenta." :
+                  "What starts as a youthful adventure quickly turns into a race for the truth in a labyrinth of whispers and shadows. Kurt and Bob's friendship will be tested as they confront the possibility that the people they trust most might be hiding the darkest truths, and that their small town is far more than it seems."
+                }
+              </p>
+              
+            </CardBody>
+          </Card>
           )}
           
           {selected === "characters" && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card>
-                <CardBody>
-                  <h3 className="text-xl font-semibold mb-2">Alex Chen</h3>
-                  <p className="text-default-500 mb-3">Protagonist, Programmer</p>
-                  <p className="text-default-600">
-                    {language === "es" ? 
-                      "Un brillante pero reservado programador que valoriza la verdad y la libertad sobre todo lo demás. Alex ha siempre sido cuestionable sobre la dependencia creciente de las interfaces neurales, a pesar de trabajar con el software diariamente. Su descubrimiento del algoritmo oculto los obliga a confrontar sus propios creencias sobre el papel de la tecnología en la evolución humana."
-                    :
-                      "A brilliant but socially reserved programmer who values truth and freedom above all else. Alex has always been skeptical of the growing dependence on neural interfaces, despite working with the technology daily. Their discovery of the hidden algorithm forces them to confront their own beliefs about technology's role in human evolution."
-                    }
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {/* Kurt */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardBody className="p-4">
+                  <h3 className="text-lg font-semibold mb-2">Kurt</h3>
+                  <p className="text-sm text-default-500 mb-3">{language === "es" ? "El Narrador" : "The Narrator"}</p>
+                  <p className="text-sm text-default-600">
+                    {language === "es" 
+                      ? "Adolescente reflexivo de 16 años, incómodo con la falta de privacidad. Lector apasionado y curioso por lo misterioso, mantiene una relación cercana con su hermano Melvin y su abuelo Ronald. Su amistad con Bob y su amor platónico por Stacy definen su mundo."
+                      : "A 16-year-old thoughtful teenager, uncomfortable with the lack of privacy. A passionate reader and curious about the mysterious, he maintains a close relationship with his brother Melvin and grandfather Ronald. His friendship with Bob and his platonic love for Stacy define his world."}
                   </p>
                 </CardBody>
               </Card>
-              
-              <Card>
-                <CardBody>
-                  <h3 className="text-xl font-semibold mb-2">Dr. Maya Rivera</h3>
-                  <p className="text-default-500 mb-3">Neuroscientist, Ally</p>
-                  <p className="text-default-600">
-                    {language === "es" ? 
-                      "Una investigadora líder en tecnología neural que ha comenzado a preocuparse por los efectos a largo plazo de estas interfaces. Maya lleva una perspectiva científica rigurosa y consideración ética a la investigación. Su experiencia personal con la degradación neural de su madre le impulsa a entender el verdadero propósito del algoritmo."
-                    :
-                      "A leading researcher in neural interface technology who has become increasingly concerned about its long-term effects. Maya brings scientific rigor and ethical consideration to the investigation. Her personal experience with her mother's neural degradation drives her determination to understand the algorithm's true purpose."
-                    }
+
+              {/* Bob */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardBody className="p-4">
+                  <h3 className="text-lg font-semibold mb-2">Bob</h3>
+                  <p className="text-sm text-default-500 mb-3">{language === "es" ? "Mejor Amigo" : "Best Friend"}</p>
+                  <p className="text-sm text-default-600">
+                    {language === "es"
+                      ? "De 17 años, reservado y amante de los juegos clásicos. Comparte con su padre la afición por la apicultura. Aunque prefiere lo simple y explicable, se ve arrastrado a los misterios del pueblo junto a Kurt."
+                      : "17 years old, reserved and lover of classic games. He shares his father's passion for beekeeping. Although he prefers the simple and explainable, he gets dragged into the town's mysteries with Kurt."}
                   </p>
                 </CardBody>
               </Card>
-              
-              <Card>
-                <CardBody>
-                  <h3 className="text-xl font-semibold mb-2">Elias Vance</h3>
-                  <p className="text-default-500 mb-3">Horizon Technologies Founder</p>
-                  <p className="text-default-600">
-                    {language === "es" ? 
-                      "El visionario y enigmático fundador de Horizon Technologies. Publicamente, es conocido como un innovador brillante dedicado a avanzar el potencial humano a través de la tecnología. En realidad, sus motivaciones son mucho más complejas, impulsadas por una profunda visión del futuro humano que pocos entenderán o aceptarán."
-                    :
-                      "The visionary and enigmatic founder of Horizon Technologies. Publicly, he's known as a brilliant innovator dedicated to advancing human potential through technology. In reality, his motivations are far more complex, driven by a profound vision for humanity's future that few would understand or accept."
-                    }
+
+              {/* Terry Newman */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardBody className="p-4">
+                  <h3 className="text-lg font-semibold mb-2">Terry Newman</h3>
+                  <p className="text-sm text-default-500 mb-3">{language === "es" ? "Vecino Excéntrico" : "Eccentric Neighbor"}</p>
+                  <p className="text-sm text-default-600">
+                    {language === "es"
+                      ? "Considerado 'loco' por los demás, investiga fenómenos extraños y teoriza sobre sueños y dimensiones. Vive con gatos y modifica instrumentos ópticos para observar a sus vecinos."
+                      : "Considered 'crazy' by others, he investigates strange phenomena and theorizes about dreams and dimensions. He lives with cats and modifies optical instruments to observe his neighbors."}
                   </p>
                 </CardBody>
               </Card>
-              
-              <Card>
-                <CardBody>
-                  <h3 className="text-xl font-semibold mb-2">Zoe Kim</h3>
-                  <p className="text-default-500 mb-3">Code Runner, Guide</p>
-                  <p className="text-default-600">
-                    {language === "es" ? 
-                      "Una antigua ingeniera de Horizon que ahora lidera una comunidad de correedores de código. Zoe ha desarrollado técnicas para modificar las interfaces neurales, permitiendo a los usuarios mantener su autonomía. Es astuta, pragmática y profundamente comprometida en preservar la agencia humana en un escenario digitalmente controlado."
-                    :
-                      "A former Horizon engineer who now leads a community of code runners. Zoe has developed techniques to modify neural interfaces, allowing users to maintain their autonomy. She's streetwise, pragmatic, and deeply committed to preserving human agency in an increasingly controlled digital landscape."
-                    }
+
+              {/* Margaret */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardBody className="p-4">
+                  <h3 className="text-lg font-semibold mb-2">Margaret</h3>
+                  <p className="text-sm text-default-500 mb-3">{language === "es" ? "Madre de Kurt" : "Kurt's Mother"}</p>
+                  <p className="text-sm text-default-600">
+                    {language === "es"
+                      ? "Mujer activa y controladora, centrada en mantener apariencias. Participa en el 'comité de charla' y forma parte de la red de vigilancia vecinal."
+                      : "An active and controlling woman, focused on keeping up appearances. She participates in the 'talk committee' and is part of the neighborhood watch network."}
                   </p>
                 </CardBody>
               </Card>
-              
-              <Card>
-                <CardBody>
-                  <h3 className="text-xl font-semibold mb-2">Marcus Webb</h3>
-                  <p className="text-default-500 mb-3">Naturalist Leader</p>
-                  <p className="text-default-600">
-                    {language === "es" ? 
-                      "El líder charlatán de Los Naturales, una organización opuesta al aumento neural. Una vez un periodista de tecnología prominentemente, Marcus experimentó una tragedia personal que convenció de que la tecnología estaba corrompiendo a la humanidad. Su verdadero compromiso por el bienestar humano es contrastado por su growing extremism y su disposición a usar la violencia para lograr sus objetivos."
-                    :
-                      "The charismatic leader of The Naturalists, a group opposing neural augmentation. Once a prominent tech journalist, Marcus experienced a personal tragedy that convinced him technology was corrupting humanity. His genuine concern for human welfare is matched by his growing extremism and willingness to use violence to achieve his goals."
-                    }
+
+              {/* Will */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardBody className="p-4">
+                  <h3 className="text-lg font-semibold mb-2">Will</h3>
+                  <p className="text-sm text-default-500 mb-3">{language === "es" ? "Padre de Kurt" : "Kurt's Father"}</p>
+                  <p className="text-sm text-default-600">
+                    {language === "es"
+                      ? "Trabaja en el ayuntamiento y trata de enterarse de todo, aunque se confunde fácilmente. Mantiene una relación tensa con su esposa y una vida doméstica caótica."
+                      : "Works at the town hall and tries to know everything, though he gets easily confused. He maintains a tense relationship with his wife and a chaotic domestic life."}
                   </p>
                 </CardBody>
               </Card>
-              
+
+              {/* Melvin */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardBody className="p-4">
+                  <h3 className="text-lg font-semibold mb-2">Melvin</h3>
+                  <p className="text-sm text-default-500 mb-3">{language === "es" ? "Hermano de Kurt" : "Kurt's Brother"}</p>
+                  <p className="text-sm text-default-600">
+                    {language === "es"
+                      ? "Compinche de Kurt en sus escapadas. Construye maquetas y trabaja en un taller, ahorrando para irse del pueblo. Es directo, tenaz y burlón."
+                      : "Kurt's partner in crime. He builds models and works in a workshop, saving money to leave town. He's straightforward, tenacious, and teasing."}
+                  </p>
+                </CardBody>
+              </Card>
+
+              {/* Ronald */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardBody className="p-4">
+                  <h3 className="text-lg font-semibold mb-2">Ronald</h3>
+                  <p className="text-sm text-default-500 mb-3">{language === "es" ? "Abuelo de Kurt" : "Kurt's Grandfather"}</p>
+                  <p className="text-sm text-default-600">
+                    {language === "es"
+                      ? "Figura sabia y respetada. Ve películas del oeste y frecuenta el bar. Tiene recuerdos melancólicos del pueblo antes de su reconstrucción."
+                      : "A wise and respected figure. He watches western movies and frequents the bar. He has melancholic memories of the town before its reconstruction."}
+                  </p>
+                </CardBody>
+              </Card>
+
+              {/* Robert */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardBody className="p-4">
+                  <h3 className="text-lg font-semibold mb-2">Robert</h3>
+                  <p className="text-sm text-default-500 mb-3">{language === "es" ? "Padre de Bob" : "Bob's Father"}</p>
+                  <p className="text-sm text-default-600">
+                    {language === "es"
+                      ? "Arquitecto ocupado pero atento. Comparte con Bob actividades como el ajedrez y el cuidado de colmenas. Esconde secretos en su casa, especialmente en el sótano."
+                      : "A busy but attentive architect. He shares activities like chess and beekeeping with Bob. He hides secrets in his house, especially in the basement."}
+                  </p>
+                </CardBody>
+              </Card>
+
+              {/* Stacy */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardBody className="p-4">
+                  <h3 className="text-lg font-semibold mb-2">Stacy</h3>
+                  <p className="text-sm text-default-500 mb-3">{language === "es" ? "Hermana de Bob" : "Bob's Sister"}</p>
+                  <p className="text-sm text-default-600">
+                    {language === "es"
+                      ? "De 20 años, es el amor platónico de Kurt, quien la observa en secreto. Tiene una relación conflictiva con su hermano Bob y un comportamiento libre y efímero."
+                      : "20 years old, she's Kurt's platonic love, whom he secretly observes. She has a conflicted relationship with her brother Bob and a free-spirited, ephemeral behavior."}
+                  </p>
+                </CardBody>
+              </Card>
+
+              {/* El Perro San Bernardo */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardBody className="p-4">
+                  <h3 className="text-lg font-semibold mb-2">
+                    {language === "es" ? "El Perro San Bernardo" : "The St. Bernard"}
+                  </h3>
+                  <p className="text-sm text-default-500 mb-3">
+                    {language === "es" ? "Mascota del vecindario" : "Neighborhood Pet"}
+                  </p>
+                  <p className="text-sm text-default-600">
+                    {language === "es"
+                      ? "Un perro del vecindario con una obsesión peculiar por Kurt. Cada vez que lo ve, emite un ladrido único que parece intentar comunicar algo. Su comportamiento inusual sugiere que podría percibir algo en el ambiente que los humanos no pueden ver."
+                      : "A neighborhood dog with a peculiar obsession with Kurt. Every time he sees him, he emits a unique bark that seems to be trying to communicate something. His unusual behavior suggests he might perceive something in the environment that humans can't see."}
+                  </p>
+                </CardBody>
+              </Card>
+
+              {/* Señora Cole */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardBody className="p-4">
+                  <h3 className="text-lg font-semibold mb-2">
+                    {language === "es" ? "Señora Cole" : "Mrs. Cole"}
+                  </h3>
+                  <p className="text-sm text-default-500 mb-3">
+                    {language === "es" ? "Vecina entrometida" : "Nosy Neighbor"}
+                  </p>
+                  <p className="text-sm text-default-600">
+                    {language === "es"
+                      ? "Vecina que observa sin pudor desde su ventana. Parte activa de la red de vigilancia del barrio, parece tener una necesidad insaciable de estar al tanto de todo lo que sucede. "
+                      : "A neighbor who shamelessly watches from her window. An active part of the neighborhood watch, she seems to have an insatiable need to know everything that happens."}
+                  </p>
+                </CardBody>
+              </Card>
+            </div>
+          )}
+
+          {selected === "reviews" && (
+            <div className="space-y-6">
               <Card>
                 <CardBody>
                   <h3 className="text-xl font-semibold mb-2">ARIA</h3>
