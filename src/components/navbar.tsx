@@ -6,7 +6,6 @@ import {
   NavbarContent, 
   NavbarItem, 
   Link, 
-  Button,
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem
@@ -66,21 +65,12 @@ export const Navbar: React.FC = () => {
         ))}
       </NavbarContent>
       
-      <NavbarContent justify="end">
-        <NavbarItem>
-          <LanguageSwitcher />
-        </NavbarItem>
-
+      <NavbarContent justify="end" className="gap-2">
         <NavbarItem className="hidden sm:flex">
-          <Button 
-            as={RouterLink} 
-            to="/contact" 
-            color="primary" 
-            variant="flat"
-            endContent={<Icon icon="lucide:send" />}
-          >
-            Contactar
-          </Button>
+          <ThemeSwitcher />
+        </NavbarItem>
+        <NavbarItem className="hidden sm:flex">
+          <LanguageSwitcher />
         </NavbarItem>
       </NavbarContent>
       

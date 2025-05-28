@@ -340,8 +340,8 @@ export const Novel: React.FC = () => {
                 <h2 className="text-xl font-semibold mb-3">{language === "es" ? "Proceso de Escritura" : "Writing Process"}</h2>
                 <p className="text-default-600">
                   {language === "es" ? 
-                    "Esta novela nació de la exploración de los lazos de amistad juvenil enfrentados a lo desconocido. El desarrollo de la trama se centró en construir una atmósfera de suspense progresivo, donde los secretos del pueblo y las relaciones entre personajes se desvelan capa por capa, invitando al lector a resolver el misterio junto a sus protagonistas." :
-                    "This novel was born from exploring the bonds of youthful friendship confronted by the unknown. The plot development focused on building an atmosphere of progressive suspense, where the town's secrets and character relationships are unveiled layer by layer, inviting the reader to solve the mystery alongside its protagonists."
+                    "Esta novela nació en el 2011 cuando un gran amigo mío Lucio Delgado 🖤 me propuso escribir juntos una novela de misterio y suspense. Sin pensarlo comenzamos a escribirla, un capítulo cada uno. Todo quedó guardado en un archivo de Word en mi computadora y en 2024 decidí retomarla en su honor por haberla empezado. Usando Notebooklm mi proceso se ha acelerado y he podido avanzar rápidamente. " :
+                    "This novel was born in 2011 when a great friend of mine, Lucio Delgado 🖤, proposed writing it together. Without thinking about it, we started writing it, one chapter at a time. Everything was saved in a Word file on my computer and in 2024 I decided to resume it in his honor for having started it. Using Notebooklm my process has accelerated and I have been able to advance quickly."
                   }
                 </p>
               </div>

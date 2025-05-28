@@ -65,7 +65,7 @@ export const About: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="mb-12 text-center"
         >
-          <h1 className="text-4xl font-bold mb-4">Sobre Mí</h1>
+          <h1 className="text-6xl font-bold mb-4">Sobre Mí</h1>
           <p className="text-default-600 max-w-2xl mx-auto">
             {language === "es" ? 
               "Desarrollador full-stack, fotógrafo, entusiasta de drones, y autor con pasión por crear experiencias digitales innovadoras." :
@@ -242,8 +242,8 @@ export const About: React.FC = () => {
                       alt="Photography" 
                       className="rounded-lg object-cover w-full h-40 mb-2"
                     />
-                    <h3 className="font-semibold">Photography</h3>
-                    <p className="text-default-500 text-sm">Landscape and urban photography</p>
+                    <h3 className="font-semibold">Fotografía</h3>
+                    <p className="text-default-500 text-sm">Fotografía de paisajes, urbana y astronómica</p>
                   </div>
                   <div>
                     <img 
@@ -251,8 +251,8 @@ export const About: React.FC = () => {
                       alt="Drone Photography" 
                       className="rounded-lg object-cover w-full h-40 mb-2"
                     />
-                    <h3 className="font-semibold">Drone Videography</h3>
-                    <p className="text-default-500 text-sm">Aerial perspectives and cinematography</p>
+                    <h3 className="font-semibold">Video Drones FPV</h3>
+                    <p className="text-default-500 text-sm">Imagenes únicas aéreas con drones FPV y convencionales</p>
                   </div>
                   <div>
                     <img 
@@ -260,12 +260,12 @@ export const About: React.FC = () => {
                       alt="Writing" 
                       className="rounded-lg object-cover w-full h-40 mb-2"
                     />
-                    <h3 className="font-semibold">Creative Writing</h3>
-                    <p className="text-default-500 text-sm">Science fiction and tech essays</p>
+                    <h3 className="font-semibold">Escritura</h3>
+                    <p className="text-default-500 text-sm">Ciencia ficción y ensayos tecnológicos</p>
                   </div>
                 </div>
                 <p className="text-default-600">
-                  These creative pursuits inform my development work by enhancing my visual thinking, attention to detail, and ability to craft compelling narratives around user experiences.
+                  Estas actividades creativas me informan en mi trabajo de desarrollo al mejorar mi pensamiento visual, atención al detalle y habilidad para crear narrativas persuasivas alrededor de las experiencias de los usuarios.
                 </p>
               </CardBody>
             </Card>
