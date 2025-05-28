@@ -65,7 +65,7 @@ export const Contact: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="font-medium">Email</h3>
-                      <p className="text-default-500">carlos@devportfolio.com</p>
+                      <p className="text-default-500">carlosfreireph@gmail.com</p>
                     </div>
                   </div>
                   
@@ -75,7 +75,7 @@ export const Contact: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="font-medium">{language === "es" ? "Teléfono" : "Phone"}</h3>
-                      <p className="text-default-500">+34 612 345 678</p>
+                      <p className="text-default-500">+34 685 78 83 ..</p>
                     </div>
                   </div>
                   

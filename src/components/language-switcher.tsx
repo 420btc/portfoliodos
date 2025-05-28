@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Tooltip } from "@heroui/react";
-import { Icon } from "@iconify/react";
 
 // Creamos un contexto para el idioma
 export const LanguageContext = React.createContext({
@@ -35,15 +34,14 @@ export const LanguageSwitcher: React.FC = () => {
       <Button
         isIconOnly
         variant="light"
+        className="text-foreground hover:text-primary transition-colors min-w-8 h-8"
         size="sm"
         onPress={toggleLanguage}
         aria-label={language === "es" ? "Cambiar a inglés" : "Switch to Spanish"}
       >
-        <Icon 
-          icon={language === "es" ? "lucide:flag-uk" : "lucide:flag-spain"} 
-          width={20} 
-          height={20} 
-        />
+        <span className="text-lg">
+          {language === "es" ? "🇬🇧" : "🇪🇸"}
+        </span>
       </Button>
     </Tooltip>
   );

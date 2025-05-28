@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { HeroSection } from "../components/hero-section";
 import { ProjectCard } from "../components/project-card";
 import { featuredProjects } from "../data/projects";
+import { WorkTogether } from "../components/work-together";
 
 export const Home: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ export const Home: React.FC = () => {
       <HeroSection />
       
       {/* Featured Projects */}
-      <section className="py-20 px-6 bg-background">
+      <section className="pt-1 pb-20 px-6 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12">
             <div>
@@ -201,34 +202,10 @@ export const Home: React.FC = () => {
         </div>
       </section>
       
-      {/* Contact CTA */}
+      {/* Work Together CTA */}
       <section className="py-20 px-6 bg-primary/5">
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-bold mb-4">¿Trabajamos juntos?</h2>
-            <p className="text-default-600 mb-8 max-w-xl mx-auto">
-              Estoy siempre abierto a nuevos proyectos y oportunidades. Si tienes una idea o necesitas ayuda con tu próximo{' '}
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-warning/10 text-warning">
-                Trabajo
-              </span>{' '}
-              no dudes en contactarme.
-            </p>
-            
-            <Button
-              as={RouterLink}
-              to="/contact"
-              color="primary"
-              size="lg"
-              endContent={<Icon icon="lucide:send" />}
-            >
-              Contactar
-            </Button>
-          </motion.div>
+        <div className="max-w-3xl mx-auto">
+          <WorkTogether />
         </div>
       </section>
     </div>

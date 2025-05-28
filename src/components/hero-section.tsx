@@ -7,26 +7,26 @@ import { Button, Link } from "@heroui/react";
 const jobTitles = [
   { 
     parts: [
-      { text: "Desarrollador ", color: "text-white" },
+      { text: "Desarrollador ", color: "text-foreground dark:text-white" },
       { text: "Full Stack", color: "text-primary" }
     ]
   },
   { 
     parts: [
       { text: "Fotógrafo ", color: "text-primary" },
-      { text: "Astronómico", color: "text-white" }
+      { text: "Astronómico", color: "text-foreground dark:text-white" }
     ]
   },
   { 
     parts: [
-      { text: "Piloto de ", color: "text-white" },
+      { text: "Piloto de ", color: "text-foreground dark:text-white" },
       { text: "Drones FPV", color: "text-primary" }
     ]
   },
   { 
     parts: [
       { text: "Diseñador ", color: "text-primary" },
-      { text: "Web", color: "text-white" }
+      { text: "Web", color: "text-foreground dark:text-white" }
     ]
   }
 ];
@@ -87,8 +87,8 @@ export const HeroSection: React.FC = () => {
         <div className="absolute bottom-10 left-10 w-72 h-72 rounded-full bg-secondary/5 blur-3xl"></div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 items-start lg:pt-10">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -115,7 +115,7 @@ export const HeroSection: React.FC = () => {
                 </div>
               </div>
               
-              <h1 className="text-6xl md:text-6xl font-bold mb-6">
+              <h1 className="text-7xl md:text-7xl font-bold mb-6">
                 Hola, soy <span className="text-primary">Carlos Freire</span>
               </h1>
               <div className="h-16">
@@ -136,14 +136,11 @@ export const HeroSection: React.FC = () => {
                   </motion.div>
                 </AnimatePresence>
               </div>
-              <p className="text-xl text-default-600 mt-6 max-w-2xl mx-auto">
-                Creando experiencias digitales únicas y soluciones innovadoras
+              <p className="text-xl text-default-600 mt-6 max-w-2xl">
+              Creo experiencias web modernas y funcionales. Especializado en React, Next.js y TypeScript para construir aplicaciones que me permiten demostrar mis habilidades.
               </p>
               
-
-            </div>
-            
-            <div className="flex flex-wrap justify-center sm:justify-start gap-4 w-full">
+              <div className="flex flex-wrap justify-start gap-4 w-full mt-6">
               <Button
                 as={RouterLink}
                 to="/contact"
@@ -164,9 +161,10 @@ export const HeroSection: React.FC = () => {
               >
                 Ver Proyectos
               </Button>
+              </div>
             </div>
             
-            <div className="flex items-center gap-4 mt-12">
+            <div className="hidden md:flex items-center gap-4 mt-12">
               <p className="text-default-500">Find me on:</p>
               <div className="flex gap-4">
                 <Link href="https://github.com" isExternal aria-label="GitHub">
@@ -189,7 +187,7 @@ export const HeroSection: React.FC = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            className="relative -mt-12 lg:-mt-1"
           >
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
