@@ -1,6 +1,6 @@
-import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Analytics } from "@vercel/analytics/react";
 import { Navbar } from "./components/navbar";
 import { Footer } from "./components/footer";
 import { Home } from "./pages/home";
@@ -27,6 +27,7 @@ export default function App() {
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
           </Switch>
+          <Analytics />
         </motion.main>
         <Footer />
       </div>
