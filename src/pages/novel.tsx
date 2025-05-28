@@ -19,7 +19,7 @@ export const Novel: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div className="md:col-span-1">
               <img 
-                src="https://img.heroui.chat/image/book?w=800&h=1200&u=30" 
+                src="images/portada1.png" 
                 alt="The Digital Horizon book cover" 
                 className="rounded-lg shadow-lg w-full max-w-xs mx-auto"
               />
@@ -32,7 +32,7 @@ export const Novel: React.FC = () => {
                 <Chip color="default" variant="flat">{language === "es" ? "Distopía" : "Dystopian"}</Chip>
               </div>
               
-              <h1 className="text-4xl font-bold mb-2">The Digital Horizon</h1>
+              <h1 className="text-4xl font-bold mb-2">Bajo la normalidad</h1>
               <p className="text-default-500 mb-4">Una novela de Carlos Freire</p>
               
               <div className="flex items-center gap-4 mb-6">
@@ -52,14 +52,14 @@ export const Novel: React.FC = () => {
                 <Divider orientation="vertical" />
                 <div className="flex items-center gap-1">
                   <Icon icon="lucide:calendar" className="text-default-500" />
-                  <span className="text-default-500">{language === "es" ? "Publicado en 2023" : "Published 2023"}</span>
+                  <span className="text-default-500">{language === "es" ? "Publicado en 2025" : "Published 2025"}</span>
                 </div>
               </div>
               
               <p className="text-default-600 mb-6">
                 {language === "es" ? 
-                  "En un mundo donde la realidad y la virtualidad se han fusionado, un programador descubre un código oculto que podría salvar a la humanidad o completar su transformación en algo completamente diferente. 'The Digital Horizon' explora las implicaciones éticas de la tecnología avanzada y la naturaleza de la conciencia en un futuro digitalmente saturado." :
-                  "In a world where reality and virtuality have merged, one programmer discovers a hidden code that could either save humanity or complete its transformation into something else entirely. 'The Digital Horizon' explores the ethical implications of advanced technology and the nature of consciousness in a digitally saturated future."
+                  "El descubrimiento de un secreto profundo y antiguo bajo la superficie de un pueblo aparentemente normal. Este secreto, ligado a estructuras ocultas y fenómenos inexplicables, desafía la comprensión de los jóvenes protagonistas y los arrastra a una peligrosa investigación que pone a prueba su amistad, enfrentándolos a las acciones encubiertas de aquellos en quienes confiaban y revelando una historia oculta que envuelve a todo su pueblo." :
+                  "A secret is discovered in the depths of a seemingly normal town. This secret, linked to hidden structures and inexplicable phenomena, challenges the understanding of the young protagonists and leads them on a dangerous investigation that puts their friendship to the test, confronting them with the hidden actions of those they trusted and revealing an unknown story that envelops the entire town."
                 }
               </p>
               
@@ -130,10 +130,10 @@ export const Novel: React.FC = () => {
                 </div>
                 
                 <div>
-                  <h2 className="text-xl font-semibold mb-3">{language === "es" ? "Inspinación" : "Inspiration"}</h2>
+                  <h2 className="text-xl font-semibold mb-3">{language === "es" ? "Inspiración" : "Inspiration"}</h2>
                   <p className="text-default-600">
                     {language === "es" ? 
-                      "Inspinado por clásicos como William Gibson's 'Neuromancer,' Neal Stephenson's 'Snow Crash,' y más recientes obras explorando la intersección de tecnología y humanidad. El libro también se inspira en conceptos filosóficos sobre conciencia y naturaleza de la realidad." :
+                      "Inspirado por clásicos como William Gibson's 'Neuromancer,' Neal Stephenson's 'Snow Crash,' y más recientes obras explorando la intersección de tecnología y humanidad. El libro también se inspira en conceptos filosóficos sobre conciencia y naturaleza de la realidad." :
                       "Inspired by classics like William Gibson's 'Neuromancer,' Neal Stephenson's 'Snow Crash,' and more recent works exploring the intersection of technology and humanity. The novel also draws from philosophical concepts about consciousness and the nature of reality."
                     }
                   </p>
