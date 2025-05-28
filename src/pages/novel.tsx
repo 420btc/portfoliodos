@@ -1,8 +1,93 @@
 import React from "react";
-import { Card, CardBody, Tabs, Tab, Button, Divider, Chip } from "@heroui/react";
+import { Card, CardBody, Tabs, Tab, Button, Divider, Chip, CardFooter } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { useLanguage } from "../components/language-switcher";
+import { AudioPlayer } from "../components/AudioPlayer";
+
+// Datos de los capítulos
+const chapters = [
+  {
+    id: 1,
+    title: "Capítulo 1: Espías y Experimentos",
+    description: "Los inicios de una investigación que desafía la realidad",
+    date: "10 de Junio 2013",
+    pdf: "/novela/capitulos/Capitulo 1 - Espías y Experimentos.pdf",
+    audio: "/novela/capitulos/Capitulo 1.mp3",
+    duration: "47:26",
+    words: 5200,
+    inProgress: false,
+    isFullBook: false
+  },
+  {
+    id: 2,
+    title: "Capítulo 2: Envidia hacia las abejas",
+    description: "Cuando lo cotidiano se vuelve sospechoso",
+    date: "13 de Junio 2013",
+    pdf: "/novela/capitulos/Capitulo 2 - Envidia hacia las abejas.pdf",
+    audio: "/novela/capitulos/Capitulo 2.mp3"
+  },
+  {
+    id: 3,
+    title: "Capítulo 3: Miradas entre las cortinas",
+    description: "Las apariencias engañan más de lo que creemos",
+    date: "25 de Julio 2013",
+    pdf: "/novela/capitulos/Capitulo 3 - Miradas entre las cortinas.pdf",
+    audio: "/novela/capitulos/Capitulo 3.mp3"
+  },
+  {
+    id: 4,
+    title: "Capítulo 4: Zumbídos en el Jardín",
+    description: "Los sonidos que no deberían estar ahí",
+    date: "29 de Julio 2013",
+    pdf: "/novela/capitulos/Capitulo 4- Zumbídos en el Jardín.pdf",
+    audio: "/novela/capitulos/Capitulo 4.mp3"
+  },
+  {
+    id: 5,
+    title: "Capítulo 5: El Laberinto de Susurros",
+    description: "Cuando los secretos toman vida propia",
+    date: "10 de Abril 2025",
+    pdf: "/novela/capitulos/Capitulo 5 - El Laberinto de Susurros.pdf",
+    audio: "/novela/capitulos/Capitulo 5.mp3"
+  },
+  {
+    id: 6,
+    title: "Capítulo 6: El peso de los planos",
+    description: "Las estructuras que nos rodean tienen más que contarnos",
+    date: "15 de Abril 2025",
+    pdf: "/novela/capitulos/Capitulo 6 - El peso de los planos.pdf",
+    audio: "/novela/capitulos/Capitulo 6.mp3",
+    duration: "18:30",
+    words: 5800,
+    inProgress: false,
+    isFullBook: false
+  },
+  {
+    id: 7,
+    title: "Capítulo 7: Secretos del Laboratorio",
+    description: "Los protagonistas descubren oscuros secretos en un laboratorio abandonado.",
+    date: "Próximamente",
+    pdf: null,
+    audio: null,
+    duration: "-",
+    words: 0,
+    inProgress: true,
+    isFullBook: false
+  },
+  {
+    id: 8,
+    title: "Libro Completo",
+    description: "Descarga la novela completa en formato PDF o escucha todos los capítulos en orden.",
+    date: "Disponible ahora",
+    audio: "/novela/capitulos/Novela Completa - Espías y Experimentos.mp3",
+    pdf: "/novela/capitulos/Novela Completa - Espías y Experimentos.pdf",
+    duration: "2:15:30",
+    words: 45000,
+    inProgress: false,
+    isFullBook: true
+  },
+];
 
 export const Novel: React.FC = () => {
   const [selected, setSelected] = React.useState("overview");
@@ -89,11 +174,116 @@ export const Novel: React.FC = () => {
             color="primary"
             className="mb-8"
           >
+            <Tab key="chapters" title={language === "es" ? "Capítulos" : "Chapters"} />
             <Tab key="overview" title={language === "es" ? "Resumen" : "Overview"} />
             <Tab key="synopsis" title={language === "es" ? "Sinopsis" : "Synopsis"} />
             <Tab key="characters" title={language === "es" ? "Personajes" : "Characters"} />
             <Tab key="reviews" title={language === "es" ? "Reseñas" : "Reviews"} />
           </Tabs>
+          
+          {selected === "chapters" && (
+            <div className="space-y-6">
+              <h2 className="text-2xl font-bold">{language === "es" ? "Capítulos" : "Chapters"}</h2>
+              
+              {/* Podcast Card */}
+              <Card className="md:col-span-2 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 border border-blue-200 dark:border-blue-900/50">
+                <CardBody className="p-3 sm:p-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 flex-shrink-0">
+                      <div className="w-full h-full bg-blue-100 dark:bg-blue-900/50 rounded-lg flex items-center justify-center">
+                        <Icon icon="mdi:headphones" className="text-2xl text-blue-600 dark:text-blue-400" />
+                      </div>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex justify-between items-center gap-2">
+                        <h3 className="text-sm font-semibold text-gray-900 dark:text-white truncate">
+                          {language === "es" ? "Resumen de la Novela" : "Novel Summary"}
+                        </h3>
+                        <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 text-[10px] px-2 py-0.5 rounded-full whitespace-nowrap">
+                          {language === "es" ? "Podcast" : "Podcast"}
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-600 dark:text-gray-300 line-clamp-2 mt-0.5">
+                        {language === "es" 
+                          ? "Escucha un resumen de la trama, personajes y misterios de 'Bajo la Normalidad'."
+                          : "Listen to a summary of the plot, characters, and mysteries of 'Bajo la Normalidad'."}
+                      </p>
+                      <div className="mt-2">
+                        <AudioPlayer 
+                          src="/novela/capitulos/podcast.mp3"
+                          title={language === "es" ? "Resumen de la Novela" : "Novel Summary"}
+                          label={language === "es" ? "Escuchar" : "Listen"}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </CardBody>
+              </Card>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6">
+                {chapters.map((chapter) => (
+                  <Card key={chapter.id} className={`hover:shadow-lg transition-shadow ${chapter.isFullBook ? 'md:col-span-2 border-2 border-blue-200 dark:border-blue-800' : ''} text-sm sm:text-base`}>
+                    <CardBody className="space-y-2 sm:space-y-4 p-3 sm:p-6">
+                      <div className="flex justify-between items-start">
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-sm sm:text-lg font-semibold line-clamp-2">{chapter.title}</h3>
+                          {chapter.description && (
+                            <p className="text-xs sm:text-sm text-default-500 line-clamp-2">{chapter.description}</p>
+                          )}
+                        </div>
+                        {!chapter.isFullBook && !chapter.inProgress && (
+                          <span className="text-[10px] sm:text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-0.5 sm:py-1 rounded-full whitespace-nowrap ml-2">
+                            {chapter.date}
+                          </span>
+                        )}
+                      </div>
+                      
+                      {chapter.audio && (
+                        <div className="mt-2">
+                          {chapter.audio && (
+                            <AudioPlayer 
+                              src={chapter.audio} 
+                              title={chapter.title}
+                              label={language === "es" ? "Escuchar" : "Listen"}
+                            />
+                          )}
+                        </div>
+                      )}
+                    </CardBody>
+                    <CardFooter className="flex justify-between items-center pt-0 px-0 sm:px-6 pb-2 sm:pb-4">
+                      {chapter.inProgress ? (
+                        <span className="text-sm text-yellow-600 dark:text-yellow-400">
+                          {language === "es" ? "En desarrollo" : "In progress"}
+                        </span>
+                      ) : chapter.isFullBook ? (
+                        <span className="text-sm text-blue-600 dark:text-blue-400">
+                          {language === "es" ? "¡Próximamente!" : "Coming soon!"}
+                        </span>
+                      ) : (
+                        chapter.pdf ? (
+                          <a 
+                            href={chapter.pdf}
+                            download
+                            className="text-sm text-primary hover:underline flex items-center gap-1"
+                          >
+                            <Icon icon="mdi:file-pdf-box" className="text-lg" />
+                            {language === "es" ? "Descargar PDF" : "Download PDF"}
+                          </a>
+                        ) : null
+                      )}
+                      
+                      {!chapter.isFullBook && !chapter.inProgress && (
+                        <div className="flex items-center gap-2 text-sm text-default-500">
+                          <Icon icon="mdi:clock-outline" />
+                          {language === "es" ? "Tiempo estimado: 15 min" : "Estimated time: 15 min"}
+                        </div>
+                      )}
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          )}
           
           {selected === "overview" && (
             <Card>
