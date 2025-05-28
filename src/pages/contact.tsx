@@ -3,6 +3,7 @@ import { Card, CardBody, Input, Textarea, Button, Checkbox } from "@heroui/react
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { useLanguage } from "../components/language-switcher";
+import { TbPhotoDollar } from "react-icons/tb";
 
 export const Contact: React.FC = () => {
   const [name, setName] = React.useState("");
@@ -96,23 +97,20 @@ export const Contact: React.FC = () => {
               <CardBody>
                 <h2 className="text-xl font-semibold mb-6">{language === "es" ? "Conectar" : "Connect"}</h2>
                 <div className="flex flex-wrap gap-4">
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
+                  <a href="https://github.com/420btc" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
                     <Icon icon="lucide:github" width={20} height={20} />
                   </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
+                  <a href="https://www.linkedin.com/in/carlos-pastor-freire-89790a27a/" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
                     <Icon icon="lucide:linkedin" width={20} height={20} />
                   </a>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
+                  <a href="https://x.com/CarlosFreire0" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
                     <Icon icon="lucide:twitter" width={20} height={20} />
                   </a>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
+                  <a href="https://www.instagram.com/carlosfreire1/" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
                     <Icon icon="lucide:instagram" width={20} height={20} />
                   </a>
-                  <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
-                    <Icon icon="lucide:dribbble" width={20} height={20} />
-                  </a>
-                  <a href="https://medium.com" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
-                    <Icon icon="lucide:book-open" width={20} height={20} />
+                  <a href="https://www.redbubble.com/es/people/carlosfreire/shop" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
+                    <TbPhotoDollar size={20} />
                   </a>
                 </div>
               </CardBody>

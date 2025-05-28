@@ -3,6 +3,7 @@ import { Card, CardBody, Divider, Progress, Chip } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { useLanguage } from "../components/language-switcher";
+import { TbPhotoDollar } from "react-icons/tb";
 
 export const About: React.FC = () => {
   const { language } = useLanguage();
@@ -98,17 +99,20 @@ export const About: React.FC = () => {
                 <p className="text-default-500 mb-4">Full Stack Developer</p>
                 
                 <div className="flex justify-center gap-4 mb-6">
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-default-500 hover:text-primary transition-colors">
+                  <a href="https://github.com/420btc" target="_blank" rel="noopener noreferrer" className="text-default-500 hover:text-primary transition-colors">
                     <Icon icon="lucide:github" width={20} height={20} />
                   </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-default-500 hover:text-primary transition-colors">
+                  <a href="https://www.linkedin.com/in/carlos-pastor-freire-89790a27a/" target="_blank" rel="noopener noreferrer" className="text-default-500 hover:text-primary transition-colors">
                     <Icon icon="lucide:linkedin" width={20} height={20} />
                   </a>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-default-500 hover:text-primary transition-colors">
+                  <a href="https://x.com/CarlosFreire0" target="_blank" rel="noopener noreferrer" className="text-default-500 hover:text-primary transition-colors">
                     <Icon icon="lucide:twitter" width={20} height={20} />
                   </a>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-default-500 hover:text-primary transition-colors">
+                  <a href="https://www.instagram.com/carlosfreire1/" target="_blank" rel="noopener noreferrer" className="text-default-500 hover:text-primary transition-colors">
                     <Icon icon="lucide:instagram" width={20} height={20} />
+                  </a>
+                  <a href="https://www.redbubble.com/es/people/carlosfreire/shop" target="_blank" rel="noopener noreferrer" className="text-default-500 hover:text-primary transition-colors">
+                    <TbPhotoDollar size={20} />
                   </a>
                 </div>
                 

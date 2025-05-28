@@ -2,6 +2,7 @@ import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Link, Divider } from "@heroui/react";
 import { Icon } from "@iconify/react";
+import { TbPhotoDollar } from "react-icons/tb";
 import { useLanguage } from "./language-switcher";
 
 export const Footer: React.FC = () => {
@@ -23,17 +24,20 @@ export const Footer: React.FC = () => {
               }
             </p>
             <div className="flex gap-4">
-              <Link href="https://github.com" isExternal aria-label="GitHub">
+              <Link href="https://github.com/420btc" isExternal aria-label="GitHub">
                 <Icon icon="lucide:github" width={20} height={20} />
               </Link>
-              <Link href="https://linkedin.com" isExternal aria-label="LinkedIn">
+              <Link href="https://www.linkedin.com/in/carlos-pastor-freire-89790a27a/" isExternal aria-label="LinkedIn">
                 <Icon icon="lucide:linkedin" width={20} height={20} />
               </Link>
-              <Link href="https://twitter.com" isExternal aria-label="Twitter">
+              <Link href="https://x.com/CarlosFreire0" isExternal aria-label="Twitter">
                 <Icon icon="lucide:twitter" width={20} height={20} />
               </Link>
-              <Link href="https://instagram.com" isExternal aria-label="Instagram">
+              <Link href="https://www.instagram.com/carlosfreire1/" isExternal aria-label="Instagram">
                 <Icon icon="lucide:instagram" width={20} height={20} />
+              </Link>
+              <Link href="https://www.redbubble.com/es/people/carlosfreire/shop" isExternal aria-label="Redbubble">
+                <TbPhotoDollar size={20} className="text-primary hover:text-default-500 transition-colors" />
               </Link>
             </div>
           </div>
