@@ -18,14 +18,15 @@ export interface ProjectData {
 const projectsData: ProjectData[] = [
   {
     id: 1,
-    title: "GeoQuizzer",
-    description: "Aplicación y web juego de preguntas geográficas con preguntas aleatorias y respuesta correcta. Potenciado con IA y amCharts5. Realidad mixta en desarrollo junto con camara virtual en dispositivos móviles.",
-    image: "images/geoquizzer.png",
-    tags: ["React Native", "Firebase", "UI/UX", "Productividad"],
-    demoUrl: "https://geoquizzer.es",
-    codeUrl: "https://github.com/420btc/geoquizzer",
+    title: "Local AI",
+    description: "Aplicación de chat AI avanzada con asistente de voz integrado que permite conversaciones naturales en tiempo real. Ofrece la flexibilidad de conectar tanto modelos de IA locales a través de LMStudio como servicios en la nube. Incluye funcionalidades de reconocimiento de voz, síntesis de texto a voz, y una interfaz intuitiva para gestionar diferentes agentes.",
+    image: "images/localllm.png",
+    icon: "images/fondo.png",
+    tags: ["AI", "Chat", "Voice Assistant", "LMStudio", "OpenAI"],
+    demoUrl: "https://voicechat-ebon.vercel.app/",
+    codeUrl: "https://github.com/420btc/voicechat",
     status: "Trabajando",
-    date: new Date("2025-06-25")
+    date: new Date("2025-06-30")
   },
   {
     id: 2,
