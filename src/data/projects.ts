@@ -37,7 +37,7 @@ const projectsData: ProjectData[] = [
     tags: ["React", "Next.js", "Educación", "TypeScript"],
     demoUrl: "https://v0-juego-interactivo-psicologia.vercel.app/",
     codeUrl: "https://github.com/420btc/Psicolog-acomoLogsDepuracion",
-    status: "Trabajando",
+    status: "Finalizado",
     date: new Date("2025-06-15")
   },
   {
