@@ -17,6 +17,18 @@ export interface ProjectData {
 // Mapear los proyectos a ProjectData con IDs únicos
 const projectsData: ProjectData[] = [
   {
+    id: 0,
+    title: "AgeEvents AI",
+    description: "Aplicación web inteligente que te permite descubrir qué eventos históricos mundiales ocurrieron cuando tenías una edad específica. Explora la historia de manera personalizada y descubre cómo el mundo cambió mientras crecías. Una experiencia única que conecta tu vida personal con los grandes momentos de la humanidad.",
+    image: "images/agevents.png",
+    icon: "images/navegador.png",
+    tags: ["React", "AI", "Historia", "Educación", "TypeScript"],
+    demoUrl: "https://agevents.vercel.app/",
+    codeUrl: "https://github.com/420btc/AgeEvents",
+    status: "Trabajando",
+    date: new Date("2025-07-01")
+  },
+  {
     id: 1,
     title: "Local AI",
     description: "Aplicación de chat AI avanzada con asistente de voz integrado que permite conversaciones naturales en tiempo real. Ofrece la flexibilidad de conectar tanto modelos de IA locales a través de LMStudio como servicios en la nube. Incluye funcionalidades de reconocimiento de voz, síntesis de texto a voz, y una interfaz intuitiva para gestionar diferentes agentes.",
