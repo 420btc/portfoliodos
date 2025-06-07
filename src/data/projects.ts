@@ -38,7 +38,7 @@ const projectsData: ProjectData[] = [
     demoUrl: "https://voicechat-ebon.vercel.app/",
     codeUrl: "https://github.com/420btc/voicechat",
     status: "Trabajando",
-    date: new Date("2025-06-30")
+    date: new Date("2025-06-15")
   },
   {
     id: 2,
@@ -50,7 +50,7 @@ const projectsData: ProjectData[] = [
     demoUrl: "https://v0-juego-interactivo-psicologia.vercel.app/",
     codeUrl: "https://github.com/420btc/Psicolog-acomoLogsDepuracion",
     status: "Finalizado",
-    date: new Date("2025-06-15")
+    date: new Date("2025-06-7")
   },
   {
     id: 3,
