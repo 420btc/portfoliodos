@@ -25,8 +25,8 @@ const projectsData: ProjectData[] = [
     tags: ["React", "AI", "Historia", "Educación", "TypeScript"],
     demoUrl: "https://agevents.vercel.app/",
     codeUrl: "https://github.com/420btc/AgeEvents",
-    status: "Trabajando",
-    date: new Date("2025-07-01")
+    status: "Finalizado",
+    date: new Date("2025-06-20")
   },
   {
     id: 1,
@@ -37,7 +37,7 @@ const projectsData: ProjectData[] = [
     tags: ["AI", "Chat", "Voice Assistant", "LMStudio", "OpenAI"],
     demoUrl: "https://voicechat-ebon.vercel.app/",
     codeUrl: "https://github.com/420btc/voicechat",
-    status: "Trabajando",
+    status: "Finalizado",
     date: new Date("2025-06-15")
   },
   {
@@ -174,6 +174,30 @@ const projectsData: ProjectData[] = [
     codeUrl: "https://github.com/420btc/cndle",
     status: "Finalizado",
     date: new Date("2025-03-03")
+  },
+  {
+    id: 13,
+    title: "Fight in Pinillo City",
+    description: "Juego retro pixel art basado en los años 90 ubicado en España Andalucía estilo Tekken de peleas. Una experiencia nostálgica que combina la estética clásica de los juegos de lucha con la cultura andaluza, ofreciendo combates intensos y personajes únicos inspirados en la región.",
+    image: "images/fight.png",
+    icon: "images/project-icons/logofight.png",
+    tags: ["Game Development", "Pixel Art", "Retro", "Unity"],
+    demoUrl: "https://pinillo-city-fight.vercel.app/",
+    codeUrl: "https://github.com/420btc/PinilloCityFight",
+    status: "Trabajando",
+    date: new Date("2025-09-01")
+  },
+  {
+    id: 14,
+    title: "AI Video Editor",
+    description: "Editor de video web potenciado y gestionado por IA para pedir cambios a un agente especializado. Una herramienta revolucionaria que permite editar videos mediante comandos de texto, automatizando tareas complejas y ofreciendo sugerencias inteligentes para mejorar la calidad del contenido.",
+    image: "images/aieditor.png",
+    icon: "images/project-icons/logoaivideo.png",
+    tags: ["AI", "Web App", "Machine Learning", "React"],
+    demoUrl: "https://aivideo-three.vercel.app/",
+    codeUrl: "https://github.com/420btc/videoAIeditor",
+    status: "Trabajando",
+    date: new Date("2025-09-15")
   }
 ];
 
