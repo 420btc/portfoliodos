@@ -46,11 +46,11 @@ Siempre mantén las respuestas concisas y enfocadas en mis proyectos del portfol
 ${projectContext}`;
 };
 
-export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
+export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      content: '¡Hola! Soy Carlos Freire, desarrollador full stack. Estoy aquí para contarte sobre mis proyectos del portfolio. ¿Qué te gustaría saber?',
+      content: '¡Hola! Soy Carlos Freire. Pregúntame sobre mis proyectos, experiencia o cualquier cosa que quieras saber.',
       role: 'assistant',
       timestamp: new Date()
     }
@@ -174,7 +174,7 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
     setMessages([
       {
         id: '1',
-        content: '¡Hola! Soy Carlos Freire, desarrollador full stack. Estoy aquí para contarte sobre mis proyectos del portfolio. ¿Qué te gustaría saber?',
+        content: '¡Hola! Soy Carlos Freire. Pregúntame sobre mis proyectos, experiencia o cualquier cosa que quieras saber.',
         role: 'assistant',
         timestamp: new Date()
       }
@@ -225,11 +225,11 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
       exit={{ scale: 0, opacity: 0 }}
       transition={{ type: "spring", stiffness: 260, damping: 20 }}
     >
-      <Card className={`shadow-2xl transition-all duration-300 ${isMinimized ? 'h-auto w-80' : 'h-96 w-80 sm:w-96'}`}>
+      <Card className={`shadow-2xl transition-all duration-300 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-700 ${isMinimized ? 'h-auto w-80' : 'h-96 w-80 sm:w-96'}`}>
         <CardBody className="p-0 flex flex-col h-full">
           {/* Header */}
           <div 
-            className="flex items-center justify-between p-3 sm:p-4 border-b border-divider cursor-move"
+            className="flex items-center justify-between p-3 sm:p-4 border-b border-gray-200 dark:border-zinc-700 cursor-move bg-gray-50 dark:bg-zinc-800"
             onPointerDown={(e) => dragControls.start(e)}
           >
             <div className="flex items-center gap-2">
@@ -241,10 +241,16 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
               />
               <div className="min-w-0">
                 <div className="flex items-center gap-2">
-                  <p className="text-sm font-semibold truncate">Carlos Freire</p>
-                  <span className="text-xs text-gray-400">{remainingResponses}/10</span>
+                  <p className="text-sm font-semibold truncate text-black dark:text-white">
+                    Carlos Freire
+                  </p>
+                  <span className="text-xs text-gray-500 dark:text-zinc-400">
+                    {remainingResponses}/10
+                  </span>
                 </div>
-                <p className="text-xs text-default-500 truncate">Desarrollador Full Stack</p>
+                <p className="text-xs truncate text-gray-500 dark:text-zinc-400">
+                  Desarrollador Full Stack
+                </p>
               </div>
             </div>
             <div className="flex gap-2 flex-shrink-0">
@@ -306,22 +312,22 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
           {/* Messages */}
           {!isMinimized && (
             <>
-              <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-2 sm:space-y-3 bg-black">
+              <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-2 sm:space-y-3 bg-white dark:bg-zinc-900">
                 {messages.map((message) => (
                   <div
                     key={message.id}
                     className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
                     <div
-                      className={`max-w-[85%] sm:max-w-[80%] p-2.5 sm:p-3 rounded-lg text-sm leading-relaxed ${
+                      className={`max-w-[85%] sm:max-w-[80%] p-2.5 sm:p-3 rounded-lg text-sm leading-relaxed shadow-sm border ${
                         message.role === 'user'
-                          ? 'bg-primary text-primary-foreground shadow-sm'
-                          : 'bg-default-100 dark:bg-default-800 text-default-700 dark:text-default-300 shadow-sm'
+                          ? 'bg-blue-500 text-white border-blue-500'
+                          : 'bg-gray-50 dark:bg-zinc-800 text-black dark:text-white border-gray-200 dark:border-zinc-700'
                       }`}
                     >
                       {message.content}
                       {message.role === 'assistant' && (
-                        <div className="mt-2 text-xs text-gray-500 flex justify-between">
+                        <div className="mt-2 text-xs flex justify-between text-gray-500 dark:text-zinc-400">
                           <span>{message.timestamp.toLocaleTimeString()}</span>
                           {message.responseTime && (
                             <span>{(message.responseTime / 1000).toFixed(1)}s</span>
@@ -333,7 +339,7 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
                 ))}
                 {isLoading && (
                   <div className="flex justify-start">
-                    <div className="bg-default-100 dark:bg-default-800 p-2.5 sm:p-3 rounded-lg shadow-sm">
+                    <div className="p-2.5 sm:p-3 rounded-lg shadow-sm bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700">
                       <Spinner size="sm" color="primary" />
                     </div>
                   </div>
@@ -342,19 +348,22 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
               </div>
 
               {/* Input */}
-              <div className="p-3 sm:p-4 border-t border-divider bg-default-50/50 dark:bg-default-900/50">
+              <div className="p-3 sm:p-4 border-t border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900">
                 <div className="flex gap-2">
                   <Input
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyPress={handleKeyPress}
-                    placeholder="Pregúntame sobre mis proyectos..."
-                    size="sm"
+                    placeholder="Escribe un mensaje..."
                     disabled={isLoading}
                     className="flex-1"
+                    size="sm"
+                    variant="bordered"
+                    radius="sm"
                     classNames={{
-                      input: "text-sm",
-                      inputWrapper: "bg-background dark:bg-default-800 border-default-200 dark:border-default-700"
+                      input: `text-sm text-black dark:text-white`,
+                      inputWrapper: `border-2 border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900`,
+                      innerWrapper: "bg-transparent"
                     }}
                   />
                   {/* Desktop send button */}
