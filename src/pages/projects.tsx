@@ -9,11 +9,12 @@ import photographyProjects from "../data/photography";
 export const Projects: React.FC = () => {
   const [searchQuery, setSearchQuery] = React.useState("");
   const [selectedCategory, setSelectedCategory] = React.useState("all");
+  const [sortOrder, setSortOrder] = React.useState<"recent" | "oldest">("recent");
   
   // Main categories to display
   const mainCategories = ["OpenAI", "UI/UX", "Fotografía"];
   
-  // Filter projects based on search query and selected category
+  // Filter and sort projects based on search query, selected category, and sort order
   const filteredProjects = React.useMemo(() => {
     // Determine which projects to show based on category
     const projectsToShow = selectedCategory === 'Fotografía' 
@@ -25,7 +26,7 @@ export const Projects: React.FC = () => {
       ? projects
       : projectsToShow;
       
-    return filtered.filter(project => {
+    const matchedProjects = filtered.filter(project => {
       const matchesSearch = 
         project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -38,7 +39,15 @@ export const Projects: React.FC = () => {
       
       return matchesSearch && matchesCategory;
     });
-  }, [searchQuery, selectedCategory]);
+
+    // Sort projects by date
+    return matchedProjects.sort((a, b) => {
+      const dateA = new Date(a.date).getTime();
+      const dateB = new Date(b.date).getTime();
+      
+      return sortOrder === "recent" ? dateB - dateA : dateA - dateB;
+    });
+  }, [searchQuery, selectedCategory, sortOrder]);
 
   return (
     <div className="min-h-screen bg-background py-16 px-6">
@@ -66,41 +75,70 @@ export const Projects: React.FC = () => {
           />
         </div>
         
-        <div className="mb-8 overflow-x-auto">
-          <div className="flex flex-nowrap md:flex-wrap gap-2 pb-2 md:pb-0">
-            <button
-              onClick={() => setSelectedCategory('all')}
-              className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
-                selectedCategory === 'all' 
-                  ? 'bg-primary text-white' 
-                  : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
-              }`}
-            >
-              Todos
-            </button>
-            <button
-              onClick={() => setSelectedCategory('featured')}
-              className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
-                selectedCategory === 'featured' 
-                  ? 'bg-primary text-white' 
-                  : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
-              }`}
-            >
-              Destacados
-            </button>
-            {mainCategories.map(tag => (
+        <div className="mb-8">
+          {/* Category filters */}
+          <div className="mb-4 overflow-x-auto">
+            <div className="flex flex-nowrap md:flex-wrap gap-2 pb-2 md:pb-0">
               <button
-                key={tag}
-                onClick={() => setSelectedCategory(tag)}
+                onClick={() => setSelectedCategory('all')}
                 className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
-                  selectedCategory === tag 
+                  selectedCategory === 'all' 
                     ? 'bg-primary text-white' 
                     : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
                 }`}
               >
-                {tag}
+                Todos
               </button>
-            ))}
+              <button
+                onClick={() => setSelectedCategory('featured')}
+                className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
+                  selectedCategory === 'featured' 
+                    ? 'bg-primary text-white' 
+                    : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
+                }`}
+              >
+                Destacados
+              </button>
+              {mainCategories.map(tag => (
+                <button
+                  key={tag}
+                  onClick={() => setSelectedCategory(tag)}
+                  className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
+                    selectedCategory === tag 
+                      ? 'bg-primary text-white' 
+                      : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
+                  }`}
+                >
+                  {tag}
+                </button>
+              ))}
+            </div>
+          </div>
+          
+          {/* Sort buttons */}
+          <div className="flex justify-center gap-2">
+            <button
+              onClick={() => setSortOrder('recent')}
+              className={`px-4 py-2 rounded-full flex items-center gap-2 transition-colors ${
+                sortOrder === 'recent' 
+                  ? 'bg-primary text-white' 
+                  : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
+              }`}
+            >
+              <Icon icon="lucide:arrow-down" className="w-4 h-4" />
+              Más Recientes
+            </button>
+            <button
+              onClick={() => setSortOrder('oldest')}
+              className={`px-4 py-2 rounded-full flex items-center gap-2 transition-colors ${
+                sortOrder === 'oldest' 
+                  ? 'bg-primary text-white' 
+                  : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
+              }`}
+            >
+              <Icon icon="lucide:arrow-up" className="w-4 h-4" />
+              Más Antiguos
+            </button>
           </div>
         </div>
         
