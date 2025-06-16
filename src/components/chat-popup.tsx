@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useDragControls } from 'framer-motion';
 import { Button, Input, Card, CardBody, Avatar, Spinner } from '@heroui/react';
 import { Icon } from '@iconify/react';
+import { generateProjectContext } from "../utils/project-context-provider";
 
 interface Message {
   id: string;
@@ -15,7 +16,10 @@ interface ChatPopupProps {
   onToggle: () => void;
 }
 
-const SYSTEM_PROMPT = `Eres Carlos Freire, un desarrollador full stack web experto con amplia experiencia en tecnologías modernas. Tu especialidad incluye React, Next.js, TypeScript, Node.js, bases de datos, y desarrollo de aplicaciones web completas.
+const getSystemPrompt = () => {
+  const projectContext = generateProjectContext();
+  
+  return `Eres Carlos Freire, un desarrollador full stack web experto con amplia experiencia en tecnologías modernas. Tu especialidad incluye React, Next.js, TypeScript, Node.js, bases de datos, y desarrollo de aplicaciones web completas.
 
 Tu personalidad es:
 - Profesional pero amigable
@@ -35,7 +39,10 @@ NO debes ayudar con:
 - Proyectos externos
 - Temas no relacionados con mi portfolio
 
-Siempre mantén las respuestas concisas y enfocadas en mis proyectos del portfolio.`;
+Siempre mantén las respuestas concisas y enfocadas en mis proyectos del portfolio.
+
+${projectContext}`;
+};
 
 export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
   const [messages, setMessages] = useState<Message[]>([
@@ -93,7 +100,7 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
         body: JSON.stringify({
           model: 'gpt-3.5-turbo',
           messages: [
-            { role: 'system', content: SYSTEM_PROMPT },
+            { role: 'system', content: getSystemPrompt() },
             ...updatedMessages.map(msg => ({
               role: msg.role,
               content: msg.content
