@@ -255,33 +255,33 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
             </div>
             <div className="flex gap-2 flex-shrink-0">
               {/* Desktop buttons */}
-              <div className="hidden sm:flex gap-1">
+              <div className="hidden sm:flex gap-2">
                 <Button
                   isIconOnly
                   size="sm"
                   variant="light"
                   onClick={clearChat}
-                  className="text-white dark:text-white hover:text-primary hover:bg-white/20 dark:hover:bg-white/20 min-w-8 h-8 border-none"
+                  className="text-gray-600 dark:text-gray-300 hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-700 min-w-8 h-8 border-none"
                 >
-                  <Icon icon="material-symbols:refresh" className="text-xl font-black text-white" />
+                  <Icon icon="material-symbols:refresh" className="text-xl font-black" />
                 </Button>
                 <Button
                   isIconOnly
                   size="sm"
                   variant="light"
                   onClick={toggleMinimize}
-                  className="text-white dark:text-white hover:text-primary hover:bg-white/20 dark:hover:bg-white/20 min-w-8 h-8 border-none"
+                  className="text-gray-600 dark:text-gray-300 hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-700 min-w-8 h-8 border-none"
                 >
-                  <Icon icon={isMinimized ? "material-symbols:fullscreen" : "material-symbols:minimize"} className="text-xl font-black text-white" />
+                  <Icon icon={isMinimized ? "material-symbols:fullscreen" : "material-symbols:minimize"} className="text-xl font-black" />
                 </Button>
                 <Button
                   isIconOnly
                   size="sm"
                   variant="light"
                   onClick={onToggle}
-                  className="text-white dark:text-white hover:text-danger hover:bg-danger-50/20 dark:hover:bg-danger-900/20 min-w-8 h-8 border-none"
+                  className="text-gray-600 dark:text-gray-300 hover:text-danger hover:bg-red-100 dark:hover:bg-red-900/20 min-w-8 h-8 border-none"
                 >
-                  <Icon icon="material-symbols:close" className="text-xl font-black text-white" />
+                  <Icon icon="material-symbols:close" className="text-xl font-black" />
                 </Button>
               </div>
               
@@ -289,19 +289,19 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
               <div className="flex sm:hidden gap-1.5">
                 <button
                   onClick={clearChat}
-                  className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white text-xs rounded-full"
+                  className="w-6 h-6 flex items-center justify-center bg-blue-500 dark:bg-blue-600 text-white text-xs rounded-full hover:bg-blue-600 dark:hover:bg-blue-700"
                 >
                   ↻
                 </button>
                 <button
                   onClick={toggleMinimize}
-                  className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white text-xs rounded-full"
+                  className="w-6 h-6 flex items-center justify-center bg-blue-500 dark:bg-blue-600 text-white text-xs rounded-full hover:bg-blue-600 dark:hover:bg-blue-700"
                 >
                   {isMinimized ? '□' : '—'}
                 </button>
                 <button
                   onClick={onToggle}
-                  className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white text-xs rounded-full"
+                  className="w-6 h-6 flex items-center justify-center bg-blue-500 dark:bg-blue-600 text-white text-xs rounded-full hover:bg-blue-600 dark:hover:bg-blue-700"
                 >
                   ✕
                 </button>
