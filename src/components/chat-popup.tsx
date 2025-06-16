@@ -200,7 +200,7 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
         <CardBody className="p-0 flex flex-col h-full">
           {/* Header */}
           <div 
-            className="flex items-center justify-between p-3 sm:p-4 border-b border-divider bg-primary/10 dark:bg-primary/20 cursor-move"
+            className="flex items-center justify-between p-3 sm:p-4 border-b border-divider cursor-move"
             onPointerDown={(e) => dragControls.start(e)}
           >
             <div className="flex items-center gap-2 min-w-0 flex-1">
@@ -215,41 +215,66 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
                 <p className="text-xs text-default-500 truncate">Desarrollador Full Stack</p>
               </div>
             </div>
-            <div className="flex gap-1 flex-shrink-0">
-              <Button
-                isIconOnly
-                size="sm"
-                variant="light"
-                onClick={clearChat}
-                className="text-white dark:text-white hover:text-primary hover:bg-white/20 dark:hover:bg-white/20 min-w-9 h-9 sm:min-w-8 sm:h-8 bg-black/30 dark:bg-white/30 border border-white/20"
-              >
-                <Icon icon="material-symbols:refresh" className="text-xl sm:text-lg font-black" />
-              </Button>
-              <Button
-                isIconOnly
-                size="sm"
-                variant="light"
-                onClick={toggleMinimize}
-                className="text-white dark:text-white hover:text-primary hover:bg-white/20 dark:hover:bg-white/20 min-w-9 h-9 sm:min-w-8 sm:h-8 bg-black/30 dark:bg-white/30 border border-white/20"
-              >
-                <Icon icon={isMinimized ? "material-symbols:fullscreen" : "material-symbols:minimize"} className="text-xl sm:text-lg font-black" />
-              </Button>
-              <Button
-                isIconOnly
-                size="sm"
-                variant="light"
-                onClick={onToggle}
-                className="text-white dark:text-white hover:text-danger hover:bg-danger-50/20 dark:hover:bg-danger-900/20 min-w-9 h-9 sm:min-w-8 sm:h-8 bg-black/30 dark:bg-white/30 border border-white/20"
-              >
-                <Icon icon="material-symbols:close" className="text-xl sm:text-lg font-black" />
-              </Button>
+            <div className="flex gap-2 flex-shrink-0">
+              {/* Desktop buttons */}
+              <div className="hidden sm:flex gap-1">
+                <Button
+                  isIconOnly
+                  size="sm"
+                  variant="light"
+                  onClick={clearChat}
+                  className="text-white dark:text-white hover:text-primary hover:bg-white/20 dark:hover:bg-white/20 min-w-8 h-8 border-none"
+                >
+                  <Icon icon="material-symbols:refresh" className="text-xl font-black text-white" />
+                </Button>
+                <Button
+                  isIconOnly
+                  size="sm"
+                  variant="light"
+                  onClick={toggleMinimize}
+                  className="text-white dark:text-white hover:text-primary hover:bg-white/20 dark:hover:bg-white/20 min-w-8 h-8 border-none"
+                >
+                  <Icon icon={isMinimized ? "material-symbols:fullscreen" : "material-symbols:minimize"} className="text-xl font-black text-white" />
+                </Button>
+                <Button
+                  isIconOnly
+                  size="sm"
+                  variant="light"
+                  onClick={onToggle}
+                  className="text-white dark:text-white hover:text-danger hover:bg-danger-50/20 dark:hover:bg-danger-900/20 min-w-8 h-8 border-none"
+                >
+                  <Icon icon="material-symbols:close" className="text-xl font-black text-white" />
+                </Button>
+              </div>
+              
+              {/* Mobile buttons with text instead of icons - tiny size */}
+              <div className="flex sm:hidden gap-0.5">
+                <button
+                  onClick={clearChat}
+                  className="w-5 h-5 flex items-center justify-center bg-white/20 text-white text-xs rounded"
+                >
+                  ↻
+                </button>
+                <button
+                  onClick={toggleMinimize}
+                  className="w-5 h-5 flex items-center justify-center bg-white/20 text-white text-xs rounded"
+                >
+                  {isMinimized ? '□' : '—'}
+                </button>
+                <button
+                  onClick={onToggle}
+                  className="w-5 h-5 flex items-center justify-center bg-red-500 text-white text-xs rounded"
+                >
+                  ✕
+                </button>
+              </div>
             </div>
           </div>
 
           {/* Messages */}
           {!isMinimized && (
             <>
-              <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-2 sm:space-y-3">
+              <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-2 sm:space-y-3 bg-black">
                 {messages.map((message) => (
                   <div
                     key={message.id}
@@ -292,16 +317,26 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
                       inputWrapper: "bg-background dark:bg-default-800 border-default-200 dark:border-default-700"
                     }}
                   />
+                  {/* Desktop send button */}
                   <Button
                     isIconOnly
                     color="primary"
                     size="sm"
                     onClick={sendMessage}
                     disabled={!inputValue.trim() || isLoading}
-                    className="min-w-8 h-8 sm:min-w-10 sm:h-10"
+                    className="hidden sm:flex min-w-8 h-8 sm:min-w-10 sm:h-10 items-center justify-center"
                   >
                     <Icon icon="mdi:send" className="text-base sm:text-lg" />
                   </Button>
+                  
+                  {/* Mobile send button */}
+                  <button
+                    onClick={sendMessage}
+                    disabled={!inputValue.trim() || isLoading}
+                    className="sm:hidden w-7 h-7 flex items-center justify-center bg-blue-500 text-white text-xs rounded"
+                  >
+                    →
+                  </button>
                 </div>
               </div>
             </>
