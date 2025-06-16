@@ -5,19 +5,26 @@ import { motion } from "framer-motion";
 import { ProjectCard } from "../components/project-card";
 import { projects } from "../data/projects";
 import photographyProjects from "../data/photography";
+import { useLanguage } from "../components/language-switcher";
+import { getProjectTranslation, uiTranslations } from "../data/translations";
 
 export const Projects: React.FC = () => {
+  // Get current language from context
+  const { language } = useLanguage();
+  
+  // Get UI translations based on language
+  const t = uiTranslations[language as "es" | "en"];
   const [searchQuery, setSearchQuery] = React.useState("");
   const [selectedCategory, setSelectedCategory] = React.useState("all");
   const [sortOrder, setSortOrder] = React.useState<"recent" | "oldest">("recent");
   
   // Main categories to display
-  const mainCategories = ["OpenAI", "UI/UX", "Fotografía"];
+  const mainCategories = ["OpenAI", "UI/UX", language === "es" ? "Fotografía" : "Photography"];
   
   // Filter and sort projects based on search query, selected category, and sort order
   const filteredProjects = React.useMemo(() => {
     // Determine which projects to show based on category
-    const projectsToShow = selectedCategory === 'Fotografía' 
+    const projectsToShow = (selectedCategory === 'Fotografía' || selectedCategory === 'Photography')
       ? photographyProjects 
       : projects;
 
@@ -26,7 +33,12 @@ export const Projects: React.FC = () => {
       ? projects
       : projectsToShow;
       
-    const matchedProjects = filtered.filter(project => {
+    // Translate projects if language is English
+    const translatedProjects = language === "en" 
+      ? filtered.map(project => getProjectTranslation(project, language))
+      : filtered;
+      
+    const matchedProjects = translatedProjects.filter(project => {
       const matchesSearch = 
         project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -58,15 +70,15 @@ export const Projects: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h1 className="text-6xl font-bold mb-4">Mis Proyectos</h1>
+          <h1 className="text-6xl font-bold mb-4">{t.projectsTitle}</h1>
           <p className="text-default-600 max-w-2xl mx-auto">
-            Una colección de mi trabajo abarcando desarrollo web, fotografía, proyectos con drones y emprendimientos creativos.
+            {t.projectsDescription}
           </p>
         </motion.div>
         
         <div className="mb-8">
           <Input
-            placeholder="Buscar proyectos..."
+            placeholder={t.searchPlaceholder}
             value={searchQuery}
             onValueChange={setSearchQuery}
             startContent={<Icon icon="lucide:search" className="text-default-400" />}
@@ -87,7 +99,7 @@ export const Projects: React.FC = () => {
                     : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
                 }`}
               >
-                Todos
+                {t.allProjects}
               </button>
               <button
                 onClick={() => setSelectedCategory('featured')}
@@ -97,7 +109,7 @@ export const Projects: React.FC = () => {
                     : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
                 }`}
               >
-                Destacados
+                {t.featuredProjects}
               </button>
               {mainCategories.map(tag => (
                 <button
@@ -126,7 +138,7 @@ export const Projects: React.FC = () => {
               }`}
             >
               <Icon icon="lucide:arrow-down" className="w-4 h-4" />
-              Más Recientes
+              {t.mostRecent}
             </button>
             <button
               onClick={() => setSortOrder('oldest')}
@@ -137,7 +149,7 @@ export const Projects: React.FC = () => {
               }`}
             >
               <Icon icon="lucide:arrow-up" className="w-4 h-4" />
-              Más Antiguos
+              {t.oldest}
             </button>
           </div>
         </div>
@@ -151,22 +163,22 @@ export const Projects: React.FC = () => {
         ) : (
           <div className="text-center py-16">
             <Icon icon="lucide:search-x" className="text-default-400 w-16 h-16 mx-auto mb-4" />
-            <h3 className="text-xl font-medium mb-2">No se encontraron proyectos</h3>
+            <h3 className="text-xl font-medium mb-2">{t.noProjectsFound}</h3>
             <p className="text-default-500">
-              Intenta ajustar tu búsqueda o filtro para encontrar lo que estás buscando.
+              {t.tryAdjusting}
             </p>
           </div>
         )}
         
         <div className="mt-12 text-center">
           <p className="text-default-500">
-            Mostrando {filteredProjects.length} de {selectedCategory === 'Fotografía' 
+            {t.showing} {filteredProjects.length} {t.of} {(selectedCategory === 'Fotografía' || selectedCategory === 'Photography')
               ? photographyProjects.length 
               : selectedCategory === 'all' 
                 ? projects.length 
                 : selectedCategory === 'featured' 
                   ? projects.filter(p => p.featured).length 
-                  : projects.filter(p => p.tags.includes(selectedCategory)).length} proyectos
+                  : projects.filter(p => p.tags.includes(selectedCategory)).length} {t.projects}
           </p>
         </div>
       </div>
