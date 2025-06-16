@@ -3,12 +3,14 @@ import { motion, useDragControls } from 'framer-motion';
 import { Button, Input, Card, CardBody, Avatar, Spinner } from '@heroui/react';
 import { Icon } from '@iconify/react';
 import { generateProjectContext } from "../utils/project-context-provider";
+import { hasReachedLimit, incrementResponseCount, getRemainingResponses, getFormattedTimeUntilReset } from "../utils/chat-limits";
 
 interface Message {
   id: string;
   content: string;
   role: 'user' | 'assistant';
   timestamp: Date;
+  responseTime?: number; // Time in milliseconds it took to respond (for assistant messages)
 }
 
 interface ChatPopupProps {
@@ -57,6 +59,7 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [remainingResponses, setRemainingResponses] = useState(getRemainingResponses());
   
   const dragControls = useDragControls();
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -72,6 +75,17 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
 
   const sendMessage = async () => {
     if (!inputValue.trim() || isLoading) return;
+    
+    // Check if user has reached their limit
+    if (hasReachedLimit()) {
+      setMessages(prev => [...prev, {
+        id: Date.now().toString(),
+        content: `Has alcanzado el límite de 10 respuestas en 12 horas. Por favor, intenta de nuevo en ${getFormattedTimeUntilReset()}.`,
+        role: 'assistant',
+        timestamp: new Date()
+      }]);
+      return;
+    }
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -116,11 +130,17 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
       }
 
       const data = await response.json();
+      const responseTime = Date.now() - new Date(userMessage.timestamp).getTime();
+      // Increment response count and update remaining responses
+      incrementResponseCount();
+      setRemainingResponses(getRemainingResponses());
+      
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         content: data.choices[0].message.content,
         role: 'assistant',
-        timestamp: new Date()
+        timestamp: new Date(),
+        responseTime: responseTime
       };
 
       const finalMessages = [...updatedMessages, assistantMessage];
@@ -212,7 +232,7 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
             className="flex items-center justify-between p-3 sm:p-4 border-b border-divider cursor-move"
             onPointerDown={(e) => dragControls.start(e)}
           >
-            <div className="flex items-center gap-2 min-w-0 flex-1">
+            <div className="flex items-center gap-2">
               <Avatar
                 src="/images/yop.jpeg"
                 size="sm"
@@ -220,7 +240,10 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
                 className="flex-shrink-0"
               />
               <div className="min-w-0">
-                <p className="text-sm font-semibold truncate">Carlos Freire</p>
+                <div className="flex items-center gap-2">
+                  <p className="text-sm font-semibold truncate">Carlos Freire</p>
+                  <span className="text-xs text-gray-400">{remainingResponses}/10</span>
+                </div>
                 <p className="text-xs text-default-500 truncate">Desarrollador Full Stack</p>
               </div>
             </div>
@@ -297,6 +320,14 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
                       }`}
                     >
                       {message.content}
+                      {message.role === 'assistant' && (
+                        <div className="mt-2 text-xs text-gray-500 flex justify-between">
+                          <span>{message.timestamp.toLocaleTimeString()}</span>
+                          {message.responseTime && (
+                            <span>{(message.responseTime / 1000).toFixed(1)}s</span>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
