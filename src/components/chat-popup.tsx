@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, useDragControls } from 'framer-motion';
 import { Button, Input, Card, CardBody, Avatar, Spinner } from '@heroui/react';
 import { Icon } from '@iconify/react';
@@ -48,6 +48,7 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   
   const dragControls = useDragControls();
@@ -153,6 +154,10 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
     ]);
   };
 
+  const toggleMinimize = () => {
+    setIsMinimized(!isMinimized);
+  };
+
   if (!isOpen) {
     return (
       <motion.div
@@ -191,7 +196,7 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
       exit={{ scale: 0, opacity: 0 }}
       transition={{ type: "spring", stiffness: 260, damping: 20 }}
     >
-      <Card className="w-80 h-96 shadow-2xl">
+      <Card className={`w-80 shadow-2xl transition-all duration-300 ${isMinimized ? 'h-auto' : 'h-96'}`}>
         <CardBody className="p-0 flex flex-col h-full">
           {/* Header */}
           <div 
@@ -223,6 +228,15 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
                 isIconOnly
                 size="sm"
                 variant="light"
+                onClick={toggleMinimize}
+                className="text-default-500"
+              >
+                <Icon icon={isMinimized ? "mdi:window-maximize" : "mdi:window-minimize"} className="text-lg" />
+              </Button>
+              <Button
+                isIconOnly
+                size="sm"
+                variant="light"
                 onClick={onToggle}
                 className="text-default-500"
               >
@@ -232,56 +246,60 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-3">
-            {messages.map((message) => (
-              <div
-                key={message.id}
-                className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
-              >
-                <div
-                  className={`max-w-[80%] p-3 rounded-lg text-sm ${
-                    message.role === 'user'
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-default-100 text-default-700'
-                  }`}
-                >
-                  {message.content}
-                </div>
+          {!isMinimized && (
+            <>
+              <div className="flex-1 overflow-y-auto p-4 space-y-3">
+                {messages.map((message) => (
+                  <div
+                    key={message.id}
+                    className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                  >
+                    <div
+                      className={`max-w-[80%] p-3 rounded-lg text-sm ${
+                        message.role === 'user'
+                          ? 'bg-primary text-primary-foreground'
+                          : 'bg-default-100 text-default-700'
+                      }`}
+                    >
+                      {message.content}
+                    </div>
+                  </div>
+                ))}
+                {isLoading && (
+                  <div className="flex justify-start">
+                    <div className="bg-default-100 p-3 rounded-lg">
+                      <Spinner size="sm" />
+                    </div>
+                  </div>
+                )}
+                <div ref={messagesEndRef} />
               </div>
-            ))}
-            {isLoading && (
-              <div className="flex justify-start">
-                <div className="bg-default-100 p-3 rounded-lg">
-                  <Spinner size="sm" />
-                </div>
-              </div>
-            )}
-            <div ref={messagesEndRef} />
-          </div>
 
-          {/* Input */}
-          <div className="p-4 border-t border-divider">
-            <div className="flex gap-2">
-              <Input
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder="Pregúntame sobre mis proyectos..."
-                size="sm"
-                disabled={isLoading}
-                className="flex-1"
-              />
-              <Button
-                isIconOnly
-                color="primary"
-                size="sm"
-                onClick={sendMessage}
-                disabled={!inputValue.trim() || isLoading}
-              >
-                <Icon icon="mdi:send" className="text-lg" />
-              </Button>
-            </div>
-          </div>
+              {/* Input */}
+              <div className="p-4 border-t border-divider">
+                <div className="flex gap-2">
+                  <Input
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    placeholder="Pregúntame sobre mis proyectos..."
+                    size="sm"
+                    disabled={isLoading}
+                    className="flex-1"
+                  />
+                  <Button
+                    isIconOnly
+                    color="primary"
+                    size="sm"
+                    onClick={sendMessage}
+                    disabled={!inputValue.trim() || isLoading}
+                  >
+                    <Icon icon="mdi:send" className="text-lg" />
+                  </Button>
+                </div>
+              </div>
+            </>
+          )}
         </CardBody>
       </Card>
     </motion.div>
