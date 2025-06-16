@@ -161,7 +161,7 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
   if (!isOpen) {
     return (
       <motion.div
-        className="fixed bottom-6 right-6 z-50"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
@@ -170,10 +170,10 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
           isIconOnly
           color="primary"
           size="lg"
-          className="w-14 h-14 shadow-lg"
+          className="w-12 h-12 sm:w-14 sm:h-14 shadow-lg hover:shadow-xl transition-shadow"
           onClick={onToggle}
         >
-          <Icon icon="mdi:chat" className="text-2xl" />
+          <Icon icon="mdi:chat" className="text-xl sm:text-2xl" />
         </Button>
       </motion.div>
     );
@@ -182,7 +182,7 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
   return (
     <motion.div
       ref={chatContainerRef}
-      className="fixed bottom-6 right-6 z-50"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50"
       style={{ x: position.x, y: position.y }}
       drag
       dragControls={dragControls}
@@ -196,51 +196,52 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
       exit={{ scale: 0, opacity: 0 }}
       transition={{ type: "spring", stiffness: 260, damping: 20 }}
     >
-      <Card className={`w-80 shadow-2xl transition-all duration-300 ${isMinimized ? 'h-auto' : 'h-96'}`}>
+      <Card className={`shadow-2xl transition-all duration-300 ${isMinimized ? 'h-auto w-80' : 'h-96 w-80 sm:w-96'}`}>
         <CardBody className="p-0 flex flex-col h-full">
           {/* Header */}
           <div 
-            className="flex items-center justify-between p-4 border-b border-divider bg-primary/10 cursor-move"
+            className="flex items-center justify-between p-3 sm:p-4 border-b border-divider bg-primary/10 dark:bg-primary/20 cursor-move"
             onPointerDown={(e) => dragControls.start(e)}
           >
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 min-w-0 flex-1">
               <Avatar
                 src="/images/yop.jpeg"
                 size="sm"
                 name="Carlos Freire"
+                className="flex-shrink-0"
               />
-              <div>
-                <p className="text-sm font-semibold">Carlos Freire</p>
-                <p className="text-xs text-default-500">Desarrollador Full Stack</p>
+              <div className="min-w-0">
+                <p className="text-sm font-semibold truncate">Carlos Freire</p>
+                <p className="text-xs text-default-500 truncate">Desarrollador Full Stack</p>
               </div>
             </div>
-            <div className="flex gap-1">
+            <div className="flex gap-1 flex-shrink-0">
               <Button
                 isIconOnly
                 size="sm"
                 variant="light"
                 onClick={clearChat}
-                className="text-default-500"
+                className="text-white dark:text-white hover:text-primary hover:bg-white/20 dark:hover:bg-white/20 min-w-9 h-9 sm:min-w-8 sm:h-8 bg-black/30 dark:bg-white/30 border border-white/20"
               >
-                <Icon icon="mdi:refresh" className="text-lg" />
+                <Icon icon="material-symbols:refresh" className="text-xl sm:text-lg font-black" />
               </Button>
               <Button
                 isIconOnly
                 size="sm"
                 variant="light"
                 onClick={toggleMinimize}
-                className="text-default-500"
+                className="text-white dark:text-white hover:text-primary hover:bg-white/20 dark:hover:bg-white/20 min-w-9 h-9 sm:min-w-8 sm:h-8 bg-black/30 dark:bg-white/30 border border-white/20"
               >
-                <Icon icon={isMinimized ? "mdi:window-maximize" : "mdi:window-minimize"} className="text-lg" />
+                <Icon icon={isMinimized ? "material-symbols:fullscreen" : "material-symbols:minimize"} className="text-xl sm:text-lg font-black" />
               </Button>
               <Button
                 isIconOnly
                 size="sm"
                 variant="light"
                 onClick={onToggle}
-                className="text-default-500"
+                className="text-white dark:text-white hover:text-danger hover:bg-danger-50/20 dark:hover:bg-danger-900/20 min-w-9 h-9 sm:min-w-8 sm:h-8 bg-black/30 dark:bg-white/30 border border-white/20"
               >
-                <Icon icon="mdi:close" className="text-lg" />
+                <Icon icon="material-symbols:close" className="text-xl sm:text-lg font-black" />
               </Button>
             </div>
           </div>
@@ -248,17 +249,17 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
           {/* Messages */}
           {!isMinimized && (
             <>
-              <div className="flex-1 overflow-y-auto p-4 space-y-3">
+              <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-2 sm:space-y-3">
                 {messages.map((message) => (
                   <div
                     key={message.id}
                     className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
                     <div
-                      className={`max-w-[80%] p-3 rounded-lg text-sm ${
+                      className={`max-w-[85%] sm:max-w-[80%] p-2.5 sm:p-3 rounded-lg text-sm leading-relaxed ${
                         message.role === 'user'
-                          ? 'bg-primary text-primary-foreground'
-                          : 'bg-default-100 text-default-700'
+                          ? 'bg-primary text-primary-foreground shadow-sm'
+                          : 'bg-default-100 dark:bg-default-800 text-default-700 dark:text-default-300 shadow-sm'
                       }`}
                     >
                       {message.content}
@@ -267,8 +268,8 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
                 ))}
                 {isLoading && (
                   <div className="flex justify-start">
-                    <div className="bg-default-100 p-3 rounded-lg">
-                      <Spinner size="sm" />
+                    <div className="bg-default-100 dark:bg-default-800 p-2.5 sm:p-3 rounded-lg shadow-sm">
+                      <Spinner size="sm" color="primary" />
                     </div>
                   </div>
                 )}
@@ -276,7 +277,7 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
               </div>
 
               {/* Input */}
-              <div className="p-4 border-t border-divider">
+              <div className="p-3 sm:p-4 border-t border-divider bg-default-50/50 dark:bg-default-900/50">
                 <div className="flex gap-2">
                   <Input
                     value={inputValue}
@@ -286,6 +287,10 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
                     size="sm"
                     disabled={isLoading}
                     className="flex-1"
+                    classNames={{
+                      input: "text-sm",
+                      inputWrapper: "bg-background dark:bg-default-800 border-default-200 dark:border-default-700"
+                    }}
                   />
                   <Button
                     isIconOnly
@@ -293,8 +298,9 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
                     size="sm"
                     onClick={sendMessage}
                     disabled={!inputValue.trim() || isLoading}
+                    className="min-w-8 h-8 sm:min-w-10 sm:h-10"
                   >
-                    <Icon icon="mdi:send" className="text-lg" />
+                    <Icon icon="mdi:send" className="text-base sm:text-lg" />
                   </Button>
                 </div>
               </div>
