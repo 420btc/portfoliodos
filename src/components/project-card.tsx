@@ -2,6 +2,8 @@ import React from "react";
 import { Card, CardBody, CardFooter, Chip, Button, Link } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
+import { useLanguage } from "./language-switcher";
+import { getProjectTranslation, formatDateByLanguage } from "../data/translations";
 
 export interface ProjectProps {
   id: number | string;
@@ -22,21 +24,20 @@ interface ProjectCardProps {
   index: number;
 }
 
-// Función para formatear la fecha en español
-const formatDate = (date: Date): string => {
-  const options: Intl.DateTimeFormatOptions = { 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric',
-    timeZone: 'UTC'
-  };
-  return new Date(date).toLocaleDateString('es-ES', options);
+// Función para formatear la fecha según el idioma (ahora se usa desde translations.ts)
+const formatDate = (date: Date, language: string): string => {
+  return formatDateByLanguage(date, language);
 };
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+  // Get current language from context
+  const { language } = useLanguage();
+  
+  // Get translated project data
+  const translatedProject = getProjectTranslation(project, language);
   const renderChips = () => (
     <>
-      {project.featured && (
+      {translatedProject.featured && (
         <div className="hidden">
           <Chip 
             className="text-xs sm:text-sm whitespace-nowrap" 
@@ -48,20 +49,35 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           </Chip>
         </div>
       )}
-      {project.status && (
+      {translatedProject.status && (
         <Chip 
           className="text-xs sm:text-sm whitespace-nowrap"
-          color={project.status === "Finalizado" ? "success" : "warning"} 
+          color={
+            translatedProject.status === "Finalizado"
+              ? "success" 
+              : "warning"
+          } 
           variant="flat" 
           size="sm"
         >
           <div className="flex items-center gap-2">
             <span 
               className={`inline-block w-2 h-2 rounded-full flex-shrink-0 ${
-                project.status === "Finalizado" ? "bg-green-500" : "bg-orange-500"
+                translatedProject.status === "Finalizado"
+                  ? "bg-green-500" 
+                  : "bg-orange-500"
               }`}
             />
-            <span>{project.status}</span>
+            <span>
+              {language === "es" 
+                ? translatedProject.status 
+                : translatedProject.status === "Finalizado" 
+                  ? "Completed" 
+                  : translatedProject.status === "Trabajando" 
+                    ? "In Progress" 
+                    : translatedProject.status
+              }
+            </span>
           </div>
         </Chip>
       )}
@@ -88,15 +104,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             <div className="flex-1">
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="text-3xl font-bold text-foreground mb-1">{project.title}</h3>
+                  <h3 className="text-3xl font-bold text-foreground mb-1">{translatedProject.title}</h3>
                   <p className="text-2xl text-default-400 mb-1 font-sans">
                     {(() => {
                       try {
-                        return project.demoUrl && project.demoUrl !== '#' 
-                          ? new URL(project.demoUrl.includes('://') ? project.demoUrl : `https://${project.demoUrl}`).hostname.replace('www.', '')
-                          : 'paginaweb.es';
+                        return translatedProject.demoUrl && translatedProject.demoUrl !== '#' 
+                          ? new URL(translatedProject.demoUrl.includes('://') ? translatedProject.demoUrl : `https://${translatedProject.demoUrl}`).hostname.replace('www.', '')
+                          : language === 'es' ? 'paginaweb.es' : 'website.com';
                       } catch (e) {
-                        return 'paginaweb.es';
+                        return language === 'es' ? 'paginaweb.es' : 'website.com';
                       }
                     })()}
                   </p>
@@ -106,7 +122,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                     color="default"
                     className="text-xs bg-default-100 dark:bg-default-800 text-default-600 dark:text-default-400 border border-default-200 dark:border-default-700"
                   >
-                    {formatDate(project.date)}
+                    {formatDate(translatedProject.date, language)}
                   </Chip>
                 </div>
                 {/* Desktop Chips */}
@@ -122,10 +138,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               </div>
             </div>
             
-            <p className="text-default-600 mb-4 flex-1">{project.description}</p>
+            <p className="text-default-600 mb-4 flex-1">{translatedProject.description}</p>
             
             <div className="flex flex-wrap gap-2 mb-4">
-              {project.tags.map((tag, i) => (
+              {translatedProject.tags.map((tag, i) => (
                 <Chip 
                   key={i} 
                   size="sm" 
@@ -139,11 +155,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </div>
             
             {/* Espacio para el icono del proyecto - Solo se muestra si hay un icono definido */}
-            {project.icon && (
+            {translatedProject.icon && (
               <div className="h-[120px] w-full mb-4 flex items-center justify-center bg-transparent rounded-lg overflow-hidden">
                 <img 
-                  src={project.icon} 
-                  alt={`${project.title} icon`}
+                  src={translatedProject.icon} 
+                  alt={`${translatedProject.title} icon`}
                   className="h-full w-full object-contain"
                   style={{ imageRendering: 'auto' as const }}
                 />
@@ -153,10 +169,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         </CardBody>
         <CardFooter className="bg-default-50 p-4 border-t border-default-200">
           <div className="w-full flex gap-3">
-            {project.demoUrl && project.demoUrl !== '#' && (
+            {translatedProject.demoUrl && translatedProject.demoUrl !== '#' && (
               <Button 
                 as={Link} 
-                href={project.demoUrl} 
+                href={translatedProject.demoUrl} 
                 target="_blank" 
                 color="primary" 
                 variant="solid" 
@@ -164,21 +180,21 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 className="flex-1"
                 startContent={<Icon icon="mdi:open-in-new" width={16} />}
               >
-                Ver Proyecto
+                {language === "es" ? "Ver Proyecto" : "View Project"}
               </Button>
             )}
-            {project.codeUrl && project.codeUrl !== '#' && (
+            {translatedProject.codeUrl && translatedProject.codeUrl !== '#' && (
               <Button 
                 as={Link} 
-                href={project.codeUrl} 
+                href={translatedProject.codeUrl} 
                 target="_blank" 
-                color={project.demoUrl === '#' ? 'primary' : 'default'}
-                variant={project.demoUrl === '#' ? 'solid' : 'flat'}
+                color={translatedProject.demoUrl === '#' ? 'primary' : 'default'}
+                variant={translatedProject.demoUrl === '#' ? 'solid' : 'flat'}
                 size="md"
-                className={`flex-1 ${project.demoUrl === '#' ? '' : 'bg-default-100'}`}
+                className={`flex-1 ${translatedProject.demoUrl === '#' ? '' : 'bg-default-100'}`}
                 startContent={<Icon icon="mdi:github" width={16} />}
               >
-                Ver Código
+                {language === "es" ? "Ver Código" : "View Code"}
               </Button>
             )}
           </div>

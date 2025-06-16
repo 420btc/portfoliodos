@@ -173,7 +173,9 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
           className="w-12 h-12 sm:w-14 sm:h-14 shadow-lg hover:shadow-xl transition-shadow"
           onClick={onToggle}
         >
-          <Icon icon="mdi:chat" className="text-xl sm:text-2xl" />
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" style={{ fill: 'currentColor', margin: '-8px' }}>
+            <path d="M12 3c5.5 0 10 3.58 10 8s-4.5 8-10 8c-1.24 0-2.43-.18-3.53-.5C5.55 21 2 21 2 21c2.33-2.33 2.7-3.9 2.75-4.5C3.05 15.07 2 13.13 2 11c0-4.42 4.5-8 10-8" />
+          </svg>
         </Button>
       </motion.div>
     );
@@ -247,23 +249,23 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
                 </Button>
               </div>
               
-              {/* Mobile buttons with text instead of icons - tiny size */}
-              <div className="flex sm:hidden gap-0.5">
+              {/* Mobile buttons with text instead of icons - blue and round */}
+              <div className="flex sm:hidden gap-1.5">
                 <button
                   onClick={clearChat}
-                  className="w-5 h-5 flex items-center justify-center bg-white/20 text-white text-xs rounded"
+                  className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white text-xs rounded-full"
                 >
                   ↻
                 </button>
                 <button
                   onClick={toggleMinimize}
-                  className="w-5 h-5 flex items-center justify-center bg-white/20 text-white text-xs rounded"
+                  className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white text-xs rounded-full"
                 >
                   {isMinimized ? '□' : '—'}
                 </button>
                 <button
                   onClick={onToggle}
-                  className="w-5 h-5 flex items-center justify-center bg-red-500 text-white text-xs rounded"
+                  className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white text-xs rounded-full"
                 >
                   ✕
                 </button>
@@ -333,7 +335,7 @@ export function ChatPopup({ isOpen, onToggle }: ChatPopupProps) {
                   <button
                     onClick={sendMessage}
                     disabled={!inputValue.trim() || isLoading}
-                    className="sm:hidden w-7 h-7 flex items-center justify-center bg-blue-500 text-white text-xs rounded"
+                    className="sm:hidden w-6 h-6 flex items-center justify-center bg-blue-500 text-white text-xs rounded-full"
                   >
                     →
                   </button>

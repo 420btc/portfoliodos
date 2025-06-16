@@ -70,8 +70,9 @@ export const Navbar: React.FC = () => {
             <Icon icon="lucide:code" width={24} height={24} className="text-primary" />
             <p className="font-semibold text-inherit text-2xl">Carlos Freire</p>
           </RouterLink>
-          <div className="sm:hidden ml-4">
+          <div className="sm:hidden ml-4 flex items-center gap-2">
             <ThemeSwitcher />
+            <LanguageSwitcher />
           </div>
         </NavbarBrand>
       </NavbarContent>
