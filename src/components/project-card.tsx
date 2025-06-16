@@ -100,9 +100,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                       }
                     })()}
                   </p>
-                  <div className="text-sm text-default-500">
+                  <Chip 
+                    size="sm" 
+                    variant="flat" 
+                    color="default"
+                    className="text-xs bg-default-100 dark:bg-default-800 text-default-600 dark:text-default-400 border border-default-200 dark:border-default-700"
+                  >
                     {formatDate(project.date)}
-                  </div>
+                  </Chip>
                 </div>
                 {/* Desktop Chips */}
                 <div className="hidden sm:flex flex-wrap justify-end gap-2 flex-shrink-0 ml-2">
@@ -157,7 +162,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 variant="solid" 
                 size="md"
                 className="flex-1"
-                startContent={<Icon icon="lucide:external-link" width={16} />}
+                startContent={<Icon icon="mdi:open-in-new" width={16} />}
               >
                 Ver Proyecto
               </Button>
@@ -171,7 +176,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 variant={project.demoUrl === '#' ? 'solid' : 'flat'}
                 size="md"
                 className={`flex-1 ${project.demoUrl === '#' ? '' : 'bg-default-100'}`}
-                startContent={<Icon icon="lucide:github" width={16} />}
+                startContent={<Icon icon="mdi:github" width={16} />}
               >
                 Ver Código
               </Button>
