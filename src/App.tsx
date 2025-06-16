@@ -8,7 +8,8 @@ import { Projects } from "./pages/projects";
 import { Novel } from "./pages/novel";
 import { Contact } from "./pages/contact";
 import { About } from "./pages/about";
-import { useEffect } from "react";
+import { ChatPopup } from "./components/chat-popup";
+import { useEffect, useState } from "react";
 
 // Componente para manejar el scroll al inicio de la página
 const ScrollToTop = () => {
@@ -34,6 +35,12 @@ function AppRoutes() {
 }
 
 export default function App() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+  const toggleChat = () => {
+    setIsChatOpen(!isChatOpen);
+  };
+
   return (
     <Router>
       <ScrollToTop />
@@ -49,6 +56,7 @@ export default function App() {
           <Analytics />
         </motion.main>
         <Footer />
+        <ChatPopup isOpen={isChatOpen} onToggle={toggleChat} />
       </div>
     </Router>
   );
