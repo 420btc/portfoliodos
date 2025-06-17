@@ -170,6 +170,12 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
     }
   };
 
+  const getCounterColor = (count: number) => {
+    if (count >= 7) return 'text-green-500';
+    if (count >= 4) return 'text-amber-500';
+    return 'text-red-500';
+  };
+
   const clearChat = () => {
     setMessages([
       {
@@ -244,7 +250,7 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
                   <p className="text-sm font-semibold truncate text-black dark:text-white">
                     Carlos Freire
                   </p>
-                  <span className="text-xs text-gray-500 dark:text-zinc-400">
+                  <span className={`text-xs font-medium ${getCounterColor(remainingResponses)}`}>
                     {remainingResponses}/10
                   </span>
                 </div>
