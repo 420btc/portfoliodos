@@ -240,7 +240,7 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
           >
             <div className="flex items-center gap-2">
               <Avatar
-                src="/images/yop.jpeg"
+                src="/images/yop2.jpeg"
                 size="sm"
                 name="Carlos Freire"
                 className="flex-shrink-0"
@@ -259,55 +259,49 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
                 </p>
               </div>
             </div>
-            <div className="flex gap-2 flex-shrink-0">
+            <div className="flex flex-shrink-0">
               {/* Desktop buttons */}
-              <div className="hidden sm:flex gap-2">
-                <Button
-                  isIconOnly
-                  size="sm"
-                  variant="light"
+              <div className="hidden sm:flex items-center gap-1">
+                <button
                   onClick={clearChat}
-                  className="text-gray-600 dark:text-gray-300 hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-700 min-w-8 h-8 border-none"
+                  className="w-6 h-6 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full border-none"
                 >
-                  <Icon icon="material-symbols:refresh" className="text-xl font-black" />
-                </Button>
-                <Button
-                  isIconOnly
-                  size="sm"
-                  variant="light"
+                  <Icon icon="material-symbols:refresh" className="text-sm" />
+                </button>
+                <button
                   onClick={toggleMinimize}
-                  className="text-gray-600 dark:text-gray-300 hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-700 min-w-8 h-8 border-none"
+                  className="w-6 h-6 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full border-none"
                 >
-                  <Icon icon={isMinimized ? "material-symbols:fullscreen" : "material-symbols:minimize"} className="text-xl font-black" />
-                </Button>
-                <Button
-                  isIconOnly
-                  size="sm"
-                  variant="light"
+                  <Icon icon={isMinimized ? "material-symbols:fullscreen" : "material-symbols:minimize"} className="text-sm" />
+                </button>
+                <button
                   onClick={onToggle}
-                  className="text-gray-600 dark:text-gray-300 hover:text-danger hover:bg-red-100 dark:hover:bg-red-900/20 min-w-8 h-8 border-none"
+                  className="w-6 h-6 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-white hover:bg-red-500 dark:hover:bg-red-600 rounded-full border-none"
                 >
-                  <Icon icon="material-symbols:close" className="text-xl font-black" />
-                </Button>
+                  <Icon icon="material-symbols:close" className="text-sm" />
+                </button>
               </div>
               
               {/* Mobile buttons with text instead of icons - blue and round */}
-              <div className="flex sm:hidden gap-1.5">
+              <div className="flex sm:hidden items-center gap-2 scale-50 origin-right -ml-[15px]">
                 <button
                   onClick={clearChat}
-                  className="w-6 h-6 flex items-center justify-center bg-blue-500 dark:bg-blue-600 text-white text-xs rounded-full hover:bg-blue-600 dark:hover:bg-blue-700"
+                  className="w-4 h-4 flex items-center justify-center bg-blue-500 dark:bg-blue-600 text-white text-[10px] leading-none rounded-full hover:bg-blue-600 dark:hover:bg-blue-700"
+                  aria-label="Recargar chat"
                 >
                   ↻
                 </button>
                 <button
                   onClick={toggleMinimize}
-                  className="w-6 h-6 flex items-center justify-center bg-blue-500 dark:bg-blue-600 text-white text-xs rounded-full hover:bg-blue-600 dark:hover:bg-blue-700"
+                  className="w-4 h-4 flex items-center justify-center bg-blue-500 dark:bg-blue-600 text-white text-[10px] leading-none rounded-full hover:bg-blue-600 dark:hover:bg-blue-700"
+                  aria-label={isMinimized ? 'Maximizar' : 'Minimizar'}
                 >
                   {isMinimized ? '□' : '—'}
                 </button>
                 <button
                   onClick={onToggle}
-                  className="w-6 h-6 flex items-center justify-center bg-blue-500 dark:bg-blue-600 text-white text-xs rounded-full hover:bg-blue-600 dark:hover:bg-blue-700"
+                  className="w-4 h-4 flex items-center justify-center bg-red-500 dark:bg-red-600 text-white text-[10px] leading-none rounded-full hover:bg-red-600 dark:hover:bg-red-700"
+                  aria-label="Cerrar chat"
                 >
                   ✕
                 </button>
