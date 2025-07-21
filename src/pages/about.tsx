@@ -152,7 +152,7 @@ export const About: React.FC = () => {
                 <div className="text-left space-y-3">
                   <div className="flex items-center gap-2">
                     <Icon icon="lucide:mail" className="text-default-500" width={16} />
-                    <span>carlosfreireph@gmail.com</span>
+                    <span>carlospfreire1@gmail.com</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Icon icon="lucide:map-pin" className="text-default-500" width={16} />
@@ -173,11 +173,11 @@ export const About: React.FC = () => {
                 <div className="text-left">
                   <h3 className="font-semibold mb-2">{language === "es" ? "Intereses" : "Interests"}</h3>
                   <div className="flex flex-wrap gap-2">
-                    <Chip size="sm" variant="flat">{language === "es" ? "Fotografía" : "Photography"}</Chip>
-                    <Chip size="sm" variant="flat">{language === "es" ? "Drones" : "Drone Flying"}</Chip>
-                    <Chip size="sm" variant="flat">{language === "es" ? "Escritura" : "Writing"}</Chip>
-                    <Chip size="sm" variant="flat">{language === "es" ? "Senderismo" : "Hiking"}</Chip>
-                    <Chip size="sm" variant="flat">{language === "es" ? "Tecnología" : "Technology"}</Chip>
+                    <Chip size="sm" variant="flat" color="primary">{language === "es" ? "Fotografía" : "Photography"}</Chip>
+                    <Chip size="sm" variant="flat" color="secondary">{language === "es" ? "Drones" : "Drone Flying"}</Chip>
+                    <Chip size="sm" variant="flat" color="success">{language === "es" ? "Escritura" : "Writing"}</Chip>
+                    <Chip size="sm" variant="flat" color="warning">{language === "es" ? "Senderismo" : "Hiking"}</Chip>
+                    <Chip size="sm" variant="flat" color="danger">{language === "es" ? "Tecnología" : "Technology"}</Chip>
                   </div>
                 </div>
               </CardBody>
