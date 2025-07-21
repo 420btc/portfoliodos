@@ -23,7 +23,7 @@ const threeDProjects: ProjectData[] = [
     tags: ["Fotogrametría", "Redes Sociales", "Instagram", "Adobe", "Substance", "2D / 3D"],
     demoUrl: "https://instagram.com/cpf3d",
     status: "Trabajando",
-    date: new Date("2024-01-15")
+    date: new Date("2021-11-04")
   }
 ];
 
