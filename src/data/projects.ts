@@ -12,6 +12,7 @@ export interface ProjectData {
   featured?: boolean;
   status?: "Finalizado" | "Trabajando";
   date: Date;
+  blocked?: boolean;
 }
 
 // Mapear los proyectos a ProjectData con IDs únicos
@@ -22,7 +23,7 @@ const projectsData: ProjectData[] = [
     description: "Aplicación web inteligente que te permite descubrir qué eventos históricos mundiales ocurrieron cuando tenías una edad específica. Explora la historia de manera personalizada y descubre cómo el mundo cambió mientras crecías. Una experiencia única que conecta tu vida personal con los grandes momentos de la humanidad.",
     image: "images/agevents.png",
     icon: "images/navegador.png",
-    tags: ["React", "AI", "Historia", "Educación", "TypeScript"],
+    tags: ["React", "AI", "Historia", "Educación", "TypeScript", "OpenAI"],
     demoUrl: "https://agevents.vercel.app/",
     codeUrl: "https://github.com/420btc/AgeEvents",
     status: "Finalizado",
@@ -181,11 +182,12 @@ const projectsData: ProjectData[] = [
     description: "Bot de trading automatizado con inteligencia artificial que opera con precios reales del mercado de criptomonedas. Conectado a APIs de exchanges para analizar tendencias, patrones técnicos y tomar decisiones de compra/venta en tiempo real. Incluye algoritmos de machine learning para optimizar estrategias y gestión de riesgo avanzada.",
     image: "images/Cryptoia.png",
     icon: "images/project-icons/icontrading.png",
-    tags: ["AI", "Trading", "Cryptocurrency", "Machine Learning", "API Integration", "Python"],
+    tags: ["AI", "Trading", "Cryptocurrency", "Machine Learning", "API Integration", "Python", "OpenAI"],
     status: "Trabajando",
-    date: new Date("2025-07-01"),
+    date: new Date("2025-08-25"),
     demoUrl: "https://aibotrading.vercel.app",
-    codeUrl: "https://github.com/420btc/AiBotTrading"
+    codeUrl: "https://github.com/420btc/AiBotTrading",
+    blocked: true
   },
   {
     id: 14,
@@ -197,7 +199,8 @@ const projectsData: ProjectData[] = [
     demoUrl: "https://pinillo-city-fight.vercel.app/",
     codeUrl: "https://github.com/420btc/PinilloCityFight",
     status: "Trabajando",
-    date: new Date("2025-09-01")
+    date: new Date("2026-01-01"),
+    blocked: true
   },
   {
     id: 15,
@@ -205,7 +208,7 @@ const projectsData: ProjectData[] = [
     description: "Editor de video web potenciado y gestionado por IA para pedir cambios a un agente especializado. Una herramienta revolucionaria que permite editar videos mediante comandos de texto, automatizando tareas complejas y ofreciendo sugerencias inteligentes para mejorar la calidad del contenido.",
     image: "images/aieditor.png",
     icon: "images/project-icons/logoaivideo.png",
-    tags: ["AI", "Video Editing", "Web App", "Machine Learning", "React"],
+    tags: ["AI", "Video Editing", "Web App", "Machine Learning", "React", "OpenAI"],
     demoUrl: "https://aivideo-three.vercel.app/",
     codeUrl: "https://github.com/420btc/videoAIeditor",
     status: "Trabajando",

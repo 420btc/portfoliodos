@@ -17,6 +17,7 @@ export interface ProjectProps {
   featured?: boolean;
   status?: "Finalizado" | "Trabajando";
   date: Date;
+  blocked?: boolean;
 }
 
 interface ProjectCardProps {
@@ -171,14 +172,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           <div className="w-full flex gap-3">
             {translatedProject.demoUrl && translatedProject.demoUrl !== '#' && (
               <Button 
-                as={Link} 
-                href={translatedProject.demoUrl} 
-                target="_blank" 
+                as={translatedProject.blocked ? undefined : Link}
+                href={translatedProject.blocked ? undefined : translatedProject.demoUrl} 
+                target={translatedProject.blocked ? undefined : "_blank"}
                 color="primary" 
                 variant="solid" 
                 size="md"
-                className="flex-1"
+                className={`flex-1 ${translatedProject.blocked ? 'opacity-50 blur-sm cursor-not-allowed' : ''}`}
                 startContent={<Icon icon="mdi:open-in-new" width={16} />}
+                disabled={translatedProject.blocked}
               >
                 {language === "es" ? "Ver Proyecto" : "View Project"}
               </Button>
