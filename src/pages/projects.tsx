@@ -19,7 +19,22 @@ export const Projects: React.FC = () => {
   const [sortOrder, setSortOrder] = React.useState<"recent" | "oldest">("recent");
   
   // Main categories to display
-  const mainCategories = ["OpenAI", "UI/UX", language === "es" ? "Fotografía" : "Photography"];
+  const mainCategories = ["OpenAI", "Trading", "Portfolios", language === "es" ? "Fotografía" : "Photography"];
+  
+  // Category colors
+  const getCategoryColor = (category: string, isSelected: boolean) => {
+    const colors = {
+      'all': isSelected ? 'bg-blue-500 text-white' : 'bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/20 dark:hover:bg-blue-800/30 text-blue-700 dark:text-blue-300',
+      'featured': isSelected ? 'bg-yellow-500 text-white' : 'bg-yellow-100 hover:bg-yellow-200 dark:bg-yellow-900/20 dark:hover:bg-yellow-800/30 text-yellow-700 dark:text-yellow-300',
+      'OpenAI': isSelected ? 'bg-green-500 text-white' : 'bg-green-100 hover:bg-green-200 dark:bg-green-900/20 dark:hover:bg-green-800/30 text-green-700 dark:text-green-300',
+      'UI/UX': isSelected ? 'bg-purple-500 text-white' : 'bg-purple-100 hover:bg-purple-200 dark:bg-purple-900/20 dark:hover:bg-purple-800/30 text-purple-700 dark:text-purple-300',
+      'Trading': isSelected ? 'bg-orange-500 text-white' : 'bg-orange-100 hover:bg-orange-200 dark:bg-orange-900/20 dark:hover:bg-orange-800/30 text-orange-700 dark:text-orange-300',
+      'Portfolios': isSelected ? 'bg-indigo-500 text-white' : 'bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-900/20 dark:hover:bg-indigo-800/30 text-indigo-700 dark:text-indigo-300',
+      'Fotografía': isSelected ? 'bg-pink-500 text-white' : 'bg-pink-100 hover:bg-pink-200 dark:bg-pink-900/20 dark:hover:bg-pink-800/30 text-pink-700 dark:text-pink-300',
+      'Photography': isSelected ? 'bg-pink-500 text-white' : 'bg-pink-100 hover:bg-pink-200 dark:bg-pink-900/20 dark:hover:bg-pink-800/30 text-pink-700 dark:text-pink-300',
+    };
+    return colors[category as keyof typeof colors] || (isSelected ? 'bg-gray-500 text-white' : 'bg-gray-100 hover:bg-gray-200 dark:bg-gray-900/20 dark:hover:bg-gray-800/30 text-gray-700 dark:text-gray-300');
+  };
   
   // Filter and sort projects based on search query, selected category, and sort order
   const filteredProjects = React.useMemo(() => {
@@ -89,25 +104,17 @@ export const Projects: React.FC = () => {
         
         <div className="mb-8">
           {/* Category filters */}
-          <div className="mb-4 overflow-x-auto">
+          <div className="mb-8 overflow-x-auto">
             <div className="flex flex-nowrap md:flex-wrap gap-2 pb-2 md:pb-0">
               <button
                 onClick={() => setSelectedCategory('all')}
-                className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
-                  selectedCategory === 'all' 
-                    ? 'bg-primary text-white' 
-                    : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
-                }`}
+                className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${getCategoryColor('all', selectedCategory === 'all')}`}
               >
                 {t.allProjects}
               </button>
               <button
                 onClick={() => setSelectedCategory('featured')}
-                className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
-                  selectedCategory === 'featured' 
-                    ? 'bg-primary text-white' 
-                    : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
-                }`}
+                className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${getCategoryColor('featured', selectedCategory === 'featured')}`}
               >
                 {t.featuredProjects}
               </button>
@@ -115,11 +122,7 @@ export const Projects: React.FC = () => {
                 <button
                   key={tag}
                   onClick={() => setSelectedCategory(tag)}
-                  className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
-                    selectedCategory === tag 
-                      ? 'bg-primary text-white' 
-                      : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
-                  }`}
+                  className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${getCategoryColor(tag, selectedCategory === tag)}`}
                 >
                   {tag}
                 </button>
@@ -128,7 +131,7 @@ export const Projects: React.FC = () => {
           </div>
           
           {/* Sort buttons */}
-          <div className="flex justify-center gap-2">
+          <div className="flex justify-center gap-2 pt-4 border-t border-default-200 dark:border-default-700">
             <button
               onClick={() => setSortOrder('recent')}
               className={`px-4 py-2 rounded-full flex items-center gap-2 transition-colors ${
