@@ -46,14 +46,45 @@ export const About: React.FC = () => {
     }
   ];
   
-  const education = [
+  const education: Array<{
+    degree: string;
+    institution: string;
+    institutionUrl?: string;
+    year: string;
+    description: string;
+  }> = [
     {
       degree: language === "es" ? "Licenciatura en Ingeniería Informática" : "Bachelor of Science in Computer Science",
       institution: "Universidad de Málaga",
-      year: "2015",
+      year: "2013",
       description: language === "es" ? 
         "Licenciatura en Ingeniería Informática." :
         "Bachelor of Science in Computer Science."
+    },
+    {
+      degree: language === "es" ? "Grado en Derecho Natural" : "Degree in Natural Law",
+      institution: "REML",
+      institutionUrl: "https://www.republicamendalerenda.net",
+      year: "2017",
+      description: language === "es" ? 
+        "Especialización en derecho natural y principios fundamentales del derecho." :
+        "Specialization in natural law and fundamental principles of law."
+    },
+    {
+      degree: language === "es" ? "CFA Chartered Financial Analyst" : "CFA Chartered Financial Analyst",
+      institution: "CFA Institute",
+      year: "2020",
+      description: language === "es" ? 
+        "Certificación profesional en análisis financiero y gestión de inversiones." :
+        "Professional certification in financial analysis and investment management."
+    },
+    {
+      degree: language === "es" ? "Piloto Certificado AESA" : "AESA Certified Pilot",
+      institution: "Agencia Estatal de Seguridad Aérea",
+      year: "2022",
+      description: language === "es" ? 
+        "Licencia de piloto certificado por la Agencia Estatal de Seguridad Aérea para operaciones con drones." :
+        "Pilot license certified by the State Aviation Safety Agency for drone operations."
     }
   ];
 
@@ -226,7 +257,18 @@ export const About: React.FC = () => {
                       <div className="absolute -left-1.5 top-0 w-3 h-3 rounded-full bg-secondary"></div>
                       <h3 className="font-semibold">{edu.degree}</h3>
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="text-default-500">{edu.institution}</span>
+                        {edu.institutionUrl ? (
+                          <a 
+                            href={edu.institutionUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="bg-blue-500/20 hover:bg-blue-500/30 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full text-sm font-medium transition-colors cursor-pointer border border-blue-500/30"
+                          >
+                            {edu.institution}
+                          </a>
+                        ) : (
+                          <span className="text-default-500">{edu.institution}</span>
+                        )}
                         <span className="text-xs bg-default-100 px-2 py-0.5 rounded-full">{edu.year}</span>
                       </div>
                       <p className="text-default-600">{edu.description}</p>
