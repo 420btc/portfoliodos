@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ProjectCard } from "../components/project-card";
 import { projects } from "../data/projects";
 import photographyProjects from "../data/photography";
+import threeDProjects from "../data/3d-projects";
 import { useLanguage } from "../components/language-switcher";
 import { getProjectTranslation, uiTranslations } from "../data/translations";
 
@@ -19,7 +20,7 @@ export const Projects: React.FC = () => {
   const [sortOrder, setSortOrder] = React.useState<"recent" | "oldest">("recent");
   
   // Main categories to display
-  const mainCategories = ["OpenAI", "Trading", "Portfolios", language === "es" ? "Fotografía" : "Photography"];
+  const mainCategories = ["OpenAI", "Trading", "Portfolios", "2D / 3D", language === "es" ? "Fotografía" : "Photography"];
   
   // Category colors
   const getCategoryColor = (category: string, isSelected: boolean) => {
@@ -30,6 +31,7 @@ export const Projects: React.FC = () => {
       'UI/UX': isSelected ? 'bg-purple-500 text-white' : 'bg-purple-100 hover:bg-purple-200 dark:bg-purple-900/20 dark:hover:bg-purple-800/30 text-purple-700 dark:text-purple-300',
       'Trading': isSelected ? 'bg-orange-500 text-white' : 'bg-orange-100 hover:bg-orange-200 dark:bg-orange-900/20 dark:hover:bg-orange-800/30 text-orange-700 dark:text-orange-300',
       'Portfolios': isSelected ? 'bg-indigo-500 text-white' : 'bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-900/20 dark:hover:bg-indigo-800/30 text-indigo-700 dark:text-indigo-300',
+      '2D / 3D': isSelected ? 'bg-teal-500 text-white' : 'bg-teal-100 hover:bg-teal-200 dark:bg-teal-900/20 dark:hover:bg-teal-800/30 text-teal-700 dark:text-teal-300',
       'Fotografía': isSelected ? 'bg-pink-500 text-white' : 'bg-pink-100 hover:bg-pink-200 dark:bg-pink-900/20 dark:hover:bg-pink-800/30 text-pink-700 dark:text-pink-300',
       'Photography': isSelected ? 'bg-pink-500 text-white' : 'bg-pink-100 hover:bg-pink-200 dark:bg-pink-900/20 dark:hover:bg-pink-800/30 text-pink-700 dark:text-pink-300',
     };
@@ -39,11 +41,15 @@ export const Projects: React.FC = () => {
   // Filter and sort projects based on search query, selected category, and sort order
   const filteredProjects = React.useMemo(() => {
     // Determine which projects to show based on category
-    const projectsToShow = (selectedCategory === 'Fotografía' || selectedCategory === 'Photography')
-      ? photographyProjects 
-      : projects;
+    let projectsToShow = projects;
+    
+    if (selectedCategory === 'Fotografía' || selectedCategory === 'Photography') {
+      projectsToShow = photographyProjects;
+    } else if (selectedCategory === '2D / 3D') {
+      projectsToShow = threeDProjects;
+    }
 
-    // If it's 'all' or 'featured' and not in photography, include only regular projects
+    // If it's 'all' or 'featured' and not in special categories, include only regular projects
     const filtered = selectedCategory === 'all' || selectedCategory === 'featured'
       ? projects
       : projectsToShow;
@@ -62,6 +68,7 @@ export const Projects: React.FC = () => {
       const matchesCategory = 
         selectedCategory === "all" || 
         (selectedCategory === "featured" && project.featured) ||
+        (selectedCategory === 'Fotografía' || selectedCategory === 'Photography' || selectedCategory === '2D / 3D') ||
         project.tags.includes(selectedCategory);
       
       return matchesSearch && matchesCategory;

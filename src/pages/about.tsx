@@ -54,12 +54,12 @@ export const About: React.FC = () => {
     description: string;
   }> = [
     {
-      degree: language === "es" ? "Licenciatura en Ingeniería Informática" : "Bachelor of Science in Computer Science",
+      degree: language === "es" ? "Formación en Ingeniería Informática" : "Computer Science Training",
       institution: "Universidad de Málaga",
       year: "2013",
       description: language === "es" ? 
-        "Licenciatura en Ingeniería Informática." :
-        "Bachelor of Science in Computer Science."
+        "Formación autodidacta y experiencia práctica en desarrollo de software, programación y tecnologías informáticas." :
+        "Self-taught training and practical experience in software development, programming and computer technologies."
     },
     {
       degree: language === "es" ? "Grado en Derecho Natural" : "Degree in Natural Law",
@@ -67,16 +67,16 @@ export const About: React.FC = () => {
       institutionUrl: "https://www.republicamendalerenda.net",
       year: "2017",
       description: language === "es" ? 
-        "Especialización en derecho natural y principios fundamentales del derecho." :
-        "Specialization in natural law and fundamental principles of law."
+        "Especialización en Derecho Natural, Derecho Internacional Privado, Código Uniforme de Comercio, Ley Internacional y principios fundamentales del derecho." :
+        "Specialization in Natural Law, Private International Law, Uniform Commercial Code, International Law and fundamental principles of law."
     },
     {
       degree: language === "es" ? "CFA Chartered Financial Analyst" : "CFA Chartered Financial Analyst",
       institution: "CFA Institute",
       year: "2020",
       description: language === "es" ? 
-        "Certificación profesional en análisis financiero y gestión de inversiones." :
-        "Professional certification in financial analysis and investment management."
+        "Certificación profesional en análisis financiero, gestión de inversiones, valoración de activos, análisis cuantitativo, gestión de riesgos, ética profesional, mercados de derivados y estrategias de portfolio." :
+        "Professional certification in financial analysis, investment management, asset valuation, quantitative analysis, risk management, professional ethics, derivatives markets and portfolio strategies."
     },
     {
       degree: language === "es" ? "Piloto Certificado AESA" : "AESA Certified Pilot",

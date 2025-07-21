@@ -13,11 +13,11 @@ const photographyProjects: ProjectData[] = [
   },
   {
     id: 'instagram-fotografia',
-    title: "Instagram",
+    title: "Carlos Freire",
     description: "Sígueme en Instagram para ver mis últimas fotografías y proyectos creativos.",
     image: "images/instagram.png",
     tags: ["Fotografía", "Redes Sociales", "Instagram"],
-    demoUrl: "https://www.instagram.com/carlosfreire1/",
+    demoUrl: "https://instagram.com/carlosfreire1",
     status: "Trabajando",
     date: new Date("2010-10-10")
   }
