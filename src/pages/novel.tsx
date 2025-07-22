@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Card, CardBody, Tabs, Tab, Button, Divider, Chip, CardFooter } from "@heroui/react";
+import React, { useState, useEffect } from "react";
+import { Card, CardBody, Tabs, Tab, Button, Divider, Chip, CardFooter, Input, Textarea } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { useLanguage } from "../components/language-switcher";
@@ -133,10 +133,160 @@ const chapters = [
   },
 ];
 
+// Interface para las reseñas
+interface Review {
+  id: string;
+  name: string;
+  profession: string;
+  rating: number;
+  comment: string;
+  date: string;
+  userKey: string;
+}
+
 export const Novel: React.FC = () => {
   const [selected, setSelected] = useState("overview");
   const [isSynopsisOpen, setIsSynopsisOpen] = useState(false);
   const { language } = useLanguage();
+  
+  // Estado para las reseñas
+  const [reviews, setReviews] = useState<Review[]>([]);
+  const [newReview, setNewReview] = useState({
+    name: '',
+    profession: '',
+    rating: 5,
+    comment: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [userReviewCount, setUserReviewCount] = useState(0);
+  
+  // Reseñas por defecto
+  const defaultReviews: Review[] = [
+    {
+      id: 'default-1',
+      name: 'María Rodríguez',
+      profession: 'Lectora ávida',
+      rating: 5,
+      comment: 'Una historia que te atrapa desde la primera página. La forma en que el autor construye la atmósfera del pueblo y la relación entre los personajes es simplemente magistral. Me sentí completamente inmersa en la historia y no pude dejar de leer hasta terminar los capítulos disponibles. ¡Ansío con ganas la próxima entrega!',
+      date: '2024-01-15',
+      userKey: 'default-user-1'
+    },
+    {
+      id: 'default-2',
+      name: 'Carlos Pérez',
+      profession: 'Crítico literario',
+      rating: 4,
+      comment: 'Una narrativa que combina a la perfección el misterio con la cotidianidad. Los personajes están tan bien construidos que parecen saltar de las páginas. Lo que más me ha gustado es cómo el autor juega con los elementos de suspenso, manteniendo al lector en vilo hasta el final. El único pero es que ahora tengo que esperar al próximo capítulo con ansias. ¡Muy recomendable para los amantes del género!',
+      date: '2024-01-10',
+      userKey: 'default-user-2'
+    }
+  ];
+  
+  // Generar clave única para el usuario (basada en IP simulada y fecha)
+  const getUserKey = () => {
+    const stored = localStorage.getItem('novel-user-key');
+    if (stored) return stored;
+    
+    const newKey = 'user-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+    localStorage.setItem('novel-user-key', newKey);
+    return newKey;
+  };
+  
+  // Verificar límite de reseñas por día
+  const checkDailyLimit = (userKey: string) => {
+    const today = new Date().toDateString();
+    const userReviews = reviews.filter(review => 
+      review.userKey === userKey && 
+      new Date(review.date).toDateString() === today
+    );
+    return userReviews.length;
+  };
+  
+  // Cargar reseñas del localStorage
+  useEffect(() => {
+    const storedReviews = localStorage.getItem('novel-reviews');
+    if (storedReviews) {
+      const parsedReviews = JSON.parse(storedReviews);
+      setReviews([...defaultReviews, ...parsedReviews]);
+    } else {
+      setReviews(defaultReviews);
+    }
+  }, []);
+  
+  // Actualizar contador de reseñas del usuario
+  useEffect(() => {
+    const userKey = getUserKey();
+    const count = checkDailyLimit(userKey);
+    setUserReviewCount(count);
+  }, [reviews]);
+  
+  // Guardar reseñas en localStorage
+  const saveReviews = (newReviews: Review[]) => {
+    const userReviews = newReviews.filter(review => !review.id.startsWith('default-'));
+    localStorage.setItem('novel-reviews', JSON.stringify(userReviews));
+  };
+  
+  // Enviar nueva reseña
+  const handleSubmitReview = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!newReview.name.trim() || !newReview.comment.trim()) {
+      alert(language === 'es' ? 'Por favor completa todos los campos obligatorios' : 'Please fill in all required fields');
+      return;
+    }
+    
+    const userKey = getUserKey();
+    const dailyCount = checkDailyLimit(userKey);
+    
+    if (dailyCount >= 2) {
+      alert(language === 'es' ? 'Has alcanzado el límite de 2 reseñas por día' : 'You have reached the limit of 2 reviews per day');
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    const review: Review = {
+      id: 'user-' + Date.now(),
+      name: newReview.name.trim(),
+      profession: newReview.profession.trim() || (language === 'es' ? 'Lector' : 'Reader'),
+      rating: newReview.rating,
+      comment: newReview.comment.trim(),
+      date: new Date().toISOString().split('T')[0],
+      userKey: userKey
+    };
+    
+    const updatedReviews = [review, ...reviews];
+    setReviews(updatedReviews);
+    saveReviews(updatedReviews);
+    
+    // Limpiar formulario
+    setNewReview({
+      name: '',
+      profession: '',
+      rating: 5,
+      comment: ''
+    });
+    
+    setIsSubmitting(false);
+    alert(language === 'es' ? '¡Reseña publicada con éxito!' : 'Review published successfully!');
+  };
+  
+  // Eliminar reseña (solo las propias)
+  const handleDeleteReview = (reviewId: string) => {
+    const userKey = getUserKey();
+    const review = reviews.find(r => r.id === reviewId);
+    
+    if (!review || review.userKey !== userKey) {
+      alert(language === 'es' ? 'Solo puedes eliminar tus propias reseñas' : 'You can only delete your own reviews');
+      return;
+    }
+    
+    if (window.confirm(language === 'es' ? '¿Estás seguro de que quieres eliminar esta reseña?' : 'Are you sure you want to delete this review?')) {
+      const updatedReviews = reviews.filter(r => r.id !== reviewId);
+      setReviews(updatedReviews);
+      saveReviews(updatedReviews);
+    }
+  };
   
   return (
     <div className="min-h-screen bg-background py-16 px-6">
@@ -584,51 +734,127 @@ export const Novel: React.FC = () => {
           
           {selected === "reviews" && (
             <div className="space-y-6">
-              <Card className="hover:shadow-lg transition-shadow">
+              {/* Formulario para nueva reseña */}
+              <Card>
                 <CardBody className="p-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 text-xl font-bold">
-                      MR
+                  <h3 className="text-xl font-semibold mb-4">
+                    {language === 'es' ? 'Escribe una reseña' : 'Write a Review'}
+                  </h3>
+                  
+                  <div className="mb-4 text-sm text-default-500">
+                    {language === 'es' 
+                      ? `Has publicado ${userReviewCount}/2 reseñas hoy` 
+                      : `You have published ${userReviewCount}/2 reviews today`
+                    }
+                  </div>
+                  
+                  <form onSubmit={handleSubmitReview} className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <Input
+                        label={language === 'es' ? 'Nombre *' : 'Name *'}
+                        placeholder={language === 'es' ? 'Tu nombre' : 'Your name'}
+                        value={newReview.name}
+                        onChange={(e) => setNewReview({...newReview, name: e.target.value})}
+                        isRequired
+                      />
+                      <Input
+                        label={language === 'es' ? 'Profesión' : 'Profession'}
+                        placeholder={language === 'es' ? 'Ej: Lector, Escritor...' : 'Ex: Reader, Writer...'}
+                        value={newReview.profession}
+                        onChange={(e) => setNewReview({...newReview, profession: e.target.value})}
+                      />
                     </div>
+                    
                     <div>
-                      <h3 className="text-lg font-semibold">María Rodríguez</h3>
-                      <p className="text-sm text-default-500">Lectora ávida</p>
-                      <div className="flex text-yellow-400 mt-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Icon key={i} icon="mdi:star" className="w-5 h-5" />
+                      <label className="block text-sm font-medium mb-2">
+                        {language === 'es' ? 'Calificación' : 'Rating'}
+                      </label>
+                      <div className="flex gap-1">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <button
+                            key={star}
+                            type="button"
+                            onClick={() => setNewReview({...newReview, rating: star})}
+                            className="text-2xl focus:outline-none"
+                          >
+                            <Icon 
+                              icon={star <= newReview.rating ? "mdi:star" : "mdi:star-outline"} 
+                              className={`w-6 h-6 ${star <= newReview.rating ? 'text-yellow-400' : 'text-default-300'}`}
+                            />
+                          </button>
                         ))}
                       </div>
                     </div>
-                  </div>
-                  <p className="text-default-600">
-                    "Una historia que te atrapa desde la primera página. La forma en que el autor construye la atmósfera del pueblo y la relación entre los personajes es simplemente magistral. Me sentí completamente inmersa en la historia y no pude dejar de leer hasta terminar los capítulos disponibles. ¡Ansío con ganas la próxima entrega!"
-                  </p>
+                    
+                    <Textarea
+                      label={language === 'es' ? 'Reseña *' : 'Review *'}
+                      placeholder={language === 'es' ? 'Comparte tu opinión sobre la novela...' : 'Share your thoughts about the novel...'}
+                      value={newReview.comment}
+                      onChange={(e) => setNewReview({...newReview, comment: e.target.value})}
+                      minRows={4}
+                      isRequired
+                    />
+                    
+                    <Button 
+                      type="submit" 
+                      color="primary" 
+                      isLoading={isSubmitting}
+                      isDisabled={userReviewCount >= 2}
+                    >
+                      {language === 'es' ? 'Publicar Reseña' : 'Publish Review'}
+                    </Button>
+                  </form>
                 </CardBody>
               </Card>
               
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardBody className="p-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 text-xl font-bold">
-                      CP
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold">Carlos Pérez</h3>
-                      <p className="text-sm text-default-500">Crítico literario</p>
-                      <div className="flex text-yellow-400 mt-1">
-                        {[...Array(4)].map((_, i) => (
-                          <Icon key={i} icon="mdi:star" className="w-5 h-5" />
-                        ))}
-                        <Icon icon="mdi:star-outline" className="w-5 h-5 text-default-300" />
+              {/* Lista de reseñas */}
+              <div className="space-y-4">
+                {reviews.map((review) => (
+                  <Card key={review.id} className="hover:shadow-lg transition-shadow">
+                    <CardBody className="p-6">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="flex items-center gap-4">
+                          <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 text-xl font-bold">
+                            {review.name.split(' ').map(n => n[0]).join('').toUpperCase()}
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-semibold">{review.name}</h3>
+                            <p className="text-sm text-default-500">{review.profession}</p>
+                            <div className="flex text-yellow-400 mt-1">
+                              {[...Array(5)].map((_, i) => (
+                                <Icon 
+                                  key={i} 
+                                  icon={i < review.rating ? "mdi:star" : "mdi:star-outline"} 
+                                  className={`w-5 h-5 ${i < review.rating ? 'text-yellow-400' : 'text-default-300'}`}
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* Botón de eliminar para reseñas propias */}
+                        {review.userKey === getUserKey() && (
+                          <Button
+                            size="sm"
+                            variant="light"
+                            color="danger"
+                            onPress={() => handleDeleteReview(review.id)}
+                            startContent={<Icon icon="mdi:delete" />}
+                          >
+                            {language === 'es' ? 'Eliminar' : 'Delete'}
+                          </Button>
+                        )}
                       </div>
-                    </div>
-                  </div>
-                  <p className="text-default-600">
-                    "Una narrativa que combina a la perfección el misterio con la cotidianidad. Los personajes están tan bien construidos que parecen saltar de las páginas. Lo que más me ha gustado es cómo el autor juega con los elementos de suspenso, manteniendo al lector en vilo hasta el final. El único pero es que ahora tengo que esperar al próximo capítulo con ansias. ¡Muy recomendable para los amantes del género!"
-                  </p>
-                </CardBody>
-              </Card>
-
+                      
+                      <p className="text-default-600">"{review.comment}"</p>
+                      
+                      <div className="mt-3 text-xs text-default-400">
+                        {new Date(review.date).toLocaleDateString(language === 'es' ? 'es-ES' : 'en-US')}
+                      </div>
+                    </CardBody>
+                  </Card>
+                ))}
+              </div>
             </div>
           )}
         </motion.div>

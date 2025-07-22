@@ -162,10 +162,6 @@ export const About: React.FC = () => {
                     <Icon icon="lucide:briefcase" className="text-default-500" width={16} />
                     <span>{language === "es" ? "2+ Años de Experiencia" : "8+ Years Experience"}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Icon icon="lucide:globe" className="text-default-500" width={16} />
-                    <span>www.carlospastorfreire.com</span>
-                  </div>
                 </div>
                 
                 <Divider className="my-4" />
