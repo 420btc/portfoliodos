@@ -61,28 +61,28 @@ export const Contact: React.FC = () => {
                 <h2 className="text-xl font-semibold mb-6">{language === "es" ? "Información de Contacto" : "Contact Information"}</h2>
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
-                    <div className="bg-primary/10 p-3 rounded-full">
-                      <Icon icon="lucide:mail" className="text-primary" width={20} height={20} />
+                    <div className="bg-green-500/10 p-3 rounded-full">
+                      <Icon icon="lucide:mail" className="text-green-500" width={20} height={20} />
                     </div>
                     <div>
                       <h3 className="font-medium">Email</h3>
-                      <p className="text-default-500">carlosfreireph@gmail.com</p>
+                      <p className="text-default-500">carlospfreire1@gmail.com</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <div className="bg-primary/10 p-3 rounded-full">
-                      <Icon icon="lucide:phone" className="text-primary" width={20} height={20} />
+                    <div className="bg-indigo-500/10 p-3 rounded-full">
+                      <Icon icon="lucide:phone" className="text-indigo-500" width={20} height={20} />
                     </div>
                     <div>
                       <h3 className="font-medium">{language === "es" ? "Teléfono" : "Phone"}</h3>
-                      <p className="text-default-500">+34 685 78 83 ..</p>
+                      <p className="text-default-500 blur-sm select-none pointer-events-none">+34 685 78 83 ..</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <div className="bg-primary/10 p-3 rounded-full">
-                      <Icon icon="lucide:map-pin" className="text-primary" width={20} height={20} />
+                    <div className="bg-red-500/10 p-3 rounded-full">
+                      <Icon icon="lucide:map-pin" className="text-red-500" width={20} height={20} />
                     </div>
                     <div>
                       <h3 className="font-medium">{language === "es" ? "Ubicación" : "Location"}</h3>
@@ -98,19 +98,19 @@ export const Contact: React.FC = () => {
                 <h2 className="text-xl font-semibold mb-6">{language === "es" ? "Conectar" : "Connect"}</h2>
                 <div className="flex flex-wrap gap-4">
                   <a href="https://github.com/420btc" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
-                    <Icon icon="lucide:github" width={20} height={20} />
+                    <Icon icon="lucide:github" width={20} height={20} className="text-purple-500" />
                   </a>
                   <a href="https://www.linkedin.com/in/carlos-pastor-freire-89790a27a/" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
-                    <Icon icon="lucide:linkedin" width={20} height={20} />
+                    <Icon icon="lucide:linkedin" width={20} height={20} className="text-blue-600" />
                   </a>
                   <a href="https://x.com/CarlosFreire0" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
-                    <Icon icon="lucide:twitter" width={20} height={20} />
+                    <Icon icon="lucide:twitter" width={20} height={20} className="text-cyan-500" />
                   </a>
                   <a href="https://www.instagram.com/carlosfreire1/" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
-                    <Icon icon="lucide:instagram" width={20} height={20} />
+                    <Icon icon="lucide:instagram" width={20} height={20} className="text-pink-500" />
                   </a>
                   <a href="https://www.redbubble.com/es/people/carlosfreire/shop" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
-                    <TbPhotoDollar size={20} />
+                    <TbPhotoDollar size={20} className="text-orange-500" />
                   </a>
                 </div>
               </CardBody>
@@ -125,8 +125,8 @@ export const Contact: React.FC = () => {
                     "Currently available for freelance projects and consulting work."
                   }
                 </p>
-                <div className="flex items-center gap-2 text-success">
-                  <Icon icon="lucide:check-circle" width={16} height={16} />
+                <div className="flex items-center gap-2">
+                  <Icon icon="lucide:check-circle" width={16} height={16} className="text-teal-500" />
                   <span className="text-sm">
                     {language === "es" ? "Disponible para nuevos proyectos" : "Available for new projects"}
                   </span>
@@ -151,8 +151,8 @@ export const Contact: React.FC = () => {
                     animate={{ opacity: 1 }}
                     className="text-center py-12"
                   >
-                    <div className="bg-success/10 p-4 rounded-full inline-block mb-4">
-                      <Icon icon="lucide:check" className="text-success w-8 h-8" />
+                    <div className="bg-emerald-500/10 p-4 rounded-full inline-block mb-4">
+                      <Icon icon="lucide:check" className="text-emerald-500 w-8 h-8" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">{language === "es" ? "¡Mensaje enviado!" : "Message Sent!"}</h3>
                     <p className="text-default-600 mb-6">
