@@ -15,10 +15,9 @@ const chapters = [
     date: "10 de Junio 2013",
     pdf: "/novela/capitulos/Capitulo 1 - Espías y Experimentos.pdf",
     audio: "/novela/capitulos/Capitulo 1.mp3",
-    duration: "47:26",
-    words: 5200,
-    inProgress: false,
-    isFullBook: false
+    color: "bg-blue-500/20 border-blue-500/30",
+    textColor: "text-blue-700 dark:text-blue-300",
+    readingTime: "25 min"
   },
   {
     id: 2,
@@ -26,7 +25,10 @@ const chapters = [
     description: "Cuando lo cotidiano se vuelve sospechoso",
     date: "13 de Junio 2013",
     pdf: "/novela/capitulos/Capitulo 2 - Envidia hacia las abejas.pdf",
-    audio: "/novela/capitulos/Capitulo 2.mp3"
+    audio: "/novela/capitulos/Capitulo 2.mp3",
+    color: "bg-green-500/20 border-green-500/30",
+    textColor: "text-green-700 dark:text-green-300",
+    readingTime: "12 min"
   },
   {
     id: 3,
@@ -34,7 +36,10 @@ const chapters = [
     description: "Las apariencias engañan más de lo que creemos",
     date: "25 de Julio 2013",
     pdf: "/novela/capitulos/Capitulo 3 - Miradas entre las cortinas.pdf",
-    audio: "/novela/capitulos/Capitulo 3.mp3"
+    audio: "/novela/capitulos/Capitulo 3.mp3",
+    color: "bg-purple-500/20 border-purple-500/30",
+    textColor: "text-purple-700 dark:text-purple-300",
+    readingTime: "15 min"
   },
   {
     id: 4,
@@ -42,7 +47,10 @@ const chapters = [
     description: "Los sonidos que no deberían estar ahí",
     date: "29 de Julio 2013",
     pdf: "/novela/capitulos/Capitulo 4- Zumbídos en el Jardín.pdf",
-    audio: "/novela/capitulos/Capitulo 4.mp3"
+    audio: "/novela/capitulos/Capitulo 4.mp3",
+    color: "bg-orange-500/20 border-orange-500/30",
+    textColor: "text-orange-700 dark:text-orange-300",
+    readingTime: "10 min"
   },
   {
     id: 5,
@@ -50,7 +58,10 @@ const chapters = [
     description: "Cuando los secretos toman vida propia",
     date: "10 de Abril 2025",
     pdf: "/novela/capitulos/Capitulo 5 - El Laberinto de Susurros.pdf",
-    audio: "/novela/capitulos/Capitulo 5.mp3"
+    audio: "/novela/capitulos/Capitulo 5.mp3",
+    color: "bg-red-500/20 border-red-500/30",
+    textColor: "text-red-700 dark:text-red-300",
+    readingTime: "18 min"
   },
   {
     id: 6,
@@ -59,10 +70,9 @@ const chapters = [
     date: "15 de Abril 2025",
     pdf: "/novela/capitulos/Capitulo 6 - El peso de los planos.pdf",
     audio: "/novela/capitulos/Capitulo 6.mp3",
-    duration: "18:30",
-    words: 5800,
-    inProgress: false,
-    isFullBook: false
+    color: "bg-teal-500/20 border-teal-500/30",
+    textColor: "text-teal-700 dark:text-teal-300",
+    readingTime: "12 min"
   },
   {
     id: 7,
@@ -71,8 +81,9 @@ const chapters = [
     date: "24 de Abril 2025",
     pdf: "/novela/capitulos/Capitulo 7 - La penumbra.pdf",
     audio: "/novela/capitulos/Capitulo 7.mp3",
-    inProgress: false,
-    isFullBook: false
+    color: "bg-indigo-500/20 border-indigo-500/30",
+    textColor: "text-indigo-700 dark:text-indigo-300",
+    readingTime: "14 min"
   },
   {
     id: 8,
@@ -81,8 +92,9 @@ const chapters = [
     date: "2 de Mayo 2025",
     pdf: "/novela/capitulos/Capitulo 8 - Sonido en las Sombras.pdf",
     audio: "/novela/capitulos/Capitulo 8.mp3",
-    inProgress: false,
-    isFullBook: false
+    color: "bg-pink-500/20 border-pink-500/30",
+    textColor: "text-pink-700 dark:text-pink-300",
+    readingTime: "16 min"
   },
   {
     id: 9,
@@ -91,8 +103,9 @@ const chapters = [
     date: "21 de Mayo 2025",
     pdf: "/novela/capitulos/Capitulo 9 - Misterios y Amistad.pdf",
     audio: "/novela/capitulos/Capitulo 9.mp3",
-    inProgress: false,
-    isFullBook: false
+    color: "bg-cyan-500/20 border-cyan-500/30",
+    textColor: "text-cyan-700 dark:text-cyan-300",
+    readingTime: "13 min"
   },
   {
     id: 10,
@@ -102,7 +115,9 @@ const chapters = [
     pdf: null,
     audio: null,
     inProgress: true,
-    isFullBook: false
+    isFullBook: false,
+    color: "bg-gray-500/20 border-gray-500/30",
+    textColor: "text-gray-700 dark:text-gray-300"
   },
   {
     id: 11,
@@ -112,7 +127,9 @@ const chapters = [
     pdf: null,
     audio: null,
     inProgress: true,
-    isFullBook: true
+    isFullBook: true,
+    color: "bg-amber-500/20 border-amber-500/30",
+    textColor: "text-amber-700 dark:text-amber-300"
   },
 ];
 
@@ -257,33 +274,33 @@ export const Novel: React.FC = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6">
                 {chapters.map((chapter) => (
-                  <Card key={chapter.id} className={`hover:shadow-lg transition-shadow ${chapter.isFullBook ? 'md:col-span-2 border-2 border-blue-200 dark:border-blue-800' : ''} text-sm sm:text-base`}>
-                    <CardBody className="space-y-2 sm:space-y-4 p-3 sm:p-6">
-                      <div className="flex justify-between items-start">
-                        <div className="flex-1 min-w-0">
-                          <h3 className="text-sm sm:text-lg font-semibold line-clamp-2">{chapter.title}</h3>
-                          {chapter.description && (
-                            <p className="text-xs sm:text-sm text-default-500 line-clamp-2">{chapter.description}</p>
+                  <Card key={chapter.id} className={`hover:shadow-lg transition-shadow ${chapter.isFullBook ? 'md:col-span-2' : ''} text-sm sm:text-base ${chapter.color} border ${chapter.textColor} h-full`}>
+                    <CardBody className="space-y-2 sm:space-y-4 p-3 sm:p-6 flex flex-col h-full">
+                      <div className="flex-1 flex flex-col">
+                        <div className="flex justify-between items-start mb-2">
+                          <div className="flex-1 min-w-0">
+                            <h3 className="text-sm sm:text-lg font-semibold line-clamp-2 min-h-[2.5rem]">{chapter.title}</h3>
+                            {chapter.description && (
+                              <p className="text-xs sm:text-sm text-default-500 line-clamp-2 min-h-[2rem]">{chapter.description}</p>
+                            )}
+                          </div>
+                          {!chapter.isFullBook && !chapter.inProgress && (
+                            <span className={`text-[10px] sm:text-xs px-2 py-0.5 sm:py-1 rounded-full whitespace-nowrap ml-2 ${chapter.color} ${chapter.textColor}`}>
+                              {chapter.date}
+                            </span>
                           )}
                         </div>
-                        {!chapter.isFullBook && !chapter.inProgress && (
-                          <span className="text-[10px] sm:text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-0.5 sm:py-1 rounded-full whitespace-nowrap ml-2">
-                            {chapter.date}
-                          </span>
-                        )}
-                      </div>
-                      
-                      {chapter.audio && (
-                        <div className="mt-2">
-                          {chapter.audio && (
+                        
+                        {chapter.audio && (
+                          <div className="mt-auto">
                             <AudioPlayer 
                               src={chapter.audio} 
                               title={chapter.title}
                               label={language === "es" ? "Escuchar" : "Listen"}
                             />
-                          )}
-                        </div>
-                      )}
+                          </div>
+                        )}
+                      </div>
                     </CardBody>
                     <CardFooter className="flex justify-between items-center pt-0 px-0 sm:px-6 pb-2 sm:pb-4">
                       {chapter.inProgress ? (
@@ -307,10 +324,10 @@ export const Novel: React.FC = () => {
                         ) : null
                       )}
                       
-                      {!chapter.isFullBook && !chapter.inProgress && (
+                      {!chapter.isFullBook && !chapter.inProgress && chapter.readingTime && (
                         <div className="flex items-center gap-2 text-sm text-default-500">
                           <Icon icon="mdi:clock-outline" />
-                          {language === "es" ? "Tiempo estimado: 15 min" : "Estimated time: 15 min"}
+                          {language === "es" ? `Tiempo estimado: ${chapter.readingTime}` : `Estimated time: ${chapter.readingTime}`}
                         </div>
                       )}
                     </CardFooter>
