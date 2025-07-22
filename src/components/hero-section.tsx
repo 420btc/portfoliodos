@@ -54,9 +54,12 @@ export const HeroSection: React.FC = () => {
 
   const handleProjectsClick = () => {
     setIsClicked(true);
-    setTimeout(() => {
-      window.location.href = '/projects';
-    }, 600);
+    // Usar requestAnimationFrame para asegurar que la animación se complete
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        window.location.href = '/projects';
+      }, 500);
+    });
   };
 
   return (
@@ -164,7 +167,7 @@ export const HeroSection: React.FC = () => {
                     </div>
                     <button
                       onClick={toggleProfileImage}
-                      className="absolute -bottom-2 -right-2 bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
+                      className="absolute -bottom-1 -right-5 md:-right-1 bg-blue-600 hover:bg-blue-700 text-white p-1 md:p-2 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
                       aria-label={language === "es" ? "Cambiar foto de perfil" : "Change profile picture"}
                     >
                       <Icon icon="mdi:refresh" className="text-xl" />
@@ -200,17 +203,17 @@ export const HeroSection: React.FC = () => {
                   }
                 </p>
                 
-                <div className="flex flex-wrap justify-start gap-4 w-full mt-6">
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full mt-6">
                   {/* Contact Button - Same exact structure as projects button */}
-                  <div className="relative overflow-hidden rounded-xl">
+                  <div className="relative overflow-hidden rounded-xl w-full sm:w-auto max-w-xs sm:max-w-none">
                     <motion.button
                       onClick={() => window.location.href = '/contact'}
-                      className="relative px-8 py-4 text-lg font-medium bg-primary text-white hover:bg-primary/90 transition-all duration-300 rounded-xl overflow-hidden w-full sm:w-auto border-2 border-primary"
+                      className="relative px-8 py-4 text-lg font-medium bg-primary text-white hover:bg-primary/90 transition-all duration-300 rounded-xl overflow-hidden w-full border-2 border-primary"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       {/* Button content */}
-                      <span className="relative z-10 flex items-center gap-2">
+                      <span className="relative z-10 flex items-center justify-center gap-2">
                         {language === "es" ? "Contáctame" : "Contact Me"}
                         <Icon icon="lucide:message-circle" />
                       </span>
@@ -218,12 +221,12 @@ export const HeroSection: React.FC = () => {
                   </div>
                   
                   {/* Projects Button with Particle Animation */}
-                  <div className="relative overflow-hidden rounded-xl">
+                  <div className="relative overflow-hidden rounded-xl w-full sm:w-auto max-w-xs sm:max-w-none">
                     <motion.button
                       onClick={handleProjectsClick}
                       onMouseEnter={() => setIsHovering(true)}
                       onMouseLeave={() => setIsHovering(false)}
-                      className="relative px-8 py-4 text-lg font-medium bg-transparent border-2 border-primary text-primary hover:text-white transition-all duration-300 rounded-xl overflow-hidden w-full sm:w-auto"
+                      className="relative px-8 py-4 text-lg font-medium bg-transparent border-2 border-primary text-primary hover:text-white transition-all duration-300 rounded-xl overflow-hidden w-full"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -241,7 +244,7 @@ export const HeroSection: React.FC = () => {
                       )}
                       
                       {/* Button content */}
-                      <span className="relative z-10 flex items-center gap-2">
+                      <span className="relative z-10 flex items-center justify-center gap-2">
                         {language === "es" ? "Ver Proyectos" : "View Projects"}
                         <motion.div
                           animate={{ rotate: isHovering ? 360 : 0 }}
