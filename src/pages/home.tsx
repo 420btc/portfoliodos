@@ -7,8 +7,11 @@ import { HeroSection } from "../components/hero-section";
 import { ProjectCard } from "../components/project-card";
 import { featuredProjects } from "../data/projects";
 import { WorkTogether } from "../components/work-together";
+import { useLanguage } from "../components/language-switcher";
 
 export const Home: React.FC = () => {
+  const { language } = useLanguage();
+  
   return (
     <div>
       <HeroSection />
@@ -18,9 +21,14 @@ export const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12">
             <div>
-              <h2 className="text-3xl font-bold mb-2">Proyectos Destacados</h2>
+              <h2 className="text-3xl font-bold mb-2">
+                {language === "es" ? "Proyectos Destacados" : "Featured Projects"}
+              </h2>
               <p className="text-default-500 max-w-3xl">
-                Una selección de mis mejores trabajos en desarrollo web, fotografía y proyectos creativos.
+                {language === "es" ? 
+                  "Una selección de mis mejores trabajos en desarrollo web, fotografía y proyectos creativos." :
+                  "A selection of my best work in web development, photography, and creative projects."
+                }
               </p>
             </div>
             <Button
@@ -32,7 +40,7 @@ export const Home: React.FC = () => {
               endContent={<Icon icon="lucide:arrow-right" />}
               className="mt-4 sm:mt-0 px-8 w-full sm:w-auto text-center"
             >
-              Ver Todos los Proyectos
+              {language === "es" ? "Ver Todos los Proyectos" : "View All Projects"}
             </Button>
           </div>
           
@@ -55,19 +63,27 @@ export const Home: React.FC = () => {
               viewport={{ once: true }}
               className="order-2 lg:order-1"
             >
-              <h2 className="text-3xl font-bold mb-6">Sobre Mí</h2>
+              <h2 className="text-3xl font-bold mb-6">
+                {language === "es" ? "Sobre Mí" : "About Me"}
+              </h2>
               <p className="text-default-600 mb-4">
-                Soy Carlos Freire, un desarrollador full-stack apasionado por crear proyectos innovadores y funcionales. 
-                Con experiencia en tecnologías modernas como React, Next.js, Node.js y bases de datos tanto SQL como NoSQL.
+                {language === "es" ? 
+                  "Soy Carlos Freire, un desarrollador full-stack apasionado por crear proyectos innovadores y funcionales. Con experiencia en tecnologías modernas como React, Next.js, Node.js y bases de datos tanto SQL como NoSQL." :
+                  "I'm Carlos Freire, a full-stack developer passionate about creating innovative and functional projects. With experience in modern technologies like React, Next.js, Node.js and both SQL and NoSQL databases."
+                }
               </p>
               <p className="text-default-600 mb-6">
-                Mi enfoque se centra en los LLMs como herramienta para resolver problemas complejos y la creación de mis 
-                propios proyectos acelerandose con los ultimos modelos y editores de código.
+                {language === "es" ? 
+                  "Mi enfoque se centra en los LLMs como herramienta para resolver problemas complejos y la creación de mis propios proyectos acelerandose con los ultimos modelos y editores de código." :
+                  "My focus centers on LLMs as a tool for solving complex problems and creating my own projects, accelerating development with the latest models and code editors."
+                }
               </p>
               
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <div>
-                  <h3 className="font-semibold mb-2">Habilidades Técnicas</h3>
+                  <h3 className="font-semibold mb-2">
+                    {language === "es" ? "Habilidades Técnicas" : "Technical Skills"}
+                  </h3>
                   <ul className="space-y-1 text-default-500">
                     <li className="flex items-center gap-2">
                       <Icon icon="lucide:check" className="text-primary" width={16} />
@@ -88,19 +104,21 @@ export const Home: React.FC = () => {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2">Habilidades Creativas</h3>
+                  <h3 className="font-semibold mb-2">
+                    {language === "es" ? "Habilidades Creativas" : "Creative Skills"}
+                  </h3>
                   <ul className="space-y-1 text-default-500">
                     <li className="flex items-center gap-2">
                       <Icon icon="lucide:check" className="text-secondary" width={16} />
-                      <span>Fotografía</span>
+                      <span>{language === "es" ? "Fotografía" : "Photography"}</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <Icon icon="lucide:check" className="text-secondary" width={16} />
-                      <span>Pilotaje de Drones</span>
+                      <span>{language === "es" ? "Pilotaje de Drones" : "Drone Piloting"}</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <Icon icon="lucide:check" className="text-secondary" width={16} />
-                      <span>Escritura Creativa</span>
+                      <span>{language === "es" ? "Escritura Creativa" : "Creative Writing"}</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <Icon icon="lucide:check" className="text-secondary" width={16} />
@@ -117,7 +135,7 @@ export const Home: React.FC = () => {
                 variant="flat"
                 endContent={<Icon icon="lucide:arrow-right" />}
               >
-                Más Sobre Mí
+                {language === "es" ? "Más Sobre Mí" : "More About Me"}
               </Button>
             </motion.div>
             
@@ -138,12 +156,16 @@ export const Home: React.FC = () => {
                   <div className="flex items-center gap-4">
                     <div className="flex flex-col">
                       <span className="text-3xl font-bold">2+</span>
-                      <span className="text-default-500 text-sm">Años de Experiencia</span>
+                      <span className="text-default-500 text-sm">
+                        {language === "es" ? "Años de Experiencia" : "Years Experience"}
+                      </span>
                     </div>
                     <Divider orientation="vertical" />
                     <div className="flex flex-col">
                       <span className="text-3xl font-bold">15+</span>
-                      <span className="text-default-500 text-sm">Proyectos Realizados</span>
+                      <span className="text-default-500 text-sm">
+                        {language === "es" ? "Proyectos Realizados" : "Projects Completed"}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -176,15 +198,23 @@ export const Home: React.FC = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold mb-2">Mi Novela</h2>
+              <h2 className="text-3xl font-bold mb-2">
+                {language === "es" ? "Mi Novela" : "My Novel"}
+              </h2>
               <p className="text-default-500 mb-6">
-                "Bajo la normalidad" — Una novela de misterio y aventuras doonde desucubrirás quienes son Kurt y Bob.
+                {language === "es" ? 
+                  '"Bajo la normalidad" — Una novela de misterio y aventuras doonde desucubrirás quienes son Kurt y Bob.' :
+                  '"Bajo la normalidad" — A mystery and adventure novel where you\'ll discover who Kurt and Bob are.'
+                }
               </p>
               
               <Card className="mb-8">
                 <CardBody>
                   <p className="italic text-default-600">
-                    "El descubrimiento de un secreto profundo y antiguo bajo la superficie de un pueblo aparentemente normal. Este secreto, ligado a estructuras ocultas y fenómenos inexplicables, desafía la comprensión de los jóvenes protagonistas y los arrastra a una peligrosa investigación que pone a prueba su amistad, enfrentándolos a las acciones encubiertas de aquellos en quienes confiaban y revelando una historia oculta que envuelve a todo su pueblo."
+                    {language === "es" ? 
+                      '"El descubrimiento de un secreto profundo y antiguo bajo la superficie de un pueblo aparentemente normal. Este secreto, ligado a estructuras ocultas y fenómenos inexplicables, desafía la comprensión de los jóvenes protagonistas y los arrastra a una peligrosa investigación que pone a prueba su amistad, enfrentándolos a las acciones encubiertas de aquellos en quienes confiaban y revelando una historia oculta que envuelve a todo su pueblo."' :
+                      '"The discovery of a deep and ancient secret beneath the surface of an apparently normal town. This secret, linked to hidden structures and inexplicable phenomena, challenges the understanding of the young protagonists and drags them into a dangerous investigation that tests their friendship, confronting them with the covert actions of those they trusted and revealing a hidden history that envelops their entire town."'
+                    }
                   </p>
                 </CardBody>
               </Card>
@@ -196,7 +226,7 @@ export const Home: React.FC = () => {
                 variant="flat"
                 endContent={<Icon icon="lucide:book-open" />}
               >
-                Leer Más
+                {language === "es" ? "Leer Más" : "Read More"}
               </Button>
             </motion.div>
           </div>

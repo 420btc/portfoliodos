@@ -3,10 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@heroui/react';
 import { Icon } from '@iconify/react';
 import { Link as RouterLink } from 'react-router-dom';
+import { useLanguage } from './language-switcher';
 
 const TYPING_SPEED = 100; // ms per character
 
 export const WorkTogether: React.FC = () => {
+  const { language } = useLanguage();
   const [isTyping, setIsTyping] = useState(false);
   const [showWorking, setShowWorking] = useState(false);
   const [typedText, setTypedText] = useState('');
@@ -14,7 +16,7 @@ export const WorkTogether: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const fullText = 'npm run dev...';
-  const workingFullText = 'Trabajando';
+  const workingFullText = language === "es" ? 'Trabajando' : 'Working';
 
   // Set up intersection observer
   useEffect(() => {
@@ -48,7 +50,7 @@ export const WorkTogether: React.FC = () => {
     
     const sequence = async () => {
       while (isMounted) {
-        // Show "¿Trabajamos juntos?" for 10 seconds
+        // Show main question for 10 seconds
         await new Promise(resolve => setTimeout(resolve, 10000));
         
         // Typing effect for "npm run dev..."
@@ -64,12 +66,12 @@ export const WorkTogether: React.FC = () => {
         await new Promise(resolve => setTimeout(resolve, 1500));
         setIsTyping(false);
         
-        // Show "Trabajando..." with typing effect
+        // Show "Working..." with typing effect
         if (!isMounted) return;
         setShowWorking(true);
         setWorkingText('');
         
-        // Type "Trabajando"
+        // Type "Working/Trabajando"
         for (let i = 0; i <= workingFullText.length; i++) {
           if (!isMounted) return;
           setWorkingText(workingFullText.substring(0, i));
@@ -102,7 +104,7 @@ export const WorkTogether: React.FC = () => {
       setIsTyping(false);
       setShowWorking(false);
     };
-  }, [isVisible]);
+  }, [isVisible, workingFullText]);
 
   return (
     <div ref={sectionRef} className="flex flex-col items-center justify-center min-h-[300px] relative">
@@ -122,7 +124,7 @@ export const WorkTogether: React.FC = () => {
                 <span className="animate-pulse">|</span>
               </span>
             ) : (
-              '¿Trabajamos juntos?'
+              language === "es" ? '¿Trabajamos juntos?' : 'Let\'s work together?'
             )}
           </motion.h2>
         ) : (
@@ -148,12 +150,25 @@ export const WorkTogether: React.FC = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
       >
-        Estoy siempre abierto a nuevos proyectos y oportunidades. Si tienes una idea o necesitas ayuda con tu próximo{' '}
-        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-warning/10 text-warning">
-          <span className="inline-block w-2 h-2 rounded-full bg-orange-500 mr-1.5"></span>
-          Trabajo
-        </span>{' '}
-        no dudes en contactarme.
+        {language === "es" ? (
+          <>
+            Estoy siempre abierto a nuevos proyectos y oportunidades. Si tienes una idea o necesitas ayuda con tu próximo{' '}
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-warning/10 text-warning">
+              <span className="inline-block w-2 h-2 rounded-full bg-orange-500 mr-1.5"></span>
+              Trabajo
+            </span>{' '}
+            no dudes en contactarme.
+          </>
+        ) : (
+          <>
+            I'm always open to new projects and opportunities. If you have an idea or need help with your next{' '}
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-warning/10 text-warning">
+              <span className="inline-block w-2 h-2 rounded-full bg-orange-500 mr-1.5"></span>
+              Project
+            </span>{' '}
+            don't hesitate to contact me.
+          </>
+        )}
       </motion.p>
       
       <motion.div
@@ -169,7 +184,7 @@ export const WorkTogether: React.FC = () => {
           size="lg"
           endContent={<Icon icon="lucide:send" />}
         >
-          Contactar
+          {language === "es" ? "Contactar" : "Contact"}
         </Button>
       </motion.div>
     </div>

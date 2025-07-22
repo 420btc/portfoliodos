@@ -97,11 +97,11 @@ export const About: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="mb-12 text-center"
         >
-          <h1 className="text-6xl font-bold mb-4">Sobre Mí</h1>
+          <h1 className="text-6xl font-bold mb-4">{language === "es" ? "Sobre Mí" : "About Me"}</h1>
           <p className="text-default-600 max-w-2xl mx-auto">
             {language === "es" ? 
               "Desarrollador full-stack, fotógrafo, entusiasta de drones, y autor con pasión por crear experiencias digitales innovadoras." :
-              "Full stack developer, photographer, drone enthusiast, and author with a passion for creating beautiful digital experiences."
+              "Full stack developer, photographer, drone enthusiast, and author with a passion for creating innovative digital experiences."
             }
           </p>
         </motion.div>
@@ -156,11 +156,11 @@ export const About: React.FC = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <Icon icon="lucide:map-pin" className="text-default-500" width={16} />
-                    <span>Málaga, España</span>
+                    <span>{language === "es" ? "Málaga, España" : "Málaga, Spain"}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Icon icon="lucide:briefcase" className="text-default-500" width={16} />
-                    <span>{language === "es" ? "2+ Años de Experiencia" : "8+ Years Experience"}</span>
+                    <span>{language === "es" ? "2+ Años de Experiencia" : "2+ Years Experience"}</span>
                   </div>
                 </div>
                 
@@ -188,18 +188,24 @@ export const About: React.FC = () => {
           >
             <Card>
               <CardBody>
-                <h2 className="text-2xl font-semibold mb-4">Sobre Mí</h2>
+                <h2 className="text-2xl font-semibold mb-4">{language === "es" ? "Sobre Mí" : "About Me"}</h2>
                 <p className="text-default-600 mb-4">
-                  Soy Carlos Freire, un desarrollador full-stack apasionado por crear proyectos innovadores y funcionales. 
-                  Con experiencia en tecnologías modernas como React, Next.js, Node.js y bases de datos tanto SQL como NoSQL.
+                  {language === "es" ? 
+                    "Soy Carlos Freire, un desarrollador full-stack apasionado por crear proyectos innovadores y funcionales. Con experiencia en tecnologías modernas como React, Next.js, Node.js y bases de datos tanto SQL como NoSQL." :
+                    "I'm Carlos Freire, a full-stack developer passionate about creating innovative and functional projects. With experience in modern technologies like React, Next.js, Node.js and both SQL and NoSQL databases."
+                  }
                 </p>
                 <p className="text-default-600 mb-4">
-                  Mi enfoque se centra en los LLMs como herramienta para resolver problemas complejos y la creación de mis 
-                  propios proyectos acelerandose con los ultimos modelos y editores de código.
+                  {language === "es" ? 
+                    "Mi enfoque se centra en los LLMs como herramienta para resolver problemas complejos y la creación de mis propios proyectos acelerandose con los ultimos modelos y editores de código." :
+                    "My focus centers on LLMs as a tool for solving complex problems and creating my own projects, accelerating development with the latest models and code editors."
+                  }
                 </p>
                 <p className="text-default-600">
-                  Cuando no estoy programando, disfruto aprendiendo nuevas tecnologías, contribuyendo a proyectos de código 
-                  abierto y compartiendo conocimientos con la comunidad de desarrolladores.
+                  {language === "es" ? 
+                    "Cuando no estoy programando, disfruto aprendiendo nuevas tecnologías, contribuyendo a proyectos de código abierto y compartiendo conocimientos con la comunidad de desarrolladores." :
+                    "When I'm not coding, I enjoy learning new technologies, contributing to open source projects, and sharing knowledge with the developer community."
+                  }
                 </p>
               </CardBody>
             </Card>
@@ -284,8 +290,13 @@ export const About: React.FC = () => {
                       alt="Photography" 
                       className="rounded-lg object-cover w-full h-40 mb-2"
                     />
-                    <h3 className="font-semibold">Fotografía</h3>
-                    <p className="text-default-500 text-sm">Fotografía de paisajes, urbana y astronómica</p>
+                    <h3 className="font-semibold">{language === "es" ? "Fotografía" : "Photography"}</h3>
+                    <p className="text-default-500 text-sm">
+                      {language === "es" ? 
+                        "Fotografía de paisajes, urbana y astronómica" :
+                        "Landscape, urban and astronomical photography"
+                      }
+                    </p>
                   </div>
                   <div>
                     <img 
@@ -293,8 +304,13 @@ export const About: React.FC = () => {
                       alt="Drone Photography" 
                       className="rounded-lg object-cover w-full h-40 mb-2"
                     />
-                    <h3 className="font-semibold">Video Drones FPV</h3>
-                    <p className="text-default-500 text-sm">Imagenes únicas aéreas con drones FPV y convencionales</p>
+                    <h3 className="font-semibold">{language === "es" ? "Video Drones FPV" : "FPV Drone Video"}</h3>
+                    <p className="text-default-500 text-sm">
+                      {language === "es" ? 
+                        "Imagenes únicas aéreas con drones FPV y convencionales" :
+                        "Unique aerial footage with FPV and conventional drones"
+                      }
+                    </p>
                   </div>
                   <div>
                     <img 
@@ -302,12 +318,20 @@ export const About: React.FC = () => {
                       alt="Writing" 
                       className="rounded-lg object-cover w-full h-40 mb-2"
                     />
-                    <h3 className="font-semibold">Escritura</h3>
-                    <p className="text-default-500 text-sm">Ciencia ficción y ensayos tecnológicos</p>
+                    <h3 className="font-semibold">{language === "es" ? "Escritura" : "Writing"}</h3>
+                    <p className="text-default-500 text-sm">
+                      {language === "es" ? 
+                        "Ciencia ficción y ensayos tecnológicos" :
+                        "Science fiction and technology essays"
+                      }
+                    </p>
                   </div>
                 </div>
                 <p className="text-default-600">
-                  Estas actividades creativas me informan en mi trabajo de desarrollo al mejorar mi pensamiento visual, atención al detalle y habilidad para crear narrativas persuasivas alrededor de las experiencias de los usuarios.
+                  {language === "es" ? 
+                    "Estas actividades creativas me informan en mi trabajo de desarrollo al mejorar mi pensamiento visual, atención al detalle y habilidad para crear narrativas persuasivas alrededor de las experiencias de los usuarios." :
+                    "These creative activities inform my development work by enhancing my visual thinking, attention to detail, and ability to create compelling narratives around user experiences."
+                  }
                 </p>
               </CardBody>
             </Card>
