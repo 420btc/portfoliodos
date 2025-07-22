@@ -231,7 +231,7 @@ export const About: React.FC = () => {
             
             <Card>
               <CardBody>
-                <h2 className="text-2xl font-semibold mb-6">Experience</h2>
+                <h2 className="text-2xl font-semibold mb-6">{language === "es" ? "Experiencia" : "Experience"}</h2>
                 <div className="space-y-6">
                   {experiences.map((exp, index) => (
                     <div key={index} className="relative pl-6 pb-6 border-l border-default-200 last:pb-0">
@@ -250,7 +250,7 @@ export const About: React.FC = () => {
             
             <Card>
               <CardBody>
-                <h2 className="text-2xl font-semibold mb-6">Education</h2>
+                <h2 className="text-2xl font-semibold mb-6">{language === "es" ? "Educación" : "Education"}</h2>
                 <div className="space-y-6">
                   {education.map((edu, index) => (
                     <div key={index} className="relative pl-6 pb-6 border-l border-default-200 last:pb-0">
@@ -280,7 +280,7 @@ export const About: React.FC = () => {
             
             <Card>
               <CardBody>
-                <h2 className="text-2xl font-semibold mb-4">Creative Pursuits</h2>
+                <h2 className="text-2xl font-semibold mb-4">{language === "es" ? "Actividades Creativas" : "Creative Pursuits"}</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                   <div>
                     <img 
