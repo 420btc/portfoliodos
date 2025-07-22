@@ -68,7 +68,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li className="flex items-center gap-2">
                 <Icon icon="lucide:mail" width={16} height={16} />
-                <Link href="mailto:carlos@devportfolio.com" color="foreground">carlosfreireph@gmail.com</Link>
+                <Link href="mailto:carlospfreire1@gmail.com" color="foreground">carlospfreire1@gmail.com</Link>
               </li>
               <li className="flex items-center gap-2">
                 <Icon icon="lucide:map-pin" width={16} height={16} />
