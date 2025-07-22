@@ -18,6 +18,18 @@ export interface ProjectData {
 // Mapear los proyectos a ProjectData con IDs únicos
 const projectsData: ProjectData[] = [
   {
+    id: 'geo-law-empire',
+    title: 'Geo Law Empire',
+    description: 'Un juego de estrategia geopolítica donde las decisiones legales y las conspiraciones moldean el destino de las naciones. Gestiona recursos, establece alianzas y desenreda intrigas mientras expandes tu imperio en un mundo dinámico donde cada decisión tiene consecuencias globales. ¿Tienes lo que se necesita para gobernar con astucia en este juego de poder y estrategia?',
+    image: 'images/geoma.png',
+    icon: 'images/geolawicon.png',
+    tags: ['Estrategia', 'Geopolítica', 'Next.js', 'TypeScript', 'Juego'],
+    demoUrl: 'https://empirelaw.vercel.app',
+    codeUrl: 'https://github.com/420btc/Empirelaw',
+    status: 'Trabajando',
+    date: new Date('2025-10-01')
+  },
+  {
     id: 0,
     title: "AgeEvents AI",
     description: "Aplicación web inteligente que te permite descubrir qué eventos históricos mundiales ocurrieron cuando tenías una edad específica. Explora la historia de manera personalizada y descubre cómo el mundo cambió mientras crecías. Una experiencia única que conecta tu vida personal con los grandes momentos de la humanidad.",
@@ -183,8 +195,8 @@ const projectsData: ProjectData[] = [
     image: "images/Cryptoia.png",
     icon: "images/project-icons/icontrading.png",
     tags: ["AI", "Trading", "Cryptocurrency", "Machine Learning", "API Integration", "Python", "OpenAI"],
-    status: "Trabajando",
-    date: new Date("2025-08-25"),
+    status: "Finalizado",
+    date: new Date("2025-07-22"),
     demoUrl: "https://aibotrading.vercel.app",
     codeUrl: "https://github.com/420btc/AiBotTrading",
     blocked: true
