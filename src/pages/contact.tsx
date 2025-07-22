@@ -40,7 +40,7 @@ export const Contact: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl font-bold mb-4">{language === "es" ? "Contacto" : "Get in Touch"}</h1>
+          <h1 className="text-6xl font-bold mb-4">{language === "es" ? "Contacto" : "Get in Touch"}</h1>
           <p className="text-default-600 max-w-2xl mx-auto">
             {language === "es" ? 
               "¿Tienes un proyecto en mente o quieres colaborar? Siempre estoy abierto a discutir nuevas oportunidades y proyectos creativos." :

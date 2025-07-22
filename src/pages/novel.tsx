@@ -162,7 +162,7 @@ export const Novel: React.FC = () => {
                 <Chip color="default" variant="flat">{language === "es" ? "Distopía" : "Dystopian"}</Chip>
               </div>
               
-              <h1 className="text-4xl font-bold mb-2">Bajo la normalidad</h1>
+              <h1 className="text-6xl font-bold mb-2">Bajo la normalidad</h1>
               <p className="text-default-500 mb-4">Una novela de Carlos Freire</p>
               
               <div className="flex items-center gap-4 mb-6">
