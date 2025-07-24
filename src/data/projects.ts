@@ -27,7 +27,7 @@ const projectsData: ProjectData[] = [
     demoUrl: 'https://empirelaw.vercel.app',
     codeUrl: 'https://github.com/420btc/Empirelaw',
     status: 'Trabajando',
-    date: new Date('2025-10-01')
+    date: new Date('2025-08-15')
   },
   {
     id: 0,
