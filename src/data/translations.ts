@@ -119,7 +119,7 @@ export const uiTranslations = {
 };
 
 // Helper function to get project translation
-export const getProjectTranslation = (project: ProjectProps, language: string) => {
+export const getProjectTranslation = (project: ProjectProps, language: string): ProjectProps => {
   if (language === "en" && projectTranslations[project.title]) {
     // Map English status to Spanish status for type compatibility
     let translatedStatus = project.status;

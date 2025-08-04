@@ -2,17 +2,16 @@ import { ProjectData } from "./projects";
 
 const threeDProjects: ProjectData[] = [
   {
-    id: 'fight-pinillo-3d',
-    title: "Fight in Pinillo City",
-    description: "Juego retro pixel art basado en los años 90 ubicado en España Andalucía estilo Tekken de peleas. Una experiencia nostálgica que combina la estética clásica de los juegos de lucha con la cultura andaluza, ofreciendo combates intensos y personajes únicos inspirados en la región.",
-    image: "images/fight.png",
-    icon: "images/project-icons/logofight.png",
-    tags: ["Game Development", "Pixel Art", "Fighting Game", "Retro", "Unity", "2D / 3D"],
-    demoUrl: "https://pinillo-city-fight.vercel.app/",
-    codeUrl: "https://github.com/420btc/PinilloCityFight",
+    id: 'cityvox-3d',
+    title: "CityVox",
+    description: "Juego de gestión de ciudades 3D inspirado en SimCity con gran potencial de desarrollo. Un simulador urbano completo donde puedes construir, gestionar y expandir tu propia metrópolis. Incluye sistema económico dinámico, planificación estratégica RCI (Residencial, Comercial, Industrial) y consideraciones ESG (Ambientales, Sociales y de Gobernanza) para un desarrollo urbano sostenible.",
+    image: "images/cityvoxlogo.png",
+    icon: "images/project-icons/cityvox.png",
+    tags: ["Game Development", "City Simulation", "3D", "Three.js", "Vue", "2D / 3D"],
+    demoUrl: "https://cityvox.vercel.app",
+    codeUrl: "https://github.com/420btc/CityVox",
     status: "Trabajando",
-    date: new Date("2026-01-01"),
-    blocked: true
+    date: new Date("2026-01-01")
   },
   {
     id: 'carlos-freire-3d',
@@ -27,4 +26,4 @@ const threeDProjects: ProjectData[] = [
   }
 ];
 
-export default threeDProjects; 
+export default threeDProjects;

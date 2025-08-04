@@ -35,7 +35,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const { language } = useLanguage();
   
   // Get translated project data
-  const translatedProject = getProjectTranslation(project, language);
+  const translatedProject: ProjectProps = getProjectTranslation(project, language);
+  
   const renderChips = () => (
     <>
       {translatedProject.featured && (
@@ -115,7 +116,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                       } catch (e) {
                         return language === 'es' ? 'paginaweb.es' : 'website.com';
                       }
-                    })()}
+                    })()} 
                   </p>
                   <Chip 
                     size="sm" 
@@ -131,7 +132,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   {renderChips()}
                 </div>
               </div>
-                {/* Mobile Chips */}
+              {/* Mobile Chips */}
               <div className="sm:hidden flex justify-end -mt-5 mb-1">
                 <div className="flex gap-2">
                   {renderChips()}
@@ -161,7 +162,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 <img 
                   src={translatedProject.icon} 
                   alt={`${translatedProject.title} icon`}
-                  className="h-full w-full object-contain"
+                  className="h-full w-auto object-contain max-w-full"
                   style={{ imageRendering: 'auto' as const }}
                 />
               </div>
