@@ -165,7 +165,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 <img 
                   src={translatedProject.icon} 
                   alt={`${translatedProject.title} icon`}
-                  className="h-20 w-20 object-contain"
+                  className="h-24 w-24 object-contain"
                   style={{ imageRendering: 'auto' as const }}
                 />
               )}
