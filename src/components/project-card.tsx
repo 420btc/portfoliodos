@@ -158,7 +158,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             
             {/* Espacio para el icono del proyecto - Solo se muestra si hay un icono definido */}
             {translatedProject.icon && (
-              <div className="h-[120px] w-full mb-4 flex items-center justify-center bg-transparent rounded-lg overflow-hidden">
+              <div className="h-[120px] w-full flex items-center justify-center bg-transparent rounded-lg overflow-hidden">
                 <img 
                   src={translatedProject.icon} 
                   alt={`${translatedProject.title} icon`}
