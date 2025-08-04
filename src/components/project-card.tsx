@@ -103,52 +103,55 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             />
           </div>
           <div className="p-5 flex-1 flex flex-col">
-            <div className="flex-1">
-              <div className="flex justify-between items-start">
-                <div>
-                  <h3 className="text-3xl font-bold text-foreground mb-1">{translatedProject.title}</h3>
-                  <p className="text-2xl text-default-400 mb-1 font-sans">
-                    {(() => {
-                      try {
-                        return translatedProject.demoUrl && translatedProject.demoUrl !== '#' 
-                          ? new URL(translatedProject.demoUrl.includes('://') ? translatedProject.demoUrl : `https://${translatedProject.demoUrl}`).hostname.replace('www.', '')
-                          : language === 'es' ? 'paginaweb.es' : 'website.com';
-                      } catch (e) {
-                        return language === 'es' ? 'paginaweb.es' : 'website.com';
-                      }
-                    })()} 
-                  </p>
-                  <Chip 
-                    size="sm" 
-                    variant="flat" 
-                    color="default"
-                    className="text-xs bg-default-100 dark:bg-default-800 text-default-600 dark:text-default-400 border border-default-200 dark:border-default-700"
-                  >
-                    {formatDate(translatedProject.date, language)}
-                  </Chip>
-                </div>
-                {/* Desktop Chips */}
-                <div className="hidden sm:flex flex-wrap justify-end gap-2 flex-shrink-0 ml-2">
-                  {renderChips()}
-                </div>
+            {/* Fila 1: Título y chips de estado */}
+            <div className="flex justify-between items-start mb-3">
+              <div className="flex-1">
+                <h3 className="text-3xl font-bold text-foreground mb-1">{translatedProject.title}</h3>
+                <p className="text-2xl text-default-400 mb-2 font-sans">
+                  {(() => {
+                    try {
+                      return translatedProject.demoUrl && translatedProject.demoUrl !== '#' 
+                        ? new URL(translatedProject.demoUrl.includes('://') ? translatedProject.demoUrl : `https://${translatedProject.demoUrl}`).hostname.replace('www.', '')
+                        : language === 'es' ? 'paginaweb.es' : 'website.com';
+                    } catch (e) {
+                      return language === 'es' ? 'paginaweb.es' : 'website.com';
+                    }
+                  })()} 
+                </p>
               </div>
-              {/* Mobile Chips */}
-              <div className="sm:hidden flex justify-end -mt-5 mb-1">
-                <div className="flex gap-2">
-                  {renderChips()}
-                </div>
+              {/* Chips de estado - siempre visibles */}
+              <div className="flex flex-wrap justify-end gap-2 flex-shrink-0 ml-2">
+                {renderChips()}
+              </div>
+            </div>
+
+            {/* Fila 2: Fecha */}
+            <div className="mb-3">
+              <Chip 
+                size="sm" 
+                variant="flat" 
+                color="default"
+                className="text-xs bg-default-100 dark:bg-default-800 text-default-600 dark:text-default-400 border border-default-200 dark:border-default-700"
+              >
+                {formatDate(translatedProject.date, language)}
+              </Chip>
+            </div>
+            
+            {/* Fila 3: Descripción en badge */}
+            <div className="mb-3">
+              <div className="bg-gradient-to-r from-blue-100 to-white dark:from-blue-900/30 dark:to-slate-800/30 border border-blue-200 dark:border-blue-700 rounded-lg p-3">
+                <p className="text-blue-800 dark:text-blue-200 text-sm leading-relaxed">{translatedProject.description}</p>
               </div>
             </div>
             
-            <p className="text-default-600 mb-4 flex-1">{translatedProject.description}</p>
-            
-            <div className="flex flex-wrap gap-2 mb-4">
+            {/* Fila 4: Tags de tecnología */}
+            <div className="flex flex-wrap gap-2 mb-3">
               {translatedProject.tags.map((tag, i) => (
                 <Chip 
                   key={i} 
                   size="sm" 
                   variant="flat" 
-                  color="default"
+                  color="primary"
                   className="text-xs"
                 >
                   {tag}
@@ -156,17 +159,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               ))}
             </div>
             
-            {/* Espacio para el icono del proyecto - Solo se muestra si hay un icono definido */}
-            {translatedProject.icon && (
-              <div className="h-[120px] w-full flex items-center justify-center bg-transparent rounded-lg overflow-hidden">
+            {/* Fila 5: Icono del proyecto - Espacio reservado para mantener consistencia */}
+            <div className="mt-2 h-[100px] w-full flex items-center justify-center">
+              {translatedProject.icon && (
                 <img 
                   src={translatedProject.icon} 
                   alt={`${translatedProject.title} icon`}
                   className="h-full w-auto object-contain max-w-full"
                   style={{ imageRendering: 'auto' as const }}
                 />
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </CardBody>
         <CardFooter className="bg-default-50 p-4 border-t border-default-200">
