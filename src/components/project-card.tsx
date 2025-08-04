@@ -102,7 +102,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
             />
           </div>
-          <div className="p-5 flex-1 flex flex-col">
+          <div className="p-5 flex-1 flex flex-col h-full">
             {/* Fila 1: Título y chips de estado */}
             <div className="flex justify-between items-start mb-3">
               <div className="flex-1">
@@ -160,12 +160,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </div>
             
             {/* Fila 5: Icono del proyecto - Espacio reservado para mantener consistencia */}
-            <div className="mt-2 h-[100px] w-full flex items-center justify-center">
+            <div className="mt-auto h-[100px] w-full flex items-center justify-center">
               {translatedProject.icon && (
                 <img 
                   src={translatedProject.icon} 
                   alt={`${translatedProject.title} icon`}
-                  className="h-full w-auto object-contain max-w-full"
+                  className="h-20 w-20 object-contain"
                   style={{ imageRendering: 'auto' as const }}
                 />
               )}
