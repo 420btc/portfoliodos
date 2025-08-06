@@ -18,6 +18,18 @@ export interface ProjectData {
 // Mapear los proyectos a ProjectData con IDs únicos
 const projectsData: ProjectData[] = [
   {
+    id: 'free-air-street',
+    title: 'Free Air Street',
+    description: 'Tienda online especializada en alquiler de patinetes eléctricos, fat bikes, motos, coches y tours. Una plataforma completa que ofrece servicios de movilidad urbana y experiencias turísticas, conectando a los usuarios con opciones de transporte sostenible y aventuras únicas en la ciudad.',
+    image: 'images/icono.png',
+    icon: 'images/project-icons/iconofree.png',
+    tags: ['E-commerce', 'Movilidad', 'Alquiler', 'Tours', 'Next.js', 'TypeScript'],
+    demoUrl: 'https://freeairstreet.com',
+    codeUrl: 'https://github.com/420btc/freeairstreet',
+    status: 'Finalizado',
+    date: new Date('2025-08-06')
+  },
+  {
     id: 'geo-law-empire',
     title: 'Geo Law Empire',
     description: 'Un juego de estrategia geopolítica donde las decisiones legales y las conspiraciones moldean el destino de las naciones. Gestiona recursos, establece alianzas y desenreda intrigas mientras expandes tu imperio en un mundo dinámico donde cada decisión tiene consecuencias globales. ¿Tienes lo que se necesita para gobernar con astucia en este juego de poder y estrategia?',
