@@ -27,6 +27,7 @@ const projectsData: ProjectData[] = [
     demoUrl: 'https://freeairstreet.com',
     codeUrl: 'https://github.com/420btc/freeairstreet',
     status: 'Finalizado',
+    featured: true,
     date: new Date('2025-08-06')
   },
   {
@@ -148,7 +149,6 @@ const projectsData: ProjectData[] = [
     demoUrl: "https://candlerush.es",
     codeUrl: "https://github.com/420btc/CandleRush2",
     status: "Finalizado",
-    featured: true,
     date: new Date("2025-04-28")
   },
   {
