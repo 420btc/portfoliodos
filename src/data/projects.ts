@@ -28,7 +28,7 @@ const projectsData: ProjectData[] = [
     codeUrl: 'https://github.com/420btc/freeairstreet',
     status: 'Finalizado',
     featured: true,
-    date: new Date('2025-08-06')
+    date: new Date('2025-08-10')
   },
   {
     id: 'geo-law-empire',
