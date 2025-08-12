@@ -93,7 +93,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="h-full"
     >
-      <Card className="h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+      <Card className={`h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${translatedProject.blocked && translatedProject.id === 'scv-moto' ? 'opacity-50 blur-sm' : ''}`}>
         <CardBody className="p-0 overflow-hidden flex-1 flex flex-col">
           <div className="h-56 w-full overflow-hidden">
             <img
