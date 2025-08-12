@@ -5,12 +5,17 @@ import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { HeroSection } from "../components/hero-section";
 import { ProjectCard } from "../components/project-card";
-import { featuredProjects } from "../data/projects";
+import { featuredProjects, projects } from "../data/projects";
 import { WorkTogether } from "../components/work-together";
 import { useLanguage } from "../components/language-switcher";
 
 export const Home: React.FC = () => {
   const { language } = useLanguage();
+  
+  // Filter store projects
+  const storeProjects = projects.filter(project => 
+    project.id === 'free-air-street' || project.id === 'scv-moto'
+  );
   
   return (
     <div>
@@ -52,8 +57,33 @@ export const Home: React.FC = () => {
         </div>
       </section>
       
-      {/* About Section */}
+      {/* Store Projects Section */}
       <section className="py-20 px-6 bg-content1">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12">
+            <div>
+              <h2 className="text-3xl font-bold mb-2">
+                {language === "es" ? "Tiendas" : "Stores"}
+              </h2>
+              <p className="text-default-500 max-w-3xl">
+                {language === "es" ? 
+                  "Proyectos de comercio electrónico y plataformas de alquiler especializadas en movilidad urbana sostenible." :
+                  "E-commerce projects and rental platforms specialized in sustainable urban mobility."
+                }
+              </p>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {storeProjects.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* About Section */}
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div

@@ -18,6 +18,19 @@ export interface ProjectData {
 // Mapear los proyectos a ProjectData con IDs únicos
 const projectsData: ProjectData[] = [
   {
+    id: 'scv-moto',
+    title: 'SVC Moto',
+    description: 'Página web tienda especializada en alquiler de motos eléctricas ubicada en Málaga centro. Plataforma completa que ofrece servicios de movilidad urbana sostenible con una flota moderna de vehículos eléctricos. Incluye sistema de reservas, información detallada de la flota y servicios de reparación y mantenimiento.',
+    image: 'images/svcportada.png',
+    icon: 'images/project-icons/svcmoto.png',
+    tags: ['E-commerce', 'Movilidad', 'Alquiler', 'OpenAI', 'TypeScript', 'Next.js'],
+    demoUrl: 'https://svcmoto.vercel.app',
+    codeUrl: 'https://github.com/420btc/svcmoto',
+    status: 'Trabajando',
+    blocked: true,
+    date: new Date('2025-09-01')
+  },
+  {
     id: 'free-air-street',
     title: 'Free Air Street',
     description: 'Tienda online especializada en alquiler de patinetes eléctricos, fat bikes, motos, coches y tours. Una plataforma completa que ofrece servicios de movilidad urbana y experiencias turísticas, conectando a los usuarios con opciones de transporte sostenible y aventuras únicas en la ciudad.',
