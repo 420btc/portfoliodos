@@ -30,6 +30,7 @@ function AppRoutes() {
       <Route path="/novel" component={Novel} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
+
     </Switch>
   );
 }

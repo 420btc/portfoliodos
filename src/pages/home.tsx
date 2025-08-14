@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Button, Card, CardBody, Divider } from "@heroui/react";
 import { Icon } from "@iconify/react";
@@ -8,9 +8,11 @@ import { ProjectCard } from "../components/project-card";
 import { featuredProjects, projects } from "../data/projects";
 import { WorkTogether } from "../components/work-together";
 import { useLanguage } from "../components/language-switcher";
+import { NewsletterModal } from "../components/newsletter-modal";
 
 export const Home: React.FC = () => {
   const { language } = useLanguage();
+  const [isNewsletterModalOpen, setIsNewsletterModalOpen] = useState(false);
   
   // Filter store projects
   const storeProjects = projects.filter(project => 
@@ -205,6 +207,38 @@ export const Home: React.FC = () => {
         </div>
       </section>
       
+      {/* Newsletter Section */}
+      <section className="py-20 px-6 bg-background">
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-bold mb-4">
+              {language === "es" ? "Mantente Actualizado" : "Stay Updated"}
+            </h2>
+            <p className="text-default-500 mb-8 max-w-2xl mx-auto">
+              {language === "es" ? 
+                "Suscríbete a mi newsletter para recibir las últimas actualizaciones sobre mis proyectos, artículos y novedades del mundo del desarrollo." :
+                "Subscribe to my newsletter to receive the latest updates about my projects, articles, and news from the development world."
+              }
+            </p>
+            <Button
+               color="primary"
+               variant="solid"
+               size="lg"
+               endContent={<Icon icon="lucide:mail" />}
+               className="px-8"
+               onPress={() => setIsNewsletterModalOpen(true)}
+             >
+               {language === "es" ? "Newsletter" : "Newsletter"}
+             </Button>
+          </motion.div>
+        </div>
+      </section>
+      
       {/* Novel Preview */}
       <section className="py-20 px-6 bg-background">
         <div className="max-w-7xl mx-auto">
@@ -269,6 +303,12 @@ export const Home: React.FC = () => {
           <WorkTogether />
         </div>
       </section>
+      
+      {/* Newsletter Modal */}
+      <NewsletterModal 
+        isOpen={isNewsletterModalOpen} 
+        onClose={() => setIsNewsletterModalOpen(false)} 
+      />
     </div>
   );
 };
