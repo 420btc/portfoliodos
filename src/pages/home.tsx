@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link as RouterLink } from "react-router-dom";
-import { Button, Card, CardBody, Divider } from "@heroui/react";
+import { Button, Divider } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { HeroSection } from "../components/hero-section";
@@ -8,11 +8,9 @@ import { ProjectCard } from "../components/project-card";
 import { featuredProjects, projects } from "../data/projects";
 import { WorkTogether } from "../components/work-together";
 import { useLanguage } from "../components/language-switcher";
-import { NewsletterModal } from "../components/newsletter-modal";
-
+import { NewsletterSection } from "../components/newsletter-section";
 export const Home: React.FC = () => {
   const { language } = useLanguage();
-  const [isNewsletterModalOpen, setIsNewsletterModalOpen] = useState(false);
   
   // Filter store projects
   const storeProjects = projects.filter(project => 
@@ -208,94 +206,7 @@ export const Home: React.FC = () => {
       </section>
       
       {/* Newsletter Section */}
-      <section className="py-20 px-6 bg-background">
-        <div className="max-w-7xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-bold mb-4">
-              {language === "es" ? "Mantente Actualizado" : "Stay Updated"}
-            </h2>
-            <p className="text-default-500 mb-8 max-w-2xl mx-auto">
-              {language === "es" ? 
-                "Suscríbete a mi newsletter para recibir las últimas actualizaciones sobre mis proyectos, artículos y novedades del mundo del desarrollo." :
-                "Subscribe to my newsletter to receive the latest updates about my projects, articles, and news from the development world."
-              }
-            </p>
-            <Button
-               color="primary"
-               variant="solid"
-               size="lg"
-               endContent={<Icon icon="lucide:mail" />}
-               className="px-8"
-               onPress={() => setIsNewsletterModalOpen(true)}
-             >
-               {language === "es" ? "Newsletter" : "Newsletter"}
-             </Button>
-          </motion.div>
-        </div>
-      </section>
-      
-      {/* Novel Preview */}
-      <section className="py-20 px-6 bg-background">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <img 
-                src="images/portada1.png" 
-                alt="Novel cover" 
-                className="rounded-lg shadow-lg w-full max-w-md mx-auto"
-              />
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl font-bold mb-2">
-                {language === "es" ? "Mi Novela" : "My Novel"}
-              </h2>
-              <p className="text-default-500 mb-6">
-                {language === "es" ? 
-                  '"Bajo la normalidad" — Una novela de misterio y aventuras doonde desucubrirás quienes son Kurt y Bob.' :
-                  '"Bajo la normalidad" — A mystery and adventure novel where you\'ll discover who Kurt and Bob are.'
-                }
-              </p>
-              
-              <Card className="mb-8">
-                <CardBody>
-                  <p className="italic text-default-600">
-                    {language === "es" ? 
-                      '"El descubrimiento de un secreto profundo y antiguo bajo la superficie de un pueblo aparentemente normal. Este secreto, ligado a estructuras ocultas y fenómenos inexplicables, desafía la comprensión de los jóvenes protagonistas y los arrastra a una peligrosa investigación que pone a prueba su amistad, enfrentándolos a las acciones encubiertas de aquellos en quienes confiaban y revelando una historia oculta que envuelve a todo su pueblo."' :
-                      '"The discovery of a deep and ancient secret beneath the surface of an apparently normal town. This secret, linked to hidden structures and inexplicable phenomena, challenges the understanding of the young protagonists and drags them into a dangerous investigation that tests their friendship, confronting them with the covert actions of those they trusted and revealing a hidden history that envelops their entire town."'
-                    }
-                  </p>
-                </CardBody>
-              </Card>
-              
-              <Button
-                as={RouterLink}
-                to="/novel"
-                color="primary"
-                variant="flat"
-                endContent={<Icon icon="lucide:book-open" />}
-              >
-                {language === "es" ? "Leer Más" : "Read More"}
-              </Button>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <NewsletterSection />
       
       {/* Work Together CTA */}
       <section className="py-20 px-6 bg-primary/5">
@@ -303,12 +214,6 @@ export const Home: React.FC = () => {
           <WorkTogether />
         </div>
       </section>
-      
-      {/* Newsletter Modal */}
-      <NewsletterModal 
-        isOpen={isNewsletterModalOpen} 
-        onClose={() => setIsNewsletterModalOpen(false)} 
-      />
     </div>
   );
 };
