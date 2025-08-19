@@ -51,7 +51,7 @@ const projectsData: ProjectData[] = [
     tags: ['Estrategia', 'Geopolítica', 'Next.js', 'TypeScript', 'Juego'],
     demoUrl: 'https://empirelaw.vercel.app',
     codeUrl: 'https://github.com/420btc/Empirelaw',
-    status: 'Trabajando',
+    status: 'Finalizado',
     date: new Date('2025-08-15')
   },
   {
