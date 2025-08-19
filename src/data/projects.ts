@@ -18,6 +18,18 @@ export interface ProjectData {
 // Mapear los proyectos a ProjectData con IDs únicos
 const projectsData: ProjectData[] = [
   {
+    id: 'salvatore-repair',
+    title: 'Salvatore Repair',
+    description: 'Página web para una tienda tradicional de reparación de zapatos ubicada en Torremolinos. Un negocio familiar que ofrece servicios especializados de reparación y restauración de calzado con técnicas artesanales y años de experiencia. Incluye información sobre servicios, ubicación y contacto.',
+    image: 'images/herop.png',
+    icon: 'images/salvatore.png',
+    tags: ['Negocio Local', 'Reparación', 'Artesanía', 'Tradicional', 'Next.js', 'TypeScript'],
+    demoUrl: 'https://salvatore.vercel.app',
+    codeUrl: 'https://github.com/420btc/salvatore',
+    status: 'Trabajando',
+    date: new Date('2025-09-15')
+  },
+  {
     id: 'scv-moto',
     title: 'SVC Moto',
     description: 'Página web tienda especializada en alquiler de motos eléctricas ubicada en Málaga centro. Plataforma completa que ofrece servicios de movilidad urbana sostenible con una flota moderna de vehículos eléctricos. Incluye sistema de reservas, descuentos, logros y puntos, información detallada de la flota y servicios de reparación y mantenimiento.',
