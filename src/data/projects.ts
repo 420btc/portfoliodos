@@ -259,7 +259,7 @@ const projectsData: ProjectData[] = [
     demoUrl: "https://aivideo-three.vercel.app/",
     codeUrl: "https://github.com/420btc/videoAIeditor",
     status: "Trabajando",
-    date: new Date("2025-09-15")
+    date: new Date("2025-10-01")
   }
 ];
 
