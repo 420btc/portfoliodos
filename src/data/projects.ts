@@ -20,14 +20,13 @@ const projectsData: ProjectData[] = [
   {
     id: 'scv-moto',
     title: 'SVC Moto',
-    description: 'Página web tienda especializada en alquiler de motos eléctricas ubicada en Málaga centro. Plataforma completa que ofrece servicios de movilidad urbana sostenible con una flota moderna de vehículos eléctricos. Incluye sistema de reservas, información detallada de la flota y servicios de reparación y mantenimiento.',
+    description: 'Página web tienda especializada en alquiler de motos eléctricas ubicada en Málaga centro. Plataforma completa que ofrece servicios de movilidad urbana sostenible con una flota moderna de vehículos eléctricos. Incluye sistema de reservas, descuentos, logros y puntos, información detallada de la flota y servicios de reparación y mantenimiento.',
     image: 'images/svcportada.png',
     icon: 'images/project-icons/svcmoto.png',
     tags: ['E-commerce', 'Movilidad', 'Alquiler', 'OpenAI', 'TypeScript', 'Next.js'],
     demoUrl: 'https://svcmoto.vercel.app',
     codeUrl: 'https://github.com/420btc/svcmoto',
-    status: 'Trabajando',
-    blocked: true,
+    status: 'Finalizado',
     date: new Date('2025-09-01')
   },
   {
