@@ -18,6 +18,7 @@ export interface ProjectProps {
   status?: "Finalizado" | "Trabajando";
   date: Date;
   blocked?: boolean;
+  hot?: boolean;
 }
 
 interface ProjectCardProps {
@@ -93,7 +94,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="h-full"
     >
-      <Card className={`h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${translatedProject.blocked && translatedProject.id === 'scv-moto' ? 'opacity-50 blur-sm' : ''}`}>
+      <Card className={`h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 relative ${translatedProject.blocked && translatedProject.id === 'scv-moto' ? 'opacity-50 blur-sm' : ''}`}>
+        {/* HOT Badge */}
+        {translatedProject.hot && (
+          <div className="absolute top-2 right-2 z-10">
+            <div className="bg-gradient-to-r from-yellow-400 to-red-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg transform rotate-12 animate-pulse">
+              HOT!
+            </div>
+          </div>
+        )}
         <CardBody className="p-0 overflow-hidden flex-1 flex flex-col">
           <div className="h-56 w-full overflow-hidden">
             <img

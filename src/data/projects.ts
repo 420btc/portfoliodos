@@ -13,6 +13,7 @@ export interface ProjectData {
   status?: "Finalizado" | "Trabajando";
   date: Date;
   blocked?: boolean;
+  hot?: boolean;
 }
 
 // Mapear los proyectos a ProjectData con IDs únicos
@@ -39,6 +40,7 @@ const projectsData: ProjectData[] = [
     demoUrl: 'https://svcmoto.vercel.app',
     codeUrl: 'https://github.com/420btc/svcmoto',
     status: 'Finalizado',
+    hot: true,
     date: new Date('2025-09-01')
   },
   {
