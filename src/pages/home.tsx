@@ -14,7 +14,7 @@ export const Home: React.FC = () => {
   
   // Filter store projects
   const storeProjects = projects.filter(project => 
-    project.id === 'free-air-street' || project.id === 'scv-moto' || project.id === 'salvatore-repair'
+    project.id === 'free-air-street' || project.id === 'scv-moto'
   );
   
   return (
@@ -67,14 +67,14 @@ export const Home: React.FC = () => {
               </h2>
               <p className="text-default-500 max-w-3xl">
                 {language === "es" ? 
-                  "Proyectos de comercio electrónico, plataformas de alquiler y negocios locales tradicionales." :
-                  "E-commerce projects, rental platforms and traditional local businesses."
+                  "Proyectos de comercio electrónico y plataformas de alquiler especializadas en movilidad urbana sostenible." :
+                  "E-commerce projects and rental platforms specialized in sustainable urban mobility."
                 }
               </p>
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {storeProjects.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
             ))}

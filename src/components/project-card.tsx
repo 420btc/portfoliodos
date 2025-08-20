@@ -112,24 +112,22 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             />
           </div>
           <div className="p-5 flex-1 flex flex-col h-full">
-            {/* Fila 1: Título y chips de estado */}
-            <div className="flex justify-between items-start mb-3">
-              <div className="flex-1">
-                <h3 className="text-3xl font-bold text-foreground mb-1">{translatedProject.title}</h3>
-                <p className="text-2xl text-default-400 mb-2 font-sans">
-                  {(() => {
-                    try {
-                      return translatedProject.demoUrl && translatedProject.demoUrl !== '#' 
-                        ? new URL(translatedProject.demoUrl.includes('://') ? translatedProject.demoUrl : `https://${translatedProject.demoUrl}`).hostname.replace('www.', '')
-                        : language === 'es' ? 'paginaweb.es' : 'website.com';
-                    } catch (e) {
-                      return language === 'es' ? 'paginaweb.es' : 'website.com';
-                    }
-                  })()} 
-                </p>
-              </div>
-              {/* Chips de estado - siempre visibles */}
-              <div className="flex flex-wrap justify-end gap-2 flex-shrink-0 ml-2">
+            {/* Fila 1: Título */}
+            <div className="mb-3">
+              <h3 className="text-3xl font-bold text-foreground mb-1">{translatedProject.title}</h3>
+              <p className="text-2xl text-default-400 mb-2 font-sans">
+                {(() => {
+                  try {
+                    return translatedProject.demoUrl && translatedProject.demoUrl !== '#' 
+                      ? new URL(translatedProject.demoUrl.includes('://') ? translatedProject.demoUrl : `https://${translatedProject.demoUrl}`).hostname.replace('www.', '')
+                      : language === 'es' ? 'paginaweb.es' : 'website.com';
+                  } catch (e) {
+                    return language === 'es' ? 'paginaweb.es' : 'website.com';
+                  }
+                })()} 
+              </p>
+              {/* Chips de estado - en línea separada para mejor visibilidad en móvil */}
+              <div className="flex flex-wrap gap-2 mt-2">
                 {renderChips()}
               </div>
             </div>
