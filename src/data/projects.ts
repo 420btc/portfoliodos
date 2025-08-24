@@ -253,15 +253,15 @@ const projectsData: ProjectData[] = [
   },
   {
     id: 15,
-    title: "AI Video Editor",
-    description: "Editor de video web potenciado y gestionado por IA para pedir cambios a un agente especializado. Una herramienta revolucionaria que permite editar videos mediante comandos de texto, automatizando tareas complejas y ofreciendo sugerencias inteligentes para mejorar la calidad del contenido.",
-    image: "images/aieditor.png",
-    icon: "images/project-icons/logoaivideo.png",
-    tags: ["AI", "Video Editing", "Web App", "Machine Learning", "React", "OpenAI"],
-    demoUrl: "https://aivideo-three.vercel.app/",
-    codeUrl: "https://github.com/420btc/videoAIeditor",
+    title: "Wolty Agency",
+    description: "Sitio web desarrollado para una agencia digital canadiense especializada en transformar la presencia online de empresas. La plataforma presenta sus servicios de desarrollo web, aplicaciones móviles, SEO, diseño UI/UX y soluciones e-commerce. Incluye secciones de servicios, proceso de trabajo y formularios de contacto con diseño moderno y responsive.",
+    image: "images/wolty.png",
+    icon: "images/logowolty.png",
+    tags: ["Agencia Digital", "Web Development", "Mobile Apps", "SEO", "UI/UX", "E-commerce"],
+    demoUrl: "https://woltyx.vercel.app",
+    codeUrl: "https://github.com/420btc/wolty",
     status: "Trabajando",
-    date: new Date("2025-10-01")
+    date: new Date("2025-11-01")
   }
 ];
 
