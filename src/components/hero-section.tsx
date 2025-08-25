@@ -362,9 +362,12 @@ export const HeroSection: React.FC = () => {
                     <div className="absolute inset-0 rounded-2xl bg-black/10 rotate-1 group-hover:rotate-0 transition-all duration-500" />
                     <div className="absolute inset-0 rounded-2xl overflow-hidden border-2 border-black group-hover:border-black/70 transition-all duration-300">
                       <img 
-                        src="/images/notfound.png"
-                        alt="404 Creative Page" 
+                        src="/images/wolty.png"
+                        alt="Wolty Agency" 
                         className="w-full h-full object-cover"
+                        style={{
+                          objectPosition: window.innerWidth < 768 ? '46% center' : 'center center'
+                        }}
                       />
                     </div>
                   </motion.div>
@@ -382,6 +385,7 @@ export const HeroSection: React.FC = () => {
                             src="/images/candles.png"
                             alt="Candle Rush Game" 
                             className="w-[103%] h-[103%] object-cover -translate-x-[1.%] -translate-y-[1.5%]"
+                            style={{ filter: 'brightness(1.1)' }}
                           />
                         </div>
                       </div>
