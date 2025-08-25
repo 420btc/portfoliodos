@@ -330,7 +330,7 @@ export const HeroSection: React.FC = () => {
                     <div className="absolute inset-0 rounded-2xl bg-black/10 rotate-2 group-hover:rotate-0 transition-all duration-500" />
                     <div className="absolute inset-0 rounded-2xl overflow-hidden border-2 border-black group-hover:border-black/70 transition-all duration-300">
                       <img 
-                        src="/images/yourdayin.png"
+                        src="/images/yourrr.png"
                         alt="Your Day In App" 
                         className="w-full h-full object-cover"
                       />
@@ -345,8 +345,8 @@ export const HeroSection: React.FC = () => {
                     <div className="absolute inset-0 rounded-2xl bg-black/10 -rotate-1 group-hover:rotate-0 transition-all duration-500" />
                     <div className="absolute inset-0 rounded-2xl overflow-hidden border-2 border-black group-hover:border-black/70 transition-all duration-300">
                       <img 
-                        src="/images/freirefpv.png"
-                        alt="Freire FPV Drone" 
+                        src="/images/svcportada.png"
+                        alt="SVC Moto" 
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -396,7 +396,7 @@ export const HeroSection: React.FC = () => {
                     <div className="absolute inset-0 rounded-2xl bg-black/10 rotate-3 group-hover:rotate-0 transition-all duration-500" />
                     <div className="absolute inset-0 rounded-2xl overflow-hidden border-2 border-black group-hover:border-black/70 transition-all duration-300">
                       <img 
-                        src="/images/facetime.png"
+                        src="/images/trackerr.png"
                         alt="Candle Rush Gameplay" 
                         className="w-full h-full object-cover"
                       />
