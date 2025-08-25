@@ -51,7 +51,7 @@ export const Projects: React.FC = () => {
       projectsToShow = threeDProjects;
     } else if (selectedCategory === 'Tiendas' || selectedCategory === 'Stores') {
       projectsToShow = projects.filter(project => 
-        project.id === 'free-air-street' || project.id === 'scv-moto'
+        project.id === 'free-air-street' || project.id === 'scv-moto' || project.id === 'salvatore-repair'
       );
     }
 
