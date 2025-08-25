@@ -206,7 +206,7 @@ const projectsData: ProjectData[] = [
     id: 11,
     title: "MeteoMálaga",
     description: "Aplicación de apuestas sobre pronósticos meteorológicos para Málaga con datos en tiempo real, análisis de predicciones y estadísticas. Apuestas con resolución automática en el momento del pronóstico.",
-    image: "images/metemalaga.png",
+    image: "images/meteom.png",
     icon: "images/project-icons/meteo2png.png",
     tags: ["React", "API", "Meteorología", "UI/UX"],
     demoUrl: "https://meteomalaga.fun",
