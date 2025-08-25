@@ -379,7 +379,7 @@ export const HeroSection: React.FC = () => {
                       <div className="relative w-full h-full overflow-hidden">
                         <div className="absolute inset-0">
                           <img 
-                            src="/images/rush2.png"
+                            src="/images/candles.png"
                             alt="Candle Rush Game" 
                             className="w-[103%] h-[103%] object-cover -translate-x-[1.%] -translate-y-[1.5%]"
                           />
