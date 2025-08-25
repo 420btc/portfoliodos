@@ -318,6 +318,7 @@ export const HeroSection: React.FC = () => {
                         src="/images/aidreamer.png"
                         alt="AI Dreamer Project" 
                         className="w-full h-full object-cover"
+                        style={{ objectPosition: '53% center' }}
                       />
                     </div>
                   </motion.div>
@@ -348,6 +349,7 @@ export const HeroSection: React.FC = () => {
                         src="/images/svcportada.png"
                         alt="SVC Moto" 
                         className="w-full h-full object-cover"
+                        style={{ objectPosition: '49% center' }}
                       />
                     </div>
                   </motion.div>
@@ -403,6 +405,9 @@ export const HeroSection: React.FC = () => {
                         src="/images/trackerr.png"
                         alt="Candle Rush Gameplay" 
                         className="w-full h-full object-cover"
+                        style={{
+                          objectPosition: window.innerWidth < 768 ? '30% center' : 'center center'
+                        }}
                       />
                     </div>
                   </motion.div>
