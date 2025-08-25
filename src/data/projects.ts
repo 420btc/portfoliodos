@@ -169,7 +169,7 @@ const projectsData: ProjectData[] = [
     id: 8,
     title: "CandleRush 2",
     description: "Segunda versión de CandleRush, una plataforma mejorada de simulación y juego de trading de criptomonedas. Análisis profundo en sección Mi Perfil. Selección de par y temporalidad. Apuestas automáticas inteligentes con resolución integrada.",
-    image: "images/rush2.png",
+    image: "images/candles.png",
     icon: "images/project-icons/candleicono.png",
     tags: ["Next.js", "TypeScript", "Trading", "Blockchain"],
     demoUrl: "https://candlerush.es",

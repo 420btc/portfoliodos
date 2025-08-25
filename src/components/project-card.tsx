@@ -109,6 +109,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               src={project.image}
               alt={project.title}
               className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              style={{
+                objectPosition: project.title === 'CandleRush 2' ? 'center top' : 'center center'
+              }}
             />
           </div>
           <div className="p-5 flex-1 flex flex-col h-full">
