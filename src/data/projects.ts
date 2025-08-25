@@ -218,7 +218,7 @@ const projectsData: ProjectData[] = [
     id: 12,
     title: "CandleRush 1",
     description: "Una plataforma de juego y simulación de trading de criptomonedas en una versión temprana con datos en tiempo real y apuestas ficticias basadas en las velas japonesas y las temporalidades, con resolución automática.",
-    image: "images/candlerush1.png",
+    image: "images/candlex.png",
     icon: "images/project-icons/iconocandlerush.png",
     tags: ["React", "Node.js", "Trading", "Blockchain"],
     demoUrl: "https://btcer.fun",

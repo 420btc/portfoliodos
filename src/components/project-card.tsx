@@ -104,13 +104,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           </div>
         )}
         <CardBody className="p-0 overflow-hidden flex-1 flex flex-col">
-          <div className="h-56 w-full overflow-hidden">
+          <div className={`h-56 w-full overflow-hidden ${
+            project.title === 'CandleRush 1' ? 'bg-black' : ''
+          }`}>
             <img
               src={project.image}
               alt={project.title}
               className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
               style={{
-                objectPosition: project.title === 'CandleRush 2' ? 'center -10px' : 'center center'
+                objectPosition: project.title === 'CandleRush 2' ? 'center -10px' : 
+                               project.title === 'CandleRush 1' ? 'center 10px' : 'center center'
               }}
             />
           </div>
