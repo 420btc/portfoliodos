@@ -194,7 +194,7 @@ const projectsData: ProjectData[] = [
     id: 10,
     title: "Carlos Freire FPV",
     description: "Mi web personal para la venta de servicios de grabación con drones FPV en la Costa del Sol, Málaga. Secciones de contacto, meteorología con datos reales, servicios, proyectos y equipo disponible. No dudes en contactarme!",
-    image: "images/freirefpv.png",
+    image: "images/cpfpv.png",
     icon: "images/project-icons/iconofpv.png",
     tags: ["Next.js", "Web", "Fotografía", "Diseño", "Portfolios"],
     demoUrl: "https://carlosfpv.es",
