@@ -3,6 +3,7 @@ import { Input } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { ProjectCard } from "../components/project-card";
+import { ContributionGraph } from "../components/contribution-graph";
 import { projects } from "../data/projects";
 import photographyProjects from "../data/photography";
 import threeDProjects from "../data/3d-projects";
@@ -102,6 +103,16 @@ export const Projects: React.FC = () => {
           <p className="text-default-600 max-w-2xl mx-auto">
             {t.projectsDescription}
           </p>
+        </motion.div>
+        
+        {/* GitHub Contribution Graph */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mb-12"
+        >
+          <ContributionGraph className="max-w-4xl mx-auto" />
         </motion.div>
         
         <div className="mb-8">
