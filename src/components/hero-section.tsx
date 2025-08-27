@@ -4,6 +4,7 @@ import { Icon } from "@iconify/react";
 import { TbPhotoDollar } from "react-icons/tb";
 import { Link } from "@heroui/react";
 import { useLanguage } from "./language-switcher";
+import { TechSlider } from "./tech-slider";
 
 export const HeroSection: React.FC = () => {
   const { language } = useLanguage();
@@ -417,6 +418,16 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
       </div>
+      
+      {/* Tech Slider */}
+         <motion.div
+           initial={{ opacity: 0, y: 50 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.8, delay: 1.2 }}
+           className="mt-0 mb-12"
+         >
+           <TechSlider />
+         </motion.div>
     </>
   );
 };
