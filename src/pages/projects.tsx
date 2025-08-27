@@ -132,13 +132,13 @@ export const Projects: React.FC = () => {
             <div className="flex flex-nowrap md:flex-wrap gap-2 pb-2 md:pb-0">
               <button
                 onClick={() => setSelectedCategory('all')}
-                className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${getCategoryColor('all', selectedCategory === 'all')}`}
+                className={`px-6 py-2 rounded-full whitespace-nowrap transition-colors ${getCategoryColor('all', selectedCategory === 'all')}`}
               >
                 {t.allProjects}
               </button>
               <button
                 onClick={() => setSelectedCategory('featured')}
-                className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${getCategoryColor('featured', selectedCategory === 'featured')}`}
+                className={`px-6 py-2 rounded-full whitespace-nowrap transition-colors ${getCategoryColor('featured', selectedCategory === 'featured')}`}
               >
                 {t.featuredProjects}
               </button>
@@ -146,7 +146,7 @@ export const Projects: React.FC = () => {
                 <button
                   key={tag}
                   onClick={() => setSelectedCategory(tag)}
-                  className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${getCategoryColor(tag, selectedCategory === tag)}`}
+                  className={`px-6 py-2 rounded-full whitespace-nowrap transition-colors ${getCategoryColor(tag, selectedCategory === tag)}`}
                 >
                   {tag}
                 </button>
@@ -158,27 +158,27 @@ export const Projects: React.FC = () => {
           <div className="flex justify-center gap-2 pt-4 border-t border-default-200 dark:border-default-700 overflow-x-auto">
             <div className="flex flex-nowrap gap-2 pb-2 md:pb-0">
               <button
-                onClick={() => setSortOrder('recent')}
-                className={`px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-2 transition-colors ${
-                  sortOrder === 'recent' 
-                    ? 'bg-primary text-white' 
-                    : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
-                }`}
-              >
-                <Icon icon="lucide:arrow-down" className="w-4 h-4" />
-                {t.mostRecent}
-              </button>
-              <button
-                onClick={() => setSortOrder('oldest')}
-                className={`px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-2 transition-colors ${
-                  sortOrder === 'oldest' 
-                    ? 'bg-primary text-white' 
-                    : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
-                }`}
-              >
-                <Icon icon="lucide:arrow-up" className="w-4 h-4" />
-                {t.oldest}
-              </button>
+                 onClick={() => setSortOrder('recent')}
+                 className={`px-6 py-2 rounded-full whitespace-nowrap flex items-center gap-2 transition-colors ${
+                   sortOrder === 'recent' 
+                     ? 'bg-primary text-white' 
+                     : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
+                 }`}
+               >
+                 <Icon icon="lucide:arrow-down" className="w-4 h-4" />
+                 {t.mostRecent}
+               </button>
+               <button
+                 onClick={() => setSortOrder('oldest')}
+                 className={`px-6 py-2 rounded-full whitespace-nowrap flex items-center gap-2 transition-colors ${
+                   sortOrder === 'oldest' 
+                     ? 'bg-primary text-white' 
+                     : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
+                 }`}
+               >
+                 <Icon icon="lucide:arrow-up" className="w-4 h-4" />
+                 {t.oldest}
+               </button>
             </div>
           </div>
         </div>
