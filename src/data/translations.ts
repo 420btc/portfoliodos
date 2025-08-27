@@ -79,6 +79,42 @@ export const projectTranslations: Record<string, { title: string; description: s
     title: "AI Video Editor",
     description: "AI-powered and managed web video editor to request changes from a specialized agent. A revolutionary tool that allows you to edit videos through text commands, automating complex tasks and offering intelligent suggestions to improve content quality.",
     status: "In Progress"
+  },
+  // New projects translations
+  "Salvatore Repair": {
+    title: "Salvatore Repair",
+    description: "Website for a traditional shoe repair shop located in Torremolinos. A family business that offers specialized footwear repair and restoration services with artisanal techniques and years of experience. Includes information about services, location, and contact.",
+    status: "In Progress"
+  },
+  "SVC Moto": {
+    title: "SVC Moto",
+    description: "Website for a store specialized in electric motorcycle rental located in Málaga center. Complete platform offering sustainable urban mobility services with a modern fleet of electric vehicles. Includes reservation system, discounts, achievements and points, detailed fleet information, and repair and maintenance services.",
+    status: "Completed"
+  },
+  "Free Air Street": {
+    title: "Free Air Street",
+    description: "Online store specialized in electric scooter, fat bike, motorcycle, car rental, and tours. A complete platform offering urban mobility services and tourist experiences, connecting users with sustainable transportation options and unique city adventures.",
+    status: "Completed"
+  },
+  "Geo Law Empire": {
+    title: "Geo Law Empire",
+    description: "A geopolitical strategy game where legal decisions and conspiracies shape the destiny of nations. Manage resources, establish alliances, and unravel intrigues while expanding your empire in a dynamic world where every decision has global consequences. Do you have what it takes to rule with cunning in this game of power and strategy?",
+    status: "Completed"
+  },
+  "NotfoundInk": {
+    title: "NotfoundInk",
+    description: "Web portfolio for NotfoundInk by Ana Maria DCG, a digital art collection, with NFT minting integration on the website, wallet connection, and sales system through contact form.",
+    status: "Completed"
+  },
+  "CityVox": {
+    title: "CityVox",
+    description: "3D city management game inspired by SimCity with great development potential. A complete urban simulator where you can build, manage, and expand your own metropolis. Includes dynamic economic system, strategic RCI planning (Residential, Commercial, Industrial), and ESG considerations (Environmental, Social, and Governance) for sustainable urban development.",
+    status: "In Progress"
+  },
+  "Wolty Agency": {
+    title: "Wolty Agency",
+    description: "Website developed for a Canadian digital agency specialized in transforming companies' online presence. The platform showcases their web development, mobile applications, SEO, UI/UX design, and e-commerce solutions services. Includes service sections, work process, and contact forms with modern and responsive design.",
+    status: "In Progress"
   }
 };
 
