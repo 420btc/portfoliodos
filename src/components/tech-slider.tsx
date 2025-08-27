@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useRef } from "react";
+import { motion, useMotionValue } from "framer-motion";
 
 interface TechItem {
   name: string;
@@ -56,20 +56,40 @@ interface TechSliderProps {
 }
 
 export const TechSlider: React.FC<TechSliderProps> = ({ className = "" }) => {
+  const [isDragging, setIsDragging] = useState(false);
+  const [hasBeenDragged, setHasBeenDragged] = useState(false);
+  const x = useMotionValue(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  // Calcular el ancho total del contenido
+  const totalWidth = duplicatedTechs.length * 172; // 160px + 12px gap aproximadamente
+  
+  const handleDragStart = () => {
+    setIsDragging(true);
+    setHasBeenDragged(true); // Marcar que el usuario ha interactuado
+  };
+  
+  const handleDragEnd = () => {
+    setIsDragging(false);
+    // Ya no hay lógica de retorno automático
+    // El slider se queda donde el usuario lo deje
+  };
+
   return (
     <div className={`overflow-hidden py-2 ${className}`}>
-      <div className="relative">
+      <div className="relative" ref={containerRef}>
         {/* Gradientes para fade effect */}
-        <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-white dark:from-gray-900 to-transparent z-10" />
-        <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-white dark:from-gray-900 to-transparent z-10" />
+        <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-white dark:from-gray-900 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-white dark:from-gray-900 to-transparent z-10 pointer-events-none" />
         
         {/* Slider container */}
         <motion.div
-          className="flex gap-6"
-          animate={{
+          className="flex gap-6 cursor-grab active:cursor-grabbing"
+          style={{ x }}
+          animate={isDragging || hasBeenDragged ? {} : {
             x: ["0%", "-50%"],
           }}
-          transition={{
+          transition={isDragging || hasBeenDragged ? {} : {
             x: {
               repeat: Infinity,
               repeatType: "loop",
@@ -77,6 +97,16 @@ export const TechSlider: React.FC<TechSliderProps> = ({ className = "" }) => {
               ease: "linear",
             },
           }}
+          drag="x"
+           dragConstraints={{
+             left: -totalWidth,
+             right: totalWidth,
+           }}
+          dragElastic={0.1}
+          dragMomentum={true}
+          onDragStart={handleDragStart}
+          onDragEnd={handleDragEnd}
+          whileDrag={{ scale: 0.98 }}
         >
           {duplicatedTechs.map((tech, index) => (
             <div
