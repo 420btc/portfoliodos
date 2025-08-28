@@ -404,7 +404,7 @@ export const HeroSection: React.FC = () => {
                     <div className="absolute inset-0 rounded-2xl overflow-hidden border-2 border-black group-hover:border-black/70 transition-all duration-300">
                       <img 
                         src="/images/trackerr.png"
-                        alt="Candle Rush Gameplay" 
+                        alt="Face Tracker App" 
                         className="w-full h-full object-cover"
                         style={{
                           objectPosition: window.innerWidth < 768 ? '30% center' : 'center center'
