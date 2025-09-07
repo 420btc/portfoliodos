@@ -115,6 +115,11 @@ export const projectTranslations: Record<string, { title: string; description: s
     title: "Wolty Agency",
     description: "Website developed for a Canadian digital agency specialized in transforming companies' online presence. The platform showcases their web development, mobile applications, SEO, UI/UX design, and e-commerce solutions services. Includes service sections, work process, and contact forms with modern and responsive design.",
     status: "In Progress"
+  },
+  "Nimbus App": {
+    title: "Nimbus App",
+    description: "Multiplayer online platform game where you can check real-time weather and bet with real money on meteorological predictions. Features geolocation for precise local data, betting on temperature, wind speed, and other weather parameters. A unique experience that combines gaming, meteorology, and real-time betting.",
+    status: "In Progress"
   }
 };
 

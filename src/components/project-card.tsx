@@ -178,7 +178,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 <img 
                   src={translatedProject.icon} 
                   alt={`${translatedProject.title} icon`}
-                  className="h-24 w-24 object-contain"
+                  className={`object-contain ${
+                    translatedProject.title === 'Nimbus App' ? 'h-20 w20' : 'h-24 w-24'
+                  }`}
                   style={{ imageRendering: 'auto' as const }}
                 />
               )}
@@ -199,7 +201,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 startContent={<Icon icon="mdi:open-in-new" width={16} />}
                 disabled={translatedProject.blocked}
               >
-                {language === "es" ? "Ver Proyecto" : "View Project"}
+                {translatedProject.title === 'SVC Moto' ? 'svcmoto.es' : (language === "es" ? "Ver Proyecto" : "View Project")}
               </Button>
             )}
             {translatedProject.codeUrl && translatedProject.codeUrl !== '#' && (

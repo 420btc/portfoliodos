@@ -25,7 +25,7 @@ const projectsData: ProjectData[] = [
     image: 'images/herop.png',
     icon: 'images/salvatore.png',
     tags: ['Negocio Local', 'Reparación', 'Artesanía', 'Tradicional', 'Next.js', 'TypeScript'],
-    demoUrl: 'https://salvatore.vercel.app',
+    demoUrl: 'https://salvatorerepair.es',
     codeUrl: 'https://github.com/420btc/salvatore',
     status: 'Trabajando',
     date: new Date('2025-09-15')
@@ -37,7 +37,7 @@ const projectsData: ProjectData[] = [
     image: 'images/svcportada.png',
     icon: 'images/project-icons/svcmoto.png',
     tags: ['E-commerce', 'Movilidad', 'Alquiler', 'OpenAI', 'TypeScript', 'Next.js'],
-    demoUrl: 'https://svcmoto.vercel.app',
+    demoUrl: 'https://svcmoto.es',
     codeUrl: 'https://github.com/420btc/svcmoto',
     status: 'Finalizado',
     hot: true,
@@ -262,6 +262,18 @@ const projectsData: ProjectData[] = [
     codeUrl: "https://github.com/420btc/wolty",
     status: "Trabajando",
     date: new Date("2025-11-01")
+  },
+  {
+    id: 16,
+    title: "Nimbus App",
+    description: "Juego plataforma multijugador online donde puedes consultar el clima en tiempo real y apostar con dinero real sobre predicciones meteorológicas. Incluye geoposicionamiento para datos locales precisos, apuestas sobre temperatura, velocidad del viento y otros parámetros climáticos. Una experiencia única que combina gaming, meteorología y apuestas en tiempo real.",
+    image: "images/portadanimbus.jpeg",
+    icon: "images/nimbusslogo.png",
+    tags: ["Juego", "Stripe", "Meteorología", "JavaScript", "OpenWeather", "UI/UX"],
+    demoUrl: "https://www.nimbusapp.es",
+    codeUrl: "#",
+    status: "Trabajando",
+    date: new Date("2025-09-23")
   }
 ];
 
