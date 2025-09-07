@@ -201,7 +201,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 startContent={<Icon icon="mdi:open-in-new" width={16} />}
                 disabled={translatedProject.blocked}
               >
-                {translatedProject.title === 'SVC Moto' ? 'svcmoto.es' : (language === "es" ? "Ver Proyecto" : "View Project")}
+                {language === "es" ? "Ver Proyecto" : "View Project"}
               </Button>
             )}
             {translatedProject.codeUrl && translatedProject.codeUrl !== '#' && (
