@@ -273,6 +273,7 @@ const projectsData: ProjectData[] = [
     codeUrl: "#",
     status: "Trabajando",
     featured: true,
+    hot: true,
     date: new Date("2025-09-23")
   }
 ];
