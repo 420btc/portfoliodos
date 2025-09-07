@@ -150,7 +150,6 @@ const projectsData: ProjectData[] = [
     demoUrl: "https://dreamsfreud.vercel.app/",
     codeUrl: "https://github.com/420btc/DreamFreud",
     status: "Finalizado",
-    featured: true,
     date: new Date("2025-05-12")
   },
   {
@@ -273,7 +272,8 @@ const projectsData: ProjectData[] = [
     demoUrl: "https://www.nimbusapp.es",
     codeUrl: "#",
     status: "Trabajando",
-    date: new Date("2025-09-25")
+    featured: true,
+    date: new Date("2025-09-23")
   }
 ];
 

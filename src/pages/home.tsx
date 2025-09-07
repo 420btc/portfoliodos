@@ -50,9 +50,18 @@ export const Home: React.FC = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
-            ))}
+            {(() => {
+              const orderedProjects = [
+                featuredProjects.find(p => p.title === 'Horizon Creative'),
+                featuredProjects.find(p => p.title === 'Nimbus App'),
+                featuredProjects.find(p => p.title === 'Free Air Street'),
+                ...featuredProjects.filter(p => !['Horizon Creative', 'Nimbus App', 'Free Air Street'].includes(p.title))
+              ].filter((project): project is NonNullable<typeof project> => project !== undefined);
+              
+              return orderedProjects.map((project, index) => (
+                <ProjectCard key={project.id} project={project} index={index} />
+              ));
+            })()} 
           </div>
         </div>
       </section>
