@@ -273,7 +273,7 @@ const projectsData: ProjectData[] = [
     demoUrl: "https://www.nimbusapp.es",
     codeUrl: "#",
     status: "Trabajando",
-    date: new Date("2025-09-23")
+    date: new Date("2025-09-25")
   }
 ];
 
