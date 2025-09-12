@@ -266,7 +266,7 @@ const projectsData: ProjectData[] = [
     id: 16,
     title: "Nimbus App",
     description: "Juego plataforma multijugador online donde puedes consultar el clima en tiempo real y apostar con dinero real sobre predicciones meteorológicas. Incluye geoposicionamiento para datos locales precisos, apuestas sobre temperatura, velocidad del viento y otros parámetros climáticos. Una experiencia única que combina gaming, meteorología y apuestas en tiempo real.",
-    image: "images/portadanimbus.jpeg",
+    image: "images/nimbuss.png",
     icon: "images/nimbusslogo.png",
     tags: ["Juego", "Stripe", "Meteorología", "JavaScript", "OpenWeather", "UI/UX"],
     demoUrl: "https://www.nimbusapp.es",
