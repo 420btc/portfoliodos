@@ -84,7 +84,7 @@ export const projectTranslations: Record<string, { title: string; description: s
   "Salvatore Repair": {
     title: "Salvatore Repair",
     description: "Website for a traditional shoe repair shop located in Torremolinos. A family business that offers specialized footwear repair and restoration services with artisanal techniques and years of experience. Includes information about services, location, and contact.",
-    status: "In Progress"
+    status: "Completed"
   },
   "SVC Moto": {
     title: "SVC Moto",
