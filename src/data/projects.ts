@@ -27,7 +27,7 @@ const projectsData: ProjectData[] = [
     tags: ['Negocio Local', 'Reparación', 'Artesanía', 'Tradicional', 'Next.js', 'TypeScript'],
     demoUrl: 'https://salvatorerepair.es',
     codeUrl: 'https://github.com/420btc/salvatore',
-    status: 'Trabajando',
+    status: 'Finalizado',
     date: new Date('2025-09-15')
   },
   {
