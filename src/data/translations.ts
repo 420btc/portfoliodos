@@ -41,8 +41,8 @@ export const projectTranslations: Record<string, { title: string; description: s
   },
   "CandleRush 2": {
     title: "CandleRush 2",
-    description: "Advanced cryptocurrency trading simulation platform with real-time data, Japanese candlestick analysis, and multiple timeframes. Features automatic resolution of simulated trades, detailed analytics, and a comprehensive learning section for trading strategies.",
-    status: "Completed"
+    description: "Second version of CandleRush, an improved cryptocurrency trading simulation and gaming platform. Deep analysis in My Profile section. Pair and timeframe selection. Smart automatic operations with integrated resolution.",
+    status: "In Progress"
   },
   "Horizon Creative": {
     title: "Horizon Creative",
@@ -56,13 +56,13 @@ export const projectTranslations: Record<string, { title: string; description: s
   },
   "MeteoMálaga": {
     title: "MeteoMálaga",
-    description: "Weather forecast betting application for Málaga with real-time data, prediction analysis, and statistics. Bets with automatic resolution at the time of the forecast.",
+    description: "Weather forecast application for Málaga with real-time data, prediction analysis, and statistics. Predictions with automatic resolution at the time of the forecast.",
     status: "Completed"
   },
   // Final 5 projects
   "CandleRush 1": {
     title: "CandleRush 1",
-    description: "An early version cryptocurrency trading platform and simulation game with real-time data and fictional bets based on Japanese candlesticks and timeframes, with automatic resolution.",
+    description: "A cryptocurrency trading gaming and simulation platform in an early version with real-time data and fictional operations based on Japanese candlesticks and timeframes, with automatic resolution.",
     status: "Completed"
   },
   "Bot Trading IA": {
@@ -118,7 +118,7 @@ export const projectTranslations: Record<string, { title: string; description: s
   },
   "Nimbus App": {
     title: "Nimbus App",
-    description: "Multiplayer online platform game where you can check real-time weather and bet with real money on meteorological predictions. Features geolocation for precise local data, betting on temperature, wind speed, and other weather parameters. A unique experience that combines gaming, meteorology, and real-time betting.",
+    description: "Multiplayer online platform game where you can check real-time weather and participate in meteorological predictions with real money. Features geolocation for precise local data, forecasting on temperature, wind speed, and other weather parameters. A unique experience that combines gaming, meteorology, and real-time predictions.",
     status: "In Progress"
   }
 };

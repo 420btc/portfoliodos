@@ -167,7 +167,7 @@ const projectsData: ProjectData[] = [
   {
     id: 8,
     title: "CandleRush 2",
-    description: "Segunda versión de CandleRush, una plataforma mejorada de simulación y juego de trading de criptomonedas. Análisis profundo en sección Mi Perfil. Selección de par y temporalidad. Apuestas automáticas inteligentes con resolución integrada.",
+    description: "Segunda versión de CandleRush, una plataforma mejorada de simulación y juego de trading de criptomonedas. Análisis profundo en sección Mi Perfil. Selección de par y temporalidad. Operaciones automáticas inteligentes con resolución integrada.",
     image: "images/candles.png",
     icon: "images/project-icons/candleicono.png",
     tags: ["Next.js", "TypeScript", "Trading", "Blockchain"],
@@ -204,7 +204,7 @@ const projectsData: ProjectData[] = [
   {
     id: 11,
     title: "MeteoMálaga",
-    description: "Aplicación de apuestas sobre pronósticos meteorológicos para Málaga con datos en tiempo real, análisis de predicciones y estadísticas. Apuestas con resolución automática en el momento del pronóstico.",
+    description: "Aplicación de pronósticos meteorológicos para Málaga con datos en tiempo real, análisis de predicciones y estadísticas. Predicciones con resolución automática en el momento del pronóstico.",
     image: "images/meteom.png",
     icon: "images/project-icons/meteo2png.png",
     tags: ["React", "API", "Meteorología", "UI/UX"],
@@ -216,7 +216,7 @@ const projectsData: ProjectData[] = [
   {
     id: 12,
     title: "CandleRush 1",
-    description: "Una plataforma de juego y simulación de trading de criptomonedas en una versión temprana con datos en tiempo real y apuestas ficticias basadas en las velas japonesas y las temporalidades, con resolución automática.",
+    description: "Una plataforma de juego y simulación de trading de criptomonedas en una versión temprana con datos en tiempo real y operaciones ficticias basadas en las velas japonesas y las temporalidades, con resolución automática.",
     image: "images/candlex.png",
     icon: "images/project-icons/iconocandlerush.png",
     tags: ["React", "Node.js", "Trading", "Blockchain"],
@@ -265,7 +265,7 @@ const projectsData: ProjectData[] = [
   {
     id: 16,
     title: "Nimbus App",
-    description: "Juego plataforma multijugador online donde puedes consultar el clima en tiempo real y apostar con dinero real sobre predicciones meteorológicas. Incluye geoposicionamiento para datos locales precisos, apuestas sobre temperatura, velocidad del viento y otros parámetros climáticos. Una experiencia única que combina gaming, meteorología y apuestas en tiempo real.",
+    description: "Juego plataforma multijugador online donde puedes consultar el clima en tiempo real y participar en predicciones meteorológicas con dinero real. Incluye geoposicionamiento para datos locales precisos, pronósticos sobre temperatura, velocidad del viento y otros parámetros climáticos con integración de Stripe para pagos seguros.",
     image: "images/nimbuss.png",
     icon: "images/nimbusslogo.png",
     tags: ["Juego", "Stripe", "Meteorología", "JavaScript", "OpenWeather", "UI/UX"],
@@ -274,7 +274,7 @@ const projectsData: ProjectData[] = [
     status: "Trabajando",
     featured: true,
     hot: true,
-    date: new Date("2025-10-25")
+    date: new Date("2025-10-01")
   }
 ];
 
