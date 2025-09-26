@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { 
   Navbar as HeroNavbar, 
@@ -8,7 +8,8 @@ import {
   Link, 
   NavbarMenuToggle,
   NavbarMenu,
-  NavbarMenuItem
+  NavbarMenuItem,
+  Tooltip
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { ThemeSwitcher } from "./theme-switcher";
@@ -20,7 +21,8 @@ const translations = {
   about: { es: "Sobre Mí", en: "About Me" },
   projects: { es: "Proyectos", en: "Projects" },
   novel: { es: "Novela", en: "Novel" },
-  contact: { es: "Contacto", en: "Contact" }
+  contact: { es: "Contacto", en: "Contact" },
+  comingSoon: { es: "Próximamente", en: "Coming Soon" }
 };
 
 // Definir el tipo para los ítems del menú
@@ -46,6 +48,11 @@ export const Navbar: React.FC = () => {
   // Función para obtener el texto traducido
   const t = (key: keyof typeof translations) => {
     return translations[key]?.[language as keyof typeof translations.home] || key;
+  };
+
+  // Función para manejar el click en Novela
+  const handleNovelClick = (e: React.MouseEvent) => {
+    e.preventDefault();
   };
 
   const handleMenuItemClick = () => {
@@ -80,14 +87,27 @@ export const Navbar: React.FC = () => {
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         {menuItems.map((item) => (
           <NavbarItem key={item.path} isActive={location.pathname === item.path}>
-            <Link 
-              as={RouterLink} 
-              to={item.path}
-              color={location.pathname === item.path ? "primary" : "foreground"}
-              className="font-medium"
-            >
-              {t(item.id)}
-            </Link>
+            {item.id === "novel" ? (
+              <Tooltip content={t("comingSoon")} placement="bottom">
+                <Link 
+                  as="span"
+                  color="foreground"
+                  className="font-medium blur-sm cursor-not-allowed opacity-60 hover:opacity-80 transition-opacity"
+                  onClick={handleNovelClick}
+                >
+                  {t(item.id)}
+                </Link>
+              </Tooltip>
+            ) : (
+              <Link 
+                as={RouterLink} 
+                to={item.path}
+                color={location.pathname === item.path ? "primary" : "foreground"}
+                className="font-medium"
+              >
+                {t(item.id)}
+              </Link>
+            )}
           </NavbarItem>
         ))}
       </NavbarContent>
@@ -105,16 +125,30 @@ export const Navbar: React.FC = () => {
         <div className="flex flex-col items-center sm:items-start gap-2">
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item.id}-${index}`} className="w-full sm:w-auto">
-              <Link
-                as={RouterLink}
-                to={item.path}
-                color={location.pathname === item.path ? "primary" : "foreground"}
-                className="w-full text-center sm:text-left"
-                size="lg"
-                onClick={handleMenuItemClick}
-              >
-                {t(item.id)}
-              </Link>
+              {item.id === "novel" ? (
+                <Tooltip content={t("comingSoon")} placement="bottom">
+                  <Link
+                    as="span"
+                    color="foreground"
+                    className="w-full text-center sm:text-left blur-sm cursor-not-allowed opacity-60"
+                    size="lg"
+                    onClick={handleNovelClick}
+                  >
+                    {t(item.id)}
+                  </Link>
+                </Tooltip>
+              ) : (
+                <Link
+                  as={RouterLink}
+                  to={item.path}
+                  color={location.pathname === item.path ? "primary" : "foreground"}
+                  className="w-full text-center sm:text-left"
+                  size="lg"
+                  onClick={handleMenuItemClick}
+                >
+                  {t(item.id)}
+                </Link>
+              )}
             </NavbarMenuItem>
           ))}
         </div>
