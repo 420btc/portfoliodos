@@ -1,12 +1,17 @@
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
-import { Link, Divider } from "@heroui/react";
+import { Link, Divider, Tooltip } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { TbPhotoDollar } from "react-icons/tb";
 import { useLanguage } from "./language-switcher";
 
 export const Footer: React.FC = () => {
   const { language } = useLanguage();
+  
+  // Función para manejar el click en Novela
+  const handleNovelClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+  };
   
   return (
     <footer className="w-full py-8 px-6 bg-content1">
@@ -52,7 +57,16 @@ export const Footer: React.FC = () => {
                 <Link as={RouterLink} to="/projects" color="foreground">{language === "es" ? "Proyectos" : "Projects"}</Link>
               </li>
               <li>
-                <Link as={RouterLink} to="/novel" color="foreground">{language === "es" ? "Novela" : "Novel"}</Link>
+                <Tooltip content={language === "es" ? "Próximamente" : "Coming Soon"} placement="top">
+                  <Link 
+                    as="span" 
+                    color="foreground" 
+                    className="blur-sm cursor-not-allowed opacity-60 hover:opacity-80 transition-opacity"
+                    onClick={handleNovelClick}
+                  >
+                    {language === "es" ? "Novela" : "Novel"}
+                  </Link>
+                </Tooltip>
               </li>
               <li>
                 <Link as={RouterLink} to="/about" color="foreground">{language === "es" ? "Sobre Mí" : "About"}</Link>
