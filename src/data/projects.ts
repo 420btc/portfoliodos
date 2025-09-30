@@ -274,7 +274,7 @@ const projectsData: ProjectData[] = [
     status: "Trabajando",
     featured: true,
     hot: true,
-    date: new Date("2025-10-01")
+    date: new Date("2025-10-15")
   }
 ];
 
