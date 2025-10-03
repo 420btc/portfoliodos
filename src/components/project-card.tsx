@@ -189,30 +189,62 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         </CardBody>
         <CardFooter className="bg-default-50 p-4 border-t border-default-200">
           <div className="w-full flex gap-3">
-            {translatedProject.demoUrl && translatedProject.demoUrl !== '#' && (
-              <Button 
-                as={translatedProject.blocked ? undefined : Link}
-                href={translatedProject.blocked ? undefined : translatedProject.demoUrl} 
-                target={translatedProject.blocked ? undefined : "_blank"}
-                color="primary" 
-                variant="solid" 
-                size="md"
-                className={`flex-1 ${translatedProject.blocked ? 'opacity-50 blur-sm cursor-not-allowed' : ''}`}
-                startContent={<Icon icon="mdi:open-in-new" width={16} />}
-                disabled={translatedProject.blocked}
-              >
-                {language === "es" ? "Ver Proyecto" : "View Project"}
-              </Button>
+            {/* Botón especial para Nimbus App - Descarga APK + Ver Proyecto */}
+            {translatedProject.title === 'Nimbus App' ? (
+              <>
+                <Button 
+                  as={Link}
+                  href="/images/nimbusapp.apk"
+                  download="nimbusapp.apk"
+                  color="success" 
+                  variant="solid" 
+                  size="md"
+                  className="flex-1 bg-green-600 hover:bg-green-700 text-white"
+                  startContent={<Icon icon="mdi:android" width={16} />}
+                >
+                  {language === "es" ? "Descargar APK" : "Download APK"}
+                </Button>
+                {translatedProject.demoUrl && translatedProject.demoUrl !== '#' && (
+                  <Button 
+                    as={Link}
+                    href={translatedProject.demoUrl} 
+                    target="_blank"
+                    color="primary" 
+                    variant="solid" 
+                    size="md"
+                    className="flex-1"
+                    startContent={<Icon icon="mdi:open-in-new" width={16} />}
+                  >
+                    {language === "es" ? "Ver Proyecto" : "View Project"}
+                  </Button>
+                )}
+              </>
+            ) : (
+              translatedProject.demoUrl && translatedProject.demoUrl !== '#' && (
+                <Button 
+                  as={translatedProject.blocked ? undefined : Link}
+                  href={translatedProject.blocked ? undefined : translatedProject.demoUrl} 
+                  target={translatedProject.blocked ? undefined : "_blank"}
+                  color="primary" 
+                  variant="solid" 
+                  size="md"
+                  className={`flex-1 ${translatedProject.blocked ? 'opacity-50 blur-sm cursor-not-allowed' : ''}`}
+                  startContent={<Icon icon="mdi:open-in-new" width={16} />}
+                  disabled={translatedProject.blocked}
+                >
+                  {language === "es" ? "Ver Proyecto" : "View Project"}
+                </Button>
+              )
             )}
             {translatedProject.codeUrl && translatedProject.codeUrl !== '#' && (
               <Button 
                 as={Link} 
                 href={translatedProject.codeUrl} 
                 target="_blank" 
-                color={translatedProject.demoUrl === '#' ? 'primary' : 'default'}
-                variant={translatedProject.demoUrl === '#' ? 'solid' : 'flat'}
+                color={translatedProject.demoUrl === '#' || translatedProject.title === 'Nimbus App' ? 'primary' : 'default'}
+                variant={translatedProject.demoUrl === '#' || translatedProject.title === 'Nimbus App' ? 'solid' : 'flat'}
                 size="md"
-                className={`flex-1 ${translatedProject.demoUrl === '#' ? '' : 'bg-default-100'}`}
+                className={`flex-1 ${translatedProject.demoUrl === '#' || translatedProject.title === 'Nimbus App' ? '' : 'bg-default-100'}`}
                 startContent={<Icon icon="mdi:github" width={16} />}
               >
                 {language === "es" ? "Ver Código" : "View Code"}
