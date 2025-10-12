@@ -3,6 +3,7 @@ import { motion, useDragControls } from 'framer-motion';
 import { Button, Input, Card, CardBody, Avatar, Spinner } from '@heroui/react';
 import { Icon } from '@iconify/react';
 import { generateProjectContext } from "../utils/project-context-provider";
+import { ProjectBanner } from './project-banner';
 
 interface Message {
   id: string;
@@ -10,6 +11,15 @@ interface Message {
   role: 'user' | 'assistant';
   timestamp: Date;
   responseTime?: number; // Time in milliseconds it took to respond (for assistant messages)
+  projectBanner?: {
+    showProjectBanner: boolean;
+    projectId: string;
+    projectTitle: string;
+    projectImage: string;
+    projectIcon?: string;
+    demoUrl?: string;
+    codeUrl?: string;
+  };
 }
 
 interface ChatPopupProps {
@@ -116,7 +126,8 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
         content: data.message,
         role: 'assistant',
         timestamp: new Date(),
-        responseTime: responseTime
+        responseTime: responseTime,
+        projectBanner: data.projectBanner
       };
 
       setMessages(prev => [...prev, assistantMessage]);
@@ -145,12 +156,6 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
     if (!inputValue.trim() || isLoading) return;
     const syntheticEvent = { preventDefault: () => {} } as React.FormEvent;
     handleSubmit(syntheticEvent);
-  };
-
-  const getCounterColor = (count: number) => {
-    if (count <= 2) return 'text-red-500 dark:text-red-400';
-    if (count <= 5) return 'text-yellow-500 dark:text-yellow-400';
-    return 'text-green-500 dark:text-green-400';
   };
 
   const clearChat = () => {
@@ -300,6 +305,18 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
                       }`}
                     >
                       {message.content}
+                      {message.role === 'assistant' && message.projectBanner && (
+                        <div className="mt-3">
+                          <ProjectBanner 
+                            projectId={message.projectBanner.projectId}
+                            projectTitle={message.projectBanner.projectTitle}
+                            projectImage={message.projectBanner.projectImage}
+                            projectIcon={message.projectBanner.projectIcon}
+                            demoUrl={message.projectBanner.demoUrl}
+                            codeUrl={message.projectBanner.codeUrl}
+                          />
+                        </div>
+                      )}
                       {message.role === 'assistant' && (
                         <div className="mt-2 text-xs flex justify-between text-gray-500 dark:text-zinc-400">
                           <span>{message.timestamp.toLocaleTimeString()}</span>
