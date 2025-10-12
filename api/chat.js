@@ -1,8 +1,6 @@
 // API endpoint para el chat con OpenAI
 // Este archivo maneja las llamadas a OpenAI de forma segura en el servidor
 
-import { generateProjectContext } from '../src/utils/project-context-provider.js';
-
 export default async function handler(req, res) {
   // Solo permitir métodos POST
   if (req.method !== 'POST') {
@@ -23,8 +21,46 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'API key no configurada en el servidor' });
     }
 
-    // Generar contexto de proyectos dinámicamente
-    const projectContext = generateProjectContext();
+    // Generar contexto de proyectos básico
+    const projectContext = `
+Contexto de Proyectos:
+- Salvatore Repair: Aplicación de gestión de reparaciones
+- SVC Moto: Sistema de gestión para talleres de motos
+- Free Air Street: Plataforma de eventos urbanos
+- Nimbus: Aplicación meteorológica
+- Geoma: Herramienta de geolocalización
+- CityVox: Plataforma de comunicación urbana
+- Wolty: Sistema de gestión energética
+- AI Dreamer: Generador de imágenes con IA
+- Book Creator: Editor de libros digitales
+- Candle Rush: Juego de estrategia
+- Cryptoia: Plataforma de criptomonedas
+- Depurador: Herramienta de debugging
+- Horizon: Dashboard de análisis
+- Tienda: E-commerce personalizado
+- Age Events: Gestión de eventos
+- Bot Trading: Bot de trading automatizado
+- CPF 3D: Visualizador 3D
+- Creax: Plataforma creativa
+- Drones K: Control de drones
+- FaceTime Clone: Videollamadas
+- Fight Game: Juego de lucha
+- Foto X: Editor de fotos
+- Freire FPV: Control de drones FPV
+- GeoLaw: Herramientas legales geográficas
+- GeoQuizzer: Quiz geográfico
+- Hero P: Plataforma de héroes
+- Local LLM: Modelo de lenguaje local
+- Meteo Málaga: Meteorología local
+- Navegador: Navegador web personalizado
+- PDF Book: Lector de PDF
+- Piscolo: Gestión de piscinas
+- Tracker: Sistema de seguimiento
+- Your Day In: Diario personal
+
+Si mencionas algún proyecto específico, incluye al final de tu respuesta este JSON:
+{"showProjectBanner": true, "projectId": "id_del_proyecto", "projectTitle": "Título del Proyecto", "projectImage": "/images/imagen.png", "projectIcon": "/images/icono.png", "demoUrl": "url_demo", "codeUrl": "url_codigo"}
+`;
 
     // Preparar los mensajes para OpenAI incluyendo el contexto de proyectos
     const openAIMessages = [
@@ -76,7 +112,7 @@ export default async function handler(req, res) {
     const cleanResponse = aiResponse.replace(bannerRegex, '').trim();
 
     return res.status(200).json({ 
-      response: cleanResponse,
+      message: cleanResponse,
       projectBanner: projectBanner
     });
 
