@@ -94,61 +94,48 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
       timestamp: new Date()
     };
 
-    // Mantener máximo 10 mensajes (incluyendo el nuevo)
+    // Agregar mensaje del usuario
     const updatedMessages = [...messages, userMessage];
-    if (updatedMessages.length > 10) {
-      updatedMessages.splice(1, updatedMessages.length - 10); // Mantener el mensaje inicial del sistema
-    }
-
     setMessages(updatedMessages);
     setInputValue('');
     setIsLoading(true);
 
     try {
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          model: 'gpt-3.5-turbo',
-          messages: [
-            { role: 'system', content: getSystemPrompt() },
-            ...updatedMessages.map(msg => ({
-              role: msg.role,
-              content: msg.content
-            }))
-          ],
-          max_tokens: 3000,
-          temperature: 0.7
+          messages: updatedMessages.map(msg => ({
+            role: msg.role,
+            content: msg.content
+          })),
+          systemPrompt: getSystemPrompt()
         })
       });
 
       if (!response.ok) {
-        throw new Error('Error en la respuesta de la API');
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Error en la respuesta de la API');
       }
 
       const data = await response.json();
       const responseTime = Date.now() - new Date(userMessage.timestamp).getTime();
+      
       // Increment response count and update remaining responses
       incrementResponseCount();
       setRemainingResponses(getRemainingResponses());
       
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: data.choices[0].message.content,
+        content: data.message,
         role: 'assistant',
         timestamp: new Date(),
         responseTime: responseTime
       };
 
-      const finalMessages = [...updatedMessages, assistantMessage];
-      if (finalMessages.length > 10) {
-        finalMessages.splice(1, finalMessages.length - 10);
-      }
-
-      setMessages(finalMessages);
+      setMessages(prev => [...prev, assistantMessage]);
     } catch (error) {
       console.error('Error:', error);
       const errorMessage: Message = {
