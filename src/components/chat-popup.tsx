@@ -3,7 +3,6 @@ import { motion, useDragControls } from 'framer-motion';
 import { Button, Input, Card, CardBody, Avatar, Spinner } from '@heroui/react';
 import { Icon } from '@iconify/react';
 import { generateProjectContext } from "../utils/project-context-provider";
-import { hasReachedLimit, incrementResponseCount, getRemainingResponses, getFormattedTimeUntilReset } from "../utils/chat-limits";
 
 interface Message {
   id: string;
@@ -50,7 +49,7 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      content: '¡Hola! Soy Carlos Freire. Pregúntame sobre mis proyectos, experiencia o cualquier cosa que quieras saber.',
+      content: '¡Hola! Soy el asistente de Carlos. Puedo ayudarte con información sobre sus proyectos, tecnologías y experiencia. ¿En qué puedo ayudarte?',
       role: 'assistant',
       timestamp: new Date()
     }
@@ -59,7 +58,6 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [remainingResponses, setRemainingResponses] = useState(getRemainingResponses());
   
   const dragControls = useDragControls();
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -73,19 +71,9 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
     scrollToBottom();
   }, [messages]);
 
-  const sendMessage = async () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     if (!inputValue.trim() || isLoading) return;
-    
-    // Check if user has reached their limit
-    if (hasReachedLimit()) {
-      setMessages(prev => [...prev, {
-        id: Date.now().toString(),
-        content: `Has alcanzado el límite de 10 respuestas en 12 horas. Por favor, intenta de nuevo en ${getFormattedTimeUntilReset()}.`,
-        role: 'assistant',
-        timestamp: new Date()
-      }]);
-      return;
-    }
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -123,10 +111,6 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
       const data = await response.json();
       const responseTime = Date.now() - new Date(userMessage.timestamp).getTime();
       
-      // Increment response count and update remaining responses
-      incrementResponseCount();
-      setRemainingResponses(getRemainingResponses());
-      
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         content: data.message,
@@ -153,14 +137,20 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      sendMessage();
+      handleSubmit(e);
     }
   };
 
+  const sendMessage = () => {
+    if (!inputValue.trim() || isLoading) return;
+    const syntheticEvent = { preventDefault: () => {} } as React.FormEvent;
+    handleSubmit(syntheticEvent);
+  };
+
   const getCounterColor = (count: number) => {
-    if (count >= 7) return 'text-green-500';
-    if (count >= 4) return 'text-amber-500';
-    return 'text-red-500';
+    if (count <= 2) return 'text-red-500 dark:text-red-400';
+    if (count <= 5) return 'text-yellow-500 dark:text-yellow-400';
+    return 'text-green-500 dark:text-green-400';
   };
 
   const clearChat = () => {
@@ -237,9 +227,6 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
                   <p className="text-sm font-semibold truncate text-black dark:text-white">
                     Carlos Freire
                   </p>
-                  <span className={`text-xs font-medium ${getCounterColor(remainingResponses)}`}>
-                    {remainingResponses}/10
-                  </span>
                 </div>
                 <p className="text-xs truncate text-gray-500 dark:text-zinc-400">
                   Desarrollador Full Stack
