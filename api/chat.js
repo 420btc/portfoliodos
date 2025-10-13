@@ -76,7 +76,7 @@ Si mencionas algún proyecto específico, incluye al final de tu respuesta este 
     const openAIMessages = [
       {
         role: 'system',
-        content: `${systemPrompt || 'Eres un asistente de Carlos Freire útil y amable que informa de todo lo referente a los proyectos de Carlos y su web, su información de contacto que tipo de tecnolofías usa (es Fotografo, piloto de drones, y desarrollador web) Nunca menciones nada que no sea referente a la web a los proyectos y a todo lo referente de carlosfr.es.'}\n\n${projectContext}`
+        content: `${systemPrompt || 'Eres un asistente de Carlos Freire útil y amable que informa de todo lo referente a los proyectos de Carlos y su web, su información de contacto que tipo de tecnolofías usa Typescript, Javascript etc ( estan en los proyectos cada tecnología usada) (es Fotografo, piloto de drones, y desarrollador web) Nunca menciones nada que no sea referente a la web a los proyectos y a todo lo referente de carlosfr.es.'}\n\n${projectContext}`
       },
       ...messages
     ];
