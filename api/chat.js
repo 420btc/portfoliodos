@@ -107,19 +107,84 @@ Si mencionas algún proyecto específico, incluye al final de tu respuesta este 
 
     // Detectar si la respuesta contiene información de banner de proyecto
     let projectBanner = null;
-    const bannerRegex = /\{"showProjectBanner":\s*true[^}]*\}/;
-    const bannerMatch = aiResponse.match(bannerRegex);
+    let cleanResponse = aiResponse;
     
-    if (bannerMatch) {
-      try {
-        projectBanner = JSON.parse(bannerMatch[0]);
-      } catch (e) {
-        console.error('Error parsing project banner JSON:', e);
+    // Función para encontrar y extraer JSON válido que contenga showProjectBanner
+    function extractProjectBanner(text) {
+      // Buscar todas las posiciones donde aparece "showProjectBanner"
+      const matches = [];
+      let index = 0;
+      
+      while ((index = text.indexOf('"showProjectBanner"', index)) !== -1) {
+        // Buscar hacia atrás para encontrar el inicio del objeto JSON
+        let start = index;
+        let braceCount = 0;
+        let foundStart = false;
+        
+        // Buscar hacia atrás hasta encontrar la llave de apertura
+        while (start >= 0) {
+          if (text[start] === '}') braceCount++;
+          if (text[start] === '{') {
+            braceCount--;
+            if (braceCount === -1) {
+              foundStart = true;
+              break;
+            }
+          }
+          start--;
+        }
+        
+        if (foundStart) {
+          // Buscar hacia adelante para encontrar el final del objeto JSON
+          let end = start + 1;
+          braceCount = 1;
+          
+          while (end < text.length && braceCount > 0) {
+            if (text[end] === '{') braceCount++;
+            if (text[end] === '}') braceCount--;
+            end++;
+          }
+          
+          if (braceCount === 0) {
+            const jsonStr = text.substring(start, end);
+            try {
+              const parsed = JSON.parse(jsonStr);
+              if (parsed.showProjectBanner) {
+                matches.push({ start, end, json: parsed, text: jsonStr });
+              }
+            } catch (e) {
+              // Ignorar JSON inválido
+            }
+          }
+        }
+        
+        index++;
       }
+      
+      return matches;
     }
-
-    // Limpiar la respuesta removiendo el JSON del banner si existe
-    const cleanResponse = aiResponse.replace(bannerRegex, '').trim();
+    
+    const bannerMatches = extractProjectBanner(aiResponse);
+    
+    if (bannerMatches.length > 0) {
+      // Tomar el primer banner válido encontrado
+      projectBanner = bannerMatches[0].json;
+      
+      // Remover todos los JSONs de banner encontrados del texto
+      let offset = 0;
+      bannerMatches.forEach(match => {
+        const adjustedStart = match.start - offset;
+        const adjustedEnd = match.end - offset;
+        cleanResponse = cleanResponse.substring(0, adjustedStart) + cleanResponse.substring(adjustedEnd);
+        offset += (match.end - match.start);
+      });
+    }
+    
+    // Limpiar espacios extra, saltos de línea y caracteres residuales
+    cleanResponse = cleanResponse
+      .replace(/\n\s*\n/g, '\n')
+      .replace(/^\s+|\s+$/g, '')
+      .trim();
 
     return res.status(200).json({ 
       message: cleanResponse,

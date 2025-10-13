@@ -304,7 +304,22 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
                           : 'bg-gray-50 dark:bg-zinc-800 text-black dark:text-white border-gray-200 dark:border-zinc-700'
                       }`}
                     >
-                      {message.content}
+                      {(() => {
+                        // Limpiar cualquier JSON residual del mensaje
+                        let cleanContent = message.content;
+                        
+                        // Remover cualquier JSON que contenga showProjectBanner
+                        cleanContent = cleanContent.replace(/\{[^{}]*"showProjectBanner"[^{}]*\}/g, '');
+                        
+                        // Remover objetos JSON más complejos que puedan contener showProjectBanner
+                        const jsonRegex = /\{(?:[^{}]|\{[^{}]*\})*"showProjectBanner"(?:[^{}]|\{[^{}]*\})*\}/g;
+                        cleanContent = cleanContent.replace(jsonRegex, '');
+                        
+                        // Limpiar espacios extra y saltos de línea
+                        cleanContent = cleanContent.replace(/\n\s*\n/g, '\n').trim();
+                        
+                        return cleanContent;
+                      })()}
                       {message.role === 'assistant' && message.projectBanner && (
                         <div className="mt-3">
                           <ProjectBanner 
