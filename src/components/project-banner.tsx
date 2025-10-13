@@ -65,7 +65,7 @@ export const ProjectBanner: React.FC<ProjectBannerProps> = ({
               title="Ver demo"
             >
               <Icon icon="mdi:external-link" className="w-3 h-3" />
-              Demo
+              Ver
             </button>
           )}
           
