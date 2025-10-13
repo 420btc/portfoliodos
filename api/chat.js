@@ -21,42 +21,52 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'API key no configurada en el servidor' });
     }
 
-    // Generar contexto de proyectos básico
+    // Generar contexto de proyectos con información real y detallada
     const projectContext = `
-Contexto de Proyectos:
-- Salvatore Repair: Aplicación de gestión de reparaciones
-- SVC Moto: Sistema de gestión para talleres de motos
-- Free Air Street: Plataforma de eventos urbanos
-- Nimbus: Aplicación meteorológica
-- Geoma: Herramienta de geolocalización
-- CityVox: Plataforma de comunicación urbana
-- Wolty: Sistema de gestión energética
-- AI Dreamer: Generador de imágenes con IA
-- Book Creator: Editor de libros digitales
-- Candle Rush: Juego de estrategia
-- Cryptoia: Plataforma de criptomonedas
-- Depurador: Herramienta de debugging
-- Horizon: Dashboard de análisis
-- Tienda: E-commerce personalizado
-- Age Events: Gestión de eventos
-- Bot Trading: Bot de trading automatizado
-- CPF 3D: Visualizador 3D
-- Creax: Plataforma creativa
-- Drones K: Control de drones
-- FaceTime Clone: Videollamadas
-- Fight Game: Juego de lucha
-- Foto X: Editor de fotos
-- Freire FPV: Control de drones FPV
-- GeoLaw: Herramientas legales geográficas
-- GeoQuizzer: Quiz geográfico
-- Hero P: Plataforma de héroes
-- Local LLM: Modelo de lenguaje local
-- Meteo Málaga: Meteorología local
-- Navegador: Navegador web personalizado
-- PDF Book: Lector de PDF
-- Piscolo: Gestión de piscinas
-- Tracker: Sistema de seguimiento
-- Your Day In: Diario personal
+Contexto de Proyectos Reales:
+
+1. Salvatore Repair (ID: salvatore-repair): Página web para una tienda tradicional de reparación de zapatos ubicada en Torremolinos. Un negocio familiar que ofrece servicios especializados de reparación y restauración de calzado con técnicas artesanales y años de experiencia. Incluye información sobre servicios, ubicación y contacto. Demo: https://salvatorerepair.es
+
+2. SVC Moto (ID: scv-moto): Página web tienda especializada en alquiler de motos eléctricas ubicada en Málaga centro. Plataforma completa que ofrece servicios de movilidad urbana sostenible con una flota moderna de vehículos eléctricos. Incluye sistema de reservas, descuentos, logros y puntos, información detallada de la flota y servicios de reparación y mantenimiento. Demo: https://svcmoto.es
+
+3. Free Air Street (ID: free-air-street): Tienda online especializada en alquiler de patinetes eléctricos, fat bikes, motos, coches y tours. Una plataforma completa que ofrece servicios de movilidad urbana y experiencias turísticas, conectando a los usuarios con opciones de transporte sostenible y aventuras únicas en la ciudad. Demo: https://freeairstreet.com
+
+4. Geo Law Empire (ID: geo-law-empire): Un juego de estrategia geopolítica donde las decisiones legales y las conspiraciones moldean el destino de las naciones. Gestiona recursos, establece alianzas y desenreda intrigas mientras expandes tu imperio en un mundo dinámico donde cada decisión tiene consecuencias globales. Demo: https://empirelaw.vercel.app
+
+5. AgeEvents AI (ID: 0): Aplicación web inteligente que te permite descubrir qué eventos históricos mundiales ocurrieron cuando tenías una edad específica. Explora la historia de manera personalizada y descubre cómo el mundo cambió mientras crecías. Una experiencia única que conecta tu vida personal con los grandes momentos de la humanidad. Demo: https://agevents.vercel.app/
+
+6. Local AI (ID: 1): Aplicación de chat AI avanzada con asistente de voz integrado que permite conversaciones naturales en tiempo real. Ofrece la flexibilidad de conectar tanto modelos de IA locales a través de LMStudio como servicios en la nube. Incluye funcionalidades de reconocimiento de voz, síntesis de texto a voz, y una interfaz intuitiva para gestionar diferentes agentes. Demo: https://voicechat-ebon.vercel.app/
+
+7. Logs de Psicología (ID: 2): Juego interactivo basado en el concepto de la mente humana como sistema computacional, donde explorarás la psicología a través de un prisma diferente. ¿Y si acudir al psicólogo es como activar los logs de depuración? Tu rol será el de un Ingeniero de sistemas mentales. Demo: https://v0-juego-interactivo-psicologia.vercel.app/
+
+8. Facetime Tracker (ID: 3): Aplicación web PC que utiliza TensorFlow para detectar y registrar el tiempo que pasas frente a tu PC. Especialmente útil para medir la exposición a videollamadas, clases virtuales o cualquier actividad que requiera el uso de cámara web. Demo: https://facedetection-wine.vercel.app/
+
+9. Book Binder PDF (ID: 4): Aplicación web y móvil para ordenar linealmente PDFs con contenido personalizado y en línea. Soporta PDFs ilimitados y permite su ordenación. Integración con OpenAI para obtener información sobre los libros que quieras en un chat integrado. Demo: https://bookcreatorr.netlify.app/
+
+10. YourDayIn (ID: 5): Aplicación web y móvil con Agente IA integrado para ayudarte a planificar tu día con los 5 lugares para visitar en función de tu búsqueda. Integración con OpenAI para obtener información sobre los lugares. Demo: https://tudiaen.vercel.app/game
+
+11. AI Dreamer (ID: 6): Aplicación y web diseñada para registrar, analizar y explorar los sueños desde una perspectiva inspirada en las teorías psicoanalíticas de Sigmund Freud. Incluye un diccionario de símbolos oníricos y la capacidad de llevar un historial detallado con IA personal. Demo: https://dreamsfreud.vercel.app/
+
+12. NotfoundInk (ID: 7): Portfolio web para NotfoundInk de Ana Maria DCG, una colección de arte digital, con integración de acuñado de NFTs en la página web, conexión con billetera y sistema de ventas por formulario en sección de contacto. Demo: https://notfoundink.art
+
+13. CandleRush 2 (ID: 8): Segunda versión de CandleRush, una plataforma mejorada de simulación y juego de trading de criptomonedas. Análisis profundo en sección Mi Perfil. Selección de par y temporalidad. Operaciones automáticas inteligentes con resolución integrada. Demo: https://candlerush.es
+
+14. Horizon Creative (ID: 9): Horizon Creative es una página web de portafolio profesional para agencias creativas, freelancers y estudios de diseño. Permite mostrar proyectos, servicios, equipo y datos de contacto, incluido mapa de ubicación. Demo: https://horizoncreative.es
+
+15. Carlos Freire FPV (ID: 10): Mi web personal para la venta de servicios de grabación con drones FPV en la Costa del Sol, Málaga. Secciones de contacto, meteorología con datos reales, servicios, proyectos y equipo disponible. Demo: https://carlosfpv.es
+
+16. MeteoMálaga (ID: 11): Aplicación de pronósticos meteorológicos para Málaga con datos en tiempo real, análisis de predicciones y estadísticas. Predicciones con resolución automática en el momento del pronóstico. Demo: https://meteomalaga.fun
+
+17. CandleRush 1 (ID: 12): Una plataforma de juego y simulación de trading de criptomonedas en una versión temprana con datos en tiempo real y operaciones ficticias basadas en las velas japonesas y las temporalidades, con resolución automática. Demo: https://btcer.fun
+
+18. Bot Trading IA (ID: 13): Bot de trading automatizado con inteligencia artificial que opera con precios reales del mercado de criptomonedas. Conectado a APIs de exchanges para analizar tendencias, patrones técnicos y tomar decisiones de compra/venta en tiempo real. Incluye algoritmos de machine learning para optimizar estrategias y gestión de riesgo avanzada. Demo: https://aibotrading.vercel.app
+
+19. CityVox (ID: 14): Juego de gestión de ciudades 3D inspirado en SimCity con gran potencial de desarrollo. Un simulador urbano completo donde puedes construir, gestionar y expandir tu propia metrópolis. Incluye sistema económico dinámico, planificación estratégica RCI (Residencial, Comercial, Industrial) y consideraciones ESG (Ambientales, Sociales y de Gobernanza) para un desarrollo urbano sostenible. Demo: https://cityvox.vercel.app (Estado: En desarrollo)
+
+20. Wolty Agency (ID: 15): Sitio web desarrollado para una agencia digital canadiense especializada en transformar la presencia online de empresas. La plataforma presenta sus servicios de desarrollo web, aplicaciones móviles, SEO, diseño UI/UX y soluciones e-commerce. Incluye secciones de servicios, proceso de trabajo y formularios de contacto con diseño moderno y responsive. Demo: https://woltyx.vercel.app (Estado: En desarrollo)
+
+21. Nimbus App (ID: 16): Juego plataforma multijugador online donde puedes consultar el clima en tiempo real y participar en predicciones meteorológicas con dinero real. Incluye geoposicionamiento para datos locales precisos, pronósticos sobre temperatura, velocidad del viento y otros parámetros climáticos con integración de Stripe para pagos seguros. Demo: https://www.nimbusapp.es (Estado: En desarrollo)
+**IMPORTANTE: Nimbus App también cuenta con un archivo APK disponible que es la aplicación móvil nativa del juego, permitiendo a los usuarios acceder a todas las funcionalidades desde sus dispositivos móviles Android.**
 
 Si mencionas algún proyecto específico, incluye al final de tu respuesta este JSON:
 {"showProjectBanner": true, "projectId": "id_del_proyecto", "projectTitle": "Título del Proyecto", "projectImage": "/images/imagen.png", "projectIcon": "/images/icono.png", "demoUrl": "url_demo", "codeUrl": "url_codigo"}
