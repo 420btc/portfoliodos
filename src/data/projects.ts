@@ -271,7 +271,7 @@ const projectsData: ProjectData[] = [
     tags: ["Juego", "Stripe", "Meteorología", "JavaScript", "OpenWeather", "UI/UX"],
     demoUrl: "https://www.nimbusapp.es",
     codeUrl: "#",
-    status: "Trabajando",
+    status: "Finalizado",
     featured: true,
     hot: true,
     date: new Date("2025-10-15")
