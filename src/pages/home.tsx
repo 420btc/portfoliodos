@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Button, Divider } from "@heroui/react";
 import { Icon } from "@iconify/react";
@@ -9,14 +9,27 @@ import { featuredProjects, projects } from "../data/projects";
 import { WorkTogether } from "../components/work-together";
 import { useLanguage } from "../components/language-switcher";
 import { NewsletterSection } from "../components/newsletter-section";
+import { PromoModal } from "../components/promo-modal";
+
 export const Home: React.FC = () => {
   const { language } = useLanguage();
-  
+  const [isPromoModalOpen, setIsPromoModalOpen] = useState(false);
+
+  useEffect(() => {
+    // Timer de 20 segundos para mostrar el modal
+    const timer = setTimeout(() => {
+      setIsPromoModalOpen(true);
+    }, 20000); // 20 segundos
+
+    // Limpiar el timer si el componente se desmonta
+    return () => clearTimeout(timer);
+  }, []);
+
   // Filter store projects
   const storeProjects = projects.filter(project => 
     project.id === 'free-air-street' || project.id === 'scv-moto' || project.id === 'salvatore-repair'
   );
-  
+
   return (
     <div>
       <HeroSection />
@@ -223,6 +236,12 @@ export const Home: React.FC = () => {
           <WorkTogether />
         </div>
       </section>
+
+      {/* Promo Modal */}
+      <PromoModal 
+        isOpen={isPromoModalOpen} 
+        onClose={() => setIsPromoModalOpen(false)} 
+      />
     </div>
   );
 };
