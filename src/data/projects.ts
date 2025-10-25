@@ -270,7 +270,7 @@ const projectsData: ProjectData[] = [
     icon: "images/btcvsgptt.png",
     tags: ["AI", "Trading", "Bitcoin", "Machine Learning", "Real-time", "Competition"],
     demoUrl: "https://btcvsgpt.vercel.app",
-    codeUrl: "#",
+    codeUrl: "https://github.com/420btc/tradingbattle",
     status: "Trabajando",
     date: new Date("2025-12-01")
   },
