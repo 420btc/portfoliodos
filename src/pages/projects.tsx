@@ -216,7 +216,13 @@ export const Projects: React.FC = () => {
                 className="mt-16 pt-8 border-t border-default-200 dark:border-default-700"
               >
                 <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold mb-2">{t.workingOnTitle}</h2>
+                  <div className="flex items-center justify-center gap-3 mb-2">
+                    <h2 className="text-3xl font-bold">{t.workingOnTitle}</h2>
+                    <span className="relative flex h-3 w-3">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
+                    </span>
+                  </div>
                   <p className="text-default-600">{t.workingOnDescription}</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
