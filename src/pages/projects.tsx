@@ -42,7 +42,7 @@ export const Projects: React.FC = () => {
   };
   
   // Filter and sort projects based on search query, selected category, and sort order
-  const filteredProjects = React.useMemo(() => {
+  const { completedProjects, workingProjects } = React.useMemo(() => {
     // Determine which projects to show based on category
     let projectsToShow = projects;
     
@@ -81,14 +81,27 @@ export const Projects: React.FC = () => {
       return matchesSearch && matchesCategory;
     });
 
+    // Separate completed and in-progress projects
+    const completed = matchedProjects.filter(project => project.status === 'Finalizado');
+    const working = matchedProjects.filter(project => project.status === 'Trabajando');
+
     // Sort projects by date
-    return matchedProjects.sort((a, b) => {
-      const dateA = new Date(a.date).getTime();
-      const dateB = new Date(b.date).getTime();
-      
-      return sortOrder === "recent" ? dateB - dateA : dateA - dateB;
-    });
-  }, [searchQuery, selectedCategory, sortOrder]);
+    const sortProjects = (projectsList: typeof matchedProjects) => {
+      return projectsList.sort((a, b) => {
+        const dateA = new Date(a.date).getTime();
+        const dateB = new Date(b.date).getTime();
+        
+        return sortOrder === "recent" ? dateB - dateA : dateA - dateB;
+      });
+    };
+
+    return {
+      completedProjects: sortProjects(completed),
+      workingProjects: sortProjects(working)
+    };
+  }, [searchQuery, selectedCategory, sortOrder, language]);
+
+  const filteredProjects = [...completedProjects, ...workingProjects];
 
   return (
     <div className="min-h-screen bg-background py-16 px-6">
@@ -182,11 +195,38 @@ export const Projects: React.FC = () => {
         </div>
         
         {filteredProjects.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
-            ))}
-          </div>
+          <>
+            {/* Completed Projects Section */}
+            {completedProjects.length > 0 && (
+              <div className="mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {completedProjects.map((project, index) => (
+                    <ProjectCard key={project.id} project={project} index={index} />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Working Projects Section */}
+            {workingProjects.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="mt-16 pt-8 border-t border-default-200 dark:border-default-700"
+              >
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold mb-2">{t.workingOnTitle}</h2>
+                  <p className="text-default-600">{t.workingOnDescription}</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {workingProjects.map((project, index) => (
+                    <ProjectCard key={project.id} project={project} index={index + completedProjects.length} />
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </>
         ) : (
           <div className="text-center py-16">
             <Icon icon="lucide:search-x" className="text-default-400 w-16 h-16 mx-auto mb-4" />

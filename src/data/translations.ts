@@ -139,7 +139,9 @@ export const uiTranslations = {
     of: "de",
     projects: "proyectos",
     viewProject: "Ver Proyecto",
-    viewCode: "Ver Código"
+    viewCode: "Ver Código",
+    workingOnTitle: "Proyectos en los que estoy trabajando",
+    workingOnDescription: "Estos proyectos están actualmente en desarrollo y evolucionando constantemente."
   },
   en: {
     projectsTitle: "My Projects",
@@ -155,7 +157,9 @@ export const uiTranslations = {
     of: "of",
     projects: "projects",
     viewProject: "View Project",
-    viewCode: "View Code"
+    viewCode: "View Code",
+    workingOnTitle: "Projects I'm currently working on",
+    workingOnDescription: "These projects are currently in development and constantly evolving."
   }
 };
 
