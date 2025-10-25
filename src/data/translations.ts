@@ -120,6 +120,11 @@ export const projectTranslations: Record<string, { title: string; description: s
     title: "Nimbus App",
     description: "Multiplayer online platform game where you can check real-time weather and participate in meteorological predictions with real money. Features geolocation for precise local data, forecasting on temperature, wind speed, and other weather parameters. A unique experience that combines gaming, meteorology, and real-time predictions.",
     status: "In Progress"
+  },
+  "BTC VS LLMs": {
+    title: "BTC VS LLMs",
+    description: "Innovative platform where four artificial intelligence models (Gemini, Grok, OpenAI, and Anthropic) compete in Bitcoin trading 24 hours a day, 7 days a week. Each model operates with $1000 USD in real-time, allowing you to observe their strategies, performance, and investment decisions live. A fascinating demonstration of how different AIs approach cryptocurrency trading.",
+    status: "In Progress"
   }
 };
 

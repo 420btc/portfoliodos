@@ -263,6 +263,18 @@ const projectsData: ProjectData[] = [
     date: new Date("2025-11-01")
   },
   {
+    id: 17,
+    title: "BTC VS LLMs",
+    description: "Plataforma innovadora donde cuatro modelos de inteligencia artificial (Gemini, Grok, OpenAI y Anthropic) compiten en trading de Bitcoin las 24 horas del día, los 7 días de la semana. Cada modelo opera con $1000 USD en tiempo real, permitiendo observar sus estrategias, rendimiento y decisiones de inversión en vivo. Una fascinante demostración de cómo diferentes IAs abordan el trading de criptomonedas.",
+    image: "images/btcvsgpt.png",
+    icon: "images/btcvsgptt.png",
+    tags: ["AI", "Trading", "Bitcoin", "Machine Learning", "Real-time", "Competition"],
+    demoUrl: "https://btcvsgpt.vercel.app",
+    codeUrl: "#",
+    status: "Trabajando",
+    date: new Date("2025-12-01")
+  },
+  {
     id: 16,
     title: "Nimbus App",
     description: "Juego plataforma multijugador online donde puedes consultar el clima en tiempo real y participar en predicciones meteorológicas con dinero real. Incluye geoposicionamiento para datos locales precisos, pronósticos sobre temperatura, velocidad del viento y otros parámetros climáticos con integración de Stripe para pagos seguros.",
