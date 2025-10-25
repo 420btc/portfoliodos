@@ -155,31 +155,29 @@ export const Projects: React.FC = () => {
           </div>
           
           {/* Sort buttons */}
-          <div className="flex justify-center gap-2 pt-4 border-t border-default-200 dark:border-default-700 overflow-x-auto">
-            <div className="flex flex-nowrap gap-2 pb-2 md:pb-0">
-              <button
-                 onClick={() => setSortOrder('recent')}
-                 className={`px-6 py-2 rounded-full whitespace-nowrap flex items-center gap-2 transition-colors ${
-                   sortOrder === 'recent' 
-                     ? 'bg-primary text-white' 
-                     : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
-                 }`}
-               >
-                 <Icon icon="lucide:arrow-down" className="w-4 h-4" />
-                 {t.mostRecent}
-               </button>
-               <button
-                 onClick={() => setSortOrder('oldest')}
-                 className={`px-6 py-2 rounded-full whitespace-nowrap flex items-center gap-2 transition-colors ${
-                   sortOrder === 'oldest' 
-                     ? 'bg-primary text-white' 
-                     : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
-                 }`}
-               >
-                 <Icon icon="lucide:arrow-up" className="w-4 h-4" />
-                 {t.oldest}
-               </button>
-            </div>
+          <div className="-mx-6 md:mx-0 px-6 md:px-0 flex justify-center gap-2 pt-4 border-t border-default-200 dark:border-default-700">
+            <button
+               onClick={() => setSortOrder('recent')}
+               className={`flex-1 md:flex-none px-6 py-2 rounded-full whitespace-nowrap flex items-center justify-center gap-2 transition-colors ${
+                 sortOrder === 'recent' 
+                   ? 'bg-primary text-white' 
+                   : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
+               }`}
+             >
+               <Icon icon="lucide:arrow-down" className="w-4 h-4" />
+               {t.mostRecent}
+             </button>
+             <button
+               onClick={() => setSortOrder('oldest')}
+               className={`flex-1 md:flex-none px-6 py-2 rounded-full whitespace-nowrap flex items-center justify-center gap-2 transition-colors ${
+                 sortOrder === 'oldest' 
+                   ? 'bg-primary text-white' 
+                   : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
+               }`}
+             >
+               <Icon icon="lucide:arrow-up" className="w-4 h-4" />
+               {t.oldest}
+             </button>
           </div>
         </div>
         
