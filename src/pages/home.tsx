@@ -16,10 +16,10 @@ export const Home: React.FC = () => {
   const [isPromoModalOpen, setIsPromoModalOpen] = useState(false);
 
   useEffect(() => {
-    // Timer de 20 segundos para mostrar el modal
+    // Timer de 66 segundos para mostrar el modal
     const timer = setTimeout(() => {
       setIsPromoModalOpen(true);
-    }, 20000); // 20 segundos
+    }, 66000); // 66 segundos
 
     // Limpiar el timer si el componente se desmonta
     return () => clearTimeout(timer);
