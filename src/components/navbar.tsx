@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { 
   Navbar as HeroNavbar, 
@@ -77,10 +77,6 @@ export const Navbar: React.FC = () => {
             <Icon icon="lucide:code" width={24} height={24} className="text-primary" />
             <p className="font-semibold text-inherit text-2xl">Carlos Freire</p>
           </RouterLink>
-          <div className="sm:hidden ml-4 flex items-center gap-2">
-            <ThemeSwitcher />
-            <LanguageSwitcher />
-          </div>
         </NavbarBrand>
       </NavbarContent>
 
@@ -151,6 +147,10 @@ export const Navbar: React.FC = () => {
               )}
             </NavbarMenuItem>
           ))}
+          <div className="flex items-center justify-center gap-4 mt-4 pt-4 border-t border-divider w-full">
+            <ThemeSwitcher />
+            <LanguageSwitcher />
+          </div>
         </div>
       </NavbarMenu>
     </HeroNavbar>
