@@ -175,27 +175,27 @@ export const Projects: React.FC = () => {
           
           {/* Sort buttons */}
           <div className="-mx-6 md:mx-0 px-6 md:px-0 flex flex-col md:flex-row justify-center gap-2 pt-4 border-t border-default-200 dark:border-default-700">
-            <div className="flex gap-2 px-0">
+            <div className="grid grid-cols-2 gap-2 w-full max-w-sm mx-auto md:flex md:gap-2 md:w-auto md:max-w-none md:mx-0">
               <button
                  onClick={() => setSortOrder('recent')}
-                 className={`flex-1 md:flex-none px-4 py-2 rounded-full whitespace-nowrap flex items-center justify-center gap-2 transition-colors ${
+                 className={`px-3 py-2 md:px-6 rounded-full whitespace-nowrap flex items-center justify-center gap-1 md:gap-2 transition-colors text-sm md:text-base ${
                    sortOrder === 'recent' 
                      ? 'bg-primary text-white' 
                      : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
                  }`}
                >
-                 <Icon icon="lucide:arrow-down" className="w-4 h-4" />
+                 <Icon icon="lucide:arrow-down" className="w-4 h-4 hidden md:block" />
                  {t.mostRecent}
                </button>
                <button
                  onClick={() => setSortOrder('oldest')}
-                 className={`flex-1 md:flex-none px-4 py-2 rounded-full whitespace-nowrap flex items-center justify-center gap-2 transition-colors ${
+                 className={`px-3 py-2 md:px-6 rounded-full whitespace-nowrap flex items-center justify-center gap-1 md:gap-2 transition-colors text-sm md:text-base ${
                    sortOrder === 'oldest' 
                      ? 'bg-primary text-white' 
                      : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
                  }`}
                >
-                 <Icon icon="lucide:arrow-up" className="w-4 h-4" />
+                 <Icon icon="lucide:arrow-up" className="w-4 h-4 hidden md:block" />
                  {t.oldest}
                </button>
             </div>
