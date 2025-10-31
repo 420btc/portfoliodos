@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useDragControls } from 'framer-motion';
 import { Button, Input, Card, CardBody, Avatar, Spinner } from '@heroui/react';
-import { Icon } from '@iconify/react';
-import { IoSendOutline } from "react-icons/io5";
 import { generateProjectContext } from "../utils/project-context-provider";
 import { ProjectBanner } from './project-banner';
 
