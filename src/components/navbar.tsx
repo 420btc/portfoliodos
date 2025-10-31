@@ -65,7 +65,7 @@ export const Navbar: React.FC = () => {
       isMenuOpen={isMenuOpen} 
       onMenuOpenChange={setIsMenuOpen}
       maxWidth="xl"
-      className="bg-background/70 backdrop-blur-md"
+      className="bg-background/70 backdrop-blur-sm"
     >
       <NavbarContent>
         <NavbarMenuToggle
