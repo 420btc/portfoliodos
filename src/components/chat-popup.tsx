@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useDragControls } from 'framer-motion';
 import { Button, Input, Card, CardBody, Avatar, Spinner } from '@heroui/react';
 import { Icon } from '@iconify/react';
+import { IoSendOutline } from "react-icons/io5";
 import { generateProjectContext } from "../utils/project-context-provider";
 import { ProjectBanner } from './project-banner';
 
@@ -330,43 +331,42 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
               </div>
 
               {/* Input */}
-              <div className="p-3 sm:p-4 border-t border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900">
-                <div className="flex gap-2">
+              <div className="p-4 sm:p-5 border-t border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900">
+                <div className="flex items-center gap-3 justify-center">
                   <Input
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Escribe un mensaje..."
                     disabled={isLoading}
-                    className="flex-1"
-                    size="sm"
+                    className="flex-1 max-w-xs sm:max-w-sm"
+                    size="md"
                     variant="bordered"
-                    radius="sm"
+                    radius="lg"
                     classNames={{
                       input: `text-sm text-black dark:text-white`,
-                      inputWrapper: `border-2 border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900`,
+                      inputWrapper: `border-2 border-gray-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 h-10`,
                       innerWrapper: "bg-transparent"
                     }}
                   />
                   {/* Desktop send button */}
                   <Button
-                    isIconOnly
-                    color="primary"
-                    size="sm"
                     onClick={sendMessage}
                     disabled={!inputValue.trim() || isLoading}
-                    className="hidden sm:flex min-w-8 h-8 sm:min-w-10 sm:h-10 items-center justify-center"
+                    color="primary"
+                    size="md"
+                    className="hidden sm:flex w-10 h-10 items-center justify-center"
                   >
-                    <Icon icon="mdi:send" className="text-base sm:text-lg" />
+                    ➤
                   </Button>
                   
                   {/* Mobile send button */}
                   <button
                     onClick={sendMessage}
                     disabled={!inputValue.trim() || isLoading}
-                    className="sm:hidden w-6 h-6 flex items-center justify-center bg-blue-500 text-white text-xs rounded-full"
+                    className="sm:hidden w-10 h-10 flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors disabled:opacity-50"
                   >
-                    →
+                    ➤
                   </button>
                 </div>
               </div>
