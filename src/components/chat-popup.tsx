@@ -238,53 +238,29 @@ export const ChatPopup: React.FC<ChatPopupProps> = ({ isOpen, onToggle }) => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-shrink-0">
-              {/* Desktop buttons */}
-              <div className="hidden sm:flex items-center gap-1">
-                <button
-                  onClick={clearChat}
-                  className="w-6 h-6 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full border-none"
-                >
-                  <Icon icon="material-symbols:refresh" className="text-sm" />
-                </button>
-                <button
-                  onClick={toggleMinimize}
-                  className="w-6 h-6 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full border-none"
-                >
-                  <Icon icon={isMinimized ? "material-symbols:fullscreen" : "material-symbols:minimize"} className="text-sm" />
-                </button>
-                <button
-                  onClick={onToggle}
-                  className="w-6 h-6 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-white hover:bg-red-500 dark:hover:bg-red-600 rounded-full border-none"
-                >
-                  <Icon icon="material-symbols:close" className="text-sm" />
-                </button>
-              </div>
-              
-              {/* Mobile buttons with text instead of icons - blue and round */}
-              <div className="flex sm:hidden items-center gap-2 scale-50 origin-right -ml-[15px]">
-                <button
-                  onClick={clearChat}
-                  className="w-4 h-4 flex items-center justify-center bg-blue-500 dark:bg-blue-600 text-white text-[10px] leading-none rounded-full hover:bg-blue-600 dark:hover:bg-blue-700"
-                  aria-label="Recargar chat"
-                >
-                  ↻
-                </button>
-                <button
-                  onClick={toggleMinimize}
-                  className="w-4 h-4 flex items-center justify-center bg-blue-500 dark:bg-blue-600 text-white text-[10px] leading-none rounded-full hover:bg-blue-600 dark:hover:bg-blue-700"
-                  aria-label={isMinimized ? 'Maximizar' : 'Minimizar'}
-                >
-                  {isMinimized ? '□' : '—'}
-                </button>
-                <button
-                  onClick={onToggle}
-                  className="w-4 h-4 flex items-center justify-center bg-red-500 dark:bg-red-600 text-white text-[10px] leading-none rounded-full hover:bg-red-600 dark:hover:bg-red-700"
-                  aria-label="Cerrar chat"
-                >
-                  ✕
-                </button>
-              </div>
+            <div className="flex flex-shrink-0 gap-1">
+              {/* Botones pequeños y simples */}
+              <button
+                onClick={clearChat}
+                className="w-6 h-6 flex items-center justify-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-200"
+                aria-label="Actualizar chat"
+              >
+                ↻
+              </button>
+              <button
+                onClick={toggleMinimize}
+                className="w-6 h-6 flex items-center justify-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded transition-all duration-200"
+                aria-label={isMinimized ? 'Maximizar' : 'Minimizar'}
+              >
+                {isMinimized ? '□' : '−'}
+              </button>
+              <button
+                onClick={onToggle}
+                className="w-6 h-6 flex items-center justify-center text-gray-700 hover:text-red-600 hover:bg-red-50 rounded transition-all duration-200"
+                aria-label="Cerrar chat"
+              >
+                ×
+              </button>
             </div>
           </div>
 
