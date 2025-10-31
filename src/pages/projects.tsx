@@ -168,29 +168,48 @@ export const Projects: React.FC = () => {
           </div>
           
           {/* Sort buttons */}
-          <div className="-mx-6 md:mx-0 px-6 md:px-0 flex justify-center gap-2 pt-4 border-t border-default-200 dark:border-default-700">
+          <div className="-mx-6 md:mx-0 px-6 md:px-0 flex flex-col md:flex-row justify-center gap-2 pt-4 border-t border-default-200 dark:border-default-700">
+            <div className="flex gap-2">
+              <button
+                 onClick={() => setSortOrder('recent')}
+                 className={`flex-1 md:flex-none px-6 py-2 rounded-full whitespace-nowrap flex items-center justify-center gap-2 transition-colors ${
+                   sortOrder === 'recent' 
+                     ? 'bg-primary text-white' 
+                     : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
+                 }`}
+               >
+                 <Icon icon="lucide:arrow-down" className="w-4 h-4" />
+                 {t.mostRecent}
+               </button>
+               <button
+                 onClick={() => setSortOrder('oldest')}
+                 className={`flex-1 md:flex-none px-6 py-2 rounded-full whitespace-nowrap flex items-center justify-center gap-2 transition-colors ${
+                   sortOrder === 'oldest' 
+                     ? 'bg-primary text-white' 
+                     : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
+                 }`}
+               >
+                 <Icon icon="lucide:arrow-up" className="w-4 h-4" />
+                 {t.oldest}
+               </button>
+            </div>
+            
+            {/* Working projects filter */}
             <button
-               onClick={() => setSortOrder('recent')}
-               className={`flex-1 md:flex-none px-6 py-2 rounded-full whitespace-nowrap flex items-center justify-center gap-2 transition-colors ${
-                 sortOrder === 'recent' 
-                   ? 'bg-primary text-white' 
-                   : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
-               }`}
-             >
-               <Icon icon="lucide:arrow-down" className="w-4 h-4" />
-               {t.mostRecent}
-             </button>
-             <button
-               onClick={() => setSortOrder('oldest')}
-               className={`flex-1 md:flex-none px-6 py-2 rounded-full whitespace-nowrap flex items-center justify-center gap-2 transition-colors ${
-                 sortOrder === 'oldest' 
-                   ? 'bg-primary text-white' 
-                   : 'bg-default-100 hover:bg-default-200 dark:bg-default-50/10 dark:hover:bg-default-50/20'
-               }`}
-             >
-               <Icon icon="lucide:arrow-up" className="w-4 h-4" />
-               {t.oldest}
-             </button>
+              onClick={() => {
+                const workingSection = document.querySelector('[data-working-section]');
+                if (workingSection) {
+                  workingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+              className="flex-1 md:flex-none px-6 py-2 rounded-full whitespace-nowrap flex items-center justify-center gap-2 transition-colors bg-orange-100 hover:bg-orange-200 dark:bg-orange-900/20 dark:hover:bg-orange-800/30 text-orange-700 dark:text-orange-300"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+              </span>
+              {language === 'es' ? 'Trabajando' : 'Working'}
+            </button>
           </div>
         </div>
         
@@ -214,6 +233,7 @@ export const Projects: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="mt-16 pt-8 border-t border-default-200 dark:border-default-700"
+                data-working-section
               >
                 <div className="text-center mb-8">
                   <div className="flex items-center justify-center gap-3 mb-2">
