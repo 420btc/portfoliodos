@@ -72,12 +72,19 @@ export const Navbar: React.FC = () => {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden dark:text-white text-black"
         />
-        <NavbarBrand className="gap-4">
-          <RouterLink to="/" className="flex items-center gap-2">
-            <Icon icon="lucide:code" width={24} height={24} className="text-primary" />
-            <p className="font-semibold text-inherit text-2xl">Carlos Freire</p>
+        <NavbarBrand className="gap-4 flex-1 min-w-0">
+          <RouterLink to="/" className="flex items-center gap-2 min-w-0">
+            <Icon icon="lucide:code" width={24} height={24} className="text-primary flex-shrink-0" />
+            <p className="font-semibold text-inherit text-xl sm:text-2xl truncate">Carlos Freire</p>
           </RouterLink>
         </NavbarBrand>
+      </NavbarContent>
+
+      {/* Theme switcher para móvil - posicionado a la derecha */}
+      <NavbarContent justify="end" className="sm:hidden absolute right-4 top-1/2 transform -translate-y-1/2" style={{ transform: 'translateY(calc(-50% + 4px))' }}>
+        <NavbarItem>
+          <ThemeSwitcher />
+        </NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
@@ -148,7 +155,6 @@ export const Navbar: React.FC = () => {
             </NavbarMenuItem>
           ))}
           <div className="flex items-center justify-center gap-4 mt-4 pt-4 border-t border-divider w-full">
-            <ThemeSwitcher />
             <LanguageSwitcher />
           </div>
         </div>
