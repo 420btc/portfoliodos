@@ -141,29 +141,35 @@ export const Projects: React.FC = () => {
         
         <div className="mb-8">
           {/* Category filters */}
-          <div className="mb-8 overflow-x-auto">
-            <div className="flex flex-nowrap md:flex-wrap gap-2 pb-2 md:pb-0">
-              <button
-                onClick={() => setSelectedCategory('all')}
-                className={`px-6 py-2 rounded-full whitespace-nowrap transition-colors ${getCategoryColor('all', selectedCategory === 'all')}`}
-              >
-                {t.allProjects}
-              </button>
-              <button
-                onClick={() => setSelectedCategory('featured')}
-                className={`px-6 py-2 rounded-full whitespace-nowrap transition-colors ${getCategoryColor('featured', selectedCategory === 'featured')}`}
-              >
-                {t.featuredProjects}
-              </button>
-              {mainCategories.map(tag => (
+          <div className="mb-8 relative -mx-6 md:mx-0">
+            {/* Gradient masks for fade effect */}
+            <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none md:hidden"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none md:hidden"></div>
+            
+            <div className="overflow-x-auto px-6 md:px-0">
+              <div className="flex flex-nowrap md:flex-wrap gap-2 pb-2 md:pb-0">
                 <button
-                  key={tag}
-                  onClick={() => setSelectedCategory(tag)}
-                  className={`px-6 py-2 rounded-full whitespace-nowrap transition-colors ${getCategoryColor(tag, selectedCategory === tag)}`}
+                  onClick={() => setSelectedCategory('all')}
+                  className={`px-6 py-2 rounded-full whitespace-nowrap transition-colors ${getCategoryColor('all', selectedCategory === 'all')}`}
                 >
-                  {tag}
+                  {t.allProjects}
                 </button>
-              ))}
+                <button
+                  onClick={() => setSelectedCategory('featured')}
+                  className={`px-6 py-2 rounded-full whitespace-nowrap transition-colors ${getCategoryColor('featured', selectedCategory === 'featured')}`}
+                >
+                  {t.featuredProjects}
+                </button>
+                {mainCategories.map(tag => (
+                  <button
+                    key={tag}
+                    onClick={() => setSelectedCategory(tag)}
+                    className={`px-6 py-2 rounded-full whitespace-nowrap transition-colors ${getCategoryColor(tag, selectedCategory === tag)}`}
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
           
