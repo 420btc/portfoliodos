@@ -99,7 +99,7 @@ const projectsData: ProjectData[] = [
     image: "images/piscolo.png",
     icon: "images/project-icons/depuracion.png",
     tags: ["React", "Next.js", "Educación", "TypeScript"],
-    demoUrl: "https://v0-juego-interactivo-psicologia.vercel.app/",
+    demoUrl: "https://logspsicologo.vercel.app",
     codeUrl: "https://github.com/420btc/Psicolog-acomoLogsDepuracion",
     status: "Finalizado",
     date: new Date("2025-06-7")
