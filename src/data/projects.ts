@@ -265,7 +265,7 @@ const projectsData: ProjectData[] = [
   {
     id: 17,
     title: "BTC VS LLMs",
-    description: "Plataforma innovadora donde cuatro modelos de inteligencia artificial (Gemini, Grok, OpenAI y Anthropic) compiten en trading de Bitcoin las 24 horas del día, los 7 días de la semana. Cada modelo opera con $1000 USD en tiempo real, permitiendo observar sus estrategias, rendimiento y decisiones de inversión en vivo. Una fascinante demostración de cómo diferentes IAs abordan el trading de criptomonedas.",
+    description: "Plataforma innovadora donde cinco modelos de inteligencia artificial (Gemini, Grok, OpenAI, Anthropic y Qwen) compiten en trading de Bitcoin las 24 horas del día, los 7 días de la semana. Cada modelo opera con $1000 USD en tiempo real, permitiendo observar sus estrategias, rendimiento y decisiones de inversión en vivo. Una fascinante demostración de cómo diferentes IAs abordan el trading de criptomonedas.",
     image: "images/btcvsgpt.png",
     icon: "images/btcvsgptt.png",
     tags: ["AI", "Trading", "Bitcoin", "Machine Learning", "Real-time", "Competition"],
