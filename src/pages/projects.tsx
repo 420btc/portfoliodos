@@ -21,7 +21,7 @@ export const Projects: React.FC = () => {
   const [sortOrder, setSortOrder] = React.useState<"recent" | "oldest">("recent");
   
   // Main categories to display
-  const mainCategories = ["OpenAI", "Trading", "Portfolios", language === "es" ? "Tiendas" : "Stores", "2D / 3D", language === "es" ? "Fotografía" : "Photography"];
+  const mainCategories = ["OpenAI", "Trading", "Portfolios", language === "es" ? "Tiendas" : "Stores", language === "es" ? "Juegos" : "Games", "2D / 3D", language === "es" ? "Fotografía" : "Photography"];
   
   // Category colors
   const getCategoryColor = (category: string, isSelected: boolean) => {
@@ -34,6 +34,8 @@ export const Projects: React.FC = () => {
       'Portfolios': isSelected ? 'bg-indigo-500 text-white' : 'bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-900/20 dark:hover:bg-indigo-800/30 text-indigo-700 dark:text-indigo-300',
       'Tiendas': isSelected ? 'bg-red-500 text-white' : 'bg-red-100 hover:bg-red-200 dark:bg-red-900/20 dark:hover:bg-red-800/30 text-red-700 dark:text-red-300',
       'Stores': isSelected ? 'bg-red-500 text-white' : 'bg-red-100 hover:bg-red-200 dark:bg-red-900/20 dark:hover:bg-red-800/30 text-red-700 dark:text-red-300',
+      'Juegos': isSelected ? 'bg-violet-500 text-white' : 'bg-violet-100 hover:bg-violet-200 dark:bg-violet-900/20 dark:hover:bg-violet-800/30 text-violet-700 dark:text-violet-300',
+      'Games': isSelected ? 'bg-violet-500 text-white' : 'bg-violet-100 hover:bg-violet-200 dark:bg-violet-900/20 dark:hover:bg-violet-800/30 text-violet-700 dark:text-violet-300',
       '2D / 3D': isSelected ? 'bg-teal-500 text-white' : 'bg-teal-100 hover:bg-teal-200 dark:bg-teal-900/20 dark:hover:bg-teal-800/30 text-teal-700 dark:text-teal-300',
       'Fotografía': isSelected ? 'bg-pink-500 text-white' : 'bg-pink-100 hover:bg-pink-200 dark:bg-pink-900/20 dark:hover:bg-pink-800/30 text-pink-700 dark:text-pink-300',
       'Photography': isSelected ? 'bg-pink-500 text-white' : 'bg-pink-100 hover:bg-pink-200 dark:bg-pink-900/20 dark:hover:bg-pink-800/30 text-pink-700 dark:text-pink-300',
@@ -53,6 +55,10 @@ export const Projects: React.FC = () => {
     } else if (selectedCategory === 'Tiendas' || selectedCategory === 'Stores') {
       projectsToShow = projects.filter(project => 
         project.id === 'free-air-street' || project.id === 'scv-moto' || project.id === 'salvatore-repair'
+      );
+    } else if (selectedCategory === 'Juegos' || selectedCategory === 'Games') {
+      projectsToShow = projects.filter(project => 
+        project.id === 'geo-law-empire' || project.id === 8 || project.id === 14
       );
     }
 
@@ -75,7 +81,7 @@ export const Projects: React.FC = () => {
       const matchesCategory = 
         selectedCategory === "all" || 
         (selectedCategory === "featured" && project.featured) ||
-        (selectedCategory === 'Fotografía' || selectedCategory === 'Photography' || selectedCategory === '2D / 3D' || selectedCategory === 'Tiendas' || selectedCategory === 'Stores') ||
+        (selectedCategory === 'Fotografía' || selectedCategory === 'Photography' || selectedCategory === '2D / 3D' || selectedCategory === 'Tiendas' || selectedCategory === 'Stores' || selectedCategory === 'Juegos' || selectedCategory === 'Games') ||
         project.tags.includes(selectedCategory);
       
       return matchesSearch && matchesCategory;
