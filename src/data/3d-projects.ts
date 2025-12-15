@@ -10,8 +10,8 @@ const threeDProjects: ProjectData[] = [
     tags: ["Game Development", "City Simulation", "3D", "Three.js", "Vue", "2D / 3D"],
     demoUrl: "https://cityvox.vercel.app",
     codeUrl: "https://github.com/420btc/CityVox",
-    status: "Trabajando",
-    date: new Date("2026-01-01")
+    status: "Finalizado",
+    date: new Date("2025-12-15")
   },
   {
     id: 'carlos-freire-3d',

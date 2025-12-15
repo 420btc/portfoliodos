@@ -109,21 +109,26 @@ export const projectTranslations: Record<string, { title: string; description: s
   "CityVox": {
     title: "CityVox",
     description: "3D city management game inspired by SimCity with great development potential. A complete urban simulator where you can build, manage, and expand your own metropolis. Includes dynamic economic system, strategic RCI planning (Residential, Commercial, Industrial), and ESG considerations (Environmental, Social, and Governance) for sustainable urban development.",
-    status: "In Progress"
+    status: "Completed"
   },
   "Wolty Agency": {
     title: "Wolty Agency",
     description: "Website developed for a Canadian digital agency specialized in transforming companies' online presence. The platform showcases their web development, mobile applications, SEO, UI/UX design, and e-commerce solutions services. Includes service sections, work process, and contact forms with modern and responsive design.",
-    status: "In Progress"
+    status: "Completed"
   },
   "Nimbus App": {
     title: "Nimbus App",
     description: "Multiplayer online platform game where you can check real-time weather and participate in meteorological predictions with real money. Features geolocation for precise local data, forecasting on temperature, wind speed, and other weather parameters. A unique experience that combines gaming, meteorology, and real-time predictions.",
-    status: "In Progress"
+    status: "Completed"
   },
   "BTC VS LLMs": {
     title: "BTC VS LLMs",
     description: "Innovative platform where four artificial intelligence models (Gemini, Grok, OpenAI, and Anthropic) compete in Bitcoin trading 24 hours a day, 7 days a week. Each model operates with $1000 USD in real-time, allowing you to observe their strategies, performance, and investment decisions live. A fascinating demonstration of how different AIs approach cryptocurrency trading.",
+    status: "Completed"
+  },
+  "Biblia Viva": {
+    title: "Biblia Viva",
+    description: "An application to investigate the Bible, read it, and enjoy it in a modern and interactive way. Designed to offer a deep spiritual experience with the help of artificial intelligence.",
     status: "In Progress"
   }
 };

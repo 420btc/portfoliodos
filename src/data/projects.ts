@@ -247,8 +247,8 @@ const projectsData: ProjectData[] = [
     tags: ["Game Development", "City Simulation", "3D", "Three.js", "Vue", "Management"],
     demoUrl: "https://cityvox.vercel.app",
     codeUrl: "https://github.com/420btc/CityVox",
-    status: "Trabajando",
-    date: new Date("2026-01-01")
+    status: "Finalizado",
+    date: new Date("2025-12-15")
   },
   {
     id: 15,
@@ -259,7 +259,7 @@ const projectsData: ProjectData[] = [
     tags: ["Agencia Digital", "Web Development", "Mobile Apps", "SEO", "UI/UX", "E-commerce"],
     demoUrl: "https://woltyx.vercel.app",
     codeUrl: "https://github.com/420btc/wolty",
-    status: "Trabajando",
+    status: "Finalizado",
     date: new Date("2025-11-01")
   },
   {
@@ -271,8 +271,20 @@ const projectsData: ProjectData[] = [
     tags: ["AI", "Trading", "Bitcoin", "Machine Learning", "Real-time", "Competition"],
     demoUrl: "https://btcvsgpt.vercel.app",
     codeUrl: "https://github.com/420btc/tradingbattle",
-    status: "Trabajando",
+    status: "Finalizado",
     date: new Date("2025-12-01")
+  },
+  {
+    id: 18,
+    title: "Biblia Viva",
+    description: "Una aplicación para investigar la biblia, leerla y disfrutarla de manera moderna e interactiva. Diseñada para ofrecer una experiencia espiritual profunda con ayuda de inteligencia artificial.",
+    image: "images/portadabiblia.jpeg",
+    icon: "images/pngbiblia.png",
+    tags: ["OpenAI", "React", "Next.js", "Interactive", "Education"],
+    demoUrl: "https://vivabiblia.vercel.app",
+    codeUrl: "https://github.com/420btc/bibliaviva",
+    status: "Trabajando",
+    date: new Date("2026-01-10")
   },
   {
     id: 16,
