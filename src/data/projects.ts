@@ -248,7 +248,7 @@ const projectsData: ProjectData[] = [
     demoUrl: "https://cityvox.vercel.app",
     codeUrl: "https://github.com/420btc/CityVox",
     status: "Finalizado",
-    date: new Date("2025-12-15")
+    date: new Date("2025-07-30")
   },
   {
     id: 15,
@@ -277,14 +277,14 @@ const projectsData: ProjectData[] = [
   {
     id: 18,
     title: "Biblia Viva",
-    description: "Una aplicación para investigar la biblia, leerla y disfrutarla de manera moderna e interactiva. Diseñada para ofrecer una experiencia espiritual profunda con ayuda de inteligencia artificial.",
+    description: "Plataforma interactiva diseñada para redescubrir las escrituras mediante tecnología moderna. Ofrece acceso a múltiples versiones bíblicas y mapas históricos detallados para un estudio inmersivo. Integra inteligencia artificial avanzada para asistir en la investigación y chats comunitarios vibrantes para compartir reflexiones. Una experiencia espiritual completa que une fe, historia y comunidad.",
     image: "images/portadabiblia.jpeg",
-    icon: "images/pngbiblia.png",
+    icon: "images/bibliapngg.png",
     tags: ["OpenAI", "React", "Next.js", "Interactive", "Education"],
     demoUrl: "https://vivabiblia.vercel.app",
     codeUrl: "https://github.com/420btc/bibliaviva",
-    status: "Trabajando",
-    date: new Date("2026-01-10")
+    status: "Finalizado",
+    date: new Date("2025-12-16")
   },
   {
     id: 16,

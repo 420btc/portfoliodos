@@ -11,7 +11,7 @@ const threeDProjects: ProjectData[] = [
     demoUrl: "https://cityvox.vercel.app",
     codeUrl: "https://github.com/420btc/CityVox",
     status: "Finalizado",
-    date: new Date("2025-12-15")
+    date: new Date("2025-07-30")
   },
   {
     id: 'carlos-freire-3d',
