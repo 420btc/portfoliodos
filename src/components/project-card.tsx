@@ -181,7 +181,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   alt={`${translatedProject.title} icon`}
                   className={`object-contain ${
                     translatedProject.title === 'Nimbus App' ? 'h-20 w20' : 
-                    translatedProject.title === 'Biblia Viva' ? 'h-24 w-24' : 'h-24 w-24'
+                    translatedProject.title === 'Biblia Viva' ? 'h-28 w-28' : 'h-24 w-24'
                   }`}
                   style={{ imageRendering: 'auto' as const }}
                 />
