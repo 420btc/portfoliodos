@@ -9,6 +9,7 @@ import { Novel } from "./pages/novel";
 import { Contact } from "./pages/contact";
 import { About } from "./pages/about";
 import { ChatPopup } from "./components/chat-popup";
+import { NewYearModal } from "./components/new-year-modal";
 import { useEffect, useState } from "react";
 
 // Componente para manejar el scroll al inicio de la página
@@ -58,6 +59,7 @@ export default function App() {
         </motion.main>
         <Footer />
         <ChatPopup isOpen={isChatOpen} onToggle={toggleChat} />
+        <NewYearModal />
       </div>
     </Router>
   );
