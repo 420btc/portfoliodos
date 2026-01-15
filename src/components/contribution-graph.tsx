@@ -146,12 +146,12 @@ export function ContributionGraph({ className = "" }: ContributionGraphProps) {
           </p>
         </div>
 
-        <div className="flex bg-gray-100 dark:bg-gray-800 rounded-lg p-1 self-start sm:self-center">
+        <div className="flex bg-gray-100 dark:bg-gray-800 rounded-lg p-0.5 sm:p-1 self-start sm:self-center">
           {[2025, 2026].map((year) => (
             <button
               key={year}
               onClick={() => setSelectedYear(year)}
-              className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${
+              className={`px-2 py-1 text-xs sm:px-4 sm:py-1.5 sm:text-sm font-medium rounded-md transition-all ${
                 selectedYear === year
                   ? "bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm"
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
