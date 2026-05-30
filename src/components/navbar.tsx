@@ -50,11 +50,6 @@ export const Navbar: React.FC = () => {
     return translations[key]?.[language as keyof typeof translations.home] || key;
   };
 
-  // Función para manejar el click en Novela
-  const handleNovelClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-  };
-
   const handleMenuItemClick = () => {
     setIsMenuOpen(false);
   };
@@ -90,27 +85,14 @@ export const Navbar: React.FC = () => {
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         {menuItems.map((item) => (
           <NavbarItem key={item.path} isActive={location.pathname === item.path}>
-            {item.id === "novel" ? (
-              <Tooltip content={t("comingSoon")} placement="bottom">
-                <Link 
-                  as="span"
-                  color="foreground"
-                  className="font-medium blur-sm cursor-not-allowed opacity-60 hover:opacity-80 transition-opacity"
-                  onClick={handleNovelClick}
-                >
-                  {t(item.id)}
-                </Link>
-              </Tooltip>
-            ) : (
-              <Link 
-                as={RouterLink} 
-                to={item.path}
-                color={location.pathname === item.path ? "primary" : "foreground"}
-                className="font-medium"
-              >
-                {t(item.id)}
-              </Link>
-            )}
+            <Link 
+              as={RouterLink} 
+              to={item.path} 
+              color={location.pathname === item.path ? "primary" : "foreground"}
+              className="font-medium hover:text-primary transition-colors"
+            >
+              {t(item.id)}
+            </Link>
           </NavbarItem>
         ))}
       </NavbarContent>
@@ -128,30 +110,16 @@ export const Navbar: React.FC = () => {
         <div className="flex flex-col items-center sm:items-start gap-2">
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item.id}-${index}`} className="w-full sm:w-auto">
-              {item.id === "novel" ? (
-                <Tooltip content={t("comingSoon")} placement="bottom">
-                  <Link
-                    as="span"
-                    color="foreground"
-                    className="w-full text-center sm:text-left blur-sm cursor-not-allowed opacity-60"
-                    size="lg"
-                    onClick={handleNovelClick}
-                  >
-                    {t(item.id)}
-                  </Link>
-                </Tooltip>
-              ) : (
-                <Link
-                  as={RouterLink}
-                  to={item.path}
-                  color={location.pathname === item.path ? "primary" : "foreground"}
-                  className="w-full text-center sm:text-left"
-                  size="lg"
-                  onClick={handleMenuItemClick}
-                >
-                  {t(item.id)}
-                </Link>
-              )}
+              <Link
+                as={RouterLink}
+                to={item.path}
+                color={location.pathname === item.path ? "primary" : "foreground"}
+                className="w-full text-center sm:text-left"
+                size="lg"
+                onClick={handleMenuItemClick}
+              >
+                {t(item.id)}
+              </Link>
             </NavbarMenuItem>
           ))}
           <div className="flex items-center justify-center gap-4 mt-4 pt-4 border-t border-divider w-full">
