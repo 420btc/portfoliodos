@@ -360,7 +360,6 @@ export const Novel: React.FC = () => {
                   color="default" 
                   variant="flat"
                   endContent={<Icon icon="lucide:shopping-cart" />}
-                  className="blur-sm"
                 >
                   {language === "es" ? "Comprar Novela" : "Buy Novel"}
                 </Button>
