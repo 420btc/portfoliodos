@@ -71,7 +71,7 @@ Contexto de Proyectos Reales:
 
 23. Biblia Viva (ID: 18): Plataforma interactiva diseñada para redescubrir las escrituras mediante tecnología moderna. Ofrece acceso a múltiples versiones bíblicas y mapas históricos detallados para un estudio inmersivo. Integra inteligencia artificial avanzada para asistir en la investigación y chats comunitarios vibrantes para compartir reflexiones. Una experiencia espiritual completa que une fe, historia y comunidad. Demo: https://vivabiblia.vercel.app
 
-24. ATC Radar AGP (ID: 19): Aplicación interactiva de ATC (Air Traffic Control) en vivo alimentada por tecnología SDR. Incluye un mapa interactivo en tiempo real para el seguimiento de aviones en vuelo y ofrece la oportunidad única de escuchar las comunicaciones de la torre de control de Málaga en directo. Además, cuenta con un sistema de transcripciones en tiempo real. Demo: https://agp-malaga.vercel.app
+24. ATC Radar AGP (ID: 19): Aplicación interactiva de ATC (Air Traffic Control) en vivo alimentada por tecnología SDR. Incluye un mapa interactivo en tiempo real para el seguimiento detallado de aviones en vuelo y ofrece la oportunidad única de escuchar las comunicaciones de la torre de control de Málaga en directo. Además, cuenta con un avanzado sistema de transcripciones mediante IA y análisis de datos aeronáuticos. Demo: https://agp-malaga.vercel.app
 **IMPORTANTE: Nimbus App también cuenta con un archivo APK disponible que es la aplicación móvil nativa del juego, permitiendo a los usuarios acceder a todas las funcionalidades desde sus dispositivos móviles Android.**
 
 Si mencionas algún proyecto específico, incluye al final de tu respuesta este JSON:

@@ -303,7 +303,7 @@ const projectsData: ProjectData[] = [
   {
     id: 19,
     title: "ATC Radar AGP",
-    description: "Aplicación interactiva de ATC (Air Traffic Control) en vivo alimentada por tecnología SDR. Incluye un mapa interactivo en tiempo real para el seguimiento de aviones en vuelo y ofrece la oportunidad única de escuchar las comunicaciones de la torre de control de Málaga en directo. Además, cuenta con un sistema de transcripciones en tiempo real.",
+    description: "Aplicación interactiva de ATC (Air Traffic Control) en vivo alimentada por tecnología SDR. Incluye un mapa interactivo en tiempo real para el seguimiento detallado de aviones en vuelo y ofrece la oportunidad única de escuchar las comunicaciones de la torre de control de Málaga en directo. Además, cuenta con un avanzado sistema de transcripciones mediante IA y análisis de datos aeronáuticos.",
     image: "images/atcradar.png",
     icon: "images/iconoradar.png",
     tags: ["SDR", "ATC", "Real-time", "Maps", "Aviation", "AI"],

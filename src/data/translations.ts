@@ -133,7 +133,7 @@ export const projectTranslations: Record<string, { title: string; description: s
   },
   "ATC Radar AGP": {
     title: "ATC Radar AGP",
-    description: "Interactive live ATC (Air Traffic Control) application powered by SDR technology. Includes a real-time interactive map for tracking flights and offers the unique opportunity to listen to live communications from the Málaga control tower. Furthermore, it features a real-time transcription system.",
+    description: "Interactive live ATC (Air Traffic Control) application powered by SDR technology. Includes a real-time interactive map for detailed tracking of flights and offers the unique opportunity to listen to live communications from the Málaga control tower. Furthermore, it features an advanced AI-powered transcription system and comprehensive flight data analysis for an immersive aviation experience.",
     status: "Completed"
   }
 };
