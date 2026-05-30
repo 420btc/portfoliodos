@@ -346,7 +346,7 @@ const projectsData: ProjectData[] = [
     demoUrl: "https://trainxmap.vercel.app",
     codeUrl: "https://github.com/420btc/TrainExplorer",
     status: "Finalizado",
-    date: new Date("2026-05-10")
+    date: new Date("2026-02-04")
   }
 ];
 
