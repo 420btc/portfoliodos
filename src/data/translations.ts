@@ -145,6 +145,11 @@ export const projectTranslations: Record<string, { title: string; description: s
     title: "Kinema TV",
     description: "Interactive platform dedicated to film lovers to explore a vast catalog of classic and contemporary movies. It allows discovering, comparing, and studying cinematic works using advanced artificial intelligence to analyze plots, directors, and historical contexts. The ultimate tool for cinephiles looking to delve into the history of cinema with modern technology and highly accurate data.",
     status: "Completed"
+  },
+  "TrainX Explorer": {
+    title: "TrainX Explorer",
+    description: "Innovative simulation and strategy game that transforms your city, neighborhood, or entire country into an interactive railway network. Using real map data and GPS, it allows you to build stations, manage passenger flow, and optimize commercial routes in your own environment. An immersive experience that combines real-world geolocation with the thrill of transport infrastructure management.",
+    status: "Completed"
   }
 };
 

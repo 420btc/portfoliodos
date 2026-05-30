@@ -335,6 +335,18 @@ const projectsData: ProjectData[] = [
     codeUrl: "https://github.com/420btc/KinemaTV",
     status: "Finalizado",
     date: new Date("2026-04-15")
+  },
+  {
+    id: 22,
+    title: "TrainX Explorer",
+    description: "Innovador juego de simulación y estrategia que transforma tu ciudad, barrio o país entero en una red ferroviaria interactiva. Utilizando datos de mapas reales y GPS, te permite construir estaciones, gestionar el flujo de pasajeros y optimizar rutas comerciales en tu propio entorno. Una experiencia inmersiva que combina la geolocalización del mundo real con la emoción de la gestión de infraestructuras de transporte.",
+    image: "images/trainx.png",
+    icon: "images/trainicon.png",
+    tags: ["Juego", "Maps", "Simulation", "Strategy", "GPS", "Next.js"],
+    demoUrl: "https://trainxmap.vercel.app",
+    codeUrl: "https://github.com/420btc/TrainExplorer",
+    status: "Finalizado",
+    date: new Date("2026-05-10")
   }
 ];
 
