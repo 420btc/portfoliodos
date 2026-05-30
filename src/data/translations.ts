@@ -130,6 +130,11 @@ export const projectTranslations: Record<string, { title: string; description: s
     title: "Biblia Viva",
     description: "Interactive platform designed to rediscover the scriptures through modern technology. Offers access to multiple biblical versions and detailed historical maps for immersive study. Integrates advanced artificial intelligence to assist in research and vibrant community chats to share reflections. A complete spiritual experience that unites faith, history, and community.",
     status: "Completed"
+  },
+  "ATC Radar AGP": {
+    title: "ATC Radar AGP",
+    description: "Interactive live ATC (Air Traffic Control) application powered by SDR technology. Includes a real-time interactive map for tracking flights and offers the unique opportunity to listen to live communications from the Málaga control tower. Furthermore, it features a real-time transcription system.",
+    status: "Completed"
   }
 };
 
