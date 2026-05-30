@@ -140,6 +140,11 @@ export const projectTranslations: Record<string, { title: string; description: s
     title: "Eclisolar Web",
     description: "Comprehensive platform designed to plan, study, and get detailed information about the upcoming total solar eclipses visible in Spain. The website offers interactive tools, totality path maps, precise timers, and safe observation guides. Ideal for both astronomy enthusiasts and the general public who want to prepare for these historic astronomical events.",
     status: "Completed"
+  },
+  "Kinema TV": {
+    title: "Kinema TV",
+    description: "Interactive platform dedicated to film lovers to explore a vast catalog of classic and contemporary movies. It allows discovering, comparing, and studying cinematic works using advanced artificial intelligence to analyze plots, directors, and historical contexts. The ultimate tool for cinephiles looking to delve into the history of cinema with modern technology and highly accurate data.",
+    status: "Completed"
   }
 };
 

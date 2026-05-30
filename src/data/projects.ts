@@ -323,6 +323,18 @@ const projectsData: ProjectData[] = [
     codeUrl: "https://github.com/420btc/eclipse2026",
     status: "Finalizado",
     date: new Date("2026-03-03")
+  },
+  {
+    id: 21,
+    title: "Kinema TV",
+    description: "Plataforma interactiva dedicada a los amantes del séptimo arte para explorar un vasto catálogo de películas clásicas y contemporáneas. Permite descubrir, comparar y estudiar obras cinematográficas utilizando inteligencia artificial avanzada para analizar tramas, directores y contextos históricos. Una herramienta definitiva para cinéfilos que buscan profundizar en la historia del cine con tecnología moderna y datos precisos.",
+    image: "images/kinema.png",
+    icon: "images/kinema1.png",
+    tags: ["Cine", "AI", "Movies", "Next.js", "Catalog", "Analysis"],
+    demoUrl: "https://kinemax.vercel.app",
+    codeUrl: "https://github.com/420btc/KinemaTV",
+    status: "Finalizado",
+    date: new Date("2026-04-15")
   }
 ];
 

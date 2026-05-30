@@ -74,6 +74,8 @@ Contexto de Proyectos Reales:
 24. ATC Radar AGP (ID: 19): Aplicación interactiva de ATC (Air Traffic Control) en vivo alimentada por tecnología SDR. Incluye un mapa interactivo en tiempo real para el seguimiento detallado de aviones en vuelo y ofrece la oportunidad única de escuchar las comunicaciones de la torre de control de Málaga en directo. Además, cuenta con un avanzado sistema de transcripciones mediante IA y análisis de datos aeronáuticos. Demo: https://agp-malaga.vercel.app
 
 25. Eclisolar Web (ID: 20): Plataforma integral diseñada para planificar, estudiar e informarse detalladamente sobre los próximos eclipses solares totales visibles en España. La web ofrece herramientas interactivas, mapas de trayectoria de totalidad, temporizadores precisos y guías de observación segura. Ideal tanto para entusiastas de la astronomía como para el público general que desea prepararse para estos eventos históricos. Demo: https://eclipsesolar.vercel.app
+
+26. Kinema TV (ID: 21): Plataforma interactiva dedicada a los amantes del séptimo arte para explorar un vasto catálogo de películas clásicas y contemporáneas. Permite descubrir, comparar y estudiar obras cinematográficas utilizando inteligencia artificial avanzada para analizar tramas, directores y contextos históricos. Una herramienta definitiva para cinéfilos que buscan profundizar en la historia del cine con tecnología moderna y datos precisos. Demo: https://kinemax.vercel.app
 **IMPORTANTE: Nimbus App también cuenta con un archivo APK disponible que es la aplicación móvil nativa del juego, permitiendo a los usuarios acceder a todas las funcionalidades desde sus dispositivos móviles Android.**
 
 Si mencionas algún proyecto específico, incluye al final de tu respuesta este JSON:
