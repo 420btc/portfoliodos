@@ -159,7 +159,7 @@ const projectsData: ProjectData[] = [
     image: "images/notfound.png",
     icon: "images/project-icons/foundicon2.png",
     tags: ["Next.js", "TypeScript", "Arte", "Diseño"],
-    demoUrl: "https://notfoundink.art",
+    demoUrl: "https://notfoundink.vercel.app",
     codeUrl: "https://github.com/420btc/notfoundink",
     status: "Finalizado",
     date: new Date("2025-05-05")
@@ -171,7 +171,7 @@ const projectsData: ProjectData[] = [
     image: "images/candles.png",
     icon: "images/project-icons/candleicono.png",
     tags: ["Next.js", "TypeScript", "Trading", "Blockchain"],
-    demoUrl: "https://candlerush.es",
+    demoUrl: "https://btcer.vercel.app",
     codeUrl: "https://github.com/420btc/CandleRush2",
     status: "Finalizado",
     date: new Date("2025-04-28")

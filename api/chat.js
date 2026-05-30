@@ -47,9 +47,9 @@ Contexto de Proyectos Reales:
 
 11. AI Dreamer (ID: 6): Aplicación y web diseñada para registrar, analizar y explorar los sueños desde una perspectiva inspirada en las teorías psicoanalíticas de Sigmund Freud. Incluye un diccionario de símbolos oníricos y la capacidad de llevar un historial detallado con IA personal. Demo: https://dreamsfreud.vercel.app/
 
-12. NotfoundInk (ID: 7): Portfolio web para NotfoundInk de Ana Maria DCG, una colección de arte digital, con integración de acuñado de NFTs en la página web, conexión con billetera y sistema de ventas por formulario en sección de contacto. Demo: https://notfoundink.art
+12. NotfoundInk (ID: 7): Portfolio web para NotfoundInk de Ana Maria DCG, una colección de arte digital, con integración de acuñado de NFTs en la página web, conexión con billetera y sistema de ventas por formulario en sección de contacto. Demo: https://notfoundink.vercel.app
 
-13. CandleRush 2 (ID: 8): Segunda versión de CandleRush, una plataforma mejorada de simulación y juego de trading de criptomonedas. Análisis profundo en sección Mi Perfil. Selección de par y temporalidad. Operaciones automáticas inteligentes con resolución integrada. Demo: https://candlerush.es
+13. CandleRush 2 (ID: 8): Segunda versión de CandleRush, una plataforma mejorada de simulación y juego de trading de criptomonedas. Análisis profundo en sección Mi Perfil. Selección de par y temporalidad. Operaciones automáticas inteligentes con resolución integrada. Demo: https://btcer.vercel.app
 
 14. Horizon Creative (ID: 9): Horizon Creative es una página web de portafolio profesional para agencias creativas, freelancers y estudios de diseño. Permite mostrar proyectos, servicios, equipo y datos de contacto, incluido mapa de ubicación. Demo: https://horizoncreative.es
 
