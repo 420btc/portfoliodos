@@ -135,6 +135,11 @@ export const projectTranslations: Record<string, { title: string; description: s
     title: "ATC Radar AGP",
     description: "Interactive live ATC (Air Traffic Control) application powered by SDR technology. Includes a real-time interactive map for detailed tracking of flights and offers the unique opportunity to listen to live communications from the Málaga control tower. Furthermore, it features an advanced AI-powered transcription system and comprehensive flight data analysis for an immersive aviation experience.",
     status: "Completed"
+  },
+  "Eclisolar Web": {
+    title: "Eclisolar Web",
+    description: "Comprehensive platform designed to plan, study, and get detailed information about the upcoming total solar eclipses visible in Spain. The website offers interactive tools, totality path maps, precise timers, and safe observation guides. Ideal for both astronomy enthusiasts and the general public who want to prepare for these historic astronomical events.",
+    status: "Completed"
   }
 };
 

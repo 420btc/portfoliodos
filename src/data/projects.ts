@@ -311,6 +311,18 @@ const projectsData: ProjectData[] = [
     codeUrl: "https://github.com/420btc/AGPMalaga",
     status: "Finalizado",
     date: new Date("2026-05-01")
+  },
+  {
+    id: 20,
+    title: "Eclisolar Web",
+    description: "Plataforma integral diseñada para planificar, estudiar e informarse detalladamente sobre los próximos eclipses solares totales visibles en España. La web ofrece herramientas interactivas, mapas de trayectoria de totalidad, temporizadores precisos y guías de observación segura. Ideal tanto para entusiastas de la astronomía como para el público general que desea prepararse para estos eventos históricos.",
+    image: "images/eclipsepor.png",
+    icon: "images/eclipseicon.png",
+    tags: ["Astronomy", "Next.js", "Maps", "Education", "Science"],
+    demoUrl: "https://eclipsesolar.vercel.app",
+    codeUrl: "https://github.com/420btc/eclipse2026",
+    status: "Finalizado",
+    date: new Date("2026-03-03")
   }
 ];
 
