@@ -319,7 +319,7 @@ const projectsData: ProjectData[] = [
     image: "images/eclipsepor.png",
     icon: "images/eclipseicon.png",
     tags: ["Astronomy", "Next.js", "Maps", "Education", "Science"],
-    demoUrl: "https://eclipsesolar.vercel.app",
+    demoUrl: "https://loseclipses.vercel.app",
     codeUrl: "https://github.com/420btc/eclipse2026",
     status: "Finalizado",
     date: new Date("2026-03-03")
