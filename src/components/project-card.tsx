@@ -125,6 +125,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               <p className="text-2xl text-default-400 mb-2 font-sans">
                 {(() => {
                   try {
+                    if (translatedProject.blocked) return language === 'es' ? 'Próximamente' : 'Coming soon';
                     return translatedProject.demoUrl && translatedProject.demoUrl !== '#' 
                       ? new URL(translatedProject.demoUrl.includes('://') ? translatedProject.demoUrl : `https://${translatedProject.demoUrl}`).hostname.replace('www.', '')
                       : language === 'es' ? 'paginaweb.es' : 'website.com';
