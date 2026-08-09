@@ -347,6 +347,17 @@ const projectsData: ProjectData[] = [
     codeUrl: "https://github.com/420btc/TrainExplorer",
     status: "Finalizado",
     date: new Date("2026-02-04")
+  },
+  {
+    id: 23,
+    title: "TuTransito",
+    description: "Web para predecir tránsitos aeronáuticos a través del Sol y la Luna. Calcula en tiempo real cuándo un avión cruzará el disco solar o lunar visible desde tu ubicación, combinando datos de vuelo en directo, efemérides astronómicas y condiciones meteorológicas para que nunca te pierdas el momento exacto de la fotografía.",
+    image: "images/tutransito.png",
+    icon: "images/tutransito2.png",
+    tags: ["Astronomy", "Aviation", "Next.js", "React", "APIs", "Meteo"],
+    demoUrl: "https://tutransito.vercel.app",
+    status: "Finalizado",
+    date: new Date("2026-08-09")
   }
 ];
 
