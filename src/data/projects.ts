@@ -356,7 +356,8 @@ const projectsData: ProjectData[] = [
     icon: "images/tutransito2.png",
     tags: ["Astronomy", "Aviation", "Next.js", "React", "APIs", "Meteo"],
     demoUrl: "https://tutransito.vercel.app",
-    status: "Finalizado",
+    status: "Trabajando",
+    blocked: true,
     date: new Date("2026-08-09")
   }
 ];
