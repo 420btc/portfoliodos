@@ -356,9 +356,21 @@ const projectsData: ProjectData[] = [
     icon: "images/tutransito2.png",
     tags: ["Astronomy", "Aviation", "Next.js", "React", "APIs", "Meteo"],
     demoUrl: "https://tutransito.vercel.app",
+    codeUrl: "#",
     status: "Trabajando",
-    blocked: true,
-    date: new Date("2026-08-09")
+    date: new Date("2026-08-02")
+  },
+  {
+    id: 24,
+    title: "Cordaro Monitor",
+    description: "Cordaro Monitor es un homenaje interactivo a Richard Cordaro y su metodología sísmica. Combina la posición real de la Luna y el Sol con terremotos de USGS y datos de INTERMAGNET para marcar los cruces sobre fronteras de placas tectónicas, mostrar la gráfica de energía entrante y una cuenta atrás de riesgo para cada cruce. Basado en su investigación divulgativa en X.",
+    image: "images/cordaro.png",
+    icon: "images/iconocordaro.png",
+    tags: ["Astronomy", "Geology", "Maps", "Next.js", "Real-time", "Data"],
+    demoUrl: "https://cordaromonitor.vercel.app",
+    codeUrl: "https://github.com/420btc/cordaro/tree/main",
+    status: "Trabajando",
+    date: new Date("2026-08-15")
   }
 ];
 
