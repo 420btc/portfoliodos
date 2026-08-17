@@ -37,7 +37,7 @@ Contexto de Proyectos Reales:
 
 6. Local AI (ID: 1): Aplicación de chat AI avanzada con asistente de voz integrado que permite conversaciones naturales en tiempo real. Ofrece la flexibilidad de conectar tanto modelos de IA locales a través de LMStudio como servicios en la nube. Incluye funcionalidades de reconocimiento de voz, síntesis de texto a voz, y una interfaz intuitiva para gestionar diferentes agentes. Demo: https://voicechat-ebon.vercel.app/
 
-7. Logs de Psicología (ID: 2): Juego interactivo basado en el concepto de la mente humana como sistema computacional, donde explorarás la psicología a través de un prisma diferente. ¿Y si acudir al psicólogo es como activar los logs de depuración? Tu rol será el de un Ingeniero de sistemas mentales. Demo: https://v0-juego-interactivo-psicologia.vercel.app/
+7. Logs de Psicología (ID: 2): Juego interactivo basado en el concepto de la mente humana como sistema computacional, donde explorarás la psicología a través de un prisma diferente. ¿Y si acudir al psicólogo es como activar los logs de depuración? Tu rol será el de un Ingeniero de sistemas mentales. Demo: https://logspsicologo.vercel.app
 
 8. Facetime Tracker (ID: 3): Aplicación web PC que utiliza TensorFlow para detectar y registrar el tiempo que pasas frente a tu PC. Especialmente útil para medir la exposición a videollamadas, clases virtuales o cualquier actividad que requiera el uso de cámara web. Demo: https://facedetection-wine.vercel.app/
 

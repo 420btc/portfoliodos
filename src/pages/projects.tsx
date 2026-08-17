@@ -134,6 +134,33 @@ export const Projects: React.FC = () => {
           <ContributionGraph className="max-w-4xl mx-auto" />
         </motion.div>
         
+        {/* Working Projects Section */}
+        {workingProjects.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mb-16 pt-8 border-t border-default-200 dark:border-default-700"
+            data-working-section
+          >
+            <div className="text-center mb-8">
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <h2 className="text-3xl font-bold">{t.workingOnTitle}</h2>
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
+                </span>
+              </div>
+              <p className="text-default-600">{t.workingOnDescription}</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {workingProjects.map((project, index) => (
+                <ProjectCard key={project.id} project={project} index={index} />
+              ))}
+            </div>
+          </motion.div>
+        )}
+        
         <div className="mb-8">
           <Input
             placeholder={t.searchPlaceholder}
@@ -238,32 +265,6 @@ export const Projects: React.FC = () => {
               </div>
             )}
 
-            {/* Working Projects Section */}
-            {workingProjects.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="mt-16 pt-8 border-t border-default-200 dark:border-default-700"
-                data-working-section
-              >
-                <div className="text-center mb-8">
-                  <div className="flex items-center justify-center gap-3 mb-2">
-                    <h2 className="text-3xl font-bold">{t.workingOnTitle}</h2>
-                    <span className="relative flex h-3 w-3">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
-                    </span>
-                  </div>
-                  <p className="text-default-600">{t.workingOnDescription}</p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {workingProjects.map((project, index) => (
-                    <ProjectCard key={project.id} project={project} index={index + completedProjects.length} />
-                  ))}
-                </div>
-              </motion.div>
-            )}
           </>
         ) : (
           <div className="text-center py-16">
