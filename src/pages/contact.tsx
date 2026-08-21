@@ -103,7 +103,7 @@ export const Contact: React.FC = () => {
                   <a href="https://www.linkedin.com/in/carlos-pastor-freire-89790a27a/" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
                     <Icon icon="lucide:linkedin" width={20} height={20} className="text-blue-600" />
                   </a>
-                  <a href="https://x.com/CarlosFreire0" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
+                  <a href="https://x.com/carlosfreirex" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
                     <Icon icon="lucide:twitter" width={20} height={20} className="text-cyan-500" />
                   </a>
                   <a href="https://www.instagram.com/carlosfreire1/" target="_blank" rel="noopener noreferrer" className="bg-default-100 hover:bg-default-200 transition-colors p-3 rounded-full">
