@@ -350,12 +350,12 @@ const projectsData: ProjectData[] = [
   },
   {
     id: 23,
-    title: "TuTransito",
-    description: "Web para predecir tránsitos aeronáuticos a través del Sol y la Luna. Calcula en tiempo real cuándo un avión cruzará el disco solar o lunar visible desde tu ubicación, combinando datos de vuelo en directo, efemérides astronómicas y condiciones meteorológicas para que nunca te pierdas el momento exacto de la fotografía.",
+    title: "TrFly",
+    description: "TrFly es una web para predecir tránsitos aeronáuticos a través del Sol y la Luna. Calcula en tiempo real cuándo un avión cruzará el disco solar o lunar visible desde tu ubicación, combinando datos de vuelo en directo, efemérides astronómicas y condiciones meteorológicas para que nunca te pierdas el momento exacto de la fotografía.",
     image: "images/tutransito.png",
     icon: "images/tutransito2.png",
     tags: ["Astronomy", "Aviation", "Next.js", "React", "APIs", "Meteo"],
-    demoUrl: "https://tutransito.vercel.app",
+    demoUrl: "https://trfly.xyz",
     codeUrl: "#",
     status: "Trabajando",
     date: new Date("2026-08-02")
