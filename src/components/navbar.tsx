@@ -39,10 +39,10 @@ export const Navbar: React.FC = () => {
   
   const menuItems: MenuItem[] = [
     { id: "home", path: "/" },
-    { id: "about", path: "/about" },
     { id: "projects", path: "/projects" },
     { id: "novel", path: "/novel" },
     { id: "contact", path: "/contact" },
+    { id: "about", path: "/about" },
   ];
 
   // Función para obtener el texto traducido
