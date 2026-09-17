@@ -50,7 +50,7 @@ const projectsData: ProjectData[] = [
     image: 'images/icono.png',
     icon: 'images/project-icons/iconofree.png',
     tags: ['E-commerce', 'Movilidad', 'Alquiler', 'Tours', 'Next.js', 'TypeScript'],
-    demoUrl: 'https://freeairstreet.com',
+    demoUrl: 'https://freeairstreet.es',
     codeUrl: 'https://github.com/420btc/freeairstreet',
     status: 'Finalizado',
     featured: true,
