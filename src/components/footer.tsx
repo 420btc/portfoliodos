@@ -52,7 +52,9 @@ export const Footer: React.FC = () => {
                 <Link as={RouterLink} to="/projects" color="foreground">{language === "es" ? "Proyectos" : "Projects"}</Link>
               </li>
               <li>
-                <Link as={RouterLink} to="/novel" color="foreground">{language === "es" ? "Novela" : "Novel"}</Link>
+                <span aria-disabled="true" className="text-default-400 blur-[3px] opacity-60 select-none">
+                  {language === "es" ? "Novela" : "Novel"}
+                </span>
               </li>
               <li>
                 <Link as={RouterLink} to="/about" color="foreground">{language === "es" ? "Sobre Mí" : "About"}</Link>

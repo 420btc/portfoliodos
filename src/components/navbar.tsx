@@ -29,6 +29,7 @@ const translations = {
 interface MenuItem {
   id: keyof typeof translations;
   path: string;
+  disabled?: boolean;
 }
 
 // Componente de navegación principal
@@ -40,7 +41,7 @@ export const Navbar: React.FC = () => {
   const menuItems: MenuItem[] = [
     { id: "home", path: "/" },
     { id: "projects", path: "/projects" },
-    { id: "novel", path: "/novel" },
+    { id: "novel", path: "/novel", disabled: true },
     { id: "contact", path: "/contact" },
     { id: "about", path: "/about" },
   ];
@@ -84,15 +85,25 @@ export const Navbar: React.FC = () => {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         {menuItems.map((item) => (
-          <NavbarItem key={item.path} isActive={location.pathname === item.path}>
-            <Link 
-              as={RouterLink} 
-              to={item.path} 
-              color={location.pathname === item.path ? "primary" : "foreground"}
-              className="font-medium hover:text-primary transition-colors"
-            >
-              {t(item.id)}
-            </Link>
+          <NavbarItem key={item.path} isActive={!item.disabled && location.pathname === item.path}>
+            {item.disabled ? (
+              <span
+                aria-disabled="true"
+                title={t("comingSoon")}
+                className="font-medium text-default-400 blur-[3px] opacity-60 select-none cursor-not-allowed"
+              >
+                {t(item.id)}
+              </span>
+            ) : (
+              <Link 
+                as={RouterLink} 
+                to={item.path} 
+                color={location.pathname === item.path ? "primary" : "foreground"}
+                className="font-medium hover:text-primary transition-colors"
+              >
+                {t(item.id)}
+              </Link>
+            )}
           </NavbarItem>
         ))}
       </NavbarContent>
@@ -110,16 +121,25 @@ export const Navbar: React.FC = () => {
         <div className="flex flex-col items-center sm:items-start gap-2">
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item.id}-${index}`} className="w-full sm:w-auto">
-              <Link
-                as={RouterLink}
-                to={item.path}
-                color={location.pathname === item.path ? "primary" : "foreground"}
-                className="w-full text-center sm:text-left"
-                size="lg"
-                onClick={handleMenuItemClick}
-              >
-                {t(item.id)}
-              </Link>
+              {item.disabled ? (
+                <span
+                  aria-disabled="true"
+                  className="block w-full text-center sm:text-left text-default-400 blur-[3px] opacity-60 select-none"
+                >
+                  {t(item.id)}
+                </span>
+              ) : (
+                <Link
+                  as={RouterLink}
+                  to={item.path}
+                  color={location.pathname === item.path ? "primary" : "foreground"}
+                  className="w-full text-center sm:text-left"
+                  size="lg"
+                  onClick={handleMenuItemClick}
+                >
+                  {t(item.id)}
+                </Link>
+              )}
             </NavbarMenuItem>
           ))}
           <div className="flex items-center justify-center gap-4 mt-4 pt-4 border-t border-divider w-full">
