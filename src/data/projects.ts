@@ -369,7 +369,7 @@ const projectsData: ProjectData[] = [
     tags: ["Astronomy", "Geology", "Maps", "Next.js", "Real-time", "Data"],
     demoUrl: "https://cordaromonitor.vercel.app",
     codeUrl: "https://github.com/420btc/cordaro/tree/main",
-    status: "Trabajando",
+    status: "Finalizado",
     date: new Date("2026-08-15")
   }
 ];
